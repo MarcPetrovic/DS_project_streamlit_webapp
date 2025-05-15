@@ -10,7 +10,6 @@ navigation = st.sidebar.radio(
     ("Introduction", "Theoretical framework", "Methods & Data", "Technical Environment & Modeling", "Key Results", "Conclusion & Discussion")
 )
 
-
 # Basierend auf der Auswahl des Benutzers den Inhalt anpassen
 if navigation == "Introduction":
     st.title("Introduction")
@@ -32,22 +31,36 @@ if navigation == "Introduction":
     # Weitere Details zum Problem Statement hinzufügen 
     # Bild von der URL laden und anzeigen
     st.image(image_porter_url, caption="Bild aus GitHub Repository", use_container_width=True)
+    
 # Basierend auf der Auswahl des Benutzers den Inhalt anpassen
 elif navigation == "Theoretical framework":
-    st.title("Problem Statement")
-    st.markdown("""
-    ## PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION
-    The general institutionalization of Porter's value chain approach at the beginning of the 1980s 
-    also led to a shift away from traditional sales models in companies. The special feature of Porter's 
-    approach is that the division between primary and secondary activities within the value chain and 
-    the comparison of these with the margin makes it possible to determine the costs of producing a 
-    product or service. Through the practical application of Porter's value chain approach, it has been 
-    empirically proven that conventional sales strategies, in which all customers are offered the same 
-    sales promotion and at the same time the differences between customers are neglected, are associated 
-    with high operating expenses and low monetary benefits
-    """)
-    # Weitere Details zum Problem Statement hinzufügen
+    st.header("Theoretical Framework")
 
+    # Unternavigation für diesen Bereich
+    sub_nav = st.selectbox("Kapitel auswählen:", [
+        "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
+        "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS",
+        "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
+        "BRIEF INTRODUCTION TO CRISP-DM"
+    ])
+
+    # Inhalte der einzelnen Unterpunkte
+    if sub_nav == "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION":
+        st.subheader("Porter’s Value Chain Approach and Cost Optimization")
+        st.write("Hier folgt dein Inhalt zu Porter's Value Chain ...")
+
+    elif sub_nav == "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS":
+        st.subheader("The Relevance of Data Mining for Direct Marketing Campaigns")
+        st.write("Hier folgt dein Inhalt über Data Mining ...")
+
+    elif sub_nav == "SUPERVISED LEARNING AND THE RESPONSE-MODEL":
+        st.subheader("Supervised Learning and the Response-Model")
+        st.write("Hier beschreibst du das Response-Modell ...")
+
+    elif sub_nav == "BRIEF INTRODUCTION TO CRISP-DM":
+        st.subheader("Brief Introduction to CRISP-DM")
+        st.write("CRISP-DM ist ein Standardprozessmodell für Data Mining ...")
+# ---- Andere Hauptpunkte ----
 elif navigation == "Methods & Data":
     st.title("Methods & Data")
     st.write("Hier kannst du die Methoden und Daten, die du verwendet hast, erklären.")
