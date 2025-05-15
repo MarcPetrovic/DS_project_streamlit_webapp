@@ -13,7 +13,7 @@ navigation = st.sidebar.radio(
 # Basierend auf der Auswahl des Benutzers den Inhalt anpassen
 if navigation == "Introduction":
     st.markdown("""
-    <hi style='font-size: 42px; font-weight: bold;'>AI for bank marketing campaigns – <br>A data-driven path to cost-optimized direct customer contact in term deposit sales business</hi>
+    <hi style='font-size: 32px; font-weight: bold;'>AI for bank marketing campaigns – <br>A data-driven path to cost-optimized direct customer contact in term deposit sales business</hi>
     """, unsafe_allow_html=True)
     # Bild von der URL laden und anzeigen
     st.image(image_porter_url, caption="Bild aus GitHub Repository", use_container_width=True)
