@@ -13,6 +13,8 @@ navigation = st.sidebar.radio(
 # Basierend auf der Auswahl des Benutzers den Inhalt anpassen
 if navigation == "Introduction":
     st.title("Introduction")
+    # Bild von der URL laden und anzeigen
+    st.image(image_porter_url, caption="Bild aus GitHub Repository", use_container_width=True)
     st.markdown("""
     Over the last two decades, globalization and ever-increasing regulation by the banking supervisory 
     authorities have presented the financial sector with major challenges: On the one hand, open markets 
@@ -29,8 +31,6 @@ if navigation == "Introduction":
     Dein Ziel könnte sein, Lösungen zu finden, die helfen, dieses Problem zu adressieren.
     """)
     # Weitere Details zum Problem Statement hinzufügen 
-    # Bild von der URL laden und anzeigen
-    st.image(image_porter_url, caption="Bild aus GitHub Repository", use_container_width=True)
     
 # Basierend auf der Auswahl des Benutzers den Inhalt anpassen
 elif navigation == "Theoretical framework":
