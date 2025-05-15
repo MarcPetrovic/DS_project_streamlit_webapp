@@ -1,4 +1,8 @@
 import streamlit as st
+from PIL import Image
+
+# Links for images
+image_porter_url = "https://github.com/MarcPetrovic/DS_project_streamlit_webapp/blob/main/images/porter.PNG"
 
 # Erstelle eine Sidebar mit einem Selectbox-Menü für die Navigation
 navigation = st.sidebar.radio(
@@ -19,13 +23,15 @@ if navigation == "Introduction":
     with additional financial costs. Banks could and can only withstand the economic pressure described 
     above if they see digitalization as an opportunity. Modern marketing management at financial service 
     providers therefore combines business and artificial intelligence concepts with machine learning methods 
-    (e.g. decision trees, regression or dimension reduction) in order to generate cost-opti¬mized 
+    (e.g. decision trees, regression or dimension reduction) in order to generate cost-optimized 
     communication campaigns.
     
     ## Ziel der Untersuchung
     Dein Ziel könnte sein, Lösungen zu finden, die helfen, dieses Problem zu adressieren.
     """)
     # Weitere Details zum Problem Statement hinzufügen 
+    # Bild von der URL laden und anzeigen
+    st.image(image_porter_url, caption="Bild aus GitHub Repository", use_column_width=True)
 # Basierend auf der Auswahl des Benutzers den Inhalt anpassen
 elif navigation == "Theoretical framework":
     st.title("Problem Statement")
