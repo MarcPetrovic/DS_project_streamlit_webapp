@@ -37,7 +37,7 @@ elif navigation == "Theoretical framework":
     st.header("Theoretical Framework")
 
     # ----- Unternavigation auch in der Seitenleiste -----
-    sub_section = st.sidebar.selectbox("Theoretical Subtopics", [
+    sub_section = st.sidebar.radio("Theoretical Subtopics", [
         "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
         "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS",
         "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
