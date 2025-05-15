@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 
 # Links for images
-image_porter_url = "https://github.com/MarcPetrovic/DS_project_streamlit_webapp/blob/main/images/porter.PNG"
+image_porter_url = "https://github.com/MarcPetrovic/DS_project_streamlit_webapp/raw/main/images/porter.PNG"
 
 # Erstelle eine Sidebar mit einem Selectbox-Menü für die Navigation
 navigation = st.sidebar.radio(
