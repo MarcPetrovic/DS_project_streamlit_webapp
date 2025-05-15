@@ -31,7 +31,7 @@ if navigation == "Introduction":
     """)
     # Weitere Details zum Problem Statement hinzufügen 
     # Bild von der URL laden und anzeigen
-    st.image(image_porter_url, caption="Bild aus GitHub Repository", use_column_width=True)
+    st.image(image_porter_url, caption="Bild aus GitHub Repository", use_container_width=True)
 # Basierend auf der Auswahl des Benutzers den Inhalt anpassen
 elif navigation == "Theoretical framework":
     st.title("Problem Statement")
