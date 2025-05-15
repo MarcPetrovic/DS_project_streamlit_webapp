@@ -36,30 +36,31 @@ if navigation == "Introduction":
 elif navigation == "Theoretical framework":
     st.header("Theoretical Framework")
 
-    # Unternavigation für diesen Bereich
-    sub_nav = st.selectbox("Kapitel auswählen:", [
+    # ----- Unternavigation auch in der Seitenleiste -----
+    sub_section = st.sidebar.selectbox("Theoretical Subtopics", [
         "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
         "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS",
         "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
         "BRIEF INTRODUCTION TO CRISP-DM"
     ])
 
-    # Inhalte der einzelnen Unterpunkte
-    if sub_nav == "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION":
+    # ----- Inhalte zu den Unterpunkten -----
+    if sub_section == "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION":
         st.subheader("Porter’s Value Chain Approach and Cost Optimization")
-        st.write("Hier folgt dein Inhalt zu Porter's Value Chain ...")
+        st.write("Hier steht der Inhalt zu Porter's Value Chain ...")
 
-    elif sub_nav == "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS":
+    elif sub_section == "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS":
         st.subheader("The Relevance of Data Mining for Direct Marketing Campaigns")
-        st.write("Hier folgt dein Inhalt über Data Mining ...")
+        st.write("Hier steht der Inhalt über Data Mining ...")
 
-    elif sub_nav == "SUPERVISED LEARNING AND THE RESPONSE-MODEL":
+    elif sub_section == "SUPERVISED LEARNING AND THE RESPONSE-MODEL":
         st.subheader("Supervised Learning and the Response-Model")
-        st.write("Hier beschreibst du das Response-Modell ...")
+        st.write("Hier geht es um das Response-Modell ...")
 
-    elif sub_nav == "BRIEF INTRODUCTION TO CRISP-DM":
+    elif sub_section == "BRIEF INTRODUCTION TO CRISP-DM":
         st.subheader("Brief Introduction to CRISP-DM")
-        st.write("CRISP-DM ist ein Standardprozessmodell für Data Mining ...")
+        st.write("CRISP-DM ist ein Data-Mining-Prozessmodell ...")
+
 # ---- Andere Hauptpunkte ----
 elif navigation == "Methods & Data":
     st.title("Methods & Data")
