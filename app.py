@@ -12,7 +12,8 @@ navigation = st.sidebar.radio(
 
 # Basierend auf der Auswahl des Benutzers den Inhalt anpassen
 if navigation == "Introduction":
-    st.title("Introduction")
+    st.title("AI for bank marketing campaigns – A data-driven path to cost-optimized 
+    direct customer contact in term deposit sales business")
     # Bild von der URL laden und anzeigen
     st.image(image_porter_url, caption="Bild aus GitHub Repository", use_container_width=True)
     st.markdown("""
