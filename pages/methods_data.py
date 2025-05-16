@@ -11,8 +11,8 @@ def show():
     und bietet eine umfassende Übersicht der Datenqualität, Verteilungen und Korrelationen.
     """)
     st.markdown("""
-        <a href="/static/bank_marketing.html" target="_blank">
-            👉 Profiling Report in neuem Tab öffnen
+        <a href="https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html" target="_blank">
+            📊 Profiling Report öffnen
         </a>
     """, unsafe_allow_html=True)
 
