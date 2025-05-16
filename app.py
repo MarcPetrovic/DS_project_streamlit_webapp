@@ -1,86 +1,64 @@
 import streamlit as st
-from PIL import Image
 
-# Links for images
-image_porter_url = "https://github.com/MarcPetrovic/DS_project_streamlit_webapp/raw/main/images/porter.PNG"
+# Hauptnavigation
+main_page = st.sidebar.radio("Navigation", [
+    "Introduction",
+    "Theoretical framework",
+    "Methods & Data",
+    "Technical Environment & Modeling",
+    "Key Results",
+    "Conclusion & Discussion"
+])
 
-# Erstelle eine Sidebar mit einem Selectbox-Menü für die Navigation
-navigation = st.sidebar.radio(
-    "Navigation",
-    ("Introduction", "Theoretical framework", "Methods & Data", "Technical Environment & Modeling", "Key Results", "Conclusion & Discussion")
-)
+# Introduction
+if main_page == "Introduction":
+    from pages import introduction
+    introduction.show()
 
-# Basierend auf der Auswahl des Benutzers den Inhalt anpassen
-if navigation == "Introduction":
-    st.markdown("""
-    <hi style='font-size: 32px; font-weight: bold;'>AI for bank marketing campaigns – <br>A data-driven path to cost-optimized direct customer contact in term deposit sales business</hi>
-    """, unsafe_allow_html=True)
-    # Bild von der URL laden und anzeigen
-    st.image(image_porter_url, caption="Bild aus GitHub Repository", use_container_width=True)
-    st.markdown("""
-    Over the last two decades, globalization and ever-increasing regulation by the banking supervisory 
-    authorities have presented the financial sector with major challenges: On the one hand, open markets 
-    have led to an intensification of competitive pressure, which has simultaneously led to a decline in 
-    profit margins. On the other hand, financial service providers had to implement cross-border requirements 
-    to protect their customers and secure their own liquidity, the implementation of which was associated 
-    with additional financial costs. Banks could and can only withstand the economic pressure described 
-    above if they see digitalization as an opportunity. Modern marketing management at financial service 
-    providers therefore combines business and artificial intelligence concepts with machine learning methods 
-    (e.g. decision trees, regression or dimension reduction) in order to generate cost-optimized 
-    communication campaigns.
-    
-    ## Ziel der Untersuchung
-    Dein Ziel könnte sein, Lösungen zu finden, die helfen, dieses Problem zu adressieren.
-    """)
-    # Weitere Details zum Problem Statement hinzufügen 
-    
-# Basierend auf der Auswahl des Benutzers den Inhalt anpassen
-elif navigation == "Theoretical framework":
-    st.header("Theoretical Framework")
+# Theoretical Framework + Subnavigation
+elif main_page == "Theoretical framework":
+    from pages import theoretical_framework
+    theoretical_framework.show()
 
-    # ----- Unternavigation auch in der Seitenleiste -----
-    sub_section = st.sidebar.radio("Theoretical Subtopics", [
+    sub_section = st.sidebar.radio("Subtopics", [
         "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
         "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS",
         "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
         "BRIEF INTRODUCTION TO CRISP-DM"
     ])
 
-    # ----- Inhalte zu den Unterpunkten -----
     if sub_section == "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION":
-        st.subheader("Porter’s Value Chain Approach and Cost Optimization")
-        st.write("Hier steht der Inhalt zu Porter's Value Chain ...")
+        from pages.theoretical_framework import porters_value_chain
+        porters_value_chain.show()
 
     elif sub_section == "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS":
-        st.subheader("The Relevance of Data Mining for Direct Marketing Campaigns")
-        st.write("Hier steht der Inhalt über Data Mining ...")
+        from pages.theoretical_framework import relevance_data_mining
+        relevance_data_mining.show()
 
     elif sub_section == "SUPERVISED LEARNING AND THE RESPONSE-MODEL":
-        st.subheader("Supervised Learning and the Response-Model")
-        st.write("Hier geht es um das Response-Modell ...")
+        from pages.theoretical_framework import supervised_learning
+        supervised_learning.show()
 
     elif sub_section == "BRIEF INTRODUCTION TO CRISP-DM":
-        st.subheader("Brief Introduction to CRISP-DM")
-        st.write("CRISP-DM ist ein Data-Mining-Prozessmodell ...")
+        from pages.theoretical_framework import introduction_crisp_dm
+        introduction_crisp_dm.show()
 
-# ---- Andere Hauptpunkte ----
-elif navigation == "Methods & Data":
-    st.title("Methods & Data")
-    st.write("Hier kannst du die Methoden und Daten, die du verwendet hast, erklären.")
-    # Details zu den Methoden und Daten hinzufügen
+# Methods & Data
+elif main_page == "Methods & Data":
+    from pages import methods_data
+    methods_data.show()
 
-elif navigation == "Technical Environment & Modeling":
-    st.title("Technical Environment & Modeling")
-    st.write("Hier kannst du die technische Umgebung und das Modellierungsverfahren beschreiben.")
-    # Details zur technischen Umgebung und Modellierung hinzufügen
+# Technical Environment & Modeling
+elif main_page == "Technical Environment & Modeling":
+    from pages import technical_environment_modeling
+    technical_environment_modeling.show()
 
-elif navigation == "Key Results":
-    st.title("Key Results")
-    st.write("Hier kannst du die wichtigsten Ergebnisse deiner Analyse präsentieren.")
-    # Details zu den wichtigsten Ergebnissen hinzufügen
+# Key Results
+elif main_page == "Key Results":
+    from pages import key_results
+    key_results.show()
 
-elif navigation == "Conclusion & Discussion":
-    st.title("Conclusion & Discussion")
-    st.write("Hier kannst du deine Schlussfolgerungen und Diskussionen darlegen.")
-    # Details zur Schlussfolgerung und Diskussion hinzufügen
-
+# Conclusion & Discussion
+elif main_page == "Conclusion & Discussion":
+    from pages import conclusion_discussion
+    conclusion_discussion.show()
