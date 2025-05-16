@@ -11,7 +11,7 @@ def show():
     und bietet eine umfassende Übersicht der Datenqualität, Verteilungen und Korrelationen.
     """)
     # Lokaler Pfad zur HTML-Datei
-    local_path = "profiling/profiling_report.html"
+    local_path = "/profiling/profiling_report.html"
 
     if os.path.exists(local_path):
         # Relativen Pfad für Streamlit freigeben
