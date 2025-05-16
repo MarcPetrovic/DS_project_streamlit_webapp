@@ -9,9 +9,9 @@ def show():
     
     # Bild von der URL laden und anzeigen
     show_github_image(
-        image_filename="images/porter.png",
-        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption="Porter's Value Chain"
+    image_filename="images/porter.png",
+    repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+    caption="Porter's Value Chain"
     )
     st.markdown("""
     Over the last two decades, globalization and ever-increasing regulation by the banking supervisory 
