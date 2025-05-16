@@ -6,8 +6,9 @@ def show():
     st.markdown("""
     <hi style='font-size: 32px; font-weight: bold;'>AI for bank marketing campaigns – <br>A data-driven path to cost-optimized direct customer contact in term deposit sales business</hi>
     """, unsafe_allow_html=True)
+    
     # Bild von der URL laden und anzeigen
-        show_github_image(
+    show_github_image(
         image_filename="images/porter.png",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
         caption="Porter's Value Chain"
