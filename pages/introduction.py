@@ -9,7 +9,7 @@ def show():
     
     # Bild von der URL laden und anzeigen
     show_github_image(
-    image_filename="images/porter.png",
+    image_filename="images/porter.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
     caption="Porter's Value Chain"
     )
