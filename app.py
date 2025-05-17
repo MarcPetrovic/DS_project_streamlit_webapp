@@ -5,7 +5,7 @@ import streamlit as st
 # ----------------------------
 
 # Hauptnavigation – direkt an den Session-State gebunden
-st.sidebar.radio(
+main_page = st.sidebar.radio(
     "Navigation",
     [
         "Introduction",
@@ -73,7 +73,7 @@ breadcrumb_html = """
 
 <!-- Sticky Breadcrumb selbst -->
 <div class='breadcrumb-container'>
-    📍 <a class='breadcrumb-link' href="javascript:void(0);" onclick="window.location.reload();">Home</a> &nbsp;&gt;&nbsp;
+    📍 <a class='breadcrumb-link' href="javascript:void(0);" onclick="window.location.href='/?main_page=Introduction'">Home</a> &nbsp;&gt;&nbsp;
     <span class='breadcrumb-link'>""" + st.session_state.main_page + """</span>
 """
 
