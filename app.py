@@ -30,60 +30,46 @@ else:
     st.session_state.sub_section = None
 
 # ----------------------------
-# Breadcrumb anzeigen (Fixiert via position: fixed)
+# Breadcrumb anzeigen (Debug-Version zum Testen)
 # ----------------------------
 
 breadcrumb_html = """
 <style>
-/* Fester Header für Breadcrumb */
 .breadcrumb-container {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #ffffff;
+    background-color: #f8f9fa;
     padding: 12px 16px;
-    border-bottom: 1px solid #dee2e6;
     font-size: 16px;
     z-index: 999;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
-
-/* Platzhalter-Div zum Freihalten des fixierten Headers */
 .breadcrumb-spacer {
-    height: 65px;  /* gleiche Höhe wie .breadcrumb-container */
+    height: 60px;
 }
-
-/* Breadcrumb Textstyles */
 .breadcrumb-link {
     color: #0074cc;
-    text-decoration: none;
     font-weight: 500;
-    margin-right: 5px;
-    cursor: pointer;
 }
 .breadcrumb-current {
     color: #212529;
     font-weight: 600;
-    margin-left: 5px;
 }
 </style>
 
-<!-- Abstandhalter für den fixierten Header -->
-<div class='breadcrumb-spacer'></div>
-
-<!-- Fixierter Breadcrumb selbst -->
 <div class='breadcrumb-container'>
-  📍 <span class='breadcrumb-link'>Home</span>
+    📍 <span class='breadcrumb-link'>Home</span> &nbsp;&gt;&nbsp;
+    <span class='breadcrumb-link'>""" + st.session_state.main_page + """</span>
 """
 
-breadcrumb_html += f"&nbsp;&gt;&nbsp;<span class='breadcrumb-link'>{st.session_state.main_page}</span>"
 if st.session_state.sub_section:
     breadcrumb_html += f"&nbsp;&gt;&nbsp;<span class='breadcrumb-current'>{st.session_state.sub_section.title()}</span>"
 
-breadcrumb_html += "</div>"
+breadcrumb_html += "</div><div class='breadcrumb-spacer'></div>"
 
-# Anzeige in Streamlit
 st.markdown(breadcrumb_html, unsafe_allow_html=True)
 
 
