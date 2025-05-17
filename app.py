@@ -30,27 +30,32 @@ else:
     st.session_state.sub_section = None
 
 # ----------------------------
-# Breadcrumb anzeigen
+# Breadcrumb anzeigen (Sticky Header)
 # ----------------------------
 
 breadcrumb_html = """
 <style>
+/* Sticky-Stil für Breadcrumb-Leiste */
 .breadcrumb-container {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     padding: 12px 16px;
     border-radius: 8px;
     font-size: 16px;
     margin-bottom: 25px;
     border: 1px solid #dee2e6;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    z-index: 999;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
+
+/* Verhindert Scroll-Fehler in Streamlit-Controllern */
+html, body, .main, .block-container {
+    overflow: visible !important;
+}
+
+/* Stil für Breadcrumb-Links */
 .breadcrumb-link {
     color: #0074cc;
     text-decoration: none;
@@ -68,12 +73,16 @@ breadcrumb_html = """
   📍 <span class='breadcrumb-link'>Home</span>
 """
 
+# Breadcrumb dynamisch erweitern
 breadcrumb_html += f"&nbsp;&gt;&nbsp;<span class='breadcrumb-link'>{st.session_state.main_page}</span>"
 if st.session_state.sub_section:
     breadcrumb_html += f"&nbsp;&gt;&nbsp;<span class='breadcrumb-current'>{st.session_state.sub_section.title()}</span>"
 
 breadcrumb_html += "</div>"
+
+# Anzeige in Streamlit
 st.markdown(breadcrumb_html, unsafe_allow_html=True)
+
 
 # ----------------------------
 # Inhaltslogik je nach Auswahl
