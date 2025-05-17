@@ -30,13 +30,15 @@ else:
     st.session_state.sub_section = None
 
 # ----------------------------
-# Breadcrumb anzeigen (Debug-Version zum Testen)
+# Breadcrumb anzeigen (Sticky Version)
 # ----------------------------
 
 breadcrumb_html = """
 <style>
+/* Sticky-Stil für Breadcrumb-Leiste */
 .breadcrumb-container {
-    position: fixed;
+    position: -webkit-sticky;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -47,19 +49,28 @@ breadcrumb_html = """
     border-bottom: 1px solid #dee2e6;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
+
+/* Verhindert Überlappung des Inhalts */
 .breadcrumb-spacer {
-    height: 60px;
+    height: 65px; /* gleiche Höhe wie .breadcrumb-container */
 }
+
+/* Link- und Textstile */
 .breadcrumb-link {
     color: #0074cc;
     font-weight: 500;
 }
+
 .breadcrumb-current {
     color: #212529;
     font-weight: 600;
 }
 </style>
 
+<!-- Abstandhalter für den fixierten Header -->
+<div class='breadcrumb-spacer'></div>
+
+<!-- Sticky Breadcrumb selbst -->
 <div class='breadcrumb-container'>
     📍 <span class='breadcrumb-link'>Home</span> &nbsp;&gt;&nbsp;
     <span class='breadcrumb-link'>""" + st.session_state.main_page + """</span>
@@ -68,10 +79,9 @@ breadcrumb_html = """
 if st.session_state.sub_section:
     breadcrumb_html += f"&nbsp;&gt;&nbsp;<span class='breadcrumb-current'>{st.session_state.sub_section.title()}</span>"
 
-breadcrumb_html += "</div><div class='breadcrumb-spacer'></div>"
+breadcrumb_html += "</div>"
 
 st.markdown(breadcrumb_html, unsafe_allow_html=True)
-
 
 # ----------------------------
 # Inhaltslogik je nach Auswahl
@@ -116,3 +126,4 @@ elif st.session_state.main_page == "Key Results":
 elif st.session_state.main_page == "Conclusion & Discussion":
     from my_pages import conclusion_discussion
     conclusion_discussion.show()
+
