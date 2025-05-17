@@ -17,8 +17,8 @@ if main_page == "Introduction":
 
 # Theoretical Framework + Subnavigation
 elif main_page == "Theoretical Framework":
-    from pages import theoretical_framework
-    theoretical_framework.show()
+    from pages import theoretical_framework_overview
+    theoretical_framework_overview.show()
 
     sub_section = st.sidebar.radio("Subtopics", [
         "PORTER'S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
