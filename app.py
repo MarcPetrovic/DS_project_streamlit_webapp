@@ -88,6 +88,7 @@ st.markdown(breadcrumb_html, unsafe_allow_html=True)
 # Inhaltslogik je nach Auswahl
 # ----------------------------
 
+# Setze den Session-State zurück, wenn auf "Home" (Introduction) geklickt wird
 if st.session_state.main_page == "Introduction":
     from my_pages import introduction
     introduction.show()
