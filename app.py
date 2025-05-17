@@ -5,7 +5,7 @@ import streamlit as st
 # ----------------------------
 
 # Hauptnavigation – direkt an den Session-State gebunden
-main_page = st.sidebar.radio(
+st.sidebar.radio(
     "Navigation",
     [
         "Introduction",
@@ -30,7 +30,7 @@ else:
     st.session_state.sub_section = None
 
 # ----------------------------
-# Breadcrumb anzeigen (mit Links)
+# Breadcrumb anzeigen (Sticky Version)
 # ----------------------------
 
 breadcrumb_html = """
@@ -59,7 +59,6 @@ breadcrumb_html = """
 .breadcrumb-link {
     color: #0074cc;
     font-weight: 500;
-    cursor: pointer;
 }
 
 .breadcrumb-current {
@@ -73,7 +72,7 @@ breadcrumb_html = """
 
 <!-- Sticky Breadcrumb selbst -->
 <div class='breadcrumb-container'>
-    📍 <a class='breadcrumb-link' href="javascript:void(0);" onclick="window.location.href='/?main_page=Introduction'">Home</a> &nbsp;&gt;&nbsp;
+    📍 <span class='breadcrumb-link'>Home</span> &nbsp;&gt;&nbsp;
     <span class='breadcrumb-link'>""" + st.session_state.main_page + """</span>
 """
 
@@ -88,7 +87,6 @@ st.markdown(breadcrumb_html, unsafe_allow_html=True)
 # Inhaltslogik je nach Auswahl
 # ----------------------------
 
-# Setze den Session-State zurück, wenn auf "Home" (Introduction) geklickt wird
 if st.session_state.main_page == "Introduction":
     from my_pages import introduction
     introduction.show()
@@ -128,3 +126,4 @@ elif st.session_state.main_page == "Key Results":
 elif st.session_state.main_page == "Conclusion & Discussion":
     from my_pages import conclusion_discussion
     conclusion_discussion.show()
+
