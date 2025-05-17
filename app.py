@@ -21,13 +21,13 @@ elif main_page == "Theoretical Framework":
     theoretical_framework.show()
 
     sub_section = st.sidebar.radio("Subtopics", [
-        "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
+        "PORTER'S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
         "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS",
         "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
         "BRIEF INTRODUCTION TO CRISP-DM"
     ])
 
-    if sub_section == "PORTER’S VALUE CHAIN APPROACH AND COST OPTIMIZATION":
+    if sub_section == "PORTER'S VALUE CHAIN APPROACH AND COST OPTIMIZATION":
         from pages.theoretical_framework import porters_value_chain
         porters_value_chain.show()
 
