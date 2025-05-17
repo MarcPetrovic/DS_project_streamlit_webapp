@@ -11,8 +11,6 @@ if "sub_section" not in st.session_state:
 # ----------------------------
 # Sidebar Navigation
 # ----------------------------
-
-# Hauptnavigation
 main_page = st.sidebar.radio("Navigation", [
     "Introduction",
     "Theoretical Framework",
@@ -29,24 +27,30 @@ main_page = st.sidebar.radio("Navigation", [
     "Conclusion & Discussion"
 ].index(st.session_state.main_page))
 
-# Session-State aktualisieren
-st.session_state.main_page = main_page
-st.session_state.sub_section = None  # Nur beibehalten, wenn benötigt
+# Bei Navigation ändern → rerun
+if main_page != st.session_state.main_page:
+    st.session_state.main_page = main_page
+    st.session_state.sub_section = None  # Subnavigation zurücksetzen
+    st.experimental_rerun()
 
-# Subnavigation
-if main_page == "Theoretical Framework":
+# ----------------------------
+# Subnavigation bei "Theoretical Framework"
+# ----------------------------
+if st.session_state.main_page == "Theoretical Framework":
     sub_section = st.sidebar.radio("Subtopics", [
         "PORTER'S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
         "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS",
         "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
         "BRIEF INTRODUCTION TO CRISP-DM"
     ])
-    st.session_state.sub_section = sub_section
+
+    if sub_section != st.session_state.sub_section:
+        st.session_state.sub_section = sub_section
+        st.experimental_rerun()
 
 # ----------------------------
-# Breadcrumb anzeigen (nachdem Session-Status aktualisiert wurde!)
+# Breadcrumb Navigation
 # ----------------------------
-
 breadcrumb_html = """
 <style>
 .breadcrumb-container {
@@ -70,7 +74,7 @@ breadcrumb_html = """
     text-decoration: none;
     font-weight: 500;
     margin-right: 5px;
-    cursor: pointer;
+    cursor: default;
 }
 .breadcrumb-current {
     color: #212529;
@@ -82,16 +86,17 @@ breadcrumb_html = """
   📍 <span class='breadcrumb-link'>Home</span>
 """
 
-# Breadcrumb erweitern
 breadcrumb_html += f"&nbsp;&gt;&nbsp;<span class='breadcrumb-link'>{st.session_state.main_page}</span>"
+
 if st.session_state.sub_section:
     breadcrumb_html += f"&nbsp;&gt;&nbsp;<span class='breadcrumb-current'>{st.session_state.sub_section.title()}</span>"
 
 breadcrumb_html += "</div>"
+
 st.markdown(breadcrumb_html, unsafe_allow_html=True)
 
 # ----------------------------
-# Inhaltslogik
+# Seiteninhalt anzeigen
 # ----------------------------
 
 if st.session_state.main_page == "Introduction":
