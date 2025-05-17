@@ -9,33 +9,6 @@ if "sub_section" not in st.session_state:
     st.session_state.sub_section = None
 
 # ----------------------------
-# Sidebar Navigation
-# ----------------------------
-main_selection = st.sidebar.radio("Navigation", [
-    "Introduction",
-    "Theoretical Framework",
-    "Methods & Data",
-    "Technical Environment & Modeling",
-    "Key Results",
-    "Conclusion & Discussion"
-], index=["Introduction", "Theoretical Framework", "Methods & Data",
-          "Technical Environment & Modeling", "Key Results", "Conclusion & Discussion"]
-          .index(st.session_state.main_page))
-
-# Session aktualisieren
-st.session_state.main_page = main_selection
-st.session_state.sub_section = None  # Zurücksetzen, außer bei Theoretical Framework
-
-if main_selection == "Theoretical Framework":
-    sub_selection = st.sidebar.radio("Subtopics", [
-        "PORTER'S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
-        "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS",
-        "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
-        "BRIEF INTRODUCTION TO CRISP-DM"
-    ])
-    st.session_state.sub_section = sub_selection
-
-# ----------------------------
 # Sticky Breadcrumb HTML generieren
 # ----------------------------
 breadcrumb_html = """
@@ -71,7 +44,7 @@ breadcrumb_html = """
 </style>
 <div class='breadcrumb-container'>
   📍
-  <span class='breadcrumb-link' onclick="window.parent.postMessage({type: 'home_click'}, '*')">Home</span>
+  <span class='breadcrumb-link' onclick="window.location.href='?main_page=Introduction'">Home</span>
 """
 
 # Breadcrumb weiter aufbauen
@@ -87,17 +60,33 @@ breadcrumb_html += "</div>"
 st.markdown(breadcrumb_html, unsafe_allow_html=True)
 
 # ----------------------------
-# JS-Code für Home Button Handling
+# Sidebar Navigation
 # ----------------------------
-st.markdown("""
-<script>
-    window.addEventListener("message", (event) => {
-        if (event.data.type === "home_click") {
-            window.location.reload();
-        }
-    });
-</script>
-""", unsafe_allow_html=True)
+
+# Hauptnavigation
+main_page = st.sidebar.radio("Navigation", [
+    "Introduction",
+    "Theoretical Framework",
+    "Methods & Data",
+    "Technical Environment & Modeling",
+    "Key Results",
+    "Conclusion & Discussion"
+], index=["Introduction", "Theoretical Framework", "Methods & Data",
+          "Technical Environment & Modeling", "Key Results", "Conclusion & Discussion"]
+          .index(st.session_state.main_page))
+
+# Session aktualisieren
+st.session_state.main_page = main_page
+st.session_state.sub_section = None  # Zurücksetzen, außer bei Theoretical Framework
+
+if main_page == "Theoretical Framework":
+    sub_section = st.sidebar.radio("Subtopics", [
+        "PORTER'S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
+        "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS",
+        "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
+        "BRIEF INTRODUCTION TO CRISP-DM"
+    ])
+    st.session_state.sub_section = sub_section
 
 # ----------------------------
 # Inhaltslogik
