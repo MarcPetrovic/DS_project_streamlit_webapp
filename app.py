@@ -1,56 +1,38 @@
 import streamlit as st
 
 # ----------------------------
-# Session-State Setup
-# ----------------------------
-if "main_page" not in st.session_state:
-    st.session_state.main_page = "Introduction"
-if "sub_section" not in st.session_state:
-    st.session_state.sub_section = None
-
-# ----------------------------
 # Sidebar Navigation
 # ----------------------------
-main_page = st.sidebar.radio("Navigation", [
-    "Introduction",
-    "Theoretical Framework",
-    "Methods & Data",
-    "Technical Environment & Modeling",
-    "Key Results",
-    "Conclusion & Discussion"
-], index=[
-    "Introduction",
-    "Theoretical Framework",
-    "Methods & Data",
-    "Technical Environment & Modeling",
-    "Key Results",
-    "Conclusion & Discussion"
-].index(st.session_state.main_page))
 
-# Bei Navigation ändern → rerun
-if main_page != st.session_state.main_page:
-    st.session_state.main_page = main_page
-    st.session_state.sub_section = None  # Subnavigation zurücksetzen
-    st.experimental_rerun()
+# Hauptnavigation – direkt an den Session-State gebunden
+st.sidebar.radio(
+    "Navigation",
+    [
+        "Introduction",
+        "Theoretical Framework",
+        "Methods & Data",
+        "Technical Environment & Modeling",
+        "Key Results",
+        "Conclusion & Discussion"
+    ],
+    key="main_page"
+)
 
-# ----------------------------
-# Subnavigation bei "Theoretical Framework"
-# ----------------------------
+# Subnavigation nur, wenn nötig – ebenfalls direkt an den Session-State gebunden
 if st.session_state.main_page == "Theoretical Framework":
-    sub_section = st.sidebar.radio("Subtopics", [
+    st.sidebar.radio("Subtopics", [
         "PORTER'S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
         "THE RELEVANCE OF DATA MINING FOR DIRECT MARKETING CAMPAIGNS",
         "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
         "BRIEF INTRODUCTION TO CRISP-DM"
-    ])
-
-    if sub_section != st.session_state.sub_section:
-        st.session_state.sub_section = sub_section
-        st.experimental_rerun()
+    ], key="sub_section")
+else:
+    st.session_state.sub_section = None
 
 # ----------------------------
-# Klickbare Breadcrumb Navigation (Sticky Version)
+# Breadcrumb anzeigen (mit Links)
 # ----------------------------
+
 breadcrumb_html = """
 <style>
 /* Sticky-Stil für Breadcrumb-Leiste */
@@ -91,9 +73,8 @@ breadcrumb_html = """
 
 <!-- Sticky Breadcrumb selbst -->
 <div class='breadcrumb-container'>
-    📍 
-    <span class='breadcrumb-link' onclick="window.location.href='?main_page=Introduction'">Home</span> &nbsp;&gt;&nbsp;
-    <span class='breadcrumb-link' onclick="window.location.href='?main_page=""" + st.session_state.main_page + """'">""" + st.session_state.main_page + """</span>
+    📍 <a class='breadcrumb-link' href="javascript:void(0);" onclick="window.location.reload();">Home</a> &nbsp;&gt;&nbsp;
+    <span class='breadcrumb-link'>""" + st.session_state.main_page + """</span>
 """
 
 if st.session_state.sub_section:
@@ -146,5 +127,3 @@ elif st.session_state.main_page == "Key Results":
 elif st.session_state.main_page == "Conclusion & Discussion":
     from my_pages import conclusion_discussion
     conclusion_discussion.show()
-
-
