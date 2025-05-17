@@ -3,7 +3,7 @@ import streamlit as st
 # Hauptnavigation
 main_page = st.sidebar.radio("Navigation", [
     "Introduction",
-    "Theoretical framework",
+    "Theoretical Framework",
     "Methods & Data",
     "Technical Environment & Modeling",
     "Key Results",
@@ -16,7 +16,7 @@ if main_page == "Introduction":
     introduction.show()
 
 # Theoretical Framework + Subnavigation
-elif main_page == "Theoretical framework":
+elif main_page == "Theoretical Framework":
     from pages import theoretical_framework
     theoretical_framework.show()
 
