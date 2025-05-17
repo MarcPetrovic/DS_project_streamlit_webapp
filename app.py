@@ -71,7 +71,7 @@ breadcrumb_html = """
 </style>
 <div class='breadcrumb-container'>
   📍
-  <span class='breadcrumb-link' onclick="window.location.reload()">Home</span>
+  <span class='breadcrumb-link' onclick="window.parent.postMessage({type: 'home_click'}, '*')">Home</span>
 """
 
 # Breadcrumb weiter aufbauen
@@ -85,6 +85,19 @@ breadcrumb_html += "</div>"
 
 # Breadcrumb anzeigen
 st.markdown(breadcrumb_html, unsafe_allow_html=True)
+
+# ----------------------------
+# JS-Code für Home Button Handling
+# ----------------------------
+st.markdown("""
+<script>
+    window.addEventListener("message", (event) => {
+        if (event.data.type === "home_click") {
+            window.location.reload();
+        }
+    });
+</script>
+""", unsafe_allow_html=True)
 
 # ----------------------------
 # Inhaltslogik
@@ -129,4 +142,3 @@ elif st.session_state.main_page == "Key Results":
 elif st.session_state.main_page == "Conclusion & Discussion":
     from my_pages import conclusion_discussion
     conclusion_discussion.show()
-
