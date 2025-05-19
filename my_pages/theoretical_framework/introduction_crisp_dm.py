@@ -24,6 +24,9 @@ def show():
     general tasks. This is necessary to provide a theoretical foundation for practical implementation, which 
     is described in particular in the third chapter.
 
-    # Business Understanding
+    ## Business Understanding
+    The Business Understanding phase focuses on understanding the objectives and requirements of the project. 
+    Aside from the third general task, the three other tasks in this phase are foundational project management 
+    activities:
 
     """)
