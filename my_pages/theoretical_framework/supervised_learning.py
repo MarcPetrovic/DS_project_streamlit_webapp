@@ -1,7 +1,7 @@
 import streamlit as st
 
 def show():
-    st.header("Supervised Learning and the Resonse model")
+    st.header("Supervised Learning and the Response model")
     st.markdown("""
     The response model is a well-known technique often used by direct marketing analysts and can be categorized 
     as a supervised learning method. A response model predicts the likelihood that a customer will respond to 
