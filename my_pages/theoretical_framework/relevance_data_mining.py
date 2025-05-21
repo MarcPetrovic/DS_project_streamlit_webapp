@@ -12,7 +12,14 @@ def show():
     and rules. Direct marketing has developed into an important area of application for data mining, 
     particularly in connection with customer targeting, so that a taxonomy for strategic use in marketing 
     management has now become established (see Figure 3). 
-
+    """)
+    # Bild von der URL laden und anzeigen
+    show_github_image(
+    image_filename="images/taxonomy_ai.PNG",
+    repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+    caption=( "Figure 3: Taxonomy of Artificial Intelligence use in Marketing")
+    )
+    st.markdown("""
     Methods for recognizing data patterns that aim to identify causal relationships are roughly divided into 
     supervised and unsupervised learning methods, as they are known from robotics. The first group includes 
     predictions based on classic regression methods, classifications with decision trees or artificial neural 
