@@ -32,3 +32,9 @@ def show():
     determine hypotheses from the data material (see Figure 4).
 
     """)
+    # Bild von der URL laden und anzeigen
+    show_github_image(
+    image_filename="images/groups_ml.PNG",
+    repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+    caption=( "Figure 4: Schematic representation main groups of machine learning")
+    )
