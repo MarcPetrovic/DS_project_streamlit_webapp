@@ -11,7 +11,16 @@ def show():
     sales strategies, in which all customers are offered the same sales promotion and at the same time the 
     differences between customers are neglected, are associated with high operating expenses and low monetary 
     benefits.
+    """)
+    # Bild von der URL laden und anzeigen
+    show_github_image(
+    image_filename="images/relevance_cvc.PNG",
+    repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+    caption="Figure 1: Schematic representation of the costs of the value chain approach with particular 
+    emphasis on operating expenses for marketing activities"
+    )
 
+    st.markdown("""
     In addition to the process optimization described above, which focused on resource-optimized use, other 
     macroeconomic aspects, such as the creation of new retail relationships and the associated emergence of 
     so-called global markets, increased the pressure between competitors within specific sectors. Ultimately, 
@@ -28,6 +37,5 @@ def show():
     and building and maintaining a direct relationship. The latter primarily serves to gather information about 
     the customer in order to create needs-based product offerings (user-centred product development) and to find 
     the right time to contact the customer (best time to contact).
-
     
     """)
