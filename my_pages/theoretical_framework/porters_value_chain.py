@@ -17,7 +17,7 @@ def show():
     show_github_image(
     image_filename="images/relevance_cvc.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption="Figure 1: Schematic representation of the costs of the value chain approach "
+    caption="Figure 1: Schematic representation of the costs of the value chain approach with particular emphasis on operating expenses for marketing activities"
     )
 
     st.markdown("""
