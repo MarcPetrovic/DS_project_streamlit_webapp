@@ -40,3 +40,10 @@ def show():
     the right time to contact the customer (best time to contact).
     
     """)
+    # Bild von der URL laden und anzeigen
+    show_github_image(
+    image_filename="images/marketing_expenses.PNG",
+    repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+    caption=( "Figure 2: Time series analysis of banks' operating expenditure on marketing activities \n"
+             "and the correlation between operating expenses and income per bank customer")
+    )
