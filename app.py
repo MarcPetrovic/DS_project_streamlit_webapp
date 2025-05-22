@@ -27,6 +27,16 @@ if st.session_state.main_page == "Theoretical Framework":
         "SUPERVISED LEARNING AND THE RESPONSE-MODEL",
         "BRIEF INTRODUCTION TO CRISP-DM"
     ], key="sub_section")
+
+elif st.session_state.main_page == "Practical Application According to CRISP-DM":
+    st.sidebar.radio("Phases", [
+        "Business Understanding",
+        "Data Understanding",
+        "Data Preparation",
+        "Modeling",
+        "Evaluation"
+    ], key="sub_section")
+
 else:
     st.session_state.sub_section = None
 
@@ -115,6 +125,27 @@ elif st.session_state.main_page == "Theoretical Framework":
 elif st.session_state.main_page == "Practical Applicaton According to CRISP-DM":
     from my_pages import practical_application_crisp_dm
     practical_application_crisp_dm.show()
+
+    if st.session_state.sub_section == "Business Understanding":
+        from my_pages.practical_application import business_understanding
+        business_understanding.show()
+
+    elif st.session_state.sub_section == "Data Understanding":
+        from my_pages.practical_application import data_understanding
+        data_understanding.show()
+
+    elif st.session_state.sub_section == "Data Preparation":
+        from my_pages.practical_application import data_preparation
+        data_preparation.show()
+
+    elif st.session_state.sub_section == "Modeling":
+        from my_pages.practical_application import modeling
+        modeling.show()
+
+    elif st.session_state.sub_section == "Evaluation":
+        from my_pages.practical_application import evaluation
+        evaluation.show()
+
 
 elif st.session_state.main_page == "Methods & Data":
     from my_pages import methods_data
