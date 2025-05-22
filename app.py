@@ -10,6 +10,7 @@ st.sidebar.radio(
     [
         "Introduction",
         "Theoretical Framework",
+        "Practical Applicaton According to CRISP-DM",
         "Methods & Data",
         "Technical Environment & Modeling",
         "Key Results",
@@ -110,6 +111,10 @@ elif st.session_state.main_page == "Theoretical Framework":
     elif st.session_state.sub_section == "BRIEF INTRODUCTION TO CRISP-DM":
         from my_pages.theoretical_framework import introduction_crisp_dm
         introduction_crisp_dm.show()
+
+elif st.session_state.main_page == "Practical Applicaton According to CRISP-DM":
+    from my_pages import practical_application_crisp_dm
+    practical_application_crisp_dm.show()
 
 elif st.session_state.main_page == "Methods & Data":
     from my_pages import methods_data
