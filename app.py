@@ -146,7 +146,6 @@ elif st.session_state.main_page == "Practical Applicaton According to CRISP-DM":
         from my_pages.practical_application import evaluation
         evaluation.show()
 
-
 elif st.session_state.main_page == "Methods & Data":
     from my_pages import methods_data
     methods_data.show()
