@@ -14,18 +14,17 @@ def show():
     if phase == "General Business Knowledge":
         st.subheader("1. General business knowledge")
         st.markdown("""
-        The Business Understanding phase focuses on understanding the objectives and requirements of the project.
-        Aside from the third general task, the three other tasks in this phase are foundational project management
-        activities:
-        1.	Define the business objectives: Based on a deep understanding of the business customer perspective, 
-        the business success criteria can then be determined.
-        2.	Assessment of the situation in the business environment: What (technical and financial) resources are 
-        available, what requirements are placed on the project, what costs are associated with what returns 
-        and what risks can be calculated.
-        3.	Determine the objectives of data mining: In addition to defining the business objectives, the type of 
-        data mining should be explained (e.g. classification) and, based on this, the success criteria of data 
-        mining (e.g. accuracy) must be derived.
-        4.	Produce project plan: Select technologies and tools and define detailed plans for each project phase.
+        In the following, a well-founded understanding of the business process of investing term deposits at banks 
+        will be conveyed. Without this expertise, it is not possible to use data and technology effectively and 
+        efficiently to achieve the project goal. At its core, the current data project is about helping banks to 
+        improve their marketing efforts by reducing costs and saving resources such as call center agents. It is 
+        a classification problem involving the prediction of contract signings of term deposits. In general, a 
+        marketing campaign represents the stimulus, and in the context of this project, the stimulus is represented 
+        by a specific call from an internal bank call center agent. The stimulus is concrete in the context of the 
+        call: This is an offer of a specific fixed-term deposit contract with interest rates above the market average. 
+        The response side is represented by a bank customer and his reaction to the agent's call respectively to the 
+        offer. The recorded reaction of the bank customer is binary and distinguishes between “Yes”, conclusion of 
+        a fixed-term deposit contract, or “No”, no conclusion of a fixed-term deposit contract.
        """)
           # Bild von der URL laden und anzeigen
         show_github_image(
@@ -34,6 +33,20 @@ def show():
         caption=( "Figure 6: Presentation of the business logic in the financial services sector with special \n"
                  "emphasis on the three players involved in financial transactions")
         )
+        st.markdown("""
+        A fixed-term deposit is an investment with a fixed term in which money is paid into an account at a financial 
+        institution. Fixed-term deposits generally have short-term terms of one month to several years and have 
+        different minimum deposits. When concluding a fixed-term deposit contract, investors must be aware that they 
+        will not be able to access their money again until the contractually agreed term has expired. In some cases, 
+        the account holder may allow the investor to terminate - or withdraw - the deposit early if they give several 
+        days' notice. There is also a penalty for early cancellation. Fixed-term deposits offer consumers a high degree 
+        of planning security, as the interest rates are fixed and guaranteed. It is therefore suitable for customers 
+        who prefer a conservative, secure investment to preserve their assets. Fixed-term deposits are suitable for 
+        short-term investments, for example if you want to ‘park’ money that you will only need for an investment at 
+        a later date. However, you can also use fixed-term deposits to build up assets or as part of your retirement 
+        provision. As fixed-term deposits are not affected by price fluctuations, they are a particularly safe form 
+        of investment.
+       """)
     elif phase == "Cost-optimized Assesment Metrics":
         st.subheader("2. Cost-optimized assesment metrics for a cost-sensitive classification problem")
         st.markdown("""
