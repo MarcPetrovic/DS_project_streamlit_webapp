@@ -9,11 +9,11 @@ def show():
     
     # Bild von der URL laden und anzeigen
     # Checkbox mit Standardwert = True
-    if st.checkbox("🔍 Porter's Value Chain anzeigen", value=True):
+    if st.checkbox("🔍 Show Porter's Value Chain Quote", value=True):
         show_github_image(
             image_filename="images/porter.PNG",
             repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-            caption="Porter's Value Chain"
+            caption="Porter's Value Chain Quote"
             )
     st.markdown("""
     Over the last two decades, globalization and ever-increasing regulation by the banking supervisory 
