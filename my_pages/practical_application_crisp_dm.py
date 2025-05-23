@@ -1,4 +1,5 @@
 import streamlit as st
+from utils import show_github_image
 
 def show():
     st.header("Practical Application According to CRISP-DM")
@@ -8,3 +9,10 @@ def show():
     core results are listed at the end. This is based on the hierarchical CRISP-DM levels (phases, generic 
     tasks, special activities) described in Chapter 2 of this research paper
     """)
+    # Bild von der URL laden und anzeigen
+    with st.expander("🔍 CRISP-DM Überblicksdiagramm anzeigen"):
+        show_github_image(
+        image_filename="images/porter.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption="Porter's Value Chain"
+        )
