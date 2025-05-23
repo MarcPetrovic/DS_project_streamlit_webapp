@@ -14,7 +14,7 @@ def show():
             image_filename="images/porter.PNG",
             repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
             caption="Porter's Value Chain"
-        )
+            )
     st.markdown("""
     Over the last two decades, globalization and ever-increasing regulation by the banking supervisory 
     authorities have presented the financial sector with major challenges: On the one hand, open markets 
