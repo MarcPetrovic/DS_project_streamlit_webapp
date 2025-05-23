@@ -1,4 +1,5 @@
 import streamlit as st
+from utils.image_loader import show_github_image
 
 def show():
     st.header("Supervised Learning and the Response model")
