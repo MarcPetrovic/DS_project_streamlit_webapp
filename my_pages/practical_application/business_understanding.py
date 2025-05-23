@@ -72,7 +72,7 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
-   elif phase == "Key Results of the 1st Phase":
+    elif phase == "Key Results of the 1st Phase":
         st.subheader("5. Key results of the 1st phase of CRISP-DM")
         st.markdown("""
         In the data understanding phase, which should be interpreted as complementary to the business understanding
