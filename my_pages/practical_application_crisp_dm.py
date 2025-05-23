@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import show_github_image
+from utils.image_loader import show_github_image
 
 def show():
     st.header("Practical Application According to CRISP-DM")
