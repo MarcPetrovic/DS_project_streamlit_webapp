@@ -2,15 +2,44 @@ import streamlit as st
 from utils.image_loader import show_github_image
 
 def show():
-    st.header("Business Understanding")
-    st.markdown("""
-    A growing number of companies, especially financial service providers, banks and insurance companies, are 
-    using customer relationship management with the sole aim of customer profiling. Recent studies clearly 
-    show that there is not only a linear relationship between marketing expenditure and profit margins per 
-    customer, but that a competitive advantage can be achieved through the systematic use of modern methods 
-    of data pattern recognition, such as data mining and knowledge discovery in databases (KDD). Data mining 
-    refers to the examination and analysis of large amounts of data in order to discover meaningful patterns 
-    and rules. Direct marketing has developed into an important area of application for data mining, 
-    particularly in connection with customer targeting, so that a taxonomy for strategic use in marketing 
-    management has now become established (see Figure 3). 
-    """)
+  # Dropdown für die Phasen
+    phase = st.selectbox("Select a CRISP-DM-phase:", [
+        "Business Understanding",
+        "Data Understanding",
+        "Data Preparation",
+        "Modeling",
+        "Evaluation",
+        "Deployment"
+    ])
+    # Inhalte je nach Auswahl
+    if phase == "Business Understanding":
+        st.subheader("1. Business Understanding")
+        st.markdown("""
+        The Business Understanding phase focuses on understanding the objectives and requirements of the project.
+        Aside from the third general task, the three other tasks in this phase are foundational project management
+        activities:
+        1.	Define the business objectives: Based on a deep understanding of the business customer perspective, 
+        the business success criteria can then be determined.
+        2.	Assessment of the situation in the business environment: What (technical and financial) resources are 
+        available, what requirements are placed on the project, what costs are associated with what returns 
+        and what risks can be calculated.
+        3.	Determine the objectives of data mining: In addition to defining the business objectives, the type of 
+        data mining should be explained (e.g. classification) and, based on this, the success criteria of data 
+        mining (e.g. accuracy) must be derived.
+        4.	Produce project plan: Select technologies and tools and define detailed plans for each project phase.
+       """)
+    elif phase == "Data Understanding":
+        st.subheader("2. Data Understanding")
+        st.markdown("""
+        In the data understanding phase, which should be interpreted as complementary to the business understanding
+        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
+        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
+        includes the task of describing the data using statistical analyses and determining attributes and their 
+        characteristics. This phase also consists of a total of four tasks:
+        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
+        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
+        or field identities.
+        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
+        data.
+        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
+        """)
