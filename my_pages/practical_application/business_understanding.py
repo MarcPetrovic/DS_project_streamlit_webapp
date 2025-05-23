@@ -27,6 +27,13 @@ def show():
         mining (e.g. accuracy) must be derived.
         4.	Produce project plan: Select technologies and tools and define detailed plans for each project phase.
        """)
+          # Bild von der URL laden und anzeigen
+        show_github_image(
+        image_filename="images/relevance_cvc.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 1: Schematic representation of the costs of the value chain approach with particular \n"
+                 "emphasis on operating expenses for marketing activities")
+        )
     elif phase == "Cost-optimized Assesment Metrics":
         st.subheader("2. Cost-optimized assesment metrics for a cost-sensitive classification problem")
         st.markdown("""
