@@ -29,10 +29,10 @@ def show():
        """)
           # Bild von der URL laden und anzeigen
         show_github_image(
-        image_filename="images/relevance_cvc.PNG",
+        image_filename="images/business_logic.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 1: Schematic representation of the costs of the value chain approach with particular \n"
-                 "emphasis on operating expenses for marketing activities")
+        caption=( "Figure 6: Presentation of the business logic in the financial services sector with special \n"
+                 "emphasis on the three players involved in financial transactions")
         )
     elif phase == "Cost-optimized Assesment Metrics":
         st.subheader("2. Cost-optimized assesment metrics for a cost-sensitive classification problem")
