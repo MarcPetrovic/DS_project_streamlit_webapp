@@ -53,6 +53,27 @@ def show():
         caption=( "Figure 7: Presentation of the business logic in the financial services sector with special \n"
                  "emphasis on the three players involved in financial transactions")
         )
+        st.markdown("""
+        When an account holder deposits money with a bank, the bank can use this money to lend it to other consumers. 
+        In return for the right to use these funds to lend, it pays the depositor (or investor) a fee in the form of 
+        interest on the account balance. With most deposit accounts of this type, the holder can withdraw their money 
+        at any time. This makes it difficult for the bank to know in advance how much it can lend at any given time. 
+        To solve this problem, banks offer fixed-term deposit accounts. The interest rate on a fixed-term deposit 
+        account is slightly higher than that on a normal savings or interest-bearing current account. When a customer 
+        invests money in a fixed-term deposit account, the bank can invest the money in other financial products that 
+        yield a higher return than what the bank pays the customer for using their money. The bank can also lend the 
+        money to other customers and thus receive a higher interest rate from the borrowers than what the bank pays 
+        for the fixed-term deposit.
+
+        For example, a financial institution may offer an interest rate of 2,75 % for fixed-term deposits with a term 
+        of one years. The deposited funds can then be made available by the financial institution as loans to borrowers 
+        or lenders at an interest rate of 9,45 %. The difference between the interest rate the bank pays its customers 
+        for deposits and the interest rate it charges its lenders is known as the net interest margin and is 6,70 % in 
+        the example. This interest spread is a very important profitability indicator for banks. In practice, banks face 
+        the challenge of finding a balance in the interest spread. If, on the one hand, the interest rate on fixed-term 
+        deposits is too low, they will not be able to persuade new investors to sign a contract. On the other hand, banks 
+        cannot set their lending rates too high, as otherwise no new borrowers will take out a loan with the bank.
+        """)
     elif phase == "Cost-optimized Assesment Metrics":
         st.subheader("2. Cost-optimized assesment metrics for a cost-sensitive classification problem")
         st.markdown("""
