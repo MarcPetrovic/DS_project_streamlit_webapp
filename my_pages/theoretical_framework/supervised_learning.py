@@ -24,5 +24,10 @@ def show():
     again and again, which leads to a cyclical restart of the process. The procedure described corresponds to 
     the generally recognized and widely used industry standard CRISP-DM (‘Cross-industry Standard Process for 
     Data Mining’).
-
     """)
+    # Bild von der URL laden und anzeigen
+    show_github_image(
+    image_filename="images/crisp_dm_model.PNG",
+    repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+    caption=( "Figure 5: Model of iteration cycles of the CRIPS-DM")
+    )
