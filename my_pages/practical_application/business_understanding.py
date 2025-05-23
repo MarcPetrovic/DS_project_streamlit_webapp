@@ -57,7 +57,7 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
-   elif phase == "Technical Framework & Environment":
+    elif phase == "Technical Framework & Environment":
         st.subheader("4. Technical framework & environment")
         st.markdown("""
         In the data understanding phase, which should be interpreted as complementary to the business understanding
