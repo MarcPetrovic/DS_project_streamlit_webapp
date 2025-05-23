@@ -10,9 +10,9 @@ def show():
     tasks, special activities) described in Chapter 2 of this research paper
     """)
     # Bild von der URL laden und anzeigen
-    with st.expander("🔍 CRISP-DM Überblicksdiagramm anzeigen"):
+    with st.expander("🔍 Show CRISP-DM overview diagram"):
         show_github_image(
-            image_filename="images/porter.PNG",
+            image_filename="images/crisp_dm_project_phases.PNG",
             repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-            caption="Porter's Value Chain"
+            caption="CRISP-DM overview diagram"
             )
