@@ -26,12 +26,11 @@ def show():
         offer. The recorded reaction of the bank customer is binary and distinguishes between “Yes”, conclusion of 
         a fixed-term deposit contract, or “No”, no conclusion of a fixed-term deposit contract.
        """)
-          # Bild von der URL laden und anzeigen
+          # Bild von der URL laden und anzeigen 
         show_github_image(
-        image_filename="images/business_logic.PNG",
+        image_filename="images/target_group_marketing.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 6: Presentation of the business logic in the financial services sector with special \n"
-                 "emphasis on the three players involved in financial transactions")
+        caption=( "Figure 6: Target groups in marketing: Who is the fixed-term deposit suitable for?")
         )
         st.markdown("""
         A fixed-term deposit is an investment with a fixed term in which money is paid into an account at a financial 
@@ -47,6 +46,13 @@ def show():
         provision. As fixed-term deposits are not affected by price fluctuations, they are a particularly safe form 
         of investment.
        """)
+          # Bild von der URL laden und anzeigen 
+        show_github_image(
+        image_filename="images/business_logic.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 7: Presentation of the business logic in the financial services sector with special \n"
+                 "emphasis on the three players involved in financial transactions")
+        )
     elif phase == "Cost-optimized Assesment Metrics":
         st.subheader("2. Cost-optimized assesment metrics for a cost-sensitive classification problem")
         st.markdown("""
