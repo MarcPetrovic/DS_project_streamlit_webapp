@@ -2,8 +2,10 @@ import streamlit as st
 
 def show():
     st.header("Brief introduction to CRISP-DM")
-    # Checkbox: Text soll standardmäßig angezeigt werden
-    if st.checkbox("🧠 Show/hide introduction text", value=True):
+    # Checkbox zum Anzeigen/Ausblenden des Einführungstextes
+    show_text = st.checkbox("🧠 Show/hide introduction text", value=True)
+
+    if show_text:
         st.markdown("""
         The CRISP-DM data mining methodology is an industry-independent hierarchical process model consisting 
         of task sets described at four levels of abstraction (from general to specific): Phase, General Tasks, 
@@ -22,12 +24,14 @@ def show():
         performed in a specific order represents an idealized sequence of events. In practice, many of the 
         tasks can be performed in a slightly varying and incremental sequence. 
         """)
+
+    # --- others
     st.markdown("""
     In the following, we will take a closer look at the first two levels of abstraction - phases and their 
     general tasks. This is necessary to provide a theoretical foundation for practical implementation, which 
     is described in particular in the third chapter.
     """)
-    
+
     # Dropdown für die Phasen
     phase = st.selectbox("Select a CRISP-DM-phase:", [
         "Business Understanding",
