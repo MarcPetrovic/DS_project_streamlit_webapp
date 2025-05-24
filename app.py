@@ -86,7 +86,7 @@ breadcrumb_html = """
 
 /* Verhindert Überlappung des Inhalts */
 .breadcrumb-spacer {
-    height: 40px; /* gleiche Höhe wie .breadcrumb-container */
+    height: 30px; /* gleiche Höhe wie .breadcrumb-container */
 }
 
 /* Link- und Textstile */
