@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.image_utils import show_github_image
+from utils.image_loader import show_github_image
 
 # ----------------------------
 # Sidebar Navigation
