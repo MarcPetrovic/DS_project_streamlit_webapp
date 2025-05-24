@@ -58,9 +58,9 @@ image_path = header_images.get(st.session_state.main_page)
 if image_path:
     show_github_image(
         image_filename=image_path,
-        repo_url="https://github.com/dein-nutzer/dein-repo",  # <--- anpassen
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",  
         caption=None
-    )
+        )
 
 # ----------------------------
 # Breadcrumb anzeigen (Sticky Version)
