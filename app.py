@@ -83,7 +83,7 @@ breadcrumb_html = """
 
 <!-- Sticky Breadcrumb selbst -->
 <div class='breadcrumb-container'>
-    📍 <span class='breadcrumb-link'>Home</span> &nbsp;&gt;&nbsp;
+    🏠 <span class='breadcrumb-link'>Home</span> &nbsp;&gt;&nbsp;
     <span class='breadcrumb-link'>""" + st.session_state.main_page + """</span>
 """
 
