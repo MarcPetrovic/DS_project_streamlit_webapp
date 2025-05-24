@@ -1,4 +1,5 @@
 import streamlit as st
+from utils.image_utils import show_github_image
 
 # ----------------------------
 # Sidebar Navigation
@@ -18,6 +19,17 @@ st.sidebar.radio(
     ],
     key="main_page"
 )
+
+# Dynamisches Headerbild pro Seite (GitHub-Pfade)
+header_images = {
+    #"Introduction": "images/intro_header.jpg",
+    "Theoretical Framework": "images/problem_statement.PNG"
+    #"Practical Application According to CRISP-DM": "images/crispdm_header.jpg",
+    #"Methods & Data": "images/methods_header.jpg",
+    #"Technical Environment & Modeling": "images/tech_header.jpg",
+    #"Key Results": "images/results_header.jpg",
+    #"Conclusion & Discussion": "images/discussion_header.jpg"
+}
 
 # Subnavigation nur, wenn nötig – ebenfalls direkt an den Session-State gebunden
 if st.session_state.main_page == "Theoretical Framework":
@@ -39,6 +51,16 @@ elif st.session_state.main_page == "Practical Application According to CRISP-DM"
 
 else:
     st.session_state.sub_section = None
+
+# Headerbild anzeigen, falls definiert
+image_path = header_images.get(st.session_state.main_page)
+
+if image_path:
+    show_github_image(
+        image_filename=image_path,
+        repo_url="https://github.com/dein-nutzer/dein-repo",  # <--- anpassen
+        caption=None
+    )
 
 # ----------------------------
 # Breadcrumb anzeigen (Sticky Version)
