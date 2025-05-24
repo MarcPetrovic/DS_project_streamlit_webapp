@@ -81,6 +81,7 @@ breadcrumb_html = """
     z-index: 999;
     border-bottom: 1px solid #dee2e6;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-top: -10px;
 }
 
 /* Verhindert Überlappung des Inhalts */
