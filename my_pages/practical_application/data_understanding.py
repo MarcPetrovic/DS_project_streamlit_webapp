@@ -52,10 +52,10 @@ def show():
         """)
           # Bild von der URL laden und anzeigen 
         show_github_image(
-        image_filename="images/attribute_cluster.PNG",
-        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 10: Overview of the four data type clusters within the used database")
-        )
+          image_filename="images/attribute_cluster.PNG",
+          repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+          caption=( "Figure 9: Overview of the four data type clusters within the used database")
+          )
         st.markdown("""
         When an account holder deposits money with a bank, the bank can use this money to lend it to other consumers. 
         In return for the right to use these funds to lend, it pays the depositor (or investor) a fee in the form of 
