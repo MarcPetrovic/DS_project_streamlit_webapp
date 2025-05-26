@@ -83,6 +83,20 @@ def show():
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
         caption=( "Figure 10: Instructions from the primary researcher")
         )
+        st.write("""
+        Taking into account the advices of the primary researchers in general, and in particular by adjusting the 
+        categorical variables by converting the expression “unknown” into NaN (missing value), the data set used is 
+        presented and analyzed in the following subsections for the respective data clusters (data audit). 
+        The report used in the exploratory data analysis was automatically generated with 
+        [YData Profiling](https://github.com/ydataai/ydata-profiling) and provides a comprehensive overview of the data 
+        quality, distributions and correlations.
+        """)
+        st.markdown("""
+        <a href="https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html" target="_blank">
+            📊 Open Profiling Report 
+        </a>
+        """, unsafe_allow_html=True)
+
     elif task == "Data Audit - Client Socio-Economic Attributes":
         st.subheader("3. Data Audit - Client Socio-Economic Attributes")
         st.markdown("""
