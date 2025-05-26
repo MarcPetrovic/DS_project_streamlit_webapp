@@ -56,18 +56,7 @@ def show():
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
           caption=( "Figure 9: Overview of the four data type clusters within the used database")
           )
-        st.markdown("""
-        When an account holder deposits money with a bank, the bank can use this money to lend it to other consumers. 
-        In return for the right to use these funds to lend, it pays the depositor (or investor) a fee in the form of 
-        interest on the account balance. With most deposit accounts of this type, the holder can withdraw their money 
-        at any time. This makes it difficult for the bank to know in advance how much it can lend at any given time. 
-        To solve this problem, banks offer fixed-term deposit accounts. The interest rate on a fixed-term deposit 
-        account is slightly higher than that on a normal savings or interest-bearing current account. When a customer 
-        invests money in a fixed-term deposit account, the bank can invest the money in other financial products that 
-        yield a higher return than what the bank pays the customer for using their money. The bank can also lend the 
-        money to other customers and thus receive a higher interest rate from the borrowers than what the bank pays 
-        for the fixed-term deposit.
-        """)
+
     elif task == "Instructions Primary Researcher":
         st.subheader("2. Instructions from the Primary Researcher")
         st.markdown("""
