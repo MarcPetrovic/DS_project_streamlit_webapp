@@ -23,12 +23,12 @@ st.sidebar.radio(
 # Dynamisches Headerbild pro Seite (GitHub-Pfade)
 header_images = {
     "Introduction": "images/header.PNG",
-    "Theoretical Framework": "images/problem_statement.PNG"
-    #"Practical Application According to CRISP-DM": "images/crispdm_header.jpg",
+    "Theoretical Framework": "images/header.PNG",
+    "Practical Application According to CRISP-DM": "images/header.PNG",
     #"Methods & Data": "images/methods_header.jpg",
     #"Technical Environment & Modeling": "images/tech_header.jpg",
-    #"Key Results": "images/results_header.jpg",
-    #"Conclusion & Discussion": "images/discussion_header.jpg"
+    "Key Results": "images/header.PNG",
+    "Conclusion & Discussion": "images/header.PNG"
 }
 
 # Subnavigation nur, wenn nötig – ebenfalls direkt an den Session-State gebunden
