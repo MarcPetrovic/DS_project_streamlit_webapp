@@ -76,13 +76,13 @@ def show():
         project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
         includes the task of describing the data using statistical analyses and determining attributes and their 
         characteristics. This phase also consists of a total of four tasks:
-        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
-        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
-        or field identities.
-        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
-        data.
-        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
+          # Bild von der URL laden und anzeigen 
+        show_github_image(
+        image_filename="images/instructions_primary_researcher.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 10: Instructions from the primary researcher")
+        )
     elif task == "Data Audit - Client Socio-Economic Attributes":
         st.subheader("3. Data Audit - Client Socio-Economic Attributes")
         st.markdown("""
