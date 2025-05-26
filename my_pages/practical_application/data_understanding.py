@@ -3,7 +3,7 @@ from utils.image_loader import show_github_image
 
 def show():
   # Dropdown für die Phasen
-    phase = st.selectbox("Select a subchapter of CRISP-DM-phase Data Understanding:", [
+    task = st.selectbox("Select a subchapter of CRISP-DM-phase Data Understanding:", [
         "General Procedere & EDA",
         "Instructions Primary Researcher",
         "Data Audit - Client Socio-Economic Attributes",
@@ -13,7 +13,7 @@ def show():
         "Key Results of the 2nd Phase"
     ])
     # Inhalte je nach Auswahl
-    if phase == "General Procedere & EDA":
+    if task == "General Procedere & EDA":
         st.subheader("1. General Procedere & Exploratory Data Analysis")
         st.markdown("""
         As already mentioned in the first section of the third chapter of this research project paper, data was not 
@@ -72,7 +72,7 @@ def show():
         deposits is too low, they will not be able to persuade new investors to sign a contract. On the other hand, banks 
         cannot set their lending rates too high, as otherwise no new borrowers will take out a loan with the bank.
         """)
-    elif phase == "Instructions Primary Researcher":
+    elif task == "Instructions Primary Researcher":
         st.subheader("2. Instructions from the Primary Researcher")
         st.markdown("""
         In the data understanding phase, which should be interpreted as complementary to the business understanding
@@ -87,7 +87,7 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
-    elif phase == "Data Audit - Client Socio-Economic Attributes":
+    elif task == "Data Audit - Client Socio-Economic Attributes":
         st.subheader("3. Data Audit - Client Socio-Economic Attributes")
         st.markdown("""
         In the data understanding phase, which should be interpreted as complementary to the business understanding
@@ -102,7 +102,7 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
-    elif phase == "Data Audit - Economic Environment":
+    elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
         st.markdown("""
         In the data understanding phase, which should be interpreted as complementary to the business understanding
@@ -117,7 +117,7 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
-    elif phase == "Data Audit - Current Marketing Activities":
+    elif task == "Data Audit - Current Marketing Activities":
         st.subheader("5. Data Audit - Current Marketing Activities")
         st.markdown("""
         In the data understanding phase, which should be interpreted as complementary to the business understanding
