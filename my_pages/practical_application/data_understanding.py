@@ -22,7 +22,13 @@ def show():
         the machine learning repository of the University of California, Irvine (UCI), at the following link: <a href="http://archive.ics.uci.edu/ml/datasets/Bank+Marketing" target="_blank">http://archive.ics.uci.edu/ml/datasets/Bank+Marketing</a>.
         The data basis of the project was collected from a Portuguese bank that used its own contact-center to do 
         directed marketing campaigns. The telephone, with a human agent as the interlocutor, was the dominant marketing 
-        channel.
+        channel. The dataset collected is related to 17 campaigns that occurred between May 2008 and November 2010, 
+        corresponding to a total of 41,188 contacts. During these phone campaigns, an attractive long-term deposit 
+        application, with good interest rates, was offered to the bank customers (hot flow). For each contact, a large 
+        number of attributes were stored (see in detail Tables 2-5) and if there was a subscription to term deposit 
+        (the target/response variable). For the whole database considered, there were 4,640 successes (11.3% success rate). 
+        The data set was supplemented by five nationwide socio-economic indicators, which are published by Banco de 
+        Portugal and are publicly available (see link: <a href="https://bpstat.bportugal.pt/" target="_blank">https://bpstat.bportugal.pt/</a>).
         """, unsafe_allow_html=True)
           # Bild von der URL laden und anzeigen 
         show_github_image(
@@ -31,19 +37,19 @@ def show():
         caption=( "Figure 6: Target groups in marketing: Who is the fixed-term deposit suitable for?")
         )
         st.markdown("""
-        A fixed-term deposit is an investment with a fixed term in which money is paid into an account at a financial 
-        institution. Fixed-term deposits generally have short-term terms of one month to several years and have 
-        different minimum deposits. When concluding a fixed-term deposit contract, investors must be aware that they 
-        will not be able to access their money again until the contractually agreed term has expired. In some cases, 
-        the account holder may allow the investor to terminate - or withdraw - the deposit early if they give several 
-        days' notice. There is also a penalty for early cancellation. Fixed-term deposits offer consumers a high degree 
-        of planning security, as the interest rates are fixed and guaranteed. It is therefore suitable for customers 
-        who prefer a conservative, secure investment to preserve their assets. Fixed-term deposits are suitable for 
-        short-term investments, for example if you want to ‘park’ money that you will only need for an investment at 
-        a later date. However, you can also use fixed-term deposits to build up assets or as part of your retirement 
-        provision. As fixed-term deposits are not affected by price fluctuations, they are a particularly safe form 
-        of investment.
-       """)
+        Within the second phase of CRISP-DM, we have to understand the data, especially the structure. The data audit is 
+        an essential sub-step within the second phase. Within the data audit, the available data sample is structured on 
+        the basis of various properties. For example, a distinction is made between dependent and independent variables. 
+        The data type of the respective characteristics of the sample is determined and the relevant value range (feature 
+        domain) is also listed. A central concern of the data audit is to identify missing values and, depending on the 
+        data type and relevant feature structure, to select a representative, statistical procedure to convert the missing 
+        values in a targeted manner. Figure 8 shows that the available data set can basically be differentiated into four 
+        feature clusters. All four feature clusters are examined in more detail in the following subsections. First, a 
+        general definition of the respective characteristics of each cluster is formulated. In addition, an explorative, 
+        descriptive data analysis is carried out in order to subsequently identify missing values and, against the 
+        background of the industrial CRISP-DM approach, to make a pragmatic selection of procedures for converting the 
+        missing values.
+        """)
           # Bild von der URL laden und anzeigen 
         show_github_image(
         image_filename="images/business_logic.PNG",
@@ -62,15 +68,6 @@ def show():
         yield a higher return than what the bank pays the customer for using their money. The bank can also lend the 
         money to other customers and thus receive a higher interest rate from the borrowers than what the bank pays 
         for the fixed-term deposit.
-
-        For example, a financial institution may offer an interest rate of 2,75 % for fixed-term deposits with a term 
-        of one years. The deposited funds can then be made available by the financial institution as loans to borrowers 
-        or lenders at an interest rate of 9,45 %. The difference between the interest rate the bank pays its customers 
-        for deposits and the interest rate it charges its lenders is known as the net interest margin and is 6,70 % in 
-        the example. This interest spread is a very important profitability indicator for banks. In practice, banks face 
-        the challenge of finding a balance in the interest spread. If, on the one hand, the interest rate on fixed-term 
-        deposits is too low, they will not be able to persuade new investors to sign a contract. On the other hand, banks 
-        cannot set their lending rates too high, as otherwise no new borrowers will take out a loan with the bank.
         """)
     elif task == "Instructions Primary Researcher":
         st.subheader("2. Instructions from the Primary Researcher")
