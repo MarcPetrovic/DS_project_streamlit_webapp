@@ -32,9 +32,9 @@ def show():
         """, unsafe_allow_html=True)
           # Bild von der URL laden und anzeigen 
         show_github_image(
-        image_filename="images/target_group_marketing.PNG",
+        image_filename="images/da_general_procedere_data_basis.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 6: Target groups in marketing: Who is the fixed-term deposit suitable for?")
+        caption=( "Figure 8: Overview of the data basis of the AI project")
         )
         st.markdown("""
         Within the second phase of CRISP-DM, we have to understand the data, especially the structure. The data audit is 
