@@ -52,10 +52,9 @@ def show():
         """)
           # Bild von der URL laden und anzeigen 
         show_github_image(
-        image_filename="images/business_logic.PNG",
+        image_filename="images/attribute_cluster.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 7: Presentation of the business logic in the financial services sector with special \n"
-                 "emphasis on the three players involved in financial transactions")
+        caption=( "Figure 10: Overview of the four data type clusters within the used database")
         )
         st.markdown("""
         When an account holder deposits money with a bank, the bank can use this money to lend it to other consumers. 
