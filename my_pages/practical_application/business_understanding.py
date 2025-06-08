@@ -139,8 +139,7 @@ def show():
         show_github_image(
         image_filename="images/technical_environment.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 7: Presentation of the business logic in the financial services sector with special \n"
-                 "emphasis on the three players involved in financial transactions")
+        caption=( "Figure 7: ")
         )
     elif phase == "Key Results & Strategic Modeling Decisions":
         st.subheader("6. Key results and strategic modeling decisions")
