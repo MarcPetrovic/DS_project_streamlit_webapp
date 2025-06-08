@@ -124,7 +124,7 @@ def show():
         st.subheader("5. Technical implementation framework")
         st.markdown("""
         The implementation of the CRISP-DM process was carried out within a customized technical environment based on the 
-        Anaconda Cloud distribution. Anaconda is specifically tailored for data-intensive computing and offers a robust 
+        [Anaconda Cloud](https://www.anaconda.com/products/cloud-suite) distribution. Anaconda is specifically tailored for data-intensive computing and offers a robust 
         ecosystem for managing Python packages, with particular advantages in terms of **version control**, **reproducibility**, 
         and **package dependency resolution**.
         
