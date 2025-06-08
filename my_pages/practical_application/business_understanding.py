@@ -108,11 +108,12 @@ def show():
     elif phase == "Methodical Decisions for Modeling":
         st.subheader("4. Methodical decisions for modeling within the business undestanding phases")
         st.markdown("""
-        According to the CRISP-DM methodology, the Business Understanding phase establi¬shes the foundational knowledge 
+        According to the CRISP-DM methodology, the Business Understanding phase establishes the foundational knowledge 
         necessary for the entire data mining project. This includes clarifying the precise business question, consolidating 
         domain expertise, identifying key stakeholders, understanding data availability and accessibility, and defining the 
         technical environment. Importantly, this phase also involves making early but critical decisions regarding the 
-        analytical approach and modeling strategy.  
+        analytical approach and modeling strategy.
+        
         In this project, the modeling methodology is explicitly outlined and aligned with business goals within the Business 
         Understanding phase to ensure a coherent and goal-driven process. The choice of machine learning algorithms and 
         evaluation metrics is not deferred to later phases but carefully considered upfront to reflect the project’s specific 
@@ -136,7 +137,6 @@ def show():
           and success profile insights, aiming to enhance predictive signal extraction. This phase also broadens model 
           assessment beyond accuracy, introducing a comprehensive set of metrics that capture different aspects of 
           classifier quality and business relevance, including:
-            - Einführung zusätzlicher Metriken:
             - Early Retrieval Area (ERA)
             - False Positive Rate (FPR)
             - False Negative Rate (FNR)
@@ -146,6 +146,10 @@ def show():
             - Cohen’s Kappa
             - Matthews Correlation Coefficient (MCC)
             - Total Cost (€): Übersetzung von Fehlklassifikationen in finanzielle Auswirkungen
+        By predefining this methodological framework within the Business Understanding phase, the project aligns its 
+        analytical trajectory with business realities and stakehol¬der expectations from the outset. This approach 
+        embodies the CRISP-DM philosophy of iterative refinement grounded in domain knowledge, enabling more effective, 
+        transparent, and profitable model deployment.
         """)
     elif phase == "Technical Framework & Environment":
         st.subheader("5. Technical implementation framework")
