@@ -144,6 +144,46 @@ def show():
         **Definition of the business objective:** The overarching goal of the project is to develop a binary classification 
         model to predict customer responsiveness to outbound telemarketing campaigns for fixed-term deposit products. 
         By targeting only customers with a high predicted likelihood of accepting an investment offer, the bank can 
-        improve its marketing efficiency, reduce unnecessary expenditures, and maximize the return on campaign 
-        investments.
+        improve its marketing efficiency, reduce unnecessary expenditures, and maximize the return on campaign investments.
+
+        **Assessment of the situation in the business environment:** The data originates from a Portuguese financial institution 
+        that conducts regular marketing campaigns via its internal call center. These campaigns are specifically designed to 
+        promote interest-bearing fixed-term deposit contracts to existing customers. The stimulus in this case is a telephone-based 
+        product offer, and the response is represented by a binary outcome:
+        •	"Yes" → The customer subscribed to the deposit offer (positive class)
+        •	"No" → The customer declined the offer (negative class)
+        This clearly defines the task as a supervised classification problem, with a strong business need to optimize both customer 
+        selection and campaign cost.
+
+        **Determine the objectives of data mining and model selection strategy:** In alignment with the business objectives, the 
+        following supervised learning algorithms were selected for the first modeling iteration:
+        •	Logistic Regression
+        •	K-Nearest Neighbors (KNN)
+        •	Gradient Boosting Classifier
+        •	Decision Tree
+        •	Random Forest
+        •	Naïve Bayes
+        •	XGBoostThe 
+        The primary selection criterion during this phase was predictive accuracy, estimated through repeated stratified 
+        k-fold cross-validation (5 folds, 2 repeats) on the training dataset. To ensure generalizability and mitigate 
+        overfitting, models were assessed not only by their mean accuracy but also by consistency across folds.
+
+        **Expanded Evaluation Framework in the Second Modeling Iteration:** In the second iteration, both models were evaluated 
+        using classification metrics derived from the confusion matrix, including:
+        •	False Positives (Type I Errors) – Costly due to unnecessary marketing expenditures
+        •	False Negatives (Type II Errors) – Result in missed revenue opportunities
+        •	Recall – Sensitivity to identifying actual subscribers
+        •	Precision – Accuracy of positive predictions
+        •	F1-Score – Harmonic mean of precision and recall
+        This expansion beyond mere accuracy was motivated by the cost-sensitive nature of the problem. Each misclassification 
+        carries a quantifiable business cost (outlined in Section 3.1.1). The inclusion of financial risk metrics ensures that 
+        model deployment aligns not only with statistical performance but also with economic optimization.
+
+        **Conclusion of the Business Understanding Phase:** The decisions made during this phase establish a strong foundation 
+        for the subsequent modeling steps. By:
+        •	clearly defining the business objective,
+        •	understanding the financial mechanisms behind fixed-term deposits,
+        •	identifying the right modeling framework,
+        •	and predefining cost-aware evaluation criteria
+        The project ensures that all subsequent phases remain anchored in business relevance and stakeholder value.
         """)
