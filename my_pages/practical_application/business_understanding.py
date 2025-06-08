@@ -135,6 +135,11 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
+        show_github_image(
+        image_filename="images/technical_environment.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 9: Overview of the main applications and tools, used within the data project.")
+        )
     elif phase == "Key Results & Strategic Modeling Decisions":
         st.subheader("6. Key results and strategic modeling decisions")
         st.markdown("""
