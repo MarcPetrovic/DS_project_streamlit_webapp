@@ -137,7 +137,7 @@ def show():
         """)
                 # Bild von der URL laden und anzeigen 
         show_github_image(
-        image_filename="images/business_logic.PNG",
+        image_filename="images/technical_environment.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
         caption=( "Figure 7: Presentation of the business logic in the financial services sector with special \n"
                  "emphasis on the three players involved in financial transactions")
