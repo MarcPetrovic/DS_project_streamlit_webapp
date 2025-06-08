@@ -123,17 +123,17 @@ def show():
     elif phase == "Technical Framework & Environment":
         st.subheader("5. Technical implementation framework")
         st.markdown("""
-        In the data understanding phase, which should be interpreted as complementary to the business understanding
-        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
-        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
-        includes the task of describing the data using statistical analyses and determining attributes and their 
-        characteristics. This phase also consists of a total of four tasks:
-        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
-        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
-        or field identities.
-        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
-        data.
-        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
+        The implementation of the CRISP-DM process was carried out within a customized technical environment based on the 
+        Anaconda Cloud distribution. Anaconda is specifically tailored for data-intensive computing and offers a robust 
+        ecosystem for managing Python packages, with particular advantages in terms of **version control**, **reproducibility**, 
+        and **package dependency resolution**.
+        
+        Due to the use of specific and partially non-standard Python libraries within the project, a dedicated Conda 
+        environment was configured. This environment was built on Python 3.9 to ensure compatibility with all required 
+        packages. To allow seamless execution within Jupyter Notebooks, the environment was explicitly registered as a 
+        Jupyter kernel using the ipykernel package. This setup facilitated smooth integration of environment-specific 
+        packages within the interactive notebook interface.
+        
         """)
                 # Bild von der URL laden und anzeigen 
         show_github_image(
