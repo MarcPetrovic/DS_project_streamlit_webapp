@@ -145,7 +145,8 @@ def show():
             - F1-Score
             - Cohen’s Kappa
             - Matthews Correlation Coefficient (MCC)
-            - Total Cost (€): Übersetzung von Fehlklassifikationen in finanzielle Auswirkungen
+            - o	Total Cost (€) as a direct translation of misclassification consequences into financial terms
+        
         By predefining this methodological framework within the Business Understanding phase, the project aligns its 
         analytical trajectory with business realities and stakehol¬der expectations from the outset. This approach 
         embodies the CRISP-DM philosophy of iterative refinement grounded in domain knowledge, enabling more effective, 
