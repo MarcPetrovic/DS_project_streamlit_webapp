@@ -129,9 +129,9 @@ def show():
         and **package dependency resolution**.
         
         Due to the use of specific and partially non-standard Python libraries within the project, a **dedicated Conda 
-        environment was configured**. This environment was built on Python 3.9 to ensure compatibility with all required 
-        packages. To allow seamless execution within Jupyter Notebooks, the environment was explicitly registered as a 
-        Jupyter kernel using the ipykernel package. This setup facilitated smooth integration of environment-specific 
+        environment was configured**. This environment was built on **Python 3.9** to ensure compatibility with all required 
+        packages. To allow seamless execution within **Jupyter Notebooks**, the environment was explicitly registered as a 
+        **Jupyter kernel using the ipykernel package**. This setup facilitated smooth integration of environment-specific 
         packages within the interactive notebook interface.
         
         """)
@@ -139,8 +139,27 @@ def show():
         show_github_image(
         image_filename="images/technical_environment.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 7: ")
+        caption=( "Figure 9: Overview of the main applications and tools, used within the data project")
         )
+        st.markdown("""
+        For the development and documentation of the data analysis pipeline, the web-based Jupyter Notebook environment was 
+        employed. Jupyter enables an interactive, linear execution of code, ideal for the structured realization of all 
+        CRISP-DM phases—particularly for data understanding, data preparation, modeling, and evaluation.
+
+        As part of the exploratory data analysis (EDA), the open-source Python package ydata-profiling was used. This tool 
+        automates the generation of descriptive statistics, missing value diagnostics, and graphical summaries, thus 
+        significantly accelerating the initial data exploration phase and enabling systematic insight into the dataset 
+        structure with minimal manual coding effort.
+
+        To facilitate an interactive, user-friendly presentation of the machine learning results, the open-source library 
+        Streamlit was employed. Streamlit allows rapid development of lightweight data apps and supports real-time parameter 
+        interaction and visualiza¬tion without the need for advanced front-end programming skills.
+
+        Finally, the GitHub platform was used to version, manage, and publish the source code and Streamlit application. GitHub 
+        served both as a collaborative development environment and as a medium for publicly sharing the implementation and 
+        results in the spirit of open, reproducible science.
+
+        """)
     elif phase == "Key Results & Strategic Modeling Decisions":
         st.subheader("6. Key results and strategic modeling decisions")
         st.markdown("""
