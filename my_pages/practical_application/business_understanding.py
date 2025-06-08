@@ -108,24 +108,44 @@ def show():
     elif phase == "Methodical Decisions for Modeling":
         st.subheader("4. Methodical decisions for modeling within the business undestanding phases")
         st.markdown("""
-        **Both models must demonstrate consistent cross-validation performance with minimal discrepancies between 
-        training and validation, ensuring generalizability and avoiding overfitting.** Accuracy remains a key indicator 
+        According to the CRISP-DM methodology, the Business Understanding phase establi¬shes the foundational knowledge 
+        necessary for the entire data mining project. This includes clarifying the precise business question, consolidating 
+        domain expertise, identifying key stakeholders, understanding data availability and accessibility, and defining the 
+        technical environment. Importantly, this phase also involves making early but critical decisions regarding the 
+        analytical approach and modeling strategy.  
+        In this project, the modeling methodology is explicitly outlined and aligned with business goals within the Business 
+        Understanding phase to ensure a coherent and goal-driven process. The choice of machine learning algorithms and 
+        evaluation metrics is not deferred to later phases but carefully considered upfront to reflect the project’s specific 
+        requirements and constraints.  
+        The modeling approach is structured as a two-iteration process:
+         - In the first iteration, a broad set of candidate algorithms – including logistic regression, XGBoost, naive bayes,
+           random forest, gradient boosting, and deci¬sion trees – is  assessed. The evaluation metric driving the initial 
+           comparison is the mean accuracy score, derived through repeated stratified k-fold cross-validation (5 splits, 
+           2 repeats) applied exclusively on the training data. This robust validation framework is chosen to mitigate 
+           overfitting risks and account for class imbalances.
+        - Selection after this iteration narrows down to two models based on compleme¬ntary criteria
+            - A transparent, interpretable model prioritized for ease of explanation to internal stakeholders (e.g., sales 
+              teams) and external regulators (e.g., BaFin), thus fostering trust and accountability.
+            - A complex, non-linear model retained for benchmarking optimal pre¬dictive performance and exploring potential 
+              gains from more sophis¬ticated approaches.
+        
+        Both models must demonstrate consistent cross-validation performance with minimal discrepancies between 
+        training and validation, ensuring generalizability and avoiding overfitting. Accuracy remains a key indicator 
         of discrimination power, but not in isolation.
         - **The second iteration anticipates incorporating feature engineering** informed by exploratory data analysis 
-        and success profile insights, aiming to enhance predictive signal extraction. This phase also broadens model 
-        assessment beyond accuracy, introducing a comprehensive set of metrics that capture different aspects of 
-        classifier quality and business relevance, including:
-        - **Phase 2: Erweiterte Bewertung**
+          and success profile insights, aiming to enhance predictive signal extraction. This phase also broadens model 
+          assessment beyond accuracy, introducing a comprehensive set of metrics that capture different aspects of 
+          classifier quality and business relevance, including:
             - Einführung zusätzlicher Metriken:
-                - Early Retrieval Area (ERA)
-                - False Positive Rate (FPR)
-                - False Negative Rate (FNR)
-                - Precision
-                - Recall (True Positive Rate)
-                - F1-Score
-                - Cohen’s Kappa
-                - Matthews Correlation Coefficient (MCC)
-                - Total Cost (€): Übersetzung von Fehlklassifikationen in finanzielle Auswirkungen
+            - Early Retrieval Area (ERA)
+            - False Positive Rate (FPR)
+            - False Negative Rate (FNR)
+            - Precision
+            - Recall (True Positive Rate)
+            - F1-Score
+            - Cohen’s Kappa
+            - Matthews Correlation Coefficient (MCC)
+            - Total Cost (€): Übersetzung von Fehlklassifikationen in finanzielle Auswirkungen
         """)
     elif phase == "Technical Framework & Environment":
         st.subheader("5. Technical implementation framework")
