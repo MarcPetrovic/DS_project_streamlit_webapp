@@ -7,7 +7,7 @@ def show():
         "General Business Knowledge",
         "Cost-optimized Assesment Metrics",
         "Alternative Thresholding Strategies",
-        "General Evaluation Metrics",
+        "Methodical Decisions for Modeling",
         "Technical Framework & Environment",
         "Key Results of the 1st Phase"
     ])
@@ -105,8 +105,8 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
-    elif phase == "General Evaluation Metrics":
-        st.subheader("4. General metrics for evaluating a classification problem")
+    elif phase == "Methodical Decisions for Modeling":
+        st.subheader("4. Methodical decisions for modeling within the business undestanding phases")
         st.markdown("""
         In the data understanding phase, which should be interpreted as complementary to the business understanding
         phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
@@ -121,7 +121,7 @@ def show():
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
     elif phase == "Technical Framework & Environment":
-        st.subheader("4. Technical framework & environment")
+        st.subheader("5. Technical implementation framework")
         st.markdown("""
         In the data understanding phase, which should be interpreted as complementary to the business understanding
         phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
@@ -136,17 +136,13 @@ def show():
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
     elif phase == "Key Results of the 1st Phase":
-        st.subheader("5. Key results of the 1st phase of CRISP-DM")
+        st.subheader("6. Key results and strategic modeling decisions")
         st.markdown("""
-        In the data understanding phase, which should be interpreted as complementary to the business understanding
-        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
-        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
-        includes the task of describing the data using statistical analyses and determining attributes and their 
-        characteristics. This phase also consists of a total of four tasks:
-        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
-        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
-        or field identities.
-        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
-        data.
-        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
+        This section summarizes the essential business goals, contextual conditions, and methodical decisions made 
+        during the Business Understanding phase of the CRISP-DM process.
+        **Definition of the business objective:** The overarching goal of the project is to develop a binary classification 
+        model to predict customer responsiveness to outbound telemarketing campaigns for fixed-term deposit products. 
+        By targeting only customers with a high predicted likelihood of accepting an investment offer, the bank can 
+        improve its marketing efficiency, reduce unnecessary expenditures, and maximize the return on campaign 
+        investments.
         """)
