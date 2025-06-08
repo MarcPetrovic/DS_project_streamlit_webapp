@@ -108,17 +108,22 @@ def show():
     elif phase == "Methodical Decisions for Modeling":
         st.subheader("4. Methodical decisions for modeling within the business undestanding phases")
         st.markdown("""
-        In the data understanding phase, which should be interpreted as complementary to the business understanding
-        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
-        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
-        includes the task of describing the data using statistical analyses and determining attributes and their 
-        characteristics. This phase also consists of a total of four tasks:
-        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
-        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
-        or field identities.
-        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
-        data.
-        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
+        **Both models must demonstrate consistent cross-validation performance with minimal discrepancies between 
+        training and validation, ensuring generalizability and avoiding overfitting.** Accuracy remains a key indicator 
+        of discrimination power, but not in isolation.
+        - **The second iteration anticipates incorporating feature engineering** informed by exploratory data analysis 
+        and success profile insights, aiming to enhance predictive signal extraction. This phase also broadens model 
+        assessment beyond accuracy, introducing a comprehensive set of metrics that capture different aspects of 
+        classifier quality and business relevance, including:  
+        - Early Retrieval Area (ERA)
+        - False Positive Rate (FPR)
+        - False Negative Rate (FNR)
+        - Precision
+        - Recall (True Positive Rate)
+        - F1-Score
+        - Cohen’s Kappa
+        - Matthews Correlation Coefficient (MCC)
+        - Total Cost (€) as a direct translation of misclassification consequences into financial terms  
         """)
     elif phase == "Technical Framework & Environment":
         st.subheader("5. Technical implementation framework")
