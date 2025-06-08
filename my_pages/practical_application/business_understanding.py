@@ -159,14 +159,13 @@ def show():
 
         **Determine the objectives of data mining and model selection strategy:** In alignment with the business objectives, the 
         following supervised learning algorithms were selected for the first modeling iteration:
-        
-        •	Logistic Regression
-        •	K-Nearest Neighbors (KNN)
-        •	Gradient Boosting Classifier
-        •	Decision Tree
-        •	Random Forest
-        •	Naïve Bayes
-        •	XGBoostThe 
+        - Logistic Regression
+        - K-Nearest Neighbors (KNN)
+        - Gradient Boosting Classifier
+        - Decision Tree
+        - Random Forest
+        - Naïve Bayes
+        - XGBoost  
         
         The primary selection criterion during this phase was predictive accuracy, estimated through repeated stratified 
         k-fold cross-validation (5 folds, 2 repeats) on the training dataset. To ensure generalizability and mitigate 
@@ -174,12 +173,11 @@ def show():
 
         **Expanded Evaluation Framework in the Second Modeling Iteration:** In the second iteration, both models were evaluated 
         using classification metrics derived from the confusion matrix, including:
-        
-        •	False Positives (Type I Errors) – Costly due to unnecessary marketing expenditures
-        •	False Negatives (Type II Errors) – Result in missed revenue opportunities
-        •	Recall – Sensitivity to identifying actual subscribers
-        •	Precision – Accuracy of positive predictions
-        •	F1-Score – Harmonic mean of precision and recall
+        - **False Positives (Type I Errors)** – Costly due to unnecessary marketing expenditures
+        - **False Negatives (Type II Errors)** – Result in missed revenue opportunities
+        - **Recall** – Sensitivity to identifying actual subscribers
+        - **Precision** – Accuracy of positive predictions
+        - **F1-Score** – Harmonic mean of precision and recall  
         
         This expansion beyond mere accuracy was motivated by the cost-sensitive nature of the problem. Each misclassification 
         carries a quantifiable business cost (outlined in Section 3.1.1). The inclusion of financial risk metrics ensures that 
@@ -187,11 +185,10 @@ def show():
 
         **Conclusion of the Business Understanding Phase:** The decisions made during this phase establish a strong foundation 
         for the subsequent modeling steps. By:
-        
-        •	clearly defining the business objective,
-        •	understanding the financial mechanisms behind fixed-term deposits,
-        •	identifying the right modeling framework,
-        •	and predefining cost-aware evaluation criteria
+        - Clearly defining the business objective
+        - Understanding the financial mechanisms behind fixed-term deposits
+        - Identifying the right modeling framework
+        - Predefining cost-aware evaluation criteria  
         
         The project ensures that all subsequent phases remain anchored in business relevance and stakeholder value.
         """)
