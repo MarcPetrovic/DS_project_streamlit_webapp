@@ -135,10 +135,12 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
+                # Bild von der URL laden und anzeigen 
         show_github_image(
-        image_filename="images/technical_environment.PNG",
+        image_filename="images/business_logic.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 9: Overview of the main applications and tools, used within the data project.")
+        caption=( "Figure 7: Presentation of the business logic in the financial services sector with special \n"
+                 "emphasis on the three players involved in financial transactions")
         )
     elif phase == "Key Results & Strategic Modeling Decisions":
         st.subheader("6. Key results and strategic modeling decisions")
