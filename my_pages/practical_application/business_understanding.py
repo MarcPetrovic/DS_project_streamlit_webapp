@@ -114,8 +114,8 @@ def show():
         - **The second iteration anticipates incorporating feature engineering** informed by exploratory data analysis 
         and success profile insights, aiming to enhance predictive signal extraction. This phase also broadens model 
         assessment beyond accuracy, introducing a comprehensive set of metrics that capture different aspects of 
-        classifier quality and business relevance, including:  
-         - Early Retrieval Area (ERA)
+        classifier quality and business relevance, including:
+         -Early Retrieval Area (ERA)
          - False Positive Rate (FPR)
          - False Negative Rate (FNR)
          - Precision
