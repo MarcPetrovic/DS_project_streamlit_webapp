@@ -115,15 +115,17 @@ def show():
         and success profile insights, aiming to enhance predictive signal extraction. This phase also broadens model 
         assessment beyond accuracy, introducing a comprehensive set of metrics that capture different aspects of 
         classifier quality and business relevance, including:
-         -Early Retrieval Area (ERA)
-         - False Positive Rate (FPR)
-         - False Negative Rate (FNR)
-         - Precision
-         - Recall (True Positive Rate)
-         - F1-Score
-         - Cohen’s Kappa
-         - Matthews Correlation Coefficient (MCC)
-         - Total Cost (€) as a direct translation of misclassification consequences into financial terms  
+        - **Phase 2: Erweiterte Bewertung**
+            - Einführung zusätzlicher Metriken:
+                - Early Retrieval Area (ERA)
+                - False Positive Rate (FPR)
+                - False Negative Rate (FNR)
+                - Precision
+                - Recall (True Positive Rate)
+                - F1-Score
+                - Cohen’s Kappa
+                - Matthews Correlation Coefficient (MCC)
+                - Total Cost (€): Übersetzung von Fehlklassifikationen in finanzielle Auswirkungen
         """)
     elif phase == "Technical Framework & Environment":
         st.subheader("5. Technical implementation framework")
