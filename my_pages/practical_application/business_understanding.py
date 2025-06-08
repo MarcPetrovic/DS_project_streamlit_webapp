@@ -128,8 +128,8 @@ def show():
         ecosystem for managing Python packages, with particular advantages in terms of **version control**, **reproducibility**, 
         and **package dependency resolution**.
         
-        Due to the use of specific and partially non-standard Python libraries within the project, a dedicated Conda 
-        environment was configured. This environment was built on Python 3.9 to ensure compatibility with all required 
+        Due to the use of specific and partially non-standard Python libraries within the project, a **dedicated Conda 
+        environment was configured**. This environment was built on Python 3.9 to ensure compatibility with all required 
         packages. To allow seamless execution within Jupyter Notebooks, the environment was explicitly registered as a 
         Jupyter kernel using the ipykernel package. This setup facilitated smooth integration of environment-specific 
         packages within the interactive notebook interface.
