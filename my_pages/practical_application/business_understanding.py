@@ -152,8 +152,7 @@ def show():
         product offer, and the response is represented by a binary outcome:
         
         •	"Yes" → The customer subscribed to the deposit offer (positive class)
-        
-        •	"No" → The customer declined the offer (negative class)
+                •	"No" → The customer declined the offer (negative class)
         
         This clearly defines the task as a supervised classification problem, with a strong business need to optimize both customer 
         selection and campaign cost.
