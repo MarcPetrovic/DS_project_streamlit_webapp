@@ -140,6 +140,7 @@ def show():
         st.markdown("""
         This section summarizes the essential business goals, contextual conditions, and methodical decisions made 
         during the Business Understanding phase of the CRISP-DM process.
+        
         **Definition of the business objective:** The overarching goal of the project is to develop a binary classification 
         model to predict customer responsiveness to outbound telemarketing campaigns for fixed-term deposit products. 
         By targeting only customers with a high predicted likelihood of accepting an investment offer, the bank can 
