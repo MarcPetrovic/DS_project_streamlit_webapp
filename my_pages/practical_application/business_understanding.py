@@ -9,7 +9,7 @@ def show():
         "Alternative Thresholding Strategies",
         "Methodical Decisions for Modeling",
         "Technical Framework & Environment",
-        "Key Results of the 1st Phase"
+        "Key Results & Strategic Modeling Decisions"
     ])
     # Inhalte je nach Auswahl
     if phase == "General Business Knowledge":
@@ -135,7 +135,7 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
-    elif phase == "Key Results of the 1st Phase":
+    elif phase == "Key Results & Strategic Modeling Decisions":
         st.subheader("6. Key results and strategic modeling decisions")
         st.markdown("""
         This section summarizes the essential business goals, contextual conditions, and methodical decisions made 
