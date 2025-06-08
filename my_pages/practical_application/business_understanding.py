@@ -150,9 +150,9 @@ def show():
         that conducts regular marketing campaigns via its internal call center. These campaigns are specifically designed to 
         promote interest-bearing fixed-term deposit contracts to existing customers. The stimulus in this case is a telephone-based 
         product offer, and the response is represented by a binary outcome:
-        
-        •	"Yes" → The customer subscribed to the deposit offer (positive class)
-                •	"No" → The customer declined the offer (negative class)
+
+        - "Yes" → The customer subscribed to the deposit offer (positive class)
+        - "No" → The customer declined the offer (negative class)  
         
         This clearly defines the task as a supervised classification problem, with a strong business need to optimize both customer 
         selection and campaign cost.
