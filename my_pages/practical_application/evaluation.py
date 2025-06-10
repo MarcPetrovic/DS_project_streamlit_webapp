@@ -35,8 +35,8 @@ def show():
     target variable is binary: Term deposit subscription (yes/no).
     
     ### Instructions by Primary Researchers
-    """)
-
+    """), unsafe_allow_html=True)
+    
     # SQL-artige Gruppierung ersetzen durch pandas
     grouped = df.groupby(["month", "cons.price.idx"]).agg(
         COUNT_TOTAL_PER_MONTH=('month', 'count'),
