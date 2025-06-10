@@ -4,7 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-from my_colormaps import my_cmap, my_cmap_r, cmap_4
+from utils.my_colormaps import my_cmap, my_cmap_r, cmap_4
 
 def show():
     st.header("Methods & Data")
