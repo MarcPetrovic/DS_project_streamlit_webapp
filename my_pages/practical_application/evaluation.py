@@ -59,8 +59,7 @@ def show():
     In the data preparation phase, further steps were taken to ensure model reliability and adherence to methodological 
     guidelines from the primary researchers.
        
-    This additional preprocessing pipeline includes two critical actions:
-    
+    This additional preprocessing pipeline includes two critical actions:    
     1. **Remove duplicate rows**
        - *Rationale:* Ensures data quality by eliminating redundant observations that may bias the model or inflate its 
        performance.  
