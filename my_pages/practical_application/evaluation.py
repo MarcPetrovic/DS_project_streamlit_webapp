@@ -56,14 +56,14 @@ def show():
     st.markdown("""
     ### Additional Preprocessing Pipeline: Duplicate Removal and Column Exclusion (CRISP-DM: Data Preparation)
     
-    In the data preparation phase, further steps were taken to ensure model reliability and adherence to methodological guidelines from the primary researchers.
-    
-    ### Pipeline Components and Rationale
-    
+    In the data preparation phase, further steps were taken to ensure model reliability and adherence to methodological 
+    guidelines from the primary researchers.
+       
     This additional preprocessing pipeline includes two critical actions:
     
     1. **Remove duplicate rows**
-       - *Rationale:* Ensures data quality by eliminating redundant observations that may bias the model or inflate its performance.
+       - *Rationale:* Ensures data quality by eliminating redundant observations that may bias the model or inflate its 
+       performance.  
     
     2. **Drop the feature `duration`**
        - *Rationale:* Based on explicit instructions from the primary researchers, the variable `duration` must be excluded because it is not available before the marketing campaign takes place.
