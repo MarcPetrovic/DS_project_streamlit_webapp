@@ -7,6 +7,7 @@ import numpy as np
 from utils.preprap_feature_engineering import build_pipeline
 import graphviz
 from sklearn import set_config
+from utils.summary_stats import summary
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -49,6 +50,5 @@ def show():
     transformed_df = preprocessor.fit_transform(df)
 
     st.subheader("Daten nach Transformation:")
-    buffer = io.StringIO()
-    transformed_df.info(buf=buffer)
-    st.text(buffer.getvalue())
+    st.subheader("Datenzusammenfassung")
+    st.dataframe(summary(df).reset_index().rename(columns={"index": "Spalte"}))
