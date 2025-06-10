@@ -7,67 +7,72 @@ class ReplaceUnknowns(BaseEstimator, TransformerMixin):
 
     def transform(self, X):
         return X.replace({'unknown': np.nan})
-
-    def get_feature_names_out(self, input_features=None):
-        return input_features
+        
+    def get_feature_names_out(self):
+        pass
 
 
 class CategorizeDefault(BaseEstimator, TransformerMixin):
+    # BaseEstimator contains the get_params and set_params methods.
+    # TransformerMixin contains the method fit_transform.
+    
     def __init__(self, column_name):
-        self.column_name = column_name
-
-    def fit(self, X, y=None):
+        self.column_name = column_name   # name of the column to be segmented
+        
+    def fit(self, X, y = None):  
         return self
+    
+    def transform(self, X): # Creation of the new column
+        X[self.column_name + "_cat"]  = X[self.column_name].replace(['unknown', 'yes'], ['unknown|yes', 'unknown|yes'])
+        
+        return X 
 
-    def transform(self, X):
-        X[self.column_name + "_cat"] = X[self.column_name].replace(['unknown', 'yes'], ['unknown|yes', 'unknown|yes'])
-        return X
-
-    def get_feature_names_out(self, input_features=None):
-        return input_features + [self.column_name + "_cat"]
+    def get_feature_names_out(self):
+        pass
 
 
 class CustTrans(BaseEstimator, TransformerMixin):
     def __init__(self, column_name):
-        self.column_name = column_name
-
-    def fit(self, X, y=None):
+        self.column_name = column_name   # name of the column to be segmented
+        
+    def fit(self, X, y = None):  
         return self
+    
+    def transform(self, X): 
+        X['target']= X[self.column_name].replace(['no', 'yes'], [0, 1])
+        
+        return X 
 
-    def transform(self, X):
-        X['target'] = X[self.column_name].replace(['no', 'yes'], [0, 1])
-        return X
-
-    def get_feature_names_out(self, input_features=None):
-        return input_features + ['target']
+    def get_feature_names_out(self):
+        pass  
 
 
 class ColumnDrop(BaseEstimator, TransformerMixin):
+    
     def __init__(self, column_to_drop):
-        self.column_to_drop = column_to_drop
-
-    def fit(self, X, y=None):
+        self.column_to_drop = column_to_drop   # name of the column to remove
+        
+    def fit(self, X, y= None):  
         return self
+    
+    def transform(self, X): # Removes the column
+        return X.drop(self.column_to_drop, axis = 1)
 
-    def transform(self, X):
-        return X.drop(self.column_to_drop, axis=1)
-
-    def get_feature_names_out(self, input_features=None):
-        if input_features is None:
-            return None
-        return [f for f in input_features if f != self.column_to_drop]
+    def get_feature_names_out(self):
+        pass
 
 
 class CustTransPdays(BaseEstimator, TransformerMixin):
     def __init__(self, column_name):
-        self.column_name = column_name
+        self.column_name = column_name   # name of the column to be segmented
 
-    def fit(self, X, y=None):
+    def fit(self, X, y = None):  
         return self
-
-    def transform(self, X):
-        X[self.column_name + "_cat"] = X[self.column_name].replace([999], [0])
-        return X
-
-    def get_feature_names_out(self, input_features=None):
-        return input_features + [self.column_name + "_cat"]
+        
+    def transform(self, X): 
+        X[self.column_name + "_cat"]  = X[self.column_name].replace([999], [0])
+            
+        return X 
+    
+    def get_feature_names_out(self):
+        pass
