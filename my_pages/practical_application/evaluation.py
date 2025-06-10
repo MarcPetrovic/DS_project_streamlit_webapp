@@ -40,9 +40,12 @@ def show():
     df['date_int'] = df['date_period'].dt.strftime('%Y%m').astype(int)
     df['date_period'] = df['date_period'].astype(str)
 
+    st.success("Datei erfolgreich angereichert.")
+    st.dataframe(df.head())
+
     preprocessor = build_pipeline(df)
     set_config(display='diagram')
-    preprocessor
+    display(preprocessor)
 #    preprocessor.set_output(transform='pandas')
 #    transformed_df = preprocessor.fit_transform(df)
 
