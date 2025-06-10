@@ -4,6 +4,8 @@ from utils.data_loader import load_csv_data
 import pandas as pd
 import numpy as np
 from utils.preprap_feature_engineering import build_pipeline
+import graphviz
+from sklearn import set_config
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -39,7 +41,8 @@ def show():
     df['date_period'] = df['date_period'].astype(str)
 
     preprocessor = build_pipeline(df)
-    print(preprocessor)
+    set_config(display='diagram')
+    preprocessor
 #    preprocessor.set_output(transform='pandas')
 #    transformed_df = preprocessor.fit_transform(df)
 
