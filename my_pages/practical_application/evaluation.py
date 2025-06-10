@@ -24,7 +24,17 @@ def show():
     st.success("Datei erfolgreich geladen.")
     st.dataframe(df.head())
     st.markdown("""
-    ### Data Preprocessing According to Primary Researcher Instructions (CRISP-DM: Data Understanding)
+    ### Data preprocessing according to the key results of data understanding phases
+    <br><br>
+    During this phase of the CRISP-DM process, the initial data preprocessing is carried out based on the one hand on 
+    instructions from the primary researchers. On the other hand, results from the data audit will be taken into account.
+    The goal is to clean and transform the data into a suitable format for later modeling.
+    
+    ### Initial Situation
+    The dataset used originates from a secondary source and includes special codings that need to be standardized. The 
+    target variable is binary: Term deposit subscription (yes/no).
+    
+    ### Instructions by Primary Researchers
     """)
 
     # SQL-artige Gruppierung ersetzen durch pandas
