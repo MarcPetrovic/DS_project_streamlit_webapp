@@ -44,10 +44,8 @@ def show():
     st.dataframe(df.head())
 
     preprocessor = build_pipeline(df)
-    set_config(display='diagram')
-    display(preprocessor)
 #    preprocessor.set_output(transform='pandas')
-#    transformed_df = preprocessor.fit_transform(df)
+    transformed_df = preprocessor.fit_transform(df)
 
-#    st.subheader("Daten nach Transformation:")
-#    st.dataframe(transformed_df.head())
+    st.subheader("Daten nach Transformation:")
+    st.dataframe(transformed_df.head())
