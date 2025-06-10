@@ -1,4 +1,5 @@
 import streamlit as st
+import io
 from utils.image_loader import show_github_image
 from utils.data_loader import load_csv_data
 import pandas as pd
@@ -48,4 +49,6 @@ def show():
     transformed_df = preprocessor.fit_transform(df)
 
     st.subheader("Daten nach Transformation:")
-    st.dataframe(transformed_df.head())
+    buffer = io.StringIO()
+    transformed_df.info(buf=buffer)
+    st.text(buffer.getvalue())
