@@ -25,7 +25,7 @@ def show():
     st.dataframe(df.head())
     st.markdown("""
     ### Data preprocessing according to the key results of data understanding phases
-    <br><br>
+    
     During this phase of the CRISP-DM process, the initial data preprocessing is carried out based on the one hand on 
     instructions from the primary researchers. On the other hand, results from the data audit will be taken into account.
     The goal is to clean and transform the data into a suitable format for later modeling.
