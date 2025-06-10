@@ -22,11 +22,11 @@ def show():
 
     #show_profiling_report("profiling/bank_marketing.html")
 
-# Dummy-Daten
-x, y, c = zip(*np.random.rand(30, 3) * 4 - 2)
-
-# Plot mit eigener Colormap
-fig, ax = plt.subplots()
-scatter = ax.scatter(x, y, c=c, cmap=cmap_4)
-plt.colorbar(scatter, ax=ax)
-st.pyplot(fig)
+    # Dummy-Daten
+    x, y, c = zip(*np.random.rand(30, 3) * 4 - 2)
+    
+    # Plot mit eigener Colormap
+    fig, ax = plt.subplots()
+    scatter = ax.scatter(x, y, c=c, cmap=cmap_4)
+    plt.colorbar(scatter, ax=ax)
+    st.pyplot(fig)
