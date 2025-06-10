@@ -39,8 +39,9 @@ def show():
     df['date_period'] = df['date_period'].astype(str)
 
     preprocessor = build_pipeline(df)
-    preprocessor.set_output(transform='pandas')
-    transformed_df = preprocessor.fit_transform(df)
+    print(preprocessor)
+#    preprocessor.set_output(transform='pandas')
+#    transformed_df = preprocessor.fit_transform(df)
 
-    st.subheader("Daten nach Transformation:")
-    st.dataframe(transformed_df.head())
+#    st.subheader("Daten nach Transformation:")
+#    st.dataframe(transformed_df.head())
