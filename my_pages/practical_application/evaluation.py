@@ -62,7 +62,7 @@ def show():
     This additional preprocessing pipeline includes two critical actions:    
     1. **Remove duplicate rows**
        - *Rationale:* Ensures data quality by eliminating redundant observations that may bias the model or inflate its 
-       performance.  
+       performance.  <br>
     
     2. **Drop the feature `duration`**
        - *Rationale:* Based on explicit instructions from the primary researchers, the variable `duration` must be excluded because it is not available before the marketing campaign takes place.
