@@ -74,7 +74,7 @@ def show():
     preprocessor.set_output(transform='pandas')
     transformed_df = preprocessor.fit_transform(df)
 
-    sum_df = summary(df)
+    sum_df = summary(transformed_df)
     
     styled_summary = sum_df.style.background_gradient(
         cmap=my_cmap_r,
