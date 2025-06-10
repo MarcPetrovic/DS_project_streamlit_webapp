@@ -6,11 +6,11 @@ def summary(df):
         'nb_missing_values',
         'rate_missing_values',
         'type',
-        'duplicates'
+        'duplicates total'
     ])
     tab['nb_unique_values'] = df.nunique().values
     tab['nb_missing_values'] = df.isna().sum().values
     tab['rate_missing_values'] = round(df.isna().sum() * 100 / len(df), 2)
     tab['type'] = df.dtypes.values
-    tab['duplicates'] = [df[col].duplicated().sum() for col in df.columns]
+    tab['duplicates'] = df.duplicated().sum()
     return tab
