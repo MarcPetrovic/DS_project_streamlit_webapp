@@ -12,5 +12,5 @@ def summary(df):
     tab['nb_missing_values'] = df.isna().sum().values
     tab['rate_missing_values'] = round(df.isna().sum() * 100 / len(df), 2)
     tab['type'] = df.dtypes.values
-    tab['duplicates'] = df.duplicated().sum()
+    tab['duplicates'] = [df[col].duplicated().sum() for col in df.columns]
     return tab
