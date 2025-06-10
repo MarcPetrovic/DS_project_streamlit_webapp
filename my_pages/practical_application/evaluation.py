@@ -25,31 +25,6 @@ def show():
     st.dataframe(df.head())
     st.markdown("""
     # Data Preprocessing According to Primary Researcher Instructions (CRISP-DM: Data Understanding)
-    
-    During this phase of the CRISP-DM process, the initial data preprocessing is carried out based on instructions from the primary researchers. The goal is to clean and transform the data into a suitable format for later modeling.
-    
-    ## Initial Situation
-    
-    The dataset used originates from a secondary source and includes special codings that need to be standardized. The target variable is binary: Term deposit subscription (yes/no).
-    
-    ## Instructions by Primary Researchers
-    
-    The following data transformations were implemented according to the guidance received:
-    
-    - **Replace 'unknown' with 'NaN' in all categorical features**  
-      *Rationale:* The value 'unknown' indicates missing information and is therefore encoded as 'NaN' to allow for proper handling (e.g., imputation or removal).
-    
-    - **Combine `unknown` and `yes` values in the `default` feature into a single category `unknown|yes`**  
-      *Rationale:* Both values suggest potential credit risk and should be treated as one category.
-    
-    - **Transform the target variable `y`:**  
-      Original values: `'no'`, `'yes'`  
-      New encoding: `0` (no subscription), `1` (subscription)  
-      *Rationale:* Required for binary classification in a supervised learning context.
-    
-    - **Transform the `pdays` variable (days since last contact):**  
-      Value `999` → `0`  
-      *Rationale:* A value of 999 indicates no previous contact and is re-coded to 0 for meaningful numeric interpretation.
     """)
 
     # SQL-artige Gruppierung ersetzen durch pandas
