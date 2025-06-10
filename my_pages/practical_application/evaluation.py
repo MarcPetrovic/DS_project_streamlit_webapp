@@ -13,16 +13,6 @@ from utils.my_colormaps import my_cmap_r
 def show():
     st.header("evaluation with flexible CSV-Loading")
 
-    # Beispiel: Bank-Daten laden
-    df = load_csv_data(
-        filename="data/bank-additional-full.csv",
-        sep=";",
-        header=True,
-        add_row_id=True
-    )
-
-    st.success("Datei erfolgreich geladen.")
-    st.dataframe(df.head())
     st.markdown("""
     ### Data preprocessing according to the key results of data understanding phases
     
@@ -50,8 +40,19 @@ def show():
       Value `999` → `0`  
       *Rationale:* A value of 999 indicates no previous contact and is re-coded to 0 for meaningful numeric interpretation.
 
+    Below you find top 5 recordsets of the initial dataframe.
     """, unsafe_allow_html=True)
-    
+
+    # Beispiel: Bank-Daten laden
+    df = load_csv_data(
+        filename="data/bank-additional-full.csv",
+        sep=";",
+        header=True,
+        add_row_id=True
+    )
+
+#    st.success("Datei erfolgreich geladen.")
+    st.dataframe(df.head())    
     # SQL-artige Gruppierung ersetzen durch pandas
     grouped = df.groupby(["month", "cons.price.idx"]).agg(
         COUNT_TOTAL_PER_MONTH=('month', 'count'),
