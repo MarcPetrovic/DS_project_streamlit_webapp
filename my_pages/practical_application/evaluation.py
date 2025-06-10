@@ -45,6 +45,11 @@ def show():
       Original values: `'no'`, `'yes'`  
       New encoding: `0` (no subscription), `1` (subscription)  
       *Rationale:* Required for binary classification in a supervised learning context.
+      
+    - **Transform the `pdays` variable (days since last contact):**  
+      Value `999` → `0`  
+      *Rationale:* A value of 999 indicates no previous contact and is re-coded to 0 for meaningful numeric interpretation.
+
     """, unsafe_allow_html=True)
     
     # SQL-artige Gruppierung ersetzen durch pandas
