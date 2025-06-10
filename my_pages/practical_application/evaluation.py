@@ -8,6 +8,7 @@ from utils.preprap_feature_engineering import build_pipeline
 import graphviz
 from sklearn import set_config
 from utils.summary_stats import summary
+from utils.my_colormaps import my_cmap_r
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -49,6 +50,14 @@ def show():
     preprocessor.set_output(transform='pandas')
     transformed_df = preprocessor.fit_transform(df)
 
+    sum_df = summary(df)
+    
+    styled_summary = sum_df.style.background_gradient(
+        cmap=my_cmap_r,
+        subset=['rate_missing_values']
+    )
+
     st.subheader("Daten nach Transformation:")
     st.subheader("Datenzusammenfassung")
-    st.dataframe(summary(df).reset_index().rename(columns={"index": "Spalte"}))
+    st.dataframe(styled_summary)
+    #st.dataframe(summary(df).reset_index().rename(columns={"index": "Spalte"}))
