@@ -53,6 +53,36 @@ def show():
 
 #    st.success("Datei erfolgreich geladen.")
     st.dataframe(df.head())    
+    st.markdown("""
+    ### Additional Preprocessing Pipeline: Duplicate Removal and Column Exclusion (CRISP-DM: Data Preparation)
+    
+    In the data preparation phase, further steps were taken to ensure model reliability and adherence to methodological guidelines from the primary researchers.
+    
+    ### Pipeline Components and Rationale
+    
+    This additional preprocessing pipeline includes two critical actions:
+    
+    1. **Remove duplicate rows**
+       - *Rationale:* Ensures data quality by eliminating redundant observations that may bias the model or inflate its performance.
+    
+    2. **Drop the feature `duration`**
+       - *Rationale:* Based on explicit instructions from the primary researchers, the variable `duration` must be excluded because it is not available before the marketing campaign takes place.
+       - Including it would introduce *data leakage*, as `duration` is only known **after** a call ends and is strongly correlated with the target variable.
+    
+    ---
+    
+    ### Summary of the Additional Preprocessing Steps
+    
+    | Step | Feature       | Transformation              | Rationale                                                        |
+    |------|---------------|-----------------------------|------------------------------------------------------------------|
+    | 1    | Entire dataset| Removal of duplicates       | Avoids bias and inflated performance due to redundant entries    |
+    | 2    | `duration`    | Dropped from the dataset    | Prevents data leakage, not known at time of prediction           |
+    
+    ---
+    
+    > *Note:* These steps are applied before model training and are considered essential to ensure the model generalizes well to unseen data.
+    """, unsafe_allow_html=True)
+    
     # SQL-artige Gruppierung ersetzen durch pandas
     grouped = df.groupby(["month", "cons.price.idx"]).agg(
         COUNT_TOTAL_PER_MONTH=('month', 'count'),
