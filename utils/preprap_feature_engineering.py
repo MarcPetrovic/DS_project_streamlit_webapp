@@ -14,10 +14,15 @@ def build_pipeline(df):
     numerical_features = [c for c in df.columns if df[c].dtype == 'float64']
     categorical_features = ['job', 'marital', 'education', 'housing', 'loan', 'contact', 'month', 'day_of_week', 'poutcome']
 
-    num_pipeline = Pipeline([('imputer', SimpleImputer(strategy='mean'))])
-    cat_pipeline = Pipeline([
-        ('replace_unknowns', ReplaceUnknowns()),
-        ('imputer2', SimpleImputer(strategy='most_frequent'))
+    # Pipeline for quantitative features + replacing missing values
+    numerical_pipeline = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='mean'))    #, # replace missing values with mean
+    ])
+    
+    # Pipeline for categorical features + replacing missing values
+    categorical_pipeline = Pipeline(steps=[
+    ('replace_unknowns', ReplaceUnknowns()),   
+    ('imputer2', SimpleImputer(strategy='most_frequent'))    #, # replace missing values with modus
     ])
     # Pipeline feature default
     cat_drop_default_pipeline = Pipeline(steps=[
