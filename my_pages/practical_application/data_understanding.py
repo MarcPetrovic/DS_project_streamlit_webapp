@@ -59,13 +59,6 @@ def show():
 
     elif task == "Instructions Primary Researcher":
         st.subheader("2. Instructions from the Primary Researcher")
-        st.markdown("""
-        In the data understanding phase, which should be interpreted as complementary to the business understanding
-        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
-        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
-        includes the task of describing the data using statistical analyses and determining attributes and their 
-        characteristics. This phase also consists of a total of four tasks:
-        """)
           # Bild von der URL laden und anzeigen 
         show_github_image(
         image_filename="images/instructions_primary_researcher.PNG",
