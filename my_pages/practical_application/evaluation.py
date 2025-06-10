@@ -31,10 +31,20 @@ def show():
     The goal is to clean and transform the data into a suitable format for later modeling.
     
     ### Initial Situation
-    The dataset used originates from a secondary source and includes special codings that need to be standardized. The 
-    target variable is binary: Term deposit subscription (yes/no).
+    The dataset used originates from a secondary source and includes special codings that need to be standardized. For 
+    example the target variable (y = Term deposit subscription) is binary, so the values (yes/no) must be transformed to (1/0).
     
-    ### Instructions by Primary Researchers
+    The following data transformations were implemented:
+    - **Replace 'unknown' with 'NaN' in all categorical features**  
+      *Rationale:* The value 'unknown' indicates missing information and is therefore encoded as 'NaN' to allow for proper handling (e.g., imputation or removal).
+    
+    - **Combine `unknown` and `yes` values in the `default` feature into a single category `unknown|yes`**  
+      *Rationale:* Both values suggest potential credit risk and should be treated as one category.
+    
+    - **Transform the target variable `y`:**  
+      Original values: `'no'`, `'yes'`  
+      New encoding: `0` (no subscription), `1` (subscription)  
+      *Rationale:* Required for binary classification in a supervised learning context.
     """, unsafe_allow_html=True)
     
     # SQL-artige Gruppierung ersetzen durch pandas
