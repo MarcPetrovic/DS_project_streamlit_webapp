@@ -17,18 +17,38 @@ def build_pipeline(df):
     num_pipeline = Pipeline([('imputer', SimpleImputer(strategy='mean'))])
     cat_pipeline = Pipeline([
         ('replace_unknowns', ReplaceUnknowns()),
-        ('imputer', SimpleImputer(strategy='most_frequent'))
+        ('imputer2', SimpleImputer(strategy='most_frequent'))
     ])
-
+    # Pipeline feature default
+    cat_drop_default_pipeline = Pipeline(steps=[
+        ('cat_default', cat_default ) 
+      ,  ('drop_default', column_drop_default ) 
+    ])
+    
+    # Pipeline synthetic feature ROW_ID
+    cat_drop_ROW_ID_pipeline = Pipeline(steps=[
+        ('drop_row_id', column_drop_ROW_ID ) 
+    ])
+    
+    # Pipeline for target feature
+    cct_pipeline = Pipeline(steps=[
+        ('custom_trans', cct_target)
+    ])
+    
+    # Pipeline for feature pdays 
+    cct_drop_pdays_pipeline = Pipeline(steps=[
+        ('custom_trans', cct_pdays ) 
+      ,  ('drop_pdays', column_drop_pdays ) 
+    ])
     preprocessor = make_column_transformer(
-        (Pipeline([('drop_row_id', column_drop_ROW_ID)]), ['ROW_ID']),
-        (Pipeline([('custom_trans', cct_target)]), ['y']),
-        (Pipeline([('cat_default', cat_default), ('drop_default', column_drop_default)]), ['default']),
-        (Pipeline([('custom_trans', cct_pdays), ('drop_pdays', column_drop_pdays)]), ['pdays']),
-        (num_pipeline, numerical_features),
-        (cat_pipeline, categorical_features),
-        remainder='passthrough',
-        verbose_feature_names_out=False
+    ( cat_drop_ROW_ID_pipeline, ['ROW_ID'] ) ,
+    ( cct_pipeline, ['y'] ) ,
+    ( cat_drop_default_pipeline, ['default'] ) ,
+    ( cct_drop_pdays_pipeline, ['pdays'] ) ,
+    ( numerical_pipeline, numerical_features),
+    ( categorical_pipeline, categorical_features)
+       ,verbose_feature_names_out=False
+       ,remainder='passthrough'  # remain all other features
     )
 
     return preprocessor
