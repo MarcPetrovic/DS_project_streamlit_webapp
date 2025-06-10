@@ -24,7 +24,7 @@ def show():
     st.success("Datei erfolgreich geladen.")
     st.dataframe(df.head())
     st.markdown("""
-    ## Data Preprocessing According to Primary Researcher Instructions (CRISP-DM: Data Understanding)
+    ### Data Preprocessing According to Primary Researcher Instructions (CRISP-DM: Data Understanding)
     """)
 
     # SQL-artige Gruppierung ersetzen durch pandas
