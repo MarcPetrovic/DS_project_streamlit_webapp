@@ -78,17 +78,16 @@ def show():
     elif phase == "Cost-optimized Assesment Metrics":
         st.subheader("2. Cost-optimized assesment metrics for a cost-sensitive classification problem")
         st.markdown("""
-        In the data understanding phase, which should be interpreted as complementary to the business understanding
-        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
-        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
-        includes the task of describing the data using statistical analyses and determining attributes and their 
-        characteristics. This phase also consists of a total of four tasks:
-        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
-        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
-        or field identities.
-        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
-        data.
-        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
+        Given the previously mentioned business context, the classification task goes beyond statistical accuracy 
+        and targets minimization of financial loss. This makes the project a clear example of a cost-sensitive 
+        classification problem, where Type I and Type II errors have unequal cost implications:
+         - Type I Error (False Positive): Predicting that a customer will subscribe, when in fact they do not. 
+         This leads to wasted marketing costs, including call center resources and campaign-related expenses.
+         - Type II Error (False Negative): Predicting that a customer will not subscribe, when in fact they 
+         would have. This results in missed revenue, specifically the lost interest margins the bank would 
+         have gained from the customer’s fixed-term deposit. In addition to economic loss, the bank also 
+         misses the opportu¬nity to build closer customer relationships or even increase customer loyalty.
+
         """)
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
