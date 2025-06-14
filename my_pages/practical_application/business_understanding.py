@@ -164,17 +164,22 @@ def show():
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
         st.markdown("""
-        In the data understanding phase, which should be interpreted as complementary to the business understanding
-        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
-        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
-        includes the task of describing the data using statistical analyses and determining attributes and their 
-        characteristics. This phase also consists of a total of four tasks:
-        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
-        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
-        or field identities.
-        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
-        data.
-        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
+        While the primary thresholding strategy in this project is derived from a cost-sensitive decision framework 
+        tailored to business-specific loss implications, additional methods are evaluated to support robust and 
+        adaptive decision-making under varying model performance characteristics. These complementary approaches 
+        are grounded in statistical theory and widely recognized in classification evaluation research.
+        
+        This criterion encourages thresholds with well-aligned precision and recall, suggesting a balance between 
+        reliability of positive predictions and sensitivity to actual positives. It is particularly suitable in 
+        high-stakes decision contexts, where both over- and underestimation of probabilities can have operational 
+        consequences.
+        In the current business use case, where customer contact involves significant opportunity costs, this method 
+        supports the goal of balanced risk exposure when cost figures are either volatile or estimated indirectly.
+        By incorporating these three alternative thresholding strategies – each grounded in a different evaluative 
+        paradigm (statistical balance, predictive performance, and calibra¬tion) – the project ensures that the final 
+        model deployment remains robust, inter¬pretable, and adaptable. This methodological pluralism strengthens the 
+        alignment between analytical modeling and business objectives, consistent with the CRISP-DM philosophy of 
+        iterative refinement and stakeholder integration.
         """)
     elif phase == "Methodical Decisions for Modeling":
         st.subheader("4. Methodical decisions for modeling within the business undestanding phases")
