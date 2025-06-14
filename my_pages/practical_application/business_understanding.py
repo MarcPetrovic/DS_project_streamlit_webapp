@@ -173,8 +173,10 @@ def show():
         reliability of positive predictions and sensitivity to actual positives. It is particularly suitable in 
         high-stakes decision contexts, where both over- and underestimation of probabilities can have operational 
         consequences.
+        
         In the current business use case, where customer contact involves significant opportunity costs, this method 
         supports the goal of balanced risk exposure when cost figures are either volatile or estimated indirectly.
+        
         By incorporating these three alternative thresholding strategies – each grounded in a different evaluative 
         paradigm (statistical balance, predictive performance, and calibra¬tion) – the project ensures that the final 
         model deployment remains robust, inter¬pretable, and adaptable. This methodological pluralism strengthens the 
