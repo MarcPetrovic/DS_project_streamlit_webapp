@@ -133,6 +133,12 @@ def show():
         positive if:
         """)
         st.latex(r"p \times Revenue \geq (1 - p) \times Cost")
+        st.markdown(r"Solving function for the decision threshold p*")
+        st.markdown("""
+        where: 
+         - Revenue = €3,350  
+         - Cost = €550 (from a false positive)
+        """)
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
         st.markdown("""
