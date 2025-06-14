@@ -134,6 +134,7 @@ def show():
         """)
         st.latex(r"p \times Revenue \geq (1 - p) \times Cost")
         st.markdown(r"Solving function for the decision threshold p*")
+        st.latex(r"p^* = \frac{550}{550 + 3350} = \frac{550}{3900} \approx 0.141")
         st.markdown("""
         where: 
          - Revenue = €3,350  
