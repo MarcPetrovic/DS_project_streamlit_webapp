@@ -141,6 +141,19 @@ def show():
          - Revenue = €3,350  
          - Cost = €550 (from a false positive)
         """)
+        st.markdown("""
+        It can therefore be stated that the cost-sensitive approach to determining thresholds recommends only 
+        targeting customers with the marketing campaign if their expected probability of accepting the offer is 
+        greater than or equal to 14.1%. This ensures that the expected return from the customer’s approach 
+        justifies the associated costs.
+
+        This business-centered formalization highlights the value of integrating domain expertise, economic cost 
+        structures, and analytical modeling in the early stages of a data mining project – consistent with the 
+        objectives of the CRISP-DM methodology. By incorporating empirically derived operating costs, central 
+        bank statistics and market interest rates, the project grounds its modeling strategy in business reality. 
+        The cost-sensitive framework ensures that model deployment aligns with profitability goals rather than 
+        generic predictive accuracy, improving both strategic relevance and operational efficiency.
+        """)
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
         st.markdown("""
