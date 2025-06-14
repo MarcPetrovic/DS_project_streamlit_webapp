@@ -125,6 +125,9 @@ def show():
         This results in a net interest margin (spread) of 6.70%. Assuming an average invested capital of 
         €50,000 per customer, the missed revenue equals:
         """)
+        st.latex(r"""
+        Revenue_{FN} = €50,000 x 0.067 = €3,350
+        """)
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
         st.markdown("""
