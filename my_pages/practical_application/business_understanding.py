@@ -81,14 +81,13 @@ def show():
         Given the previously mentioned business context, the classification task goes beyond statistical accuracy 
         and targets minimization of financial loss. This makes the project a clear example of a cost-sensitive 
         classification problem, where Type I and Type II errors have unequal cost implications:
-         - Type I Error (False Positive): Predicting that a customer will subscribe, when in fact they do not. 
-         This leads to wasted marketing costs, including call center resources and campaign-related expenses.
+         - Type I Error (False Positive): Predicting that a customer will subscribe, when in fact they do not.
+           This leads to wasted marketing costs, including call center resources and campaign-related expenses.
          - Type II Error (False Negative): Predicting that a customer will not subscribe, when in fact they 
-         would have. This results in missed revenue, specifically the lost interest margins the bank would 
-         have gained from the customer’s fixed-term deposit. In addition to economic loss, the bank also 
-         misses the opportu¬nity to build closer customer relationships or even increase customer loyalty.
-
-        """)
+           would have. This results in missed revenue, specifically the lost interest margins the bank would 
+           have gained from the customer’s fixed-term deposit. In addition to economic loss, the bank also 
+           misses the opportu¬nity to build closer customer relationships or even increase customer loyalty.
+         """)
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
         st.markdown("""
