@@ -110,6 +110,12 @@ def show():
            to have zero cost.
         <br><br>
         """, unsafe_allow_html=True)
+          # Bild von der URL laden und anzeigen 
+        show_github_image(
+        image_filename="images/interest_rates_spread.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 9: Time series of effective interest rates (term deposit & loan) and their corresponding spreads (between Jan & Dec 2023 | Germany)")
+        )
         st.markdown("""
         These cost values are derived as follows:
         - **False Positive Cost (Type I)**: Based on data from the Strategy & Retail Banking Monitor 2024 
