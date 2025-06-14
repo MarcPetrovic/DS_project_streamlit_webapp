@@ -121,6 +121,7 @@ def show():
               Bundesbank (Konsumentenkredite an private Haushalte – Ratenkredite).
             - An average interest rate for 12-month fixed-term deposits of 2.75%, based on statistics from 
               tagesgeldvergleich.net (Zinsentwicklung bei Festgeldkonten, 2023).
+
         This results in a net interest margin (spread) of 6.70%. Assuming an average invested capital of 
         €50,000 per customer, the missed revenue equals:
         """)
