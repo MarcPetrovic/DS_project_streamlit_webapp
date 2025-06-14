@@ -98,11 +98,11 @@ def show():
         \end{pmatrix}
         """)
         st.markdown("""
-        where 
-        - \( L_{12} = €3,350 \): Cost of a **false negative** – missed interest revenue  
-        - \( L_{21} = €550 \): Cost of a **false positive** – unnecessary marketing expenditure  
-        - \( L_{11}, L_{22} = €0 \): Correct predictions (**true positives** and **true negatives**) are assumed 
-          to have zero cost.
+        where: 
+         - \( L_{12} = €3,350 \): Cost of a **false negative** – missed interest revenue  
+         - \( L_{21} = €550 \): Cost of a **false positive** – unnecessary marketing expenditure  
+         - \( L_{11}, L_{22} = €0 \): Correct predictions (**true positives** and **true negatives**) are assumed 
+           to have zero cost.
         """)
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
