@@ -88,6 +88,12 @@ def show():
            have gained from the customer’s fixed-term deposit. In addition to economic loss, the bank also 
            misses the opportu¬nity to build closer customer relationships or even increase customer loyalty.
          """)
+        st.latex(r"""
+        L = \begin{pmatrix}
+        0 & 3350 \\
+        550 & 0 \\
+        \end{pmatrix}
+        """)
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
         st.markdown("""
