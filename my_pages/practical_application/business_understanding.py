@@ -109,6 +109,21 @@ def show():
          - L₁₁, L₂₂ = €0: Correct predictions (**true positives** and **true negatives**) are assumed 
            to have zero cost.
         """)
+        st.markdown("""
+        These cost values are derived as follows:
+        - **False Positive Cost (Type I)**: Based on data from the Strategy & Retail Banking Monitor 2024 
+          (reporting period 2022–2023), the average operational expense per unsuccessful customer contact 
+          was estimated at €550.
+        - **False Negative Cost (Type II)**: Represents the lost net interest revenue the bank could have 
+          earned from a customer who would have signed the contract but was not contacted. This value was 
+          derived using.
+            - An average interest rate for installment loans of 9.45%, based on 2023 data from the German 
+              Bundesbank (Konsumentenkredite an private Haushalte – Ratenkredite).
+            - An average interest rate for 12-month fixed-term deposits of 2.75%, based on statistics from 
+              tagesgeldvergleich.net (Zinsentwicklung bei Festgeldkonten, 2023).
+        This results in a net interest margin (spread) of 6.70%. Assuming an average invested capital of 
+        €50,000 per customer, the missed revenue equals:
+        """)
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
         st.markdown("""
@@ -164,7 +179,7 @@ def show():
             - F1-Score
             - Cohen’s Kappa
             - Matthews Correlation Coefficient (MCC)
-            - o	Total Cost (€) as a direct translation of misclassification consequences into financial terms
+            - Total Cost (€) as a direct translation of misclassification consequences into financial terms
         
         By predefining this methodological framework within the Business Understanding phase, the project aligns its 
         analytical trajectory with business realities and stakehol¬der expectations from the outset. This approach 
