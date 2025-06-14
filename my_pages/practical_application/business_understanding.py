@@ -93,6 +93,11 @@ def show():
          """)
         st.latex(r"""
         L = \begin{pmatrix}
+        0 & L_{12} \\
+        L_{21} & 0 \\
+        \end{pmatrix}
+        = 
+        \begin{pmatrix}
         0 & 3350 \\
         550 & 0 \\
         \end{pmatrix}
