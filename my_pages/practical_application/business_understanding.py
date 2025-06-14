@@ -126,7 +126,13 @@ def show():
         €50,000 per customer, the missed revenue equals:
         """)
         st.latex(r"Revenue_{FN} = €50,000 \times 0.067 = €3,350")
-        st.latex(r"\text{Revenue}_{FN} = €50,000 \times 0.067 = €3,350")
+        st.markdown("""
+        Unlike standard classification approaches that use a 0.5 threshold to separate positive from negative 
+        predictions, a cost-sensitive strategy aims to minimize expected financial loss by adjusting the 
+        threshold to account for asymmetric costs. The theoretical foundation is as follows – Classify as 
+        positive if:
+        """)
+        st.latex(r"p \times Revenue \geq (1 - p) \times Cost")
     elif phase == "Alternative Thresholding Strategies":
         st.subheader("3. Alternative Thresholding Strategies")
         st.markdown("""
