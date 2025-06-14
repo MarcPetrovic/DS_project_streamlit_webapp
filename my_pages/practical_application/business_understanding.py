@@ -87,6 +87,9 @@ def show():
            would have. This results in missed revenue, specifically the lost interest margins the bank would 
            have gained from the customer’s fixed-term deposit. In addition to economic loss, the bank also 
            misses the opportu¬nity to build closer customer relationships or even increase customer loyalty.
+
+        To systematically manage these outcomes, a cost matrix is employed. Using standard loss function 
+        notation, the cost matrix L is defined as follows:
          """)
         st.latex(r"""
         L = \begin{pmatrix}
