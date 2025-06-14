@@ -107,8 +107,8 @@ def show():
          - L₁₂ = €3,350: Cost of a **false negative** – missed interest revenue  
          - L₂₁ = €550: Cost of a **false positive** – unnecessary marketing expenditure  
          - L₁₁, L₂₂ = €0: Correct predictions (**true positives** and **true negatives**) are assumed 
-           to have zero cost.  
-           , unsafe_allow_html=True        
+           to have zero cost.
+                   
         """)
         st.markdown("""
         These cost values are derived as follows:
