@@ -37,18 +37,18 @@ def show():
         caption=( "Figure 8: Overview of the data basis of the AI project")
         )
         st.markdown("""
-        Within the second phase of CRISP-DM, we have to understand the data, especially the structure. The data audit is 
-        an essential sub-step within the second phase. Within the data audit, the available data sample is structured on 
-        the basis of various properties. For example, a distinction is made between dependent and independent variables. 
-        The data type of the respective characteristics of the sample is determined and the relevant value range (feature 
-        domain) is also listed. A central concern of the data audit is to identify missing values and, depending on the 
-        data type and relevant feature structure, to select a representative, statistical procedure to convert the missing 
-        values in a targeted manner. Figure 8 shows that the available data set can basically be differentiated into four 
-        feature clusters. All four feature clusters are examined in more detail in the following subsections. First, a 
-        general definition of the respective characteristics of each cluster is formulated. In addition, an explorative, 
-        descriptive data analysis is carried out in order to subsequently identify missing values and, against the 
-        background of the industrial CRISP-DM approach, to make a pragmatic selection of procedures for converting the 
-        missing values.
+        Within the second phase of CRISP-DM, the primary objective is to understand the data, especially its structure 
+        and quality. Before initiating the data audit—a critical sub-step within this phase—this study takes into account 
+        the advices and documentation provided by the primary researchers who collected and curated the dataset. These 
+        recommendations provide essential context for understanding variable meanings, data encoding, and known data 
+        quality issues, and are therefore instrumental in designing a meaningful audit process.
+
+        The data audit structures the available data sample based on various properties. For example, a distinction is 
+        made between dependent and independent variables. The data type of each attribute is identified, and the relevant 
+        value ranges (feature domains) are listed. A central concern of the audit is to detect missing values and, 
+        depending on the data type and contextual relevance, to apply representative and statistically sound procedures 
+        for their treatment.
+
         """)
           # Bild von der URL laden und anzeigen 
         show_github_image(
@@ -56,7 +56,16 @@ def show():
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
           caption=( "Figure 9: Overview of the four data type clusters within the used database")
           )
+        st.markdown("""
+        Figure 9 shows that the available dataset can be broadly categorized into four feature clusters. These clusters 
+        are examined in detail in the following subsections. First, a general definition and categorization of each 
+        cluster’s features is presented. Subsequently, an exploratory, descriptive data analysis is conducted, focusing 
+        on data distributions, patterns, and completeness. This enables the identification of missing values and informs 
+        the selection of suitable imputation or transformation methods in alignment with the industrial CRISP-DM methodology.
 
+        The chapter concludes with a comprehensive summary of key results and derived recommendations for subsequent phases 
+        of data (pre-)processing. These insights serve as a foundational basis for the Data Preparation phase that follows.
+        """)
     elif task == "Instructions Primary Researcher":
         st.subheader("2. Instructions from the Primary Researcher")
           # Bild von der URL laden und anzeigen 
