@@ -135,12 +135,13 @@ def show():
         """)
         st.latex(r"p \times Revenue \geq (1 - p) \times Cost")
         st.markdown(r"Solving function for the decision threshold p*")
-        st.latex(r"p^* = \frac{550}{550 + 3350} = \frac{550}{3900} \approx 0.141")
+        st.latex(r"p \times (Revenue + Cost) \geq Cost \;\Rightarrow\; p^* = \frac{Cost}{Revenue + Cost}")
         st.markdown("""
         where: 
          - Revenue = €3,350  
          - Cost = €550 (from a false positive)
         """)
+        st.latex(r"p^* = \frac{550}{550 + 3350} = \frac{550}{3900} \approx 0.141")
         st.markdown("""
         It can therefore be stated that the cost-sensitive approach to determining thresholds recommends only 
         targeting customers with the marketing campaign if their expected probability of accepting the offer is 
