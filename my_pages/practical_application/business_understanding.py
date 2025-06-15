@@ -221,7 +221,11 @@ def show():
         \min(\tau) \left| \text{Precision}(\tau) - \text{Recall}(\tau) \right|
         """)
         st.markdown("""
-        
+        where: 
+         - Precision(τ) = TP(τ) / (TP(τ) + FP(τ)),  
+         - Recall(τ) = TP(τ) / (TP(τ) + FN(τ)),
+         - τ = Threshold
+         
         This criterion encourages thresholds with well-aligned precision and recall, suggesting a balance between 
         reliability of positive predictions and sensitivity to actual positives. It is particularly suitable in 
         high-stakes decision contexts, where both over- and underestimation of probabilities can have operational 
@@ -235,7 +239,7 @@ def show():
         model deployment remains robust, inter¬pretable, and adaptable. This methodological pluralism strengthens the 
         alignment between analytical modeling and business objectives, consistent with the CRISP-DM philosophy of 
         iterative refinement and stakeholder integration.
-        """)
+        """, unsafe_allow_html=True)
     elif phase == "Methodical Decisions for Modeling":
         st.subheader("4. Methodical decisions for modeling within the business undestanding phases")
         st.markdown("""
@@ -249,6 +253,7 @@ def show():
         Understanding phase to ensure a coherent and goal-driven process. The choice of machine learning algorithms and 
         evaluation metrics is not deferred to later phases but carefully considered upfront to reflect the project’s specific 
         requirements and constraints.  
+        
         The modeling approach is structured as a two-iteration process:
          - In the first iteration, a broad set of candidate algorithms – including logistic regression, XGBoost, naive bayes,
            random forest, gradient boosting, and deci¬sion trees – is  assessed. The evaluation metric driving the initial 
