@@ -156,7 +156,9 @@ def show():
             "ATTRIBUTE NAME": "job",
             "ATTRIBUTE DATA TYPE": "categorical",
             "ATTRIBUTE DESCRIPTION": "Clients type of job",
-            "ATTRIBUTE DOMAIN VALUE": str(df2["job"].unique()),
+            "ATTRIBUTE DOMAIN VALUE": "<ul>" + "".join(
+              f"<li>{val}</li>" for val in sorted(df2["job"].dropna().unique())
+            ) + "</ul>",
             "ATTRIBUTE MODEL TYPE": "feature",
             "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
           }
