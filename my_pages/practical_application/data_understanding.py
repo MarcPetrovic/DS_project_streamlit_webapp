@@ -122,17 +122,14 @@ def show():
     elif task == "Data Audit - Client Socio-Economic Attributes":
         st.subheader("3. Data Audit - Client Socio-Economic Attributes")
         st.markdown("""
-        In the data understanding phase, which should be interpreted as complementary to the business understanding
-        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
-        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
-        includes the task of describing the data using statistical analyses and determining attributes and their 
-        characteristics. This phase also consists of a total of four tasks:
-        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
-        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
-        or field identities.
-        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
-        data.
-        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
+        The first cluster of variables includes, on the one hand, socio-economic characteristics of the bank customers, such as 
+        information on any loan agreements, real estate financing and whether the customer has a non-performing loan. On the other 
+        hand, the first cluster of variables contains socio-demographic characteristics of the bank customers, including age, job, 
+        marital status and level of education at the time of the telephone interview. Table 2 provides a good overview of certain 
+        characteristics of the features of the first cluster. It shows the name of the characteristic in the dataset (e.g. age), 
+        the data type (continuous or categorical), a brief description of the bank customer characteristics (e.g. for age: “age at 
+        time of contact”), the value range of the characteristics (e.g. for age between 17 and 98 years) and the model type 
+        (independent variable or target).
         """)
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
