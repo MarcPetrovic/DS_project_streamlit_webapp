@@ -174,7 +174,7 @@ def show():
                     width: 100%;
                     border-collapse: collapse;
                     table-layout: fixed;
-                    border: 2px solid black;
+                    border: 2px solid black;  /* 👈 schwarzer Rahmen für gesamte Tabelle */
                 }
                 th {
                     background-color: #097a80;
@@ -189,7 +189,7 @@ def show():
                 td {
                     background-color: white;
                     color: black;
-                    border: 2px solid black;
+                    border: 2px solid black;  /* 👈 schwarzes Gitternetz für Inhalte */
                     text-align: left;
                     padding: 8px;
                     word-wrap: break-word;
@@ -208,6 +208,7 @@ def show():
                 <thead>
                     <tr>
             """
+
         
             for col in df.columns:
                 html += f"<th>{col}</th>"
