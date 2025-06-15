@@ -173,9 +173,7 @@ def show():
           }
         ]
         metadata_df = pd.DataFrame(attribute_metadata)
-        #st.subheader("📊 Tabelle 2: Übersicht Client Attributes")
-        #st.dataframe(metadata_df)
-        # --- HTML-Tabelle erzeugen ---
+
         def render_html_table(df: pd.DataFrame) -> str:
             html = """
             <style>
@@ -237,8 +235,24 @@ def show():
             return html
         
         # --- Anzeige in Streamlit ---
-        st.subheader("📊 Tabelle 2: Übersicht Client Socio-Economic Attributes")
+        st.subheader("Table 2: Overview Client Socio-Economic Attributes")
         st.markdown(render_html_table(metadata_df), unsafe_allow_html=True)
+        anchor_map = {
+          "age": "pp_var_5630436754821285116",
+          "job": "pp_var_-2855576533511057154",
+          "marital": "pp_var_-2855576533511057154",
+          "education": "pp_var_-2855576533511057154"
+        }
+        # --- User-Interface ---
+        selected_var = st.selectbox("🔍 Wähle ein Merkmal", list(anchor_map.keys()))
+
+        # --- URL mit Sprunganker erzeugen ---
+        url = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map[selected_var]}"
+
+# --- Anzeige im Streamlit iframe ---
+st.components.v1.iframe(src=url, height=1000, width=1000)
+
+        
 
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
