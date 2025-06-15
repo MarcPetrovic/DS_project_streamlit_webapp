@@ -162,6 +162,14 @@ def show():
            # ) + "</ul>",
             "ATTRIBUTE MODEL TYPE": "feature",
             "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
+          },
+          {
+            "ATTRIBUTE NAME": "marital",
+            "ATTRIBUTE DATA TYPE": "categorical",
+            "ATTRIBUTE DESCRIPTION": "Clients Marital Status at time of call",
+            "ATTRIBUTE DOMAIN VALUE": ", ".join(sorted(df2["marital"].dropna().unique())),
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
           }
         ]
         metadata_df = pd.DataFrame(attribute_metadata)
