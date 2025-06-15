@@ -240,8 +240,8 @@ def show():
         anchor_map = {
           "age": "pp_var_5630436754821285116",
           "job": "pp_var_-2855576533511057154",
-          "marital": "pp_var_-2855576533511057154",
-          "education": "pp_var_-2855576533511057154"
+          "marital": "pp_var_-2655159898856749981",
+          "education": "pp_var_3871473053277162198"
         }
         # --- User-Interface ---
         selected_var = st.selectbox("🔍 Wähle ein Merkmal", list(anchor_map.keys()))
