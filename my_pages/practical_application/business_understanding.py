@@ -197,6 +197,20 @@ def show():
         """, unsafe_allow_html=True)
         st.latex(r"F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}")
         st.markdown("""
+        where: 
+         - Precision = TP / (TP + FP),  
+         - Recall = TP / (TP + FN) *also known as Sensitivity or True Positive Rate
+        <br><br>
+        """, unsafe_allow_html=True)
+        st.markdown("""
+        Maximizing the F1-Score helps identify the threshold that balances false positives and false negatives, particularly 
+        in scenarios with imbalanced classes, which are typical in subscription-related banking datasets.
+
+        This method reflects an error-balancing approach, where both types of misclassifica-tions are weighted equally in the 
+        absence of explicit cost information. It supports a performance-oriented view of thresholding and is aligned with 
+        standard practices in information retrieval and classification benchmarks.
+        """)
+        st.markdown("""
         
         This criterion encourages thresholds with well-aligned precision and recall, suggesting a balance between 
         reliability of positive predictions and sensitivity to actual positives. It is particularly suitable in 
