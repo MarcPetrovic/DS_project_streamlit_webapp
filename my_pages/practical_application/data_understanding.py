@@ -141,7 +141,7 @@ def show():
           add_row_id=True
         )
         st.write("✅ DEBUG: CSV geladen – Shape:", df2.shape)
-        st.dataframe(df2.head())  
+        #st.dataframe(df2.head())  
             # Metadaten definieren
         attribute_metadata = [
           {
@@ -164,6 +164,40 @@ def show():
         metadata_df = pd.DataFrame(attribute_metadata)
         st.subheader("📊 Tabelle 2: Übersicht Client Attributes")
         st.dataframe(metadata_df)
+        # HTML-Tabelle mit Umbruch und fixer Spaltenbreite
+        html_table = """
+        <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid lightgray;
+            text-align: left;
+            padding: 8px;
+            word-wrap: break-word;
+            max-width: 300px;
+        }
+        </style>
+        <table>
+          <tr>
+            <th>ATTRIBUTE NAME</th>
+            <th>ATTRIBUTE DESCRIPTION</th>
+            <th>ATTRIBUTE DOMAIN VALUE</th>
+          </tr>
+        """
+        
+        for _, row in metadata_df.iterrows():
+            html_table += f"""
+            <tr>
+                <td>{row['ATTRIBUTE NAME']}</td>
+                <td>{row['ATTRIBUTE DESCRIPTION']}</td>
+                <td>{row['ATTRIBUTE DOMAIN VALUE']}</td>
+            </tr>
+            """
+        html_table += "</table>"
+        
+        st.markdown(html_table, unsafe_allow_html=True)
 
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
