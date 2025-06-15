@@ -164,40 +164,52 @@ def show():
         metadata_df = pd.DataFrame(attribute_metadata)
         st.subheader("📊 Tabelle 2: Übersicht Client Attributes")
         st.dataframe(metadata_df)
-        # HTML-Tabelle mit Umbruch und fixer Spaltenbreite
-        html_table = """
-        <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid lightgray;
-            text-align: left;
-            padding: 8px;
-            word-wrap: break-word;
-            max-width: 300px;
-        }
-        </style>
-        <table>
-          <tr>
-            <th>ATTRIBUTE NAME</th>
-            <th>ATTRIBUTE DESCRIPTION</th>
-            <th>ATTRIBUTE DOMAIN VALUE</th>
-          </tr>
-        """
         
-        for _, row in metadata_df.iterrows():
-            html_table += f"""
-            <tr>
-                <td>{row['ATTRIBUTE NAME']}</td>
-                <td>{row['ATTRIBUTE DESCRIPTION']}</td>
-                <td>{row['ATTRIBUTE DOMAIN VALUE']}</td>
-            </tr>
+        # --- HTML-Tabelle erzeugen ---
+        def render_html_table(df: pd.DataFrame) -> str:
+            # Grundstil mit Umbruch, max-Breite etc.
+            html = """
+            <style>
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                }
+                th, td {
+                    border: 1px solid lightgray;
+                    text-align: left;
+                    padding: 8px;
+                    word-wrap: break-word;
+                    max-width: 250px;
+                    font-size: 14px;
+                }
+                th {
+                    background-color: #f2f2f2;
+                }
+            </style>
+            <table>
+                <thead>
+                    <tr>
             """
-        html_table += "</table>"
         
-        st.markdown(html_table, unsafe_allow_html=True)
+            # Spaltenüberschriften
+            for col in df.columns:
+                html += f"<th>{col}</th>"
+            html += "</tr></thead><tbody>"
+        
+            # Zeileninhalt
+            for _, row in df.iterrows():
+                html += "<tr>"
+                for col in df.columns:
+                    html += f"<td>{row[col]}</td>"
+                html += "</tr>"
+        
+            html += "</tbody></table>"
+            return html
+        
+        # --- Anzeige in Streamlit ---
+        st.subheader("📊 Tabelle 2: Übersicht Client Socio-Economic Attributes")
+        st.markdown(render_html_table(metadata_df), unsafe_allow_html=True)
 
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
