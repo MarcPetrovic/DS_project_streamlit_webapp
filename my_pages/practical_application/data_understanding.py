@@ -134,12 +134,13 @@ def show():
         time of contact”), the value range of the characteristics (e.g. for age between 17 and 98 years) and the model type 
         (independent variable or target).
         """)
-        df = load_csv_data(
+        df2 = load_csv_data(
           filename="data/bank-additional-full.csv",
           sep=";",
           header=True,
           add_row_id=True
         )
+        st.dataframe(df2.head())    
         # --- Metadaten manuell definieren ---
         attribute_metadata = [
           {
@@ -154,7 +155,7 @@ def show():
             "ATTRIBUTE NAME": "job",
             "ATTRIBUTE DATA TYPE": "categorical",
             "ATTRIBUTE DESCRIPTION": "Clients type of job",
-            "ATTRIBUTE DOMAIN VALUE": str(df["job"].unique()),
+            "ATTRIBUTE DOMAIN VALUE": str(df2["job"].unique()),
             "ATTRIBUTE MODEL TYPE": "feature",
             "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
           }
