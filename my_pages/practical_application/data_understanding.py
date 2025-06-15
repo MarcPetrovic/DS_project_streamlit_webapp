@@ -171,37 +171,37 @@ def show():
             html = """
             <style>
                 table {
-                    width: 100%;
-                    border-collapse: collapse;
-                    table-layout: fixed;
-                    border: 2px solid black;  /* 👈 schwarzer Rahmen für gesamte Tabelle */
+                    width: 100% !important;
+                    border-collapse: collapse !important;
+                    table-layout: fixed !important;
+                    border: 2px solid black !important;
                 }
                 th {
-                    background-color: #097a80;
-                    color: white;
-                    border: 1px solid lightgray;
-                    text-align: left;
-                    padding: 8px;
-                    word-wrap: break-word;
-                    max-width: 250px;
-                    font-size: 14px;
+                    background-color: #097a80 !important;
+                    color: white !important;
+                    border: 1px solid lightgray !important;
+                    text-align: left !important;
+                    padding: 8px !important;
+                    word-break: break-word !important;
+                    max-width: 250px !important;
+                    font-size: 14px !important;
                 }
                 td {
-                    background-color: white;
-                    color: black;
-                    border: 2px solid black;  /* 👈 schwarzes Gitternetz für Inhalte */
-                    text-align: left;
-                    padding: 8px;
-                    word-wrap: break-word;
-                    max-width: 250px;
-                    font-size: 14px;
+                    background-color: white !important;
+                    color: black !important;
+                    border: 1px solid black !important;
+                    text-align: left !important;
+                    padding: 8px !important;
+                    word-break: break-word !important;
+                    max-width: 250px !important;
+                    font-size: 14px !important;
                 }
                 td ul {
-                    padding-left: 20px;
-                    margin: 0;
+                    padding-left: 20px !important;
+                    margin: 0 !important;
                 }
                 td li {
-                    margin-bottom: 3px;
+                    margin-bottom: 3px !important;
                 }
             </style>
             <table>
