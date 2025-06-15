@@ -164,8 +164,8 @@ def show():
           }
         ]
         metadata_df = pd.DataFrame(attribute_metadata)
-        st.subheader("📊 Tabelle 2: Übersicht Client Attributes")
-        st.dataframe(metadata_df)
+        #st.subheader("📊 Tabelle 2: Übersicht Client Attributes")
+        #st.dataframe(metadata_df)
         # --- HTML-Tabelle erzeugen ---
         def render_html_table(df: pd.DataFrame) -> str:
             html = """
@@ -174,6 +174,7 @@ def show():
                     width: 100%;
                     border-collapse: collapse;
                     table-layout: fixed;
+                    border: 2px solid black;
                 }
                 th {
                     background-color: #097a80;
