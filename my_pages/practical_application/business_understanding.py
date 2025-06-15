@@ -193,6 +193,7 @@ def show():
 
 
         **b) Threshold Optimization via F1-Score Maximization**
+        <br>
         The F1-Score is the harmonic mean of precision and recall:
         """, unsafe_allow_html=True)
         st.latex(r"F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}")
@@ -212,6 +213,7 @@ def show():
 
 
         **c) Minimization of the Precision–Recall Gap**
+        <br>
         A more refined approach considers the difference between precision and recall as a measure of prediction calibration. 
         In this method, the optimal threshold is defined as the one that minimizes the absolute gap:
         """, unsafe_allow_html=True)
