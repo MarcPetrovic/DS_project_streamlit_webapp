@@ -195,6 +195,7 @@ def show():
         **b) Threshold Optimization via F1-Score Maximization**
         The F1-Score is the harmonic mean of precision and recall:
         """, unsafe_allow_html=True)
+        st.latex(r"F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}")
         st.markdown("""
         
         This criterion encourages thresholds with well-aligned precision and recall, suggesting a balance between 
