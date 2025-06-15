@@ -176,7 +176,6 @@ def show():
                     table-layout: fixed;
                 }
                 th, td {
-                    border: 1px solid lightgray;
                     text-align: left;
                     padding: 8px;
                     word-wrap: break-word;
@@ -185,10 +184,12 @@ def show():
                 }
                 th {
                     background-color: #097a80;
+                    border: 1px solid lightgray;
                 }
                 td {
                     background-color: white;
                     color: black;
+                    border: 1px solid black;
                 }
                 td ul {
                     padding-left: 20px;
