@@ -180,6 +180,8 @@ def show():
          - Sensitivity = TP / (TP + FN) *also known as Recall or True Positive Rate,  
          - Specificity = TN / (TN + FP)
         <br><br>
+        """, unsafe_allow_html=True)
+        st.markdown("""
         It identifies the point on the Receiver Operating Characteristic (ROC) curve that maximizes the trade-off between 
         true positive and true negative rates. In threshold optimization, this corresponds to selecting the decision 
         threshold that maximizes overall discriminative power, irrespective of class imbalance or cost asymmetry.
