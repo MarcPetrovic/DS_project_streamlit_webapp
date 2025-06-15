@@ -141,7 +141,29 @@ def show():
           add_row_id=True
         )
         st.write("✅ DEBUG: CSV geladen – Shape:", df2.shape)
-        st.dataframe(df2.head())  # Vorschau zur Sicherheit
+        st.dataframe(df2.head())  
+            # Metadaten definieren
+        attribute_metadata = [
+          {
+            "ATTRIBUTE NAME": "age",
+            "ATTRIBUTE DATA TYPE": "Continuous",
+            "ATTRIBUTE DESCRIPTION": "Age at the contact date",
+            "ATTRIBUTE DOMAIN VALUE": "[17, 98]",
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
+          },
+          {
+            "ATTRIBUTE NAME": "job",
+            "ATTRIBUTE DATA TYPE": "categorical",
+            "ATTRIBUTE DESCRIPTION": "Clients type of job",
+            "ATTRIBUTE DOMAIN VALUE": str(df2["job"].unique()),
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
+          }
+        ]
+        metadata_df = pd.DataFrame(attribute_metadata)
+        st.subheader("📊 Tabelle 2: Übersicht Client Attributes")
+        st.dataframe(metadata_df)
 
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
