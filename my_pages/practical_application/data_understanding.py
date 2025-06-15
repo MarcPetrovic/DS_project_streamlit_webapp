@@ -166,10 +166,8 @@ def show():
         metadata_df = pd.DataFrame(attribute_metadata)
         st.subheader("📊 Tabelle 2: Übersicht Client Attributes")
         st.dataframe(metadata_df)
-        
         # --- HTML-Tabelle erzeugen ---
         def render_html_table(df: pd.DataFrame) -> str:
-            # Grundstil mit Umbruch, max-Breite etc.
             html = """
             <style>
                 table {
@@ -188,22 +186,31 @@ def show():
                 th {
                     background-color: #f2f2f2;
                 }
+                td ul {
+                    padding-left: 20px;
+                    margin: 0;
+                }
+                td li {
+                    margin-bottom: 3px;
+                }
             </style>
             <table>
                 <thead>
                     <tr>
             """
         
-            # Spaltenüberschriften
             for col in df.columns:
                 html += f"<th>{col}</th>"
             html += "</tr></thead><tbody>"
         
-            # Zeileninhalt
             for _, row in df.iterrows():
                 html += "<tr>"
                 for col in df.columns:
-                    html += f"<td>{row[col]}</td>"
+                    cell = row[col]
+                    if isinstance(cell, str) and cell.strip().startswith("<ul>"):
+                        html += f"<td>{cell}</td>"  # HTML anzeigen
+                    else:
+                        html += f"<td>{str(cell)}</td>"  # Normaler Text
                 html += "</tr>"
         
             html += "</tbody></table>"
