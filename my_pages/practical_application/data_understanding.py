@@ -68,7 +68,7 @@ def show():
         """)
     elif task == "Instructions Primary Researcher":
         st.subheader("2. Consideration of primary researchers' advices")
-        st.markdwon("""
+        st.markdown("""
         Before conducting a structured data audit within the second phase of CRISP-DM, it is essential to consider the contextual 
         information and methodological recommendations provided by the primary researchers who originally compiled and analyzed 
         the dataset. The dataset used in this project—bank-additional-full.csv—is a refined version of the original Bank Marketing 
