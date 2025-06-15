@@ -207,6 +207,15 @@ def show():
         This method reflects an error-balancing approach, where both types of misclassifica-tions are weighted equally in the 
         absence of explicit cost information. It supports a performance-oriented view of thresholding and is aligned with 
         standard practices in information retrieval and classification benchmarks.
+        <br><br>
+
+
+        **c) Minimization of the Precision–Recall Gap**
+        A more refined approach considers the difference between precision and recall as a measure of prediction calibration. 
+        In this method, the optimal threshold is defined as the one that minimizes the absolute gap:
+        """, unsafe_allow_html=True)
+        st.latex(r"""
+        \min(\tau) \left| \text{Precision}(\tau) - \text{Recall}(\tau) \right|
         """)
         st.markdown("""
         
