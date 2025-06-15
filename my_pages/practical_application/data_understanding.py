@@ -184,7 +184,7 @@ def show():
                     font-size: 14px;
                 }
                 th {
-                    background-color: #f2f2f2;
+                    background-color: #097a80;
                 }
                 td ul {
                     padding-left: 20px;
