@@ -175,21 +175,25 @@ def show():
                     border-collapse: collapse;
                     table-layout: fixed;
                 }
-                th, td {
+                th {
+                    background-color: #097a80;
+                    color: white;
+                    border: 1px solid lightgray;
                     text-align: left;
                     padding: 8px;
                     word-wrap: break-word;
                     max-width: 250px;
                     font-size: 14px;
                 }
-                th {
-                    background-color: #097a80;
-                    border: 1px solid lightgray;
-                }
                 td {
                     background-color: white;
                     color: black;
                     border: 2px solid black;
+                    text-align: left;
+                    padding: 8px;
+                    word-wrap: break-word;
+                    max-width: 250px;
+                    font-size: 14px;
                 }
                 td ul {
                     padding-left: 20px;
