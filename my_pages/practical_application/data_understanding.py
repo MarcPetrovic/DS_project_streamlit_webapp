@@ -67,12 +67,25 @@ def show():
         of data (pre-)processing. These insights serve as a foundational basis for the Data Preparation phase that follows.
         """)
     elif task == "Instructions Primary Researcher":
-        st.subheader("2. Instructions from the Primary Researcher")
+        st.subheader("2. Consideration of primary researchers' advices")
+        st.markdwon("""
+        Before conducting a structured data audit within the second phase of CRISP-DM, it is essential to consider the contextual 
+        information and methodological recommendations provided by the primary researchers who originally compiled and analyzed 
+        the dataset. The dataset used in this project—bank-additional-full.csv—is a refined version of the original Bank Marketing 
+        dataset, extended by five nationwide socio-economic indicators. It was developed by Sérgio Moro (ISCTE-IUL), Paulo Cortez 
+        (University of Minho), and Paulo Rita (ISCTE-IUL), and has been publicly released via the UCI Machine Learning Repository.
+
+        The primary source for contextual and methodological guidance is the publication by Moro et al. (2014), titled “A Data-Driven 
+        Approach to Predict the Success of Bank Telemarketing”, published in Decision Support Systems (Moro et al., 2014). The researchers 
+        emphasize that the dataset includes 41,188 instances collected between May 2008 and November 2010, each representing a client 
+        contact within a telemarketing campaign aimed at promoting a long-term deposit product.
+        <br>
+        """, unsafe_allow_html=True)
           # Bild von der URL laden und anzeigen 
         show_github_image(
         image_filename="images/instructions_primary_researcher.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 10: Instructions from the primary researcher")
+        caption=( "Figure 10: Main advices of the primary researchers")
         )
         st.write("""
         Taking into account the advices of the primary researchers in general, and in particular by adjusting the 
