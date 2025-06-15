@@ -172,7 +172,7 @@ def show():
 
 
         **a) Trade-off Optimization using the Youden Index**
-        <br><br>
+        <br>
         The Youden Index (J) is a classical method in diagnostic test evaluation, defined as:
         """, unsafe_allow_html=True)
         st.latex(r"J = Sensitivity + Specificity - 1")
