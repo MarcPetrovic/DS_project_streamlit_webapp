@@ -168,11 +168,12 @@ def show():
         tailored to business-specific loss implications, additional methods are evaluated to support robust and 
         adaptive decision-making under varying model performance characteristics. These complementary approaches 
         are grounded in statistical theory and widely recognized in classification evaluation research.
+        <br><br>
 
 
         **a) Trade-off Optimization using the Youden Index**
         The Youden Index (J) is a classical method in diagnostic test evaluation, defined as:
-        """)
+        """, unsafe_allow_html=True))
         st.latex(r"J = Sensitivity + Specificity - 1")
         st.markdown("""
         
