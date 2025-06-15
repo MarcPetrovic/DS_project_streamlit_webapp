@@ -186,6 +186,9 @@ def show():
                 th {
                     background-color: #097a80;
                 }
+                td {
+                    background-color: white;
+                }
                 td ul {
                     padding-left: 20px;
                     margin: 0;
