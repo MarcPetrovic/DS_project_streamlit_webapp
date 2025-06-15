@@ -134,6 +134,12 @@ def show():
         time of contact”), the value range of the characteristics (e.g. for age between 17 and 98 years) and the model type 
         (independent variable or target).
         """)
+        df = load_csv_data(
+          filename="data/bank-additional-full.csv",
+          sep=";",
+          header=True,
+          add_row_id=True
+        )
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
         st.markdown("""
