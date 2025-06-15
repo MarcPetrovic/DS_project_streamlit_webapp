@@ -1,5 +1,8 @@
 import streamlit as st
 from utils.image_loader import show_github_image
+from utils.data_loader import load_csv_data
+import pandas as pd
+import numpy as np
 
 def show():
   # Dropdown für die Phasen
