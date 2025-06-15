@@ -98,7 +98,6 @@ def show():
            from models aiming to simulate realistic predictive scenarios and used only for benchmark comparison purposes.
          - Attribute Documentation: Detailed descriptions of all 20 input attributes and the binary target variable y are provided 
            in the accompanying metadata file.
-        <br>
         """, unsafe_allow_html=True)
         st.markdown("""
         These insights and methodological advices form an essential foundation for the subsequent steps in the Data Understanding 
