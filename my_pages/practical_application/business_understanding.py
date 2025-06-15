@@ -225,6 +225,8 @@ def show():
          - Precision(τ) = TP(τ) / (TP(τ) + FP(τ)),  
          - Recall(τ) = TP(τ) / (TP(τ) + FN(τ)),
          - τ = Threshold
+        """, unsafe_allow_html=True)
+        st.markdown("""
          
         This criterion encourages thresholds with well-aligned precision and recall, suggesting a balance between 
         reliability of positive predictions and sensitivity to actual positives. It is particularly suitable in 
@@ -253,6 +255,8 @@ def show():
         Understanding phase to ensure a coherent and goal-driven process. The choice of machine learning algorithms and 
         evaluation metrics is not deferred to later phases but carefully considered upfront to reflect the project’s specific 
         requirements and constraints.  
+        """)
+        st.markdown("""
         
         The modeling approach is structured as a two-iteration process:
          - In the first iteration, a broad set of candidate algorithms – including logistic regression, XGBoost, naive bayes,
