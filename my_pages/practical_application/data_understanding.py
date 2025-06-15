@@ -87,6 +87,25 @@ def show():
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
         caption=( "Figure 10: Main advices of the primary researchers")
         )
+        st.markdown("""
+        The authors provide the following key recommendations and insights, which are directly relevant to the current project:
+         - Missing Values: Several categorical attributes contain missing values, represented by the label "unknown". According to 
+           the authors, these should be handled explicitly, either by treating them as a valid class category or by applying 
+           deletion or imputation techniques, depending on the intended analysis and model type.
+         - Feature Importance and Predictive Use: Particular caution is advised when interpreting and using the variable duration 
+           (last contact duration in seconds). While highly predictive, this attribute is only known after the outcome of the 
+           contact and thus cannot be used in a real-time predictive setting. Moro et al. recommend that this feature be excluded 
+           from models aiming to simulate realistic predictive scenarios and used only for benchmark comparison purposes.
+         - Attribute Documentation: Detailed descriptions of all 20 input attributes and the binary target variable y are provided 
+           in the accompanying metadata file.
+        <br>
+        """, unsafe_allow_html=True)
+        st.markdown("""
+        These insights and methodological advices form an essential foundation for the subsequent steps in the Data Understanding 
+        phase. They ensure that decisions made during the audit and preprocessing stages are both informed by domain knowledge and 
+        aligned with best practices established in prior peer-reviewed research.
+        <br>
+        """, unsafe_allow_html=True)
         st.write("""
         Taking into account the advices of the primary researchers in general, and in particular by adjusting the 
         categorical variables by converting the expression “unknown” into NaN (missing value), the data set used is 
