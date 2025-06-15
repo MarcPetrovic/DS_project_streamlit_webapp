@@ -179,7 +179,6 @@ def show():
         where: 
          - Sensitivity = TP / (TP + FN) *also known as Recall or True Positive Rate,  
          - Specificity = TN / (TN + FP)
-        <br><br>
         """, unsafe_allow_html=True)
         st.markdown("""
         It identifies the point on the Receiver Operating Characteristic (ROC) curve that maximizes the trade-off between 
@@ -200,7 +199,6 @@ def show():
         where: 
          - Precision = TP / (TP + FP),  
          - Recall = TP / (TP + FN) *also known as Sensitivity or True Positive Rate
-        <br><br>
         """, unsafe_allow_html=True)
         st.markdown("""
         Maximizing the F1-Score helps identify the threshold that balances false positives and false negatives, particularly 
