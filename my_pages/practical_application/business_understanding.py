@@ -176,6 +176,24 @@ def show():
         """, unsafe_allow_html=True)
         st.latex(r"J = Sensitivity + Specificity - 1")
         st.markdown("""
+        where: 
+         - Sensitivity = TP / (TP + FN) *also known as Recall or True Positive Rate,  
+         - Specificity = TN / (TN + FP)
+        <br><br>
+        It identifies the point on the Receiver Operating Characteristic (ROC) curve that maximizes the trade-off between 
+        true positive and true negative rates. In threshold optimization, this corresponds to selecting the decision 
+        threshold that maximizes overall discriminative power, irrespective of class imbalance or cost asymmetry.
+
+        Although the Youden Index does not incorporate cost considerations directly, it ser¬ves as a neutral reference point 
+        to benchmark model sensitivity and specificity in a balanced manner. This is particularly valuable when loss functions 
+        are uncertain, or business costs are estimated with a margin of error.
+        <br><br>
+
+
+        **b) Threshold Optimization via F1-Score Maximization**
+        The F1-Score is the harmonic mean of precision and recall:
+        """, unsafe_allow_html=True)
+        st.markdown("""
         
         This criterion encourages thresholds with well-aligned precision and recall, suggesting a balance between 
         reliability of positive predictions and sensitivity to actual positives. It is particularly suitable in 
