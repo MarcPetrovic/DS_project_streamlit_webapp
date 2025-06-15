@@ -250,7 +250,7 @@ def show():
         url = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map[selected_var]}"
 
         # --- Anzeige im Streamlit iframe ---
-        st.components.v1.iframe(src=url, height=1000, width=1000)
+        st.components.v1.iframe(src=url, height=600, width=700, scrolling=True)
 
         
 
