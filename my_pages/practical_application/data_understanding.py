@@ -189,7 +189,7 @@ def show():
                 td {
                     background-color: white;
                     color: black;
-                    border: 1px solid black;
+                    border: 2px solid black;
                 }
                 td ul {
                     padding-left: 20px;
