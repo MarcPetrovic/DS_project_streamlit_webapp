@@ -270,19 +270,20 @@ def show():
         st.subheader("Table 2: Overview Client Socio-Economic Attributes")
         st.markdown(render_html_table(metadata_df), unsafe_allow_html=True)
         st.markdown("""
-        The “Age” characteristic is a metric (continuous) variable that records the customer’s age at the time of the 
-        telephone contact. The variable contains no missing values and shows a broad age distribution ranging from 17 
-        to 98 years. The median age is 38, while the mean is slightly higher at 40.0 years, indicating a slight right 
-        skew (skewness = 0.78). The standard deviation is 10.42, and the interquartile range (IQR) is 15 years, reflecting 
-        moderate variability within the customer base. The 95th percentile is at 58 years, suggesting that most customers 
-        fall within a working-age range, with relatively few very young or elderly individuals.
+        The “Age” characteristic is a metric (continuous) variable that records the customer’s age at the time of 
+        the telephone contact. The variable contains no missing values and shows a broad age distribution ranging 
+        from 17 to 98 years. The median age is 38, while the mean is slightly higher at 40.0 years, indicating a 
+        slight right skew (skewness = 0.78). The standard deviation is 10.42, and the interquartile range (IQR) is 
+        15 years, reflecting moderate variability within the customer base. The 95th percentile is at 58 years, 
+        suggesting that most customers fall within a working-age range, with relatively few very young or elderly 
+        individuals.
 
-        From a marketing and modeling perspective, age is expected to correlate with financial behavior and risk preferences.
-        Middle-aged and older customers may be more likely to subscribe to term deposits, due to a greater focus on financial 
-        security and long-term savings. Younger customers, by contrast, may show less interest in such products, either due 
-        to lower income levels or a higher preference for liquidity. Given its wide distribution and complete data coverage, 
-        the age variable offers strong potential as a predictor in modeling customer decisions regarding fixed-term deposit 
-        subscriptions.
+        From a marketing and modeling perspective, age is expected to correlate with financial behavior and risk 
+        preferences. Middle-aged and older customers may be more likely to subscribe to term deposits, due to a 
+        greater focus on financial security and long-term savings. Younger customers, by contrast, may show less 
+        interest in such products, either due to lower income levels or a higher preference for liquidity. Given 
+        its wide distribution and complete data coverage, the age variable offers strong potential as a predictor 
+        in modeling customer decisions regarding fixed-term deposit subscriptions.
 
         """)
         anchor_map = {
