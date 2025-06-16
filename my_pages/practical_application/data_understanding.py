@@ -142,7 +142,7 @@ def show():
           header=True,
           add_row_id=True
         )
-        st.write("✅ DEBUG: CSV geladen – Shape:", df2.shape)
+        st.write("✅ DEBUG: CSV loaded – Shape:", df2.shape)
         #st.dataframe(df2.head())  
             # Metadaten definieren
         attribute_metadata = [
