@@ -368,7 +368,7 @@ def show():
             <iframe src="{url}" width="875" height="750" style="border: none;"></iframe>
         </div>
         """
-        st.markdown(scrollable_html, unsafe_allow_html=True)
+        st.markdown(scrollable_html, height=600, width=700, unsafe_allow_html=True)
         # --- show within Streamlit iframe ---
         #st.components.v1.iframe(src=url, height=875, width=750, scrolling=True)
         st.divider()
