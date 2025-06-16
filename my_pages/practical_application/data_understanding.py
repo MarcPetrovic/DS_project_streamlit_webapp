@@ -356,7 +356,56 @@ def show():
         in default, while only 3 cases (<0.1 %) were explicitly marked as being in default. A relatively large proportion 
         of entries (8,597 cases, 20.9 %) are missing. This high proportion of missing values must be addressed during 
         data preparation.
-        """)        
+
+        Due to the extreme class imbalance and the very low number of observed “True” cases, it is recommended to 
+        merge the missing values with the “True” category. From a conservative risk assessment perspective, the 
+        absence of information in this context may suggest higher credit risk or lower transparency—both of which 
+        are relevant indicators in financial modeling. This recoding approach is commonly used in industrial data 
+        mining when a variable may reflect underlying risk through both observed and unobserved (missing) states, 
+        and ensures the variable remains useful in predictive modeling without distorting its binary structure.
+
+        The “Housing” characteristic is a dichotomous variable indicating whether the customer has an active housing 
+        loan at the time of contact. In the sample, the majority of customers (21,576 cases, 52.4 %) reported having 
+        a housing loan, while 18,622 cases (45.2 %) indicated they do not have such a loan. A small proportion of 990 
+        cases (2.4 %) are missing and will require imputation during data preparation.
+
+        From a financial behavior perspective, having a housing loan typically reflects a significant long-term 
+        financial commitment. Customers with a housing loan might exhibit different risk profiles and saving habits 
+        compared to those without, which could influence their propensity to subscribe to fixed-term deposit products. 
+        For instance, customers with housing loans may prioritize debt servicing, while those without might have more 
+        disposable income available for savings or investments. Given the relatively low number of missing values, it 
+        is planned to impute these with the mode category (“True”) to maintain data completeness without distorting 
+        the overall distribution.
+
+        The “Loan” characteristic is a dichotomous variable indicating whether the client has an individual credit 
+        contract at the time of contact. The majority of customers (33,950 cases, 82.4 %) do not have such a credit 
+        contract, while 6,248 cases (15.2 %) are marked as “True,” indicating they currently hold an individual loan. 
+        There are 990 missing values (2.4 %) that will need to be addressed during data preparation.
+
+        From a financial behavior and risk perspective, having an individual loan signals an existing financial 
+        obligation that may influence the customer’s saving and investment decisions. Customers with loans might show 
+        a different propensity to subscribe to term deposits compared to those without, potentially due to differences 
+        in disposable income or financial priorities. Given the relatively small share of missing data, these values 
+        are planned to be imputed using the mode (“False”) to ensure data completeness while preserving the distribution 
+        for subsequent analysis.
+
+        in the following second section of the data audit, the macroeconomic variables (economic & social environment) 
+        are discussed in more detail.
+        """)
+        
+        anchor_map2 = {
+          "default": "pp_var_3783804538312100998",
+          "housing": "pp_var_-7580748235938891539",
+          "loan": "pp_var_6909794517524857854"
+        }
+        # --- User-Interface ---
+        selected_var2 = st.selectbox("🔍 Select a socio-economic feature to replicate above mentioned analysis", list(anchor_map2.keys()))
+
+        # --- URL with anchor ---
+        url2 = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map2[selected_var2]}"
+
+        # --- show within Streamlit iframe ---
+        st.components.v1.iframe(src=url2, height=600, width=700, scrolling=True)
 
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
