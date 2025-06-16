@@ -211,6 +211,13 @@ def show():
         def render_html_table(df: pd.DataFrame) -> str:
             html = """
             <style>
+                .scrollable-table-container {
+                    height: 400px;
+                    overflow-y: auto;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                }
+
                 table {
                     width: 100% !important;
                     border-collapse: collapse !important;
@@ -218,6 +225,8 @@ def show():
                     border: 2px solid black !important;
                 }
                 th {
+                    position: sticky;
+                    top: 0;
                     background-color: #097a80 !important;
                     color: white !important;
                     border: 1px solid lightgray !important;
@@ -245,6 +254,7 @@ def show():
                     margin-bottom: 3px !important;
                 }
             </style>
+            <div class="scrollable-table-container">
             <table>
                 <thead>
                     <tr>
@@ -275,6 +285,7 @@ def show():
 
         #st.markdown(render_html_table(metadata_df), unsafe_allow_html=True)
         st.markdown("""
+        <br><br>
         The “Age” characteristic is a metric (continuous) variable that records the customer’s age at the time of 
         the telephone contact. The variable contains no missing values and shows a broad age distribution ranging 
         from 17 to 98 years. The median age is 38, while the mean is slightly higher at 40.0 years, indicating a 
