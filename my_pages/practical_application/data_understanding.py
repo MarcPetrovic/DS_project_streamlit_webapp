@@ -365,12 +365,10 @@ def show():
 
         scrollable_html = f"""
         <div style="width: 100%; height: 600px; overflow: auto; border: 1px solid #ccc; transform-origin: top left; transform: scale(0.85);">
-            <iframe src="{url}" width="875" height="750" style="border: none;"></iframe>
+            <iframe src="{url}" width="100%" height="100%" style="border: none;"></iframe>
         </div>
         """
-        st.markdown(scrollable_html, height=600, width=700, unsafe_allow_html=True)
-        # --- show within Streamlit iframe ---
-        #st.components.v1.iframe(src=url, height=875, width=750, scrolling=True)
+        st.markdown(scrollable_html, unsafe_allow_html=True)
         st.divider()
 
         st.markdown("""
