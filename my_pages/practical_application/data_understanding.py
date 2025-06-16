@@ -370,7 +370,7 @@ def show():
         """
         st.markdown(scrollable_html, unsafe_allow_html=True)
         # --- show within Streamlit iframe ---
-        #st.components.v1.iframe(src=url, height=600, width=700, scrolling=True)
+        #st.components.v1.iframe(src=url, height=875, width=750, scrolling=True)
         st.divider()
 
         st.markdown("""
