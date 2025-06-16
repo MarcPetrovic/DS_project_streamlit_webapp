@@ -343,11 +343,12 @@ def show():
         # --- User-Interface ---
         selected_var = st.selectbox("🔍 Select a socio-demographic feature to replicate above mentioned analysis", list(anchor_map.keys()))
 
-        # --- URL mit Sprunganker erzeugen ---
+        # --- URL with anchor ---
         url = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map[selected_var]}"
 
-        # --- Anzeige im Streamlit iframe ---
+        # --- show within Streamlit iframe ---
         st.components.v1.iframe(src=url, height=600, width=700, scrolling=True)
+        st.divider()
 
         st.markdown("""
         The “Default” characteristic is a dichotomous variable indicating whether the bank customer had a credit in 
@@ -355,7 +356,6 @@ def show():
         in default, while only 3 cases (<0.1 %) were explicitly marked as being in default. A relatively large proportion 
         of entries (8,597 cases, 20.9 %) are missing. This high proportion of missing values must be addressed during 
         data preparation.
-
         """)        
 
     elif task == "Data Audit - Economic Environment":
