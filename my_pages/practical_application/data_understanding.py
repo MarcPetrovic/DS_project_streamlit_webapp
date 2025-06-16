@@ -437,24 +437,24 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
-st.markdown("""
-    <style>
-    #scroll-top-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 100;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    </style>
-
-    <button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-        ⬆️ Nach oben
-    </button>
-""", unsafe_allow_html=True)
+    st.markdown("""
+        <style>
+        #scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        </style>
+    
+        <button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+            ⬆️ Nach oben
+        </button>
+    """, unsafe_allow_html=True)
