@@ -304,7 +304,36 @@ def show():
         groups—such as management, technicians, or pensioners—potentially showing a higher likelihood of subscribing 
         to a term deposit due to more stable income sources, risk aversion, or stronger financial planning habits.
 
-        """)
+        The “Marital” characteristic records the marital status of the bank customers contacted. The distribution 
+        shows that the majority of the sample is classified as married - with 24,928 cases, this corresponds to 60.5% 
+        of the total sample. In second place are single (single) with 11,568 cases (28.1%), followed by divorced 
+        (divorced) with 4,612 cases (11.2%). This distribution suggests a majority of stable customers, which could 
+        be relevant for certain marketing measures (e.g. in relation to savings or investment products).
+
+        In addition, 80 missing values (0.2 %) were identified in the “Marital” characteristic. In line with established 
+        practice in industrial data mining projects, a pragmatic approach to missing values is also taken here. Due to 
+        the very low proportion, it is planned to replace the missing values in the third CRISP-DM phase (Data Preparation) 
+        with the mode - i.e. the most frequent characteristic (married). This ensures data completeness without significant 
+        distortion of the distribution.
+
+        The “Education” characteristic describes the highest level of education completed by each bank customer, based on 
+        the structure of the Portuguese education system. The distribution is relatively broad, with the largest group 
+        holding a university degree (12,168 cases, 29.5 %), followed by high school graduates (9,515 cases, 23.1 %). A 
+        significant share of the sample completed only basic education: 14.7 % with 9 years of schooling (basic.9y), 
+        10.1 % with 4 years (basic.4y), and 5.6 % with 6 years (basic.6y). These categories reflect the three cycles of 
+        Portugal’s basic education system. Additional groups include vocational training graduates (professional.course, 
+        12.7 %) and a very small number of illiterate individuals (<0.1 %). The observed distribution suggests a diverse 
+        customer base in terms of educational background, which may influence financial decision-making and product 
+        preferences.
+
+        From a marketing and predictive modeling perspective, a positive correlation is expected between higher education 
+        levels and the likelihood of subscribing to a term deposit. Customers with university or professional education 
+        may exhibit greater financial literacy, long-term planning behavior, and awareness of investment products. 
+        Therefore, education could serve as a relevant predictor for identifying customer segments more inclined toward 
+        fixed-term savings products. The variable also includes 1,731 missing values (4.2 %), which will be imputed with 
+        the mode (university.degree) during the Data Preparation phase, in line with common data mining practices.
+        <br>
+        """, unsafe_allow_html=True)
         anchor_map = {
           "age": "pp_var_5630436754821285116",
           "job": "pp_var_-2855576533511057154",
