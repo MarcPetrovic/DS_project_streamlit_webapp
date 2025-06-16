@@ -461,7 +461,6 @@ def show():
             bottom: 30px;
             right: 30px;
             z-index: 100;
-            background-color: #C00000;
             color: white;
             border: none;
             padding: 12px 20px;
@@ -470,5 +469,5 @@ def show():
             font-size: 16px;
         }
         </style>
-        <a href="#top" id="scroll-top-link">⬆️ to the top</a>
+        <a href="#top" id="scroll-top-link"> 🡅 top</a>
     """, unsafe_allow_html=True)
