@@ -275,6 +275,7 @@ def show():
         {html_table}
         </div>
         """
+        st.markdown(scrollable_html, unsafe_allow_html=True)
 
         #st.markdown(render_html_table(metadata_df), unsafe_allow_html=True)
         st.markdown("""
