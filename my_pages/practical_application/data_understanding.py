@@ -270,7 +270,12 @@ def show():
         
         # --- Anzeige in Streamlit ---
         st.subheader("Table 2: Overview Client Socio-Economic Attributes")
-        st.markdown(render_html_table(metadata_df), unsafe_allow_html=True)
+        st.markdown("""
+        <div style='height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 10px'>
+        """ + render_html_table(metadata_df) + """
+        </div>
+        """, unsafe_allow_html=True)
+        #st.markdown(render_html_table(metadata_df), unsafe_allow_html=True)
         st.markdown("""
         The “Age” characteristic is a metric (continuous) variable that records the customer’s age at the time of 
         the telephone contact. The variable contains no missing values and shows a broad age distribution ranging 
