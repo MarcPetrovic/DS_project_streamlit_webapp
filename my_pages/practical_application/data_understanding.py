@@ -267,14 +267,17 @@ def show():
         
             html += "</tbody></table>"
             return html
-        
+        html_table = render_html_table(metadata_df)
         # --- Anzeige in Streamlit ---
         st.subheader("Table 2: Overview Client Socio-Economic Attributes")
-        st.markdown("""
+        scrollable_html = f"""
         <div style='height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 10px'>
-        """ + render_html_table(metadata_df) + """
+        {html_table}
         </div>
-        """, unsafe_allow_html=True)
+        """
+
+# 3. In Streamlit anzeigen
+st.markdown(scrollable_html, unsafe_allow_html=True)
         #st.markdown(render_html_table(metadata_df), unsafe_allow_html=True)
         st.markdown("""
         The “Age” characteristic is a metric (continuous) variable that records the customer’s age at the time of 
