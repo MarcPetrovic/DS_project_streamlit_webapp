@@ -364,8 +364,8 @@ def show():
         url = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map[selected_var]}"
 
         scrollable_html = f"""
-        <div style="width: 100%; height: 600px; overflow: auto; border: 1px solid #ccc; transform-origin: top left; transform: scale(0.8);">
-            <iframe src="{url}" width="100%" height="100%" style="border: none;"></iframe>
+        <div style="width: 100%; height: 600px; overflow: auto; border: 1px solid #ccc; transform-origin: top left; transform: scale(0.85);">
+            <iframe src="{url}" width="875" height="750" style="border: none;"></iframe>
         </div>
         """
         st.markdown(scrollable_html, unsafe_allow_html=True)
