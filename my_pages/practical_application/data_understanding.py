@@ -460,7 +460,7 @@ def show():
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: none;
+            background-color: #f0f0f0;
             z-index: 100;
             color: white;
             border: none;
