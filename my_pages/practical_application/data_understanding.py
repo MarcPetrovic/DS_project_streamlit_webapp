@@ -363,8 +363,14 @@ def show():
         # --- URL with anchor ---
         url = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map[selected_var]}"
 
+        scrollable_html = f"""
+        <div style="width: 100%; height: 600px; overflow: auto; border: 1px solid #ccc;">
+            <iframe src="{url}" width="100%" height="100%" style="border: none;"></iframe>
+        </div>
+        """
+        st.markdown(scrollable_html, unsafe_allow_html=True)
         # --- show within Streamlit iframe ---
-        st.components.v1.iframe(src=url, height=600, width=700, scrolling=True)
+        #st.components.v1.iframe(src=url, height=600, width=700, scrolling=True)
         st.divider()
 
         st.markdown("""
