@@ -170,6 +170,38 @@ def show():
             "ATTRIBUTE DOMAIN VALUE": ", ".join(sorted(df2["marital"].dropna().unique())),
             "ATTRIBUTE MODEL TYPE": "feature",
             "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
+          },
+          {
+            "ATTRIBUTE NAME": "education",
+            "ATTRIBUTE DATA TYPE": "categorical",
+            "ATTRIBUTE DESCRIPTION": "Clients educational background at time of call",
+            "ATTRIBUTE DOMAIN VALUE": ", ".join(sorted(df2["education"].dropna().unique())),
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
+          },
+          {
+            "ATTRIBUTE NAME": "default",
+            "ATTRIBUTE DATA TYPE": "categorical",
+            "ATTRIBUTE DESCRIPTION": "If the client has a credit in default",
+            "ATTRIBUTE DOMAIN VALUE": ", ".join(sorted(df2["default"].dropna().unique())),
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
+          },
+          {
+            "ATTRIBUTE NAME": "housing",
+            "ATTRIBUTE DATA TYPE": "categorical",
+            "ATTRIBUTE DESCRIPTION": "If the client has a house loan contract",
+            "ATTRIBUTE DOMAIN VALUE": ", ".join(sorted(df2["housing"].dropna().unique())),
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
+          },
+          {
+            "ATTRIBUTE NAME": "loan",
+            "ATTRIBUTE DATA TYPE": "categorical",
+            "ATTRIBUTE DESCRIPTION": "If the client has a house loan contract",
+            "ATTRIBUTE DOMAIN VALUE": ", ".join(sorted(df2["loan"].dropna().unique())),
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Client socio-economic attributes"
           }
         ]
         metadata_df = pd.DataFrame(attribute_metadata)
