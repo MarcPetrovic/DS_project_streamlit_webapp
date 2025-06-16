@@ -285,6 +285,25 @@ def show():
         its wide distribution and complete data coverage, the age variable offers strong potential as a predictor 
         in modeling customer decisions regarding fixed-term deposit subscriptions.
 
+        The “Job” characteristic describes the professional status of the bank customers contacted by telephone. 
+        Overall, it can be seen that a large proportion of the sample consists of people with administrative jobs: 
+        with 10,422 cases, admin occupations make up the largest proportion (25.3 %). This is followed by blue-collar 
+        occupations (manual/industrial) with 9,254 cases (22.5 %) and technicians with 6,743 cases (16.4 %). Other 
+        frequently represented groups are services (9.6 %) and management (7.1 %). Pensioners (retired, 4.2 %) and 
+        people with self-employed or entrepreneurial activities (entrepreneur, self-employed, 3.5 % each) are 
+        comparatively underrepresented. The categories housemaid (2.6 %) and unemployed (2.5 %) have the lowest number 
+        of cases. Overall, there is a broad occupational spread with a focus on administrative and non-academic 
+        professions.
+
+        It should also be mentioned that 330 cases (around 0.8 %) have missing values in the “Job” characteristic. 
+        In industrial data mining projects, missing values are often dealt with pragmatically, especially if the 
+        proportion is relatively low. It is therefore planned to replace these missing values with the mode, i.e. 
+        the most frequent category (admin), in the subsequent data preparation phase (phase 3 of the CRISP-DM model). 
+        This procedure enables complete use of the data sets without any significant distortion of the distribution. 
+        From a modeling perspective, it is expected that job type may influence financial behavior, with certain 
+        groups—such as management, technicians, or pensioners—potentially showing a higher likelihood of subscribing 
+        to a term deposit due to more stable income sources, risk aversion, or stronger financial planning habits.
+
         """)
         anchor_map = {
           "age": "pp_var_5630436754821285116",
