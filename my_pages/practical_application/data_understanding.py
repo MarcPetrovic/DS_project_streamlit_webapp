@@ -441,7 +441,7 @@ def show():
         """)
     st.markdown("""
         <style>
-        #scroll-top-btn {
+        #scroll-top-link {
             position: fixed;
             bottom: 30px;
             right: 30px;
