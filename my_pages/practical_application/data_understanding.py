@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 
 def show():
+    st.markdown('<a name="top"></a>', unsafe_allow_html=True)
   # Dropdown für die Phasen
     task = st.selectbox("Select a subchapter of CRISP-DM-phase Data Understanding:", [
         "General Procedere & EDA",
@@ -15,7 +16,6 @@ def show():
         "Data Audit - Previous Marketing Activities",
         "Key Results of the 2nd Phase"
     ])
-    st.markdown('<a name="top"></a>', unsafe_allow_html=True)
 
     # Inhalte je nach Auswahl
     if task == "General Procedere & EDA":
@@ -456,8 +456,4 @@ def show():
         }
         </style>
         <a href="#top" id="scroll-top-link">⬆️ to the top</a>
-    
-        #<button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-        #    ⬆️ Nach oben
-        #</button>
     """, unsafe_allow_html=True)
