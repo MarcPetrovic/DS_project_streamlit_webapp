@@ -349,7 +349,14 @@ def show():
         # --- Anzeige im Streamlit iframe ---
         st.components.v1.iframe(src=url, height=600, width=700, scrolling=True)
 
-        
+        st.markdown("""
+        The “Default” characteristic is a dichotomous variable indicating whether the bank customer had a credit in 
+        default at the time of the telephone contact. The vast majority of customers (32,588 cases, 79.1 %) were not 
+        in default, while only 3 cases (<0.1 %) were explicitly marked as being in default. A relatively large proportion 
+        of entries (8,597 cases, 20.9 %) are missing. This high proportion of missing values must be addressed during 
+        data preparation.
+
+        """)        
 
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
