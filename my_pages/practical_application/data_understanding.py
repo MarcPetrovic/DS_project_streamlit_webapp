@@ -15,6 +15,8 @@ def show():
         "Data Audit - Previous Marketing Activities",
         "Key Results of the 2nd Phase"
     ])
+    st.markdown('<a name="top"></a>', unsafe_allow_html=True)
+
     # Inhalte je nach Auswahl
     if task == "General Procedere & EDA":
         st.subheader("1. General Procedere & Exploratory Data Analysis")
@@ -453,8 +455,9 @@ def show():
             font-size: 16px;
         }
         </style>
+        <a href="#top" id="scroll-top-link">⬆️ to the top</a>
     
-        <button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-            ⬆️ Nach oben
-        </button>
+        #<button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        #    ⬆️ Nach oben
+        #</button>
     """, unsafe_allow_html=True)
