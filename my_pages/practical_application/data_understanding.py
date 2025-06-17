@@ -278,13 +278,12 @@ def show():
             html += "</tbody></table>"
             return html
         html_table = render_html_table(metadata_df)
-        # --- Anzeige in Streamlit ---
+
         st.subheader("Table 2: Overview Client Socio-Economic Attributes")
         #scrollable_html = f"""<div style='height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 10px'>{html_table}</div>"""
         #st.markdown(scrollable_html, unsafe_allow_html=True)
         st.markdown(html_table, unsafe_allow_html=True)
 
-        #st.markdown(render_html_table(metadata_df), unsafe_allow_html=True)
         st.markdown("""
         <br><br>
         The “Age” characteristic is a metric (continuous) variable that records the customer’s age at the time of 
@@ -357,18 +356,16 @@ def show():
           "marital": "pp_var_-2655159898856749981",
           "education": "pp_var_3871473053277162198"
         }
-        # --- User-Interface ---
+
         selected_var = st.selectbox("🔍 Select a socio-demographic feature to replicate above mentioned analysis", list(anchor_map.keys()))
 
-        # --- URL with anchor ---
         url = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map[selected_var]}"
 
-        scrollable_html = f"""
-        <div style="width: 700px; height: 600px; overflow: auto; border: 2px solid #ccc; transform-origin: top left; transform: scale(0.80);">
-            <iframe src="{url}" width="875" height="750" style="border: none;"></iframe>
-        </div>
-        """
-        st.markdown(scrollable_html, unsafe_allow_html=True)
+        st.markdown(f"""
+            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: hidden;">
+                <iframe src="{url}" width="1093" height="938" style="border:none;"></iframe>
+            </div>
+        """, unsafe_allow_html=True)
         st.divider()
 
         st.markdown("""
@@ -419,10 +416,9 @@ def show():
           "housing": "pp_var_-7580748235938891539",
           "loan": "pp_var_6909794517524857854"
         }
-        # --- User-Interface ---
+
         selected_var2 = st.selectbox("🔍 Select a socio-economic feature to replicate above mentioned analysis", list(anchor_map2.keys()))
 
-        # --- URL with anchor ---
         url2 = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map2[selected_var2]}"
 
         # --- show within Streamlit iframe ---
