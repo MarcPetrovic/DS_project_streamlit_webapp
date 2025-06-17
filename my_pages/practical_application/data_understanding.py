@@ -554,6 +554,31 @@ def show():
         st.subheader("Table 3: Overview of feature-cluster socio-economic-environment")
         st.markdown(html_table_macro, unsafe_allow_html=True)
 
+        st.markdown("""
+        <br>
+        The variable emp.var.rate reflects the quarterly change in the employment rate in Portugal at the time of 
+        the bank’s telephone contact with the customer. It is a continuous variable that serves as a proxy for the 
+        health of the labor market. The distribution shows several dominant values, as the variable appears to have 
+        been discretized into a limited number of economically relevant states.
+
+        The most frequent value is 1.4 (16,234 cases, 39.4 %), followed by 1.1 (7,763 cases, 18.8 %), and -1.8 
+        (9,184 cases, 22.3 %). These values suggest that a substantial portion of the dataset was collected during 
+        periods of slight to moderate employment growth, but also during a noticeable downturn (−1.8). Smaller groups 
+        fall into strongly negative labor market phases such as −2.9, −3.0, and −3.4, together accounting for about 
+        7 % of the data. Positive employment variation values tend to signal economic recovery or expansion, while 
+        negative values correspond to downturns or recessions.
+
+        From a modeling perspective, it is expected that the employment variation rate influences customers’ financial 
+        behavior by shaping their perception of economic security. Interestingly, this relationship may be negative in 
+        the context of fixed-term deposits: during periods of positive employment development (e.g. rising emp.var.rate), 
+        customers may feel more confident about their financial future and therefore be less inclined to lock in capital 
+        in conservative products like term deposits. Instead, they might prefer more flexible or higher-yielding 
+        investment options. Conversely, in times of rising unemployment or economic downturns, fixed-term deposits may 
+        be perceived as a safer choice, increasing their appeal. The variable thus captures an important aspect of the 
+        macroeconomic environment that may indirectly influence product demand.
+
+        """, unsafe_allow_html=True)
+
     elif task == "Data Audit - Current Marketing Activities":
         st.subheader("5. Data Audit - Current Marketing Activities")
         st.markdown("""
