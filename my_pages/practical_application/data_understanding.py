@@ -465,25 +465,25 @@ def show():
         <style>
         #scroll-top-link {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 100;
-            width: 50px;
-            height: 50px;
+    
+            width: 60px;
+            height: 60px;
             border: none;
             border-radius: 50%;
             cursor: pointer;
-            
     
             display: flex;
             align-items: center;
             justify-content: center;
-            
     
-            background-color: black; 
+            background-color: black;
             color: white;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 24px;
             transition: background-color 0.3s ease, opacity 0.2s ease;
         }
     
