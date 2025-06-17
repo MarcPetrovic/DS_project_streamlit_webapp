@@ -426,7 +426,12 @@ def show():
         url2 = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map2[selected_var2]}"
 
         # --- show within Streamlit iframe ---
-        st.components.v1.iframe(src=url2, height=600, width=700, scrolling=True)
+        #st.components.v1.iframe(src=url2, height=600, width=700, scrolling=True)
+        st.markdown(f"""
+            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: hidden;">
+                <iframe src="{url2}" width="1093" height="938" style="border:none;"></iframe>
+            </div>
+        """, unsafe_allow_html=True)
 
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
