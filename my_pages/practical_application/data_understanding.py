@@ -419,8 +419,8 @@ def show():
         # --- show within Streamlit iframe ---
         #st.components.v1.iframe(src=url2, height=600, width=700, scrolling=True)
         st.markdown(f"""
-            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: hidden;">
-                <iframe src="{url2}" width="1093" height="938" style="border:none;"></iframe>
+            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
+                <iframe src="{url2}" width="1093" height="938" style="border:none; scrolling="yes""></iframe>
             </div>
         """, unsafe_allow_html=True)
 
