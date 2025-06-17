@@ -459,20 +459,55 @@ def show():
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
     st.markdown("""
+        <!-- Font Awesome einbinden -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
         <style>
         #scroll-top-link {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: black;
             z-index: 100;
-            color: white;
             border: none;
             padding: 12px 20px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+    
+            background-color: black; /* Standardfarbe */
+            color: white;
+            text-decoration: none;
+        }
+    
+        @media (prefers-color-scheme: dark) {
+            #scroll-top-link {
+                background-color: #222;
+                color: white;
+            }
+        }
+    
+        @media (prefers-color-scheme: light) {
+            #scroll-top-link {
+                background-color: #e0e0e0;
+                color: black;
+            }
+        }
+    
+        /* Optional: Hover-Effekt */
+        #scroll-top-link:hover {
+            opacity: 0.85;
         }
         </style>
-        <a href="#top" id="scroll-top-link"> 🡅 top</a>
+    
+        <!-- Button mit Icon -->
+        <a href="#top" id="scroll-top-link">
+            <i class="fas fa-arrow-up"></i>
+            Top
+        </a>
     """, unsafe_allow_html=True)
+
