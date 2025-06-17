@@ -465,9 +465,8 @@ def show():
         <style>
         #scroll-top-link {
             position: fixed;
-            top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             z-index: 100;
     
             width: 60px;
