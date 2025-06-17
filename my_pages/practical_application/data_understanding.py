@@ -482,8 +482,6 @@ def show():
         html_table_macro = render_html_table(metadata_macro_df)
 
         st.subheader("Table 3: Overview of feature-cluster socio-economic-environment")
-        #scrollable_html = f"""<div style='height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 10px'>{html_table}</div>"""
-        #st.markdown(scrollable_html, unsafe_allow_html=True)
         st.markdown(html_table_macro, unsafe_allow_html=True)
 
     elif task == "Data Audit - Current Marketing Activities":
