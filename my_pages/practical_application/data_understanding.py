@@ -359,7 +359,7 @@ def show():
 
         selected_var = st.selectbox("🔍 Select a socio-demographic feature to replicate above mentioned analysis", list(anchor_map.keys()))
 
-        url = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map[selected_var]}"
+        url = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing_scaled.html#{anchor_map[selected_var]}"
 
         st.markdown(f"""
             <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: hidden;">
