@@ -468,20 +468,23 @@ def show():
             bottom: 30px;
             right: 30px;
             z-index: 100;
+            width: 50px;
+            height: 50px;
             border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
+            border-radius: 50%;
             cursor: pointer;
-            font-size: 16px;
+            
     
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            
     
-            background-color: black; /* Standardfarbe */
+            background-color: black; 
             color: white;
             text-decoration: none;
+            font-size: 20px;
+            transition: background-color 0.3s ease, opacity 0.2s ease;
         }
     
         @media (prefers-color-scheme: dark) {
@@ -505,9 +508,8 @@ def show():
         </style>
     
         <!-- Button mit Icon -->
-        <a href="#top" id="scroll-top-link">
+        <a href="#top" id="scroll-top-link" title="Top">
             <i class="fas fa-arrow-up"></i>
-            Top
         </a>
     """, unsafe_allow_html=True)
 
