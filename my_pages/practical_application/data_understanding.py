@@ -361,12 +361,7 @@ def show():
 
         url = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing_scaled.html#{anchor_map[selected_var]}"
 
-        st.markdown(f"""
-            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: hidden;">
-                <iframe src="{url}" width="1093" height="938" style="border:none;"></iframe>
-            </div>
-        """, unsafe_allow_html=True)
-        st.divider()
+        st.components.v1.iframe(src=url, height=600, width=800, scrolling=True)
 
         st.markdown("""
         The “Default” characteristic is a dichotomous variable indicating whether the bank customer had a credit in 
