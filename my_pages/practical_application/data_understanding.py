@@ -144,7 +144,7 @@ def show():
         )
         st.write("✅ DEBUG: CSV loaded – Shape:", df2.shape)
         #st.dataframe(df2.head())  
-            # Metadaten definieren
+
         attribute_metadata = [
           {
             "ATTRIBUTE NAME": "age",
@@ -416,7 +416,6 @@ def show():
 
         url2 = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map2[selected_var2]}"
 
-        # --- show within Streamlit iframe ---
         #st.components.v1.iframe(src=url2, height=600, width=700, scrolling=True)
         st.markdown(f"""
             <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
@@ -436,6 +435,57 @@ def show():
         products such as term deposits. Table 3 provides an overview of the features in this cluster, including 
         variable names, descriptions, and domain values.
         """)
+        attribute_metadata_macro = [
+          {
+            "ATTRIBUTE NAME": "emp.var.rate",
+            "ATTRIBUTE DATA TYPE": "Continuous",
+            "ATTRIBUTE DESCRIPTION": "Employment variation rate, with a quarterly frequency",
+            "ATTRIBUTE DOMAIN VALUE": "[-3.40, 1.40]",
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Economic & social environment"
+          },
+          {
+            "ATTRIBUTE NAME": "cons.price.idx",
+            "ATTRIBUTE DATA TYPE": "Continuous",
+            "ATTRIBUTE DESCRIPTION": "Monthly average consumer price index",
+            "ATTRIBUTE DOMAIN VALUE": "[92.2010, 94.7670]",
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Economic & social environment"
+          },
+          {
+            "ATTRIBUTE NAME": "cons.conf.idx",
+            "ATTRIBUTE DATA TYPE": "Continuous",
+            "ATTRIBUTE DESCRIPTION": "Monthly average consumer confidence index",
+            "ATTRIBUTE DOMAIN VALUE": "[-50.80, -26.90]",
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Economic & social environment"
+          },
+          {
+            "ATTRIBUTE NAME": "euribor3m",
+            "ATTRIBUTE DATA TYPE": "Continuous",
+            "ATTRIBUTE DESCRIPTION": "Daily three month Euribor rate",
+            "ATTRIBUTE DOMAIN VALUE": "[0.6340, 5.0450]",
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Economic & social environment"
+          },
+          {
+            "ATTRIBUTE NAME": "nr.employed",
+            "ATTRIBUTE DATA TYPE": "Continuous",
+            "ATTRIBUTE DESCRIPTION": "Quarterly average of the total number of employed citizens",
+            "ATTRIBUTE DOMAIN VALUE": "[4963.60, 5228.10]",
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Economic & social environment"
+          }
+        ]
+        metadata_macro_df = pd.DataFrame(attribute_metadata_macro)
+        
+        html_table_macro = render_html_table(metadata_macro_df)
+
+        st.subheader("Table 3: Overview of feature-cluster socio-economic-environment")
+        #scrollable_html = f"""<div style='height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 10px'>{html_table}</div>"""
+        #st.markdown(scrollable_html, unsafe_allow_html=True)
+        st.markdown(html_table_macro, unsafe_allow_html=True)
+
     elif task == "Data Audit - Current Marketing Activities":
         st.subheader("5. Data Audit - Current Marketing Activities")
         st.markdown("""
