@@ -427,17 +427,14 @@ def show():
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
         st.markdown("""
-        In the data understanding phase, which should be interpreted as complementary to the business understanding
-        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
-        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
-        includes the task of describing the data using statistical analyses and determining attributes and their 
-        characteristics. This phase also consists of a total of four tasks:
-        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
-        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
-        or field identities.
-        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
-        data.
-        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
+        The second cluster of variables captures the broader economic and social environment at the time of customer 
+        contact. Unlike the first cluster, which focuses on individual customer characteristics, this set of variables 
+        reflects the macroeconomic conditions in Portugal, such as labor market dynamics, consumer sentiment, and 
+        interest rate levels. These continuous variables were recorded at different temporal frequencies (monthly, 
+        quarterly, or daily) and serve as contextual background for interpreting customer behavior. They are external 
+        to the customer but may influence financial decision-making—particularly with regard to long-term financial 
+        products such as term deposits. Table 3 provides an overview of the features in this cluster, including 
+        variable names, descriptions, and domain values.
         """)
     elif task == "Data Audit - Current Marketing Activities":
         st.subheader("5. Data Audit - Current Marketing Activities")
