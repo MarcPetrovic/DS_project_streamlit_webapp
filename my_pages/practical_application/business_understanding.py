@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 def show():
-    st.markdown('<a name="top"></a>', unsafe_allow_html=True)
+    st.markdown('<a name="top2"></a>', unsafe_allow_html=True)
   # Dropdown für die Phasen
     phase = st.selectbox("Select a subchapter of CRISP-DM-phase Business Understanding:", [
         "General Business Knowledge",
@@ -444,7 +444,7 @@ def show():
         </style>
     
         <!-- Button mit Icon -->
-        <a href="#top" id="scroll-top-link2" title="Top">
+        <a href="#top" id="scroll-top-link2" title="Top2">
             <i class="fas fa-arrow-up"></i>
         </a>
     """, unsafe_allow_html=True)
