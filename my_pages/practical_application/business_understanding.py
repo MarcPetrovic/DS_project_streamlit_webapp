@@ -391,10 +391,10 @@ def show():
         The project ensures that all subsequent phases remain anchored in business relevance and stakeholder value.
         """)
     st.markdown("""
-    <!-- Font Awesome einbinden -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <!-- Font Awesome einbinden -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
+        <style>
         #scroll-top-link {
             position: fixed;
             bottom: 30px;
