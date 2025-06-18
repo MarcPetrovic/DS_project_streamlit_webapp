@@ -1,5 +1,6 @@
 import streamlit as st
 
+st.warning("🔍 key_results wurde geladen.")  # Diese Zeile direkt oben
+
 def show():
-    st.header("Conclusion & Discussion")
-    st.write("Hier formulierst du deine Schlussfolgerungen und Diskussion.")
+    st.header("Key Results")
