@@ -395,6 +395,10 @@ def show():
         
         The project ensures that all subsequent phases remain anchored in business relevance and stakeholder value.
         """)
+        st.markdown("""
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <p>Test-Icon: <i class="fas fa-arrow-up"></i></p>
+        """, unsafe_allow_html=True)
     st.markdown("""
         <!-- Font Awesome einbinden -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
