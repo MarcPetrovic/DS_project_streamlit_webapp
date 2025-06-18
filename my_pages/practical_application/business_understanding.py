@@ -445,7 +445,7 @@ def show():
         </style>
     
         <!-- Button mit Icon -->
-        <a href="#top" id="scroll-top-link2" title="Top2">
+        <a href="#top2" id="scroll-top-link2" title="Top2">
             <i class="fas fa-arrow-up"></i>
         </a>
     """, unsafe_allow_html=True)
