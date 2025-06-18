@@ -6,9 +6,8 @@ import numpy as np
 
 def show():
     st.markdown("""
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <p>Test-Icon: <i class="fas fa-arrow-up"></i></p>
-        """, unsafe_allow_html=True)
+    <a href="#top2" style="font-size:48px;position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:100;">⬆️</a>
+    """, unsafe_allow_html=True)
     
   # Dropdown für die Phasen
     phase = st.selectbox("Select a subchapter of CRISP-DM-phase Business Understanding:", [
