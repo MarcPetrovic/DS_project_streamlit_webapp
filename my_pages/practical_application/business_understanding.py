@@ -21,6 +21,10 @@ def show():
     if phase == "General Business Knowledge":
         st.subheader("1. General business knowledge")
         st.markdown("""
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <p>Test-Icon: <i class="fas fa-arrow-up"></i></p>
+        """, unsafe_allow_html=True)
+        st.markdown("""
         In the following, a well-founded understanding of the business process of investing term deposits at banks 
         will be conveyed. Without this expertise, it is not possible to use data and technology effectively and 
         efficiently to achieve the project goal. At its core, the current data project is about helping banks to 
@@ -32,7 +36,7 @@ def show():
         The response side is represented by a bank customer and his reaction to the agent's call respectively to the 
         offer. The recorded reaction of the bank customer is binary and distinguishes between “Yes”, conclusion of 
         a fixed-term deposit contract, or “No”, no conclusion of a fixed-term deposit contract.
-       """)
+        """)
           # Bild von der URL laden und anzeigen 
         show_github_image(
         image_filename="images/target_group_marketing.PNG",
@@ -395,10 +399,7 @@ def show():
         
         The project ensures that all subsequent phases remain anchored in business relevance and stakeholder value.
         """)
-        st.markdown("""
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <p>Test-Icon: <i class="fas fa-arrow-up"></i></p>
-        """, unsafe_allow_html=True)
+
     st.markdown("""
         <!-- Font Awesome einbinden -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
