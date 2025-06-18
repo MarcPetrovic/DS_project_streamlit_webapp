@@ -5,10 +5,6 @@ import pandas as pd
 import numpy as np
 
 def show():
-    st.markdown("""
-    <a href="#top2" style="font-size:48px;position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:100;">⬆️</a>
-    """, unsafe_allow_html=True)
-    
   # Dropdown für die Phasen
     phase = st.selectbox("Select a subchapter of CRISP-DM-phase Business Understanding:", [
         "General Business Knowledge",
@@ -22,6 +18,10 @@ def show():
     # Inhalte je nach Auswahl
     if phase == "General Business Knowledge":
         st.subheader("1. General business knowledge")
+        st.markdown("""
+        <a href="#top2" style="font-size:48px;position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:100;">⬆️</a>
+        """, unsafe_allow_html=True)
+    
         st.markdown("""
         In the following, a well-founded understanding of the business process of investing term deposits at banks 
         will be conveyed. Without this expertise, it is not possible to use data and technology effectively and 
