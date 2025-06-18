@@ -14,7 +14,6 @@ st.sidebar.radio(
         "Practical Application According to CRISP-DM",
         "Methods & Data",
         "Technical Environment & Modeling",
-        "Key Results",
         "Conclusion & Discussion"
     ],
     key="main_page"
@@ -27,8 +26,7 @@ header_images = {
     "Practical Application According to CRISP-DM": "images/header.PNG",
     #"Methods & Data": "images/methods_header.jpg",
     #"Technical Environment & Modeling": "images/tech_header.jpg",
-    "Key Results": "images/header.PNG",
-    "Conclusion & Discussion": "images/header.PNG"
+     "Conclusion & Discussion": "images/header.PNG"
 }
 
 # Subnavigation nur, wenn nötig – ebenfalls direkt an den Session-State gebunden
@@ -176,10 +174,6 @@ elif st.session_state.main_page == "Methods & Data":
 elif st.session_state.main_page == "Technical Environment & Modeling":
     from my_pages import technical_environment_modeling
     technical_environment_modeling.show()
-
-elif st.session_state.main_page == "Key Results":
-    from my_pages import key_results
-    key_results.show()
 
 elif st.session_state.main_page == "Conclusion & Discussion":
     from my_pages import conclusion_discussion
