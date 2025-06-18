@@ -400,7 +400,7 @@ def show():
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
         <style>
-        #scroll-top-link2 {
+        #scroll-top-link {
             position: fixed;
             bottom: 30px;
             left: 50%;
@@ -425,27 +425,27 @@ def show():
         }
     
         @media (prefers-color-scheme: dark) {
-            #scroll-top-link2 {
+            #scroll-top-link {
                 background-color: #222;
                 color: white;
             }
         }
     
         @media (prefers-color-scheme: light) {
-            #scroll-top-link2 {
+            #scroll-top-link {
                 background-color: #e0e0e0;
                 color: black;
             }
         }
     
         /* Optional: Hover-Effekt */
-        #scroll-top-link2:hover {
+        #scroll-top-link:hover {
             opacity: 0.85;
         }
         </style>
     
         <!-- Button mit Icon -->
-        <a href="#top2" id="scroll-top-link2" title="Top2">
+        <a href="#top2" id="scroll-top-link" title="Top">
             <i class="fas fa-arrow-up"></i>
         </a>
     """, unsafe_allow_html=True)
