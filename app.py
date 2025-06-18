@@ -1,6 +1,7 @@
 import streamlit as st
 from utils.image_loader import show_github_image
-
+from my_pages import key_results
+st.write("DEBUG: show exists?", hasattr(key_results, "show"))
 # ----------------------------
 # Sidebar Navigation
 # ----------------------------
