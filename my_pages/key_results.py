@@ -3,7 +3,7 @@ import streamlit as st
 def show():
     st.header("Key Results")
     st.write("Hier formulierst du deine Kernresultate.")
-# 1️⃣ Anker oben einfügen
+
     st.markdown('<a name="top2"></a>', unsafe_allow_html=True)
     
     # 2️⃣ Inhalt zum Scrollen erzeugen
