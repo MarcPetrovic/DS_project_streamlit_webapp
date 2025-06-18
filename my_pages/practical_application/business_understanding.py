@@ -15,6 +15,7 @@ def show():
         "Technical Framework & Environment",
         "Key Results & Strategic Modeling Decisions"
     ])
+    
     # Inhalte je nach Auswahl
     if phase == "General Business Knowledge":
         st.subheader("1. General business knowledge")
