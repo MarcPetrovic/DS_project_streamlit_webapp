@@ -577,6 +577,31 @@ def show():
         be perceived as a safer choice, increasing their appeal. The variable thus captures an important aspect of the 
         macroeconomic environment that may indirectly influence product demand.
 
+        The variable cons.price.idx represents the monthly average of the consumer price index (CPI) at the time of 
+        customer contact. It is a continuous variable, measured on a metric scale, and serves as an indicator of 
+        inflationary dynamics in the economy. In total, the variable contains 26 distinct values, with no missing or 
+        infinite entries, and thus offers full data coverage. The CPI values in the dataset range from 92.201 to 94.767, 
+        with a mean of 93.58 and a standard deviation of 0.58. The interquartile range (IQR) is relatively narrow at 
+        0.919, indicating that most observations lie close to the central tendency. The distribution shows slight 
+        left-skewness (−0.23) and mild platykurtic characteristics (kurtosis = −0.83), meaning that values are more 
+        evenly spread across the range with less concentration around the mean.
+
+        Although the variable is metric, the distribution is multimodal, as a limited number of CPI values occur with 
+        particularly high frequency—reflecting the temporal aggregation of macroeconomic conditions. For example, values 
+        such as 93.994 (18.8 %), 93.918 (16.2 %), and 92.893 (14.1 %) are clearly overrepresented, likely corresponding 
+        to periods of data collection with stable or repeat economic conditions.
+
+        From an economic perspective, the CPI reflects changes in the general price level and is closely linked to 
+        inflation expectations and household purchasing power. Notably, all values in the dataset lie below the normalized 
+        base index of 100, indicating a generally low inflationary environment during the observation period. In this 
+        context, a moderate increase in the CPI may be perceived as a sign of emerging inflation or economic uncertainty, 
+        which in turn can strengthen the appeal of safe and predictable investments such as fixed-term deposits. Customers 
+        may seek to protect the value of their assets against future price increases, especially when variable-yield 
+        alternatives are viewed as riskier. Therefore, in contrast to typical high-inflation scenarios, a positive 
+        correlation between CPI and the likelihood of term deposit subscription is plausible in this specific low-index 
+        context. The cons.price.idx variable thus provides valuable insight into how macroeconomic price expectations 
+        shape customer preferences for secure investment products.
+
         """, unsafe_allow_html=True)
 
     elif task == "Data Audit - Current Marketing Activities":
