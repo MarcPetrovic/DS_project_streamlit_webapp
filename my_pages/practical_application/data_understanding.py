@@ -747,6 +747,64 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
+    elif task == "Data Audit - Previous Marketing Activities":
+        st.subheader("6. Data Audit - Previous marketing activities")
+        st.markdown("""
+        After analyzing the current campaign-related attributes, the focus now shifts to the client’s prior interaction 
+        history with the bank’s marketing efforts. The attribute cluster “Bank Marketing Activities (previous)” includes 
+        three variables—pdays, previous, and poutcome—which capture whether and how the client was involved in earlier 
+        campaigns. These features provide valuable context on past engagement and may help explain current response behavior. 
+        The following section examines each of these attributes in detail (see table 5).
+
+        The “Pdays” variable is a numerical feature indicating the number of days since the client was last contacted in a 
+        previous campaign. A value of 999 is used as a special code to indicate that the client was not contacted before. 
+        This placeholder value dominates the distribution: the median, quartiles, and 95th percentile are all 999, and over 
+        95 % of all records contain this value. The mean is 962.5, and the distribution is strongly left-skewed (skewness = −4.92), 
+        with very limited variation among the remaining (non-999) values. The IQR is 0, and the mode is clearly 999.
+
+        From a data interpretation perspective, pdays essentially acts as a binary indicator: clients with a value other than 
+        999 have been contacted in the past, while those with 999 have not. To improve interpretability and avoid confusion 
+        in modeling, it is recommended that all 999 values be recoded to 0 during Phase 3 – Data Preparation. This transforms 
+        the variable into a more meaningful numerical scale, where 0 = no prior contact, and >0 = days since last contact, 
+        allowing models to better capture the impact of prior interactions on current campaign outcomes.
+
+        The “Previous” variable is a discrete numerical feature indicating the number of contacts made with a client in previous 
+        marketing campaigns before the current one. Its values range from 0 to 7, with a mean of 0.17 and a median of 0, 
+        indicating that most clients had no prior contact history. This is further confirmed by the distribution: 86.3 % of all 
+        records are zero, and 95 % of clients were contacted once or never before. The variable is strongly right-skewed 
+        (skewness = 3.83, kurtosis = 20.11), with only a small fraction of clients receiving more than two prior contacts.
+
+        There are no missing values, and all values are non-negative. From a modeling perspective, previous may serve as an 
+        indicator of the bank's historical engagement with the client. A higher number of past contacts might reflect either 
+        customer interest or repeated targeting due to prior non-responses. However, the low overall variance and the high 
+        concentration at zero suggest that its predictive power may be limited and should be interpreted with caution.
+
+        The “Poutcome” variable is a categorical feature that captures the outcome of the last marketing campaign, if the client 
+        had previously been contacted. It includes three distinct values: “nonexistent” (35,563 cases, 86.3 %), “failure” 
+        (4,252 cases, 10.3 %), and “success” (1,373 cases, 3.3 %). The high share of “nonexistent” values reflects that most 
+        clients had not participated in a previous campaign, which aligns with the distribution observed in previous and pdays.
+
+        There are no missing values, and the variable serves as a potential proxy for past campaign effectiveness at the 
+        individual level. However, the class imbalance—particularly the dominance of “nonexistent”—suggests that its predictive 
+        contribution may be limited unless transformed. In later stages of analysis, particularly during feature engineering 
+        for response profiling, a consolidation strategy will be developed. This may involve grouping “nonexistent” and 
+        “failure” into a single category to better capture meaningful distinctions between prior non-success and success 
+        outcomes.
+        """)
+        anchor_map_mark_pre = {
+          "pdays": "pp_var_-3887625040887036037",
+          "previous": "pp_var_8015956454560663791",
+          "poutcome": "pp_var_-4282519065781672492"
+        }
+
+        selected_var_mark_pre = st.selectbox("🔍 Select a previous marketing activity feature to replicate above mentioned analysis", list(anchor_map_mark_pre.keys()))
+
+        url_mark_pre = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map_mark_pre[selected_var_mark_pre]}"
+        st.markdown(f"""
+            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
+                <iframe src="{url_mark_pre}" width="1093" height="938" style="border:none"; scrolling="yes"></iframe>
+            </div>
+        """, unsafe_allow_html=True)
     elif task == "Key Findings of the 2nd Phase":
         st.subheader("5. Key findings & reconmmendations for data (pre-)processing")
         st.markdown("""
