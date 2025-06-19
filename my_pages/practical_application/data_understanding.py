@@ -619,7 +619,7 @@ def show():
                 <iframe src="{url_macro}" width="1093" height="938" style="border:none; scrolling="yes""></iframe>
             </div>
         """, unsafe_allow_html=True)
-         st.markdown("""
+        st.markdown("""
         <br>
         The variable cons.conf.idx represents the monthly average of the consumer confidence index, a metric indicator that 
         reflects the sentiment of consumers regarding the overall economic outlook and their personal financial expectations. 
