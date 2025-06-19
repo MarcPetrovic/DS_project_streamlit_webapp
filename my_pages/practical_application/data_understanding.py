@@ -620,7 +620,6 @@ def show():
             </div>
         """, unsafe_allow_html=True)
         st.markdown("""
-
         The variable cons.conf.idx represents the monthly average of the consumer confidence index, a metric indicator that 
         reflects the sentiment of consumers regarding the overall economic outlook and their personal financial expectations. 
         It is a continuous variable with 26 distinct values, no missing or infinite entries, and is exclusively negative in 
