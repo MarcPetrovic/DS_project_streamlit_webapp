@@ -763,18 +763,17 @@ def show():
           activities, and macroeconomic context indicators.
         - Categorical attributes such as job, education, default, and poutcome contain missing values represented by the 
           placeholder "unknown". Their proportion and distribution were analyzed to inform further preprocessing steps.
-        - Predefining cost-aware evaluation criteria  
-        •	The variable duration, although highly correlated with the target outcome, is not usable for predictive modeling 
-            in real-world settings, as its value is only known post-contact. Its exclusion from modeling is both methodologically
-            and ethically justified.
-        •	Minimal duplication was observed across records, with only a negligible number of exact duplicates identified. 
-            These can be safely removed without information loss.
+        - The variable duration, although highly correlated with the target outcome, is not usable for predictive modeling 
+          in real-world settings, as its value is only known post-contact. Its exclusion from modeling is both methodologically
+          and ethically justified.
+        - Minimal duplication was observed across records, with only a negligible number of exact duplicates identified. 
+          These can be safely removed without information loss.
 
         Derived Recommendations for Data (Pre-)Processing:
         1.	Guidance Compliance:
-        •	Follow the primary researchers’ instructions by treating "unknown" values as potential class categories or 
-            applying targeted imputation techniques based on variable type and distribution.
-        •	Exclude the feature duration from modeling workflows to avoid data leakage and ensure model realism.
+         - Follow the primary researchers’ instructions by treating "unknown" values as potential class categories or 
+           applying targeted imputation techniques based on variable type and distribution.
+         - Exclude the feature duration from modeling workflows to avoid data leakage and ensure model realism.
         
         2.	Data Cleaning:
         •	Remove duplicate entries due to their low frequency and minimal influence on the dataset’s variance structure.
