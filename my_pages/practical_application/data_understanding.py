@@ -637,7 +637,7 @@ def show():
         #st.components.v1.iframe(src=url_macro, height=600, width=700, scrolling=True)
         st.markdown(f"""
             <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
-                <iframe src="{url_macro}" width="1093" height="938" style="border:none; scrolling="yes""></iframe>
+                <iframe src="{url_macro}" width="1093" height="938" style="border:none"; scrolling="yes"></iframe>
             </div>
         """, unsafe_allow_html=True)
         st.markdown("""
@@ -768,7 +768,7 @@ def show():
           {
             "ATTRIBUTE NAME": "pdays",
             "ATTRIBUTE DATA TYPE": "continuous",
-            "ATTRIBUTE DESCRIPTION": "Number of days that passed by after the client was last contacted from a previous campaign (numeric; 999 means client was not previously contacted)",
+            "ATTRIBUTE DESCRIPTION": "Number of days that passed by after the client was last contacted from a previous campaign",
             "ATTRIBUTE DOMAIN VALUE": "[0, 999]",
             "ATTRIBUTE MODEL TYPE": "feature",
             "ATTRIBUTE CLUSTER": "Bank marketing activities (previous)"
