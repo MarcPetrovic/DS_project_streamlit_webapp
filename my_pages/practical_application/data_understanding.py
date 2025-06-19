@@ -843,6 +843,7 @@ def show():
                 <thead>
                     <tr>
             """
+
         
             for col in df.columns:
                 html += f"<th>{col}</th>"
@@ -860,6 +861,7 @@ def show():
         
             html += "</tbody></table>"
             return html
+        
         html_table_mark_pre = render_html_table3(metadata_df_mark_pre)
 
         st.subheader("Table 5: Overview of the previous bank marketing activity attributes")
