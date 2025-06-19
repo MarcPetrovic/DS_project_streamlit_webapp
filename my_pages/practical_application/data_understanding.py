@@ -755,7 +755,8 @@ def show():
         three variables—pdays, previous, and poutcome—which capture whether and how the client was involved in earlier 
         campaigns. These features provide valuable context on past engagement and may help explain current response behavior. 
         The following section examines each of these attributes in detail (see table 5).
-        
+
+        """)
         df_mark_pre = load_csv_data(
           filename="data/bank-additional-full.csv",
           sep=";",
