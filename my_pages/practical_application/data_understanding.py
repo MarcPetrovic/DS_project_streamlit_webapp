@@ -796,7 +796,7 @@ def show():
 
         st.subheader("Table 5: Overview of the previous bank marketing activity attributes")
 
-
+        st.markdown("""
         The “Pdays” variable is a numerical feature indicating the number of days since the client was last contacted in a 
         previous campaign. A value of 999 is used as a special code to indicate that the client was not contacted before. 
         This placeholder value dominates the distribution: the median, quartiles, and 95th percentile are all 999, and over 
