@@ -610,7 +610,7 @@ def show():
 
         selected_var_macro = st.selectbox("🔍 Select a macro-economic feature to replicate above mentioned analysis", list(anchor_map_macro.keys()))
 
-        url_macro = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map2[selected_var_macro]}"
+        url_macro = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map_macro[selected_var_macro]}"
 
         #st.components.v1.iframe(src=url_macro, height=600, width=700, scrolling=True)
         st.markdown(f"""
