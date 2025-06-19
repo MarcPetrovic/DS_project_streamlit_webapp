@@ -774,20 +774,20 @@ def show():
             - Follow the primary researchers’ instructions by treating "unknown" values as potential class categories or
               applying targeted imputation techniques based on variable type and distribution.
             - Exclude the feature duration from modeling workflows to avoid data leakage and ensure model realism.
-        
+        <br>
         2.	Data Cleaning:
             - Remove duplicate entries due to their low frequency and minimal influence on the dataset’s variance structure.
-        
+        <br>
         3.	Target Encoding:
             - Recode the binary target variable y from textual categories ("yes"/"no") to numeric format (1/0) to ensure 
               compatibility with machine learning models.
-        
+        <br>
         4.	Imputation and Encoding Strategy:
             - For categorical variables with "unknown" entries, apply mode imputation or group-level encoding (e.g., one-hot 
               encoding including an "unknown" category).
             - For continuous variables, apply z-transformation (standardization), ensuring comparability across features 
               with different value ranges.
-            
+        <br>    
         5.	Recoding and Binning:
             - Recode the variable pdays, where the value 999 represents "not previously contacted", to a binary representation 
               (0 = not contacted, 1 = contacted).
@@ -797,7 +797,7 @@ def show():
         These data understanding outcomes provide a robust foundation for the upcoming Data Preparation phase, in which the 
         outlined preprocessing strategies will be operationalized. The informed design of data transformations and cleaning 
         steps ensures consistency with both domain knowledge and modeling requirements.
-        """)
+        """, unsafe_allow_html=True)
         
     st.markdown("""
         <!-- Font Awesome einbinden -->
