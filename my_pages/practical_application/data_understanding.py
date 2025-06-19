@@ -440,8 +440,8 @@ def show():
                     scrollbar-color: #888 #f1f1f1;
                 }}
             </style>
-            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
-                <iframe src="{url2}" width="1093" height="938" style="border:none; scrolling="yes""></iframe>
+            <div class="custom-scroll" style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
+                <iframe src="{url2}" width="1093" height="938" style="border:none"; scrolling="yes"></iframe>
             </div>
         """, unsafe_allow_html=True)
 
