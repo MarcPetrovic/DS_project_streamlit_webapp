@@ -696,7 +696,20 @@ def show():
         marketing campaigns. Understanding this cluster is crucial for assessing the effectiveness of marketing efforts in driving
         customer decisions, such as the subscription to fixed-term deposits.
 
+        """, unsafe_allow_html=True)
+        anchor_map_macro2 = {
+          "cons.conf.idx": "pp_var_-7465342828213106388",
+          "euribor3m": "pp_var_5665885795518201355",
+          "nr.employed": "pp_var_-9020749104321440970"
+        }
 
+        selected_var_macro2 = st.selectbox("🔍 Select a macro-economic feature to replicate above mentioned analysis", list(anchor_map_macro2.keys()))
+
+        url_macro2 = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map_macro2[selected_var_macro2]}"
+        st.markdown(f"""
+            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
+                <iframe src="{url_macro2}" width="1093" height="938" style="border:none; scrolling="yes""></iframe>
+            </div>
         """, unsafe_allow_html=True)
 
 
