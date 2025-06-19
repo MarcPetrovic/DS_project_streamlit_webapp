@@ -603,6 +603,22 @@ def show():
         shape customer preferences for secure investment products.
 
         """, unsafe_allow_html=True)
+        anchor_map_macro = {
+          "emp.var.rate": "pp_var_1742109992004542320",
+          "cons.price.idx": "pp_var_3908269255914349566"
+        }
+
+        selected_var_macro = st.selectbox("🔍 Select a macro-economic feature to replicate above mentioned analysis", list(anchor_map_macro.keys()))
+
+        url_macro = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map2[selected_var_macro]}"
+
+        #st.components.v1.iframe(src=url_macro, height=600, width=700, scrolling=True)
+        st.markdown(f"""
+            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
+                <iframe src="{url_macro}" width="1093" height="938" style="border:none; scrolling="yes""></iframe>
+            </div>
+        """, unsafe_allow_html=True)
+
 
     elif task == "Data Audit - Current Marketing Activities":
         st.subheader("5. Data Audit - Current Marketing Activities")
