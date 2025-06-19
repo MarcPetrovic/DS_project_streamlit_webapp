@@ -792,7 +792,7 @@ def show():
         ]
         metadata_df_mark_pre = pd.DataFrame(attribute_metadata_mark_pre)
 
-        def render_html_table(df: pd.DataFrame) -> str:
+        def render_html_table3(df: pd.DataFrame) -> str:
             html = """
             <style>
                 .scrollable-table-container {
@@ -860,7 +860,7 @@ def show():
         
             html += "</tbody></table>"
             return html
-        html_table_mark_pre = render_html_table(metadata_df_mark_pre)
+        html_table_mark_pre = render_html_table3(metadata_df_mark_pre)
 
         st.subheader("Table 5: Overview of the previous bank marketing activity attributes")
         st.markdown(html_table_mark_pre, unsafe_allow_html=True)
