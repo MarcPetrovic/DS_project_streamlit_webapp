@@ -14,7 +14,7 @@ def show():
         "Data Audit - Economic Environment",
         "Data Audit - Current Marketing Activities",
         "Data Audit - Previous Marketing Activities",
-        "Key Results of the 2nd Phase"
+        "Key Findings of the 2nd Phase"
     ])
 
     # Inhalte je nach Auswahl
@@ -602,7 +602,6 @@ def show():
         correlation between CPI and the likelihood of term deposit subscription is plausible in this specific low-index 
         context. The cons.price.idx variable thus provides valuable insight into how macroeconomic price expectations 
         shape customer preferences for secure investment products.
-
         """, unsafe_allow_html=True)
         anchor_map_macro = {
           "emp.var.rate": "pp_var_1742109992004542320",
@@ -695,7 +694,6 @@ def show():
         These features capture the direct interaction between the bank and its customers, both through previous and current 
         marketing campaigns. Understanding this cluster is crucial for assessing the effectiveness of marketing efforts in driving
         customer decisions, such as the subscription to fixed-term deposits.
-
         """, unsafe_allow_html=True)
         anchor_map_macro2 = {
           "cons.conf.idx": "pp_var_-7465342828213106388",
@@ -712,7 +710,6 @@ def show():
             </div>
         """, unsafe_allow_html=True)
 
-
     elif task == "Data Audit - Current Marketing Activities":
         st.subheader("5. Data Audit - Current Marketing Activities")
         st.markdown("""
@@ -728,6 +725,56 @@ def show():
         data.
         4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
         """)
+    elif task == "Key Findings of the 2nd Phase":
+        st.subheader("5. Key findings & reconmmendations for data (pre-)processing")
+        st.markdown("""
+        The data understanding phase—complementary to the business understanding phase—has yielded important insights 
+        regarding the structure, quality, and interpretability of the dataset used in this project. Through a systematic 
+        data audit, informed by both exploratory statistical analyses and the original documentation provided by the 
+        primary researchers, several findings and concrete recommendations for the subsequent data preparation phase 
+        have been derived.
+
+        Key Findings:
+        •	The dataset bank-additional-full.csv comprises 41,188 observations and 21 attributes (20 input features and one 
+            binary target variable).
+        •	The features are logically clustered into thematic groups: client demographics, current and previous marketing 
+            activities, and macroeconomic context indicators.
+        •	Categorical attributes such as job, education, default, and poutcome contain missing values represented by the 
+            placeholder "unknown". Their proportion and distribution were analyzed to inform further preprocessing steps.
+        •	The variable duration, although highly correlated with the target outcome, is not usable for predictive modeling 
+            in real-world settings, as its value is only known post-contact. Its exclusion from modeling is both methodologically and ethically justified.
+        •	Minimal duplication was observed across records, with only a negligible number of exact duplicates identified. 
+            These can be safely removed without information loss.
+
+        Derived Recommendations for Data (Pre-)Processing:
+        1.	Guidance Compliance:
+        •	Follow the primary researchers’ instructions by treating "unknown" values as potential class categories or 
+            applying targeted imputation techniques based on variable type and distribution.
+        •	Exclude the feature duration from modeling workflows to avoid data leakage and ensure model realism.
+        
+        2.	Data Cleaning:
+        •	Remove duplicate entries due to their low frequency and minimal influence on the dataset’s variance structure.
+        
+        3.	Target Encoding:
+        •	Recode the binary target variable y from textual categories ("yes"/"no") to numeric format (1/0) to ensure 
+            compatibility with machine learning models.
+        4.	Imputation and Encoding Strategy:
+        •	For categorical variables with "unknown" entries, apply mode imputation or group-level encoding (e.g., one-hot 
+            encoding including an "unknown" category).
+        •	For continuous variables, apply z-transformation (standardization), ensuring comparability across features 
+            with different value ranges.
+            
+        5.	Recoding and Binning:
+        •	Recode the variable pdays, where the value 999 represents "not previously contacted", to a binary representation 
+            (0 = not contacted, 1 = contacted).
+        •	Collapse sparse categorical values where appropriate, such as binning the labels "unknown" and "yes" in the 
+            default variable to form a combined category "unknown|yes", reflecting similar credit risk implications.
+
+        These data understanding outcomes provide a robust foundation for the upcoming Data Preparation phase, in which the 
+        outlined preprocessing strategies will be operationalized. The informed design of data transformations and cleaning 
+        steps ensures consistency with both domain knowledge and modeling requirements.
+        """)
+        
     st.markdown("""
         <!-- Font Awesome einbinden -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
