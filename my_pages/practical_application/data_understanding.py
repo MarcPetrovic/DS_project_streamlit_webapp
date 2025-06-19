@@ -792,80 +792,9 @@ def show():
         ]
         metadata_df_mark_pre = pd.DataFrame(attribute_metadata_mark_pre)
 
-        def render_html_table3(df: pd.DataFrame) -> str:
-            html = """
-            <style>
-                .scrollable-table-container {
-                    height: 400px;
-                    overflow-y: auto;
-                    border: 1px solid #ccc;
-                    padding: 10px;
-                }
-
-                table {
-                    width: 100% !important;
-                    border-collapse: collapse !important;
-                    table-layout: fixed !important;
-                    border: 2px solid black !important;
-                }
-                th {
-                    position: sticky;
-                    top: 0;
-                    background-color: #097a80 !important;
-                    color: white !important;
-                    border: 1px solid lightgray !important;
-                    text-align: left !important;
-                    padding: 8px !important;
-                    word-break: break-word !important;
-                    max-width: 250px !important;
-                    font-size: 14px !important;
-                }
-                td {
-                    background-color: white !important;
-                    color: black !important;
-                    border: 1px solid black !important;
-                    text-align: left !important;
-                    padding: 8px !important;
-                    word-break: break-word !important;
-                    max-width: 250px !important;
-                    font-size: 14px !important;
-                }
-                td ul {
-                    padding-left: 20px !important;
-                    margin: 0 !important;
-                }
-                td li {
-                    margin-bottom: 3px !important;
-                }
-            </style>
-            <div class="scrollable-table-container">
-            <table>
-                <thead>
-                    <tr>
-            """
-
-        
-            for col in df.columns:
-                html += f"<th>{col}</th>"
-            html += "</tr></thead><tbody>"
-        
-            for _, row in df.iterrows():
-                html += "<tr>"
-                for col in df.columns:
-                    cell = row[col]
-                    if isinstance(cell, str) and cell.strip().startswith("<ul>"):
-                        html += f"<td>{cell}</td>"  # HTML anzeigen
-                    else:
-                        html += f"<td>{str(cell)}</td>"  # Normaler Text
-                html += "</tr>"
-        
-            html += "</tbody></table>"
-            return html
-        
-        html_table_mark_pre = render_html_table3(metadata_df_mark_pre)
 
         st.subheader("Table 5: Overview of the previous bank marketing activity attributes")
-        st.markdown(html_table_mark_pre, unsafe_allow_html=True)
+
 
         The “Pdays” variable is a numerical feature indicating the number of days since the client was last contacted in a 
         previous campaign. A value of 999 is used as a special code to indicate that the client was not contacted before. 
