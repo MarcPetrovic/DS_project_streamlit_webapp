@@ -757,15 +757,16 @@ def show():
         have been derived.
 
         Key Findings:
-        •	The dataset bank-additional-full.csv comprises 41,188 observations and 21 attributes (20 input features and one 
+          •	The dataset bank-additional-full.csv comprises 41,188 observations and 21 attributes (20 input features and one 
             binary target variable).
-        •	The features are logically clustered into thematic groups: client demographics, current and previous marketing 
+          •	The features are logically clustered into thematic groups: client demographics, current and previous marketing 
             activities, and macroeconomic context indicators.
-        •	Categorical attributes such as job, education, default, and poutcome contain missing values represented by the 
+          •	Categorical attributes such as job, education, default, and poutcome contain missing values represented by the 
             placeholder "unknown". Their proportion and distribution were analyzed to inform further preprocessing steps.
-        •	The variable duration, although highly correlated with the target outcome, is not usable for predictive modeling 
-            in real-world settings, as its value is only known post-contact. Its exclusion from modeling is both methodologically and ethically justified.
-        •	Minimal duplication was observed across records, with only a negligible number of exact duplicates identified. 
+          •	The variable duration, although highly correlated with the target outcome, is not usable for predictive modeling 
+            in real-world settings, as its value is only known post-contact. Its exclusion from modeling is both methodologically
+            and ethically justified.
+          •	Minimal duplication was observed across records, with only a negligible number of exact duplicates identified. 
             These can be safely removed without information loss.
 
         Derived Recommendations for Data (Pre-)Processing:
