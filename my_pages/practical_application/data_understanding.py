@@ -423,6 +423,7 @@ def show():
             </div>
         """, unsafe_allow_html=True)
 
+
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
         st.markdown("""
@@ -617,6 +618,32 @@ def show():
             <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
                 <iframe src="{url_macro}" width="1093" height="938" style="border:none; scrolling="yes""></iframe>
             </div>
+        """, unsafe_allow_html=True)
+         st.markdown("""
+        <br>
+        The variable cons.conf.idx represents the monthly average of the consumer confidence index, a metric indicator that 
+        reflects the sentiment of consumers regarding the overall economic outlook and their personal financial expectations. 
+        It is a continuous variable with 26 distinct values, no missing or infinite entries, and is exclusively negative in 
+        this dataset. The values range from −50.8 to −26.9, with a mean of −40.50 and a median of −41.8. The standard deviation 
+        is 4.63, and the interquartile range (IQR) is 6.3, which indicates moderate dispersion.
+
+        Although the histogram suggests a left-skewed distribution visually, the calculated skewness of +0.30 reveals a slight 
+        right-skew on a technical level, meaning there is a tail toward less negative (i.e. relatively more optimistic) values. 
+        The overall shape of the distribution is mildly platykurtic (kurtosis = −0.36), suggesting flatter peaks and a wider 
+        spread of values. The variable is not monotonic and shows several distinct modes. For instance, values such as −36.4 
+        (18.8 %), −42.7 (16.2 %), and −46.2 (14.1 %) are highly frequent, reflecting repeated data collection during periods 
+        of relatively low consumer confidence.
+
+        From a behavioral and economic perspective, the consumer confidence index plays a significant role in influencing 
+        household saving and investment decisions. In this dataset, all observed values are negative, indicating a period of 
+        generally low consumer sentiment. However, rising values within the negative range can be interpreted as a signal of 
+        gradual recovery in confidence. In such transitional phases, consumers may feel more secure in their personal financial 
+        situation—but often not secure enough to shift toward riskier investments. Instead, fixed-term deposits are perceived 
+        as a safe yet predictable investment option, offering capital protection and financial stability. Therefore, a positive 
+        correlation between moderately rising CCI values and the likelihood of term deposit subscription is plausible. The 
+        cons.conf.idx variable thus provides valuable insights into how subtle shifts in macroeconomic sentiment influence 
+        customer behavior, particularly in times of uncertainty.
+
         """, unsafe_allow_html=True)
 
 
