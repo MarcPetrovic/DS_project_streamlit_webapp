@@ -663,6 +663,41 @@ def show():
         deposits, since higher interest levels increase the nominal return on such products, thereby enhancing their 
         appeal—especially to yield-sensitive investors.
 
+        However, in the specific context of this dataset—covering the years 2008 to 2010, during and after the global financial 
+        crisis—a different dynamic may be at play. In this period, sharp drops in the Euribor rate were often associated with 
+        economic stress, monetary interventions by the European Central Bank, and a general sense of uncertainty. Even though 
+        interest rates fell to historic lows, the demand for secure and predictable financial products like fixed-term deposits 
+        often increased, driven by a heightened need for capital preservation and stability. From this perspective, a negative 
+        correlation between the Euribor and term deposit subscriptions is also plausible: as the Euribor falls in response to 
+        crisis conditions, customers may turn to low-risk investment forms despite unattractive returns. This dual perspective 
+        highlights the importance of interpreting macro-financial indicators not in isolation, but in the context of prevailing 
+        economic sentiment and behavioral responses.
+
+        The characteristic “number employed” represents the quarterly average of the total number of employed citizens within 
+        the relevant economic context. This continuous variable exhibits a relatively narrow range between 4,963.6 and 5,228.1 
+        employed individuals, with 11 distinct observed values across the dataset. The majority of cases (39.4%) correspond to 
+        the highest value of 5,228.1 employed citizens, followed by other values distributed across the range, such as 5,191 
+        (18.8%) and 5,099.1 (20.7%). The low coefficient of variation (1.4%) indicates minimal relative variability, while the 
+        moderate negative skewness (-1.04) suggests a slight concentration towards the higher employment figures.
+
+        From an economic standpoint, a higher number of employed persons typically reflects improved labor market conditions 
+        and economic health, which can influence consumer confidence and financial behaviors. A rising employment level may 
+        reduce the perceived need for highly secure savings instruments like fixed-term deposits, as consumers feel more 
+        confident in their income stability and are more willing to pursue riskier or higher-yield investment options. 
+        Conversely, declining employment figures could trigger more conservative saving behavior, thus potentially increasing 
+        demand for fixed-term deposits as a safe investment.
+
+        Given the observed limited variation in this variable within the period considered (2008–2010), its direct influence 
+        on the likelihood of concluding a fixed-term deposit contract may be subtle. However, it remains an important 
+        macroeconomic indicator reflecting the broader socio-economic environment impacting bank customers’ financial decisions.
+
+        After thoroughly examining the macroeconomic features that provide valuable context on the broader economic environment 
+        influencing bank customers’ financial behavior, the analysis now shifts focus to the cluster of bank marketing activities.
+        These features capture the direct interaction between the bank and its customers, both through previous and current 
+        marketing campaigns. Understanding this cluster is crucial for assessing the effectiveness of marketing efforts in driving
+        customer decisions, such as the subscription to fixed-term deposits.
+
+
         """, unsafe_allow_html=True)
 
 
