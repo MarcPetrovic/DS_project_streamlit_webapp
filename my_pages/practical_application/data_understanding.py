@@ -620,7 +620,7 @@ def show():
             </div>
         """, unsafe_allow_html=True)
         st.markdown("""
-        <br>
+
         The variable cons.conf.idx represents the monthly average of the consumer confidence index, a metric indicator that 
         reflects the sentiment of consumers regarding the overall economic outlook and their personal financial expectations. 
         It is a continuous variable with 26 distinct values, no missing or infinite entries, and is exclusively negative in 
@@ -643,6 +643,25 @@ def show():
         correlation between moderately rising CCI values and the likelihood of term deposit subscription is plausible. The 
         cons.conf.idx variable thus provides valuable insights into how subtle shifts in macroeconomic sentiment influence 
         customer behavior, particularly in times of uncertainty.
+
+        The variable euribor3m captures the daily value of the three-month Euribor (Euro Interbank Offered Rate) at the time 
+        of customer contact. It is a continuous metric variable and an important macro-financial indicator reflecting short-term 
+        interest rates within the Eurozone. The dataset includes 316 distinct values, covering a range from 0.634 to 5.045 with 
+        no missing or negative values. The mean is 3.62, while the median is considerably higher at 4.86, indicating a left-skewed 
+        distribution (skewness = −0.71). This skewness reflects the relatively longer time spent in low-interest environments, 
+        followed by a sharper increase toward the end of the observation period.
+
+        The interquartile range (IQR) is relatively large at 3.62, and the standard deviation is 1.73, both pointing to substantial 
+        variability in interest rates over time. While the distribution includes a broad range of values, it is concentrated around 
+        certain high-frequency points such as 4.857 (7.0 %), 4.962 (6.3 %), and 4.963 (6.0 %), reflecting recurring rate levels 
+        during specific periods of customer contact. The data is not monotonic, which aligns with the typical volatility of daily 
+        market rates.
+
+        From an economic perspective, the Euribor rate is a key benchmark for short-term interest rates in the Eurozone and 
+        directly influences both the general interest level and consumer behavior regarding savings products. At first glance, 
+        one might assume a positive correlation between rising Euribor values and the likelihood of subscribing to fixed-term 
+        deposits, since higher interest levels increase the nominal return on such products, thereby enhancing their 
+        appeal—especially to yield-sensitive investors.
 
         """, unsafe_allow_html=True)
 
