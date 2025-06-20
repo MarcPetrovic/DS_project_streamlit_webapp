@@ -1180,8 +1180,18 @@ def show():
         Finally, a 70/30 train-test split will be used for the initial modeling iteration. This is a state-of-the-art 
         approach that provides a robust balance between model training capacity and evaluation reliability on unseen data.
 
+        Below you find ydata link to replicate target feature analysis
+        <br>        
+        """, unsafe_allow_html=True)
+
+        url_target = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#pp_var_-2707228818546900142"
+
+        st.markdown(f"""
+            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
+                <iframe src="{url_target}" width="1093" height="938" style="border:none"; scrolling="yes"></iframe>
+            </div>
+        """, unsafe_allow_html=True)
         
-        """)
     elif task == "Key Findings of the 2nd Phase":
         st.subheader("8. Key findings & reconmmendations for data (pre-)processing")
         st.markdown("""
