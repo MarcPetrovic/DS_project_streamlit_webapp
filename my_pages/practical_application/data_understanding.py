@@ -735,17 +735,19 @@ def show():
     elif task == "Data Audit - Current Marketing Activities":
         st.subheader("5. Data Audit - Current Marketing Activities")
         st.markdown("""
-        In the data understanding phase, which should be interpreted as complementary to the business understanding
-        phase, the focus is on identifying, collecting and analysing the data sets that can help you achieve the
-        project objectives. In this context, the quality of the data must be checked and ensured. This phase also 
-        includes the task of describing the data using statistical analyses and determining attributes and their 
-        characteristics. This phase also consists of a total of four tasks:
-        1.	Collect initial data: Acquire the necessary data and (if necessary) load it into your analysis tool.
-        2.	Describe data: Examine the data and document its surface properties like data format, number of records, 
-        or field identities.
-        3.	Explore data: Dig deeper into the data. Query it, visualize it, and identify relationships among the 
-        data.
-        4.	Verify data quality: How clean/dirty is the data? Document any quality issues.
+        One of the central clusters in the dataset comprises variables related to the current marketing campaign. These 
+        features capture the direct characteristics of the most recent contact attempt with a client and are therefore 
+        of particular relevance for modeling short-term response behavior (see table 4).
+
+        The attribute cluster “Bank Marketing Activities (current)” consists of five variables: contact, month, day_of_week, 
+        duration, and campaign. Together, they describe how and when the client was approached during the ongoing campaign, 
+        as well as the intensity and length of this contact. These features include both categorical and continuous data 
+        types and represent operational decisions within the marketing process (e.g., channel selection and call timing).
+
+        The following section provides a detailed descriptive analysis of each feature within this cluster, including value 
+        distributions, frequency counts, and potential data quality issues (e.g., sparsity or encoded missing values). These 
+        insights form the basis for any necessary preprocessing decisions in the subsequent CRISP-DM phases.
+
         """)
     elif task == "Data Audit - Previous Marketing Activities":
         st.subheader("6. Data Audit - Previous marketing activities")
