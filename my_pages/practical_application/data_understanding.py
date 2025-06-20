@@ -749,6 +749,132 @@ def show():
         insights form the basis for any necessary preprocessing decisions in the subsequent CRISP-DM phases.
 
         """)
+        df_mark_cur = load_csv_data(
+          filename="data/bank-additional-full.csv",
+          sep=";",
+          header=True,
+          add_row_id=True
+        )
+        st.write("✅ DEBUG: CSV loaded – Shape:", df_mark_cur.shape)
+
+        attribute_metadata_mark_cur = [
+          {
+            "ATTRIBUTE NAME": "contact",
+            "ATTRIBUTE DATA TYPE": "categorical",
+            "ATTRIBUTE DESCRIPTION": "Communication type with client",
+            "ATTRIBUTE DOMAIN VALUE": ", ".join(sorted(df_mark_cur["contact"].dropna().unique())),
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Bank marketing activities (current)"
+          },
+          {
+            "ATTRIBUTE NAME": "month",
+            "ATTRIBUTE DATA TYPE": "categorical",
+            "ATTRIBUTE DESCRIPTION": "Month of the year on which the call was made",
+            "ATTRIBUTE DOMAIN VALUE": ", ".join(sorted(df_mark_cur["month"].dropna().unique())),
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Bank marketing activities (current)"
+          },
+          {
+            "ATTRIBUTE NAME": "day_of_week",
+            "ATTRIBUTE DATA TYPE": "categorical",
+            "ATTRIBUTE DESCRIPTION": "Day of the week on which the call was made",
+            "ATTRIBUTE DOMAIN VALUE": ", ".join(sorted(df_mark_cur["day_of_week"].dropna().unique())),
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Bank marketing activities (current)"
+          },
+          {
+            "ATTRIBUTE NAME": "duration",
+            "ATTRIBUTE DATA TYPE": "continuous",
+            "ATTRIBUTE DESCRIPTION": "Duration of the call/contact (in seconds)",
+            "ATTRIBUTE DOMAIN VALUE": "[0, 4918]",
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Bank marketing activities (current)"
+          },
+          {
+            "ATTRIBUTE NAME": "campaign",
+            "ATTRIBUTE DATA TYPE": "continuous",
+            "ATTRIBUTE DESCRIPTION": "Number of contacts performed during this campaign for this client (includes last contact)",
+            "ATTRIBUTE DOMAIN VALUE": "[1, 56]",
+            "ATTRIBUTE MODEL TYPE": "feature",
+            "ATTRIBUTE CLUSTER": "Bank marketing activities (current)"
+          }
+        ]
+        metadata_df_mark_cur = pd.DataFrame(attribute_metadata_mark_cur)
+        
+        def render_html_table4(df: pd.DataFrame) -> str:
+            html = """
+            <style>
+                .scrollable-table-container {
+                    height: 400px;
+                    overflow-y: auto;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                }
+
+                table {
+                    width: 100% !important;
+                    border-collapse: collapse !important;
+                    table-layout: fixed !important;
+                    border: 2px solid black !important;
+                }
+                th {
+                    position: sticky;
+                    top: 0;
+                    background-color: #097a80 !important;
+                    color: white !important;
+                    border: 1px solid lightgray !important;
+                    text-align: left !important;
+                    padding: 8px !important;
+                    word-break: break-word !important;
+                    max-width: 250px !important;
+                    font-size: 14px !important;
+                }
+                td {
+                    background-color: white !important;
+                    color: black !important;
+                    border: 1px solid black !important;
+                    text-align: left !important;
+                    padding: 8px !important;
+                    word-break: break-word !important;
+                    max-width: 250px !important;
+                    font-size: 14px !important;
+                }
+                td ul {
+                    padding-left: 20px !important;
+                    margin: 0 !important;
+                }
+                td li {
+                    margin-bottom: 3px !important;
+                }
+            </style>
+            <div class="scrollable-table-container">
+            <table>
+                <thead>
+                    <tr>
+            """
+
+        
+            for col in df.columns:
+                html += f"<th>{col}</th>"
+            html += "</tr></thead><tbody>"
+        
+            for _, row in df.iterrows():
+                html += "<tr>"
+                for col in df.columns:
+                    cell = row[col]
+                    if isinstance(cell, str) and cell.strip().startswith("<ul>"):
+                        html += f"<td>{cell}</td>"  # HTML anzeigen
+                    else:
+                        html += f"<td>{str(cell)}</td>"  # Normaler Text
+                html += "</tr>"
+        
+            html += "</tbody></table>"
+            return html
+
+        html_table_mark_cur = render_html_table4(metadata_df_mark_cur)
+        st.subheader("Table 5: Overview of the current bank marketing activity attributes")
+        st.markdown(html_table_mark_cur, unsafe_allow_html=True)
+
     elif task == "Data Audit - Previous Marketing Activities":
         st.subheader("6. Data Audit - Previous marketing activities")
         st.markdown("""
