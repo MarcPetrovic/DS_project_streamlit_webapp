@@ -875,6 +875,28 @@ def show():
         st.subheader("Table 5: Overview of the current bank marketing activity attributes")
         st.markdown(html_table_mark_cur, unsafe_allow_html=True)
 
+        st.markdown("""
+        <br>
+        The “Contact” variable is a nominal feature indicating the communication channel used to reach the customer 
+        during the marketing campaign. It contains two categories: “cellular” (26,144 cases, 63.5 %) and “telephone” 
+        (15,044 cases, 36.5 %). There are no missing values, and thus no imputation is necessary.
+
+        From a behavioral perspective, contact via telephone may have had a negative effect on campaign success, as 
+        Portugal was transitioning to mobile communication during the data collection period (2008–2010). Customers 
+        using landlines at that time were likely older, less tech-savvy, and more cautious—potentially less responsive 
+        to spontaneous phone offers. In contrast, those reached via cellular tended to be younger, more mobile, and 
+        more open to digital interaction, showing greater responsiveness and trust in modern communication channels. 
+        This demographic shift suggests that mobile contact was not only more prevalent but also more effective in 
+        engaging customers for term deposit subscriptions.
+
+        The “Month” variable is a nominal feature indicating the calendar month in which the customer was contacted. 
+        It contains 10 distinct values, with a strong seasonal skew in the distribution. The most frequent contact 
+        months are May (13,769 cases, 33.4 %), July (7,174 cases, 17.4 %), and August (6,178 cases, 15.0 %), together 
+        accounting for over 65 % of all contacts. In contrast, contact activity was low in December (182 cases, 0.4 %), 
+        March (546, 1.3 %), and September (570, 1.4 %). There are no missing values, so no imputation is required.
+
+        """, unsafe_allow_html=True)
+
     elif task == "Data Audit - Previous Marketing Activities":
         st.subheader("6. Data Audit - Previous marketing activities")
         st.markdown("""
