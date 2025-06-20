@@ -895,6 +895,27 @@ def show():
         accounting for over 65 % of all contacts. In contrast, contact activity was low in December (182 cases, 0.4 %), 
         March (546, 1.3 %), and September (570, 1.4 %). There are no missing values, so no imputation is required.
 
+        From an operational and behavioral perspective, the month of contact may influence customer availability and 
+        responsiveness. The high concentration in late spring and summer months—especially May—may reflect strategic 
+        campaign planning ahead of holiday periods, when customers may have more time and financial planning on their 
+        minds. In contrast, low contact rates in December and early spring may coincide with lower campaign intensity 
+        or reduced customer receptiveness due to holidays, tax season, or winter-related constraints.
+        This pronounced seasonality suggests that timing could play a role in campaign effectiveness and will be 
+        considered as a potential predictor in downstream modeling efforts.
+
+        The “Day of the Week” variable is a nominal feature indicating on which weekday the customer was contacted. 
+        It includes 5 distinct values, with a nearly uniform distribution across the working week. The most frequent 
+        contact day is Thursday (8,623 cases, 20.9 %), closely followed by Monday (8,514 cases, 20.7 %), Wednesday 
+        (8,134, 19.7 %), Tuesday (8,090, 19.6 %), and Friday (7,827, 19.0 %). There are no missing values, so no 
+        imputation is necessary.
+
+        From an operational perspective, the even distribution suggests that campaign calls were spread fairly consistently 
+        throughout the week. This balanced approach may aim to maximize reach while avoiding weekday-specific biases. 
+        However, subtle behavioral differences may still exist: for example, Monday and Thursday contacts—which slightly 
+        lead in frequency—could reflect customer availability patterns or internal scheduling strategies. Further analysis 
+        may explore whether certain weekdays are more strongly associated with successful term deposit subscriptions and 
+        thus relevant for future campaign planning.
+
         """, unsafe_allow_html=True)
 
     elif task == "Data Audit - Previous Marketing Activities":
