@@ -1213,6 +1213,14 @@ def show():
           and ethically justified.
         - Minimal duplication was observed across records, with only a negligible number of exact duplicates identified. 
           These can be safely removed without information loss.
+        <br>
+        """, unsafe_allow_html=True)
+        show_github_image(
+        image_filename="images/key_findings_data_under.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 10: Overview key findings within data understanding phase")
+        )
+        st.markdown(
 
         Derived Recommendations for Data (Pre-)Processing:
         1.	Guidance Compliance:
