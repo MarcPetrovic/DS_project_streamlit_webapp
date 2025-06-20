@@ -932,6 +932,50 @@ def show():
             </div>
         """, unsafe_allow_html=True)
 
+        st.markdown("""
+        <br>
+        Although the variable duration (call length in seconds) is strongly correlated with campaign success (emphasized 
+        by the primary researchers), it should not be included in a predictive model. This is because duration is only 
+        known during or after the call. Using it as a predictor would give the model access to information not available 
+        at the time of decision-making—a clear case of data leakage.
+
+        A predictive model should ideally determine a customer’s likelihood to subscribe before making contact. Since 
+        duration is unknown at that point, including it would lead to overly optimistic and misleading results. Instead, 
+        the variable is better suited for retrospective analyses, such as assessing call quality or agent performance.
+
+        The “Campaign” variable is a discrete numerical feature indicating the number of contact attempts made to a client 
+        during the current marketing campaign, including the final successful or unsuccessful call. It reflects the 
+        persistence of the bank’s outreach efforts per individual client.
+
+        The values range from 1 to 56, with a mean of 2.57 and a median of 2, suggesting that most clients were contacted 
+        only once or twice. The standard deviation is 2.77, and the interquartile range (IQR) is relatively narrow at 2, 
+        indicating limited dispersion for the majority of observations. However, the distribution is strongly right-skewed 
+        (skewness = 4.76, kurtosis = 36.98), with a small number of clients receiving a disproportionately high number of 
+        contact attempts. The top 5 most frequent values (1 to 5) account for over 91 % of all cases, with 42.8 % of 
+        clients contacted only once. There are no missing values, so no data imputation is required.
+
+        From a marketing strategy perspective, the number of contact attempts is a key indicator of effort versus return. 
+        While a single or few calls may reflect efficient conversion, higher contact counts could suggest customer 
+        hesitation or resistance. Excessive attempts (e.g., >7) may even reduce the chance of success due to perceived 
+        intrusiveness. Given this, the variable is expected to exhibit a nonlinear relationship with the probability of 
+        term deposit subscription and will be modeled accordingly in later phases.
+
+        """, unsafe_allow_html=True)
+        anchor_map_mark_cur2 = {
+          "duration": "pp_var_5564850440795379581",
+          "campaign": "pp_var_-8447834586764100216"
+        }
+
+        selected_var_mark_cur2 = st.selectbox("🔍 Select a current marketing activity feature to replicate above mentioned analysis", list(anchor_map_mark_cur2.keys()))
+
+        url_mark_cur2 = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map_mark_cur2[selected_var_mark_cur2]}"
+        st.markdown(f"""
+            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
+                <iframe src="{url_mark_cur2}" width="1093" height="938" style="border:none"; scrolling="yes"></iframe>
+            </div>
+        """, unsafe_allow_html=True)
+
+
     elif task == "Data Audit - Previous Marketing Activities":
         st.subheader("6. Data Audit - Previous marketing activities")
         st.markdown("""
