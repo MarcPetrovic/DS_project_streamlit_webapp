@@ -1220,7 +1220,7 @@ def show():
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
         caption=( "Figure 10: Overview key findings within data understanding phase")
         )
-        st.markdown(
+        st.markdown("""
 
         Derived Recommendations for Data (Pre-)Processing:
         1.	Guidance Compliance:
