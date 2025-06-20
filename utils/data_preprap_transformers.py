@@ -39,7 +39,7 @@ class CustTrans(BaseEstimator, TransformerMixin):
         return self
     
     def transform(self, X): 
-        X['target']= X[self.column_name].replace(['no', 'yes'], [0, 1])
+        X['target']= X[self.column_name].replace(['no', 'yes'], [0, 1]).astype(int)
         
         return X 
 
