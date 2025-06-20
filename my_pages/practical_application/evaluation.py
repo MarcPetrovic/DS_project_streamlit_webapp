@@ -105,7 +105,7 @@ def show():
 
     st.success("Datei erfolgreich angereichert.")
     st.dataframe(df.head())
-    df = df.convert_dtypes()
+    print(df.select_dtypes(include='object').columns)
 
     preprocessor = build_pipeline(df)
     preprocessor.set_output(transform='pandas')
