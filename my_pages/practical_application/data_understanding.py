@@ -868,6 +868,7 @@ def show():
         st.markdown(html_table_mark_pre, unsafe_allow_html=True)
 
         st.markdown("""
+        <br>
         The “Pdays” variable is a numerical feature indicating the number of days since the client was last contacted in a 
         previous campaign. A value of 999 is used as a special code to indicate that the client was not contacted before. 
         This placeholder value dominates the distribution: the median, quartiles, and 95th percentile are all 999, and over 
@@ -902,7 +903,7 @@ def show():
         for response profiling, a consolidation strategy will be developed. This may involve grouping “nonexistent” and 
         “failure” into a single category to better capture meaningful distinctions between prior non-success and success 
         outcomes.
-        """)
+        """, unsafe_allow_html=True)
         anchor_map_mark_pre = {
           "pdays": "pp_var_-3887625040887036037",
           "previous": "pp_var_8015956454560663791",
