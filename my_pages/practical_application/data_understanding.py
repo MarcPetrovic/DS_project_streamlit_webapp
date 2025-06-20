@@ -14,6 +14,7 @@ def show():
         "Data Audit - Economic Environment",
         "Data Audit - Current Marketing Activities",
         "Data Audit - Previous Marketing Activities",
+        "Data Audit - Target Feature",
         "Key Findings of the 2nd Phase"
     ])
 
@@ -1147,6 +1148,40 @@ def show():
                 <iframe src="{url_mark_pre}" width="1093" height="938" style="border:none"; scrolling="yes"></iframe>
             </div>
         """, unsafe_allow_html=True)
+
+    elif task == "Data Audit - Target Feature":
+        st.subheader("7. Data Audit - Target Feature")
+        st.markdown("""
+        After analyzing the three main attribute clusters representing the independent variables—namely client 
+        socio-economic characteristics, macroeconomic attributes, current and previous marketing activities—the focus 
+        now turns to the target variable y. This feature indicates whether a client subscribed to a term deposit after 
+        the marketing campaign and thus represents the dependent variable for all subsequent predictive modeling.
+
+        The variable y is Boolean, with two distinct values: True (4,640 cases, 11.3 %) and False (36,548 cases, 88.7 %). 
+        There are no missing values, but a clear class imbalance is present, as only a small proportion of clients 
+        responded positively.
+
+        This imbalance has important implications for predictive modeling. Without corrective measures, most standard 
+        classifiers will be biased toward the majority class (False) and may show deceptively high accuracy while failing 
+        to detect the minority class (True). To address this issue, different strategies are considered:
+         - No resampling: Baseline models may initially use the imbalanced data to assess natural model behavior.
+         - Upsampling of the minority class (True) can improve sensitivity but risks overfitting.
+         - Use of class weights during model training allows algorithms to penalize misclassifications of the minority 
+           class more heavily, often yielding balanced performance without altering the data.
+         - Representative sampling: In some exploratory modeling iterations, a 50/50 ratio may be created by randomly 
+           selecting a subset of the majority class (False). This approach simplifies interpretation but should be used 
+           cautiously, as it may not reflect real-world prevalence.
+
+        For algorithmic compatibility and the application of statistical and machine learning methods in both the data 
+        preparation and modeling phases, the categorical target variable will be converted into a binary dummy format: 
+        1 for “True” (subscribed), 0 for “False” (not subscribed). This transformation ensures the variable can be properly 
+        used in regression-based and classification models.
+
+        Finally, a 70/30 train-test split will be used for the initial modeling iteration. This is a state-of-the-art 
+        approach that provides a robust balance between model training capacity and evaluation reliability on unseen data.
+
+        
+        """)
     elif task == "Key Findings of the 2nd Phase":
         st.subheader("8. Key findings & reconmmendations for data (pre-)processing")
         st.markdown("""
