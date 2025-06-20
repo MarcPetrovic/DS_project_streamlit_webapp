@@ -917,6 +917,20 @@ def show():
         thus relevant for future campaign planning.
 
         """, unsafe_allow_html=True)
+        anchor_map_mark_cur1 = {
+          "contact": "pp_var_-6881398095397069361",
+          "month": "pp_var_-1358461216462698437",
+          "day_of_week": "pp_var_-1344935568411812751"
+        }
+
+        selected_var_mark_cur1 = st.selectbox("🔍 Select a current marketing activity feature to replicate above mentioned analysis", list(anchor_map_mark_cur1.keys()))
+
+        url_mark_cur1 = f"https://marcpetrovic.github.io/DS_project_streamlit_webapp/bank_marketing.html#{anchor_map_mark_cur1[selected_var_mark_cur1]}"
+        st.markdown(f"""
+            <div style="transform: scale(0.8); transform-origin: top left; width: 875px; height: 750px; overflow: auto;">
+                <iframe src="{url_mark_cur1}" width="1093" height="938" style="border:none"; scrolling="yes"></iframe>
+            </div>
+        """, unsafe_allow_html=True)
 
     elif task == "Data Audit - Previous Marketing Activities":
         st.subheader("6. Data Audit - Previous marketing activities")
