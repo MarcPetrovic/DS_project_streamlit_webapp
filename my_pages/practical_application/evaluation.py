@@ -113,15 +113,18 @@ def show():
     for col in transformed_df.select_dtypes(include='object'):
         transformed_df[col] = transformed_df[col].astype(str)
 
-    sum_df = summary(transformed_df)
+    st.write("Nach der Transformation – Spaltentypen:")
+    st.write(transformed_df.dtypes)
+
+    #sum_df = summary(transformed_df)
     
-    styled_summary = sum_df.style.background_gradient(
-        cmap=my_cmap_r,
-        subset=['rate_missing_values']
-    )
+    #styled_summary = sum_df.style.background_gradient(
+    #    cmap=my_cmap_r,
+    #    subset=['rate_missing_values']
+    #)
 
     st.subheader("Daten nach Transformation:")
     st.subheader("Datenzusammenfassung")
-    st.write(styled_summary)
+    #st.write(styled_summary)
     #st.dataframe(styled_summary)
 
