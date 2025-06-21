@@ -12,11 +12,6 @@ from utils.summary_stats import summary
 from utils.my_colormaps import my_cmap_r
 from bs4 import BeautifulSoup
 import re
-# for graphviz
-#from sklearn.tree import export_text
-#from sklearn.utils import _pprint
-#from sklearn import tree
-
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -118,18 +113,14 @@ def show():
     set_config(display='diagram')
     html_code = estimator_html_repr(preprocessor)
     soup = BeautifulSoup(html_code, 'html.parser')
-    for rect in soup.find_all('rect'):
-        if rect.has_attr('style'):
-            rect['style'] = re.sub(r'fill:\s*#[0-9a-fA-F]{6}', 'fill:#097a80', rect['style'])  # Gold-Gelb
+    for tag in soup.find_all(style=True):
+        style = tag['style']
+    # Schwarz durch deine Wunschfarbe ersetzen
+        updated_style = style.replace("fill:#000000", "fill:#097a80")
+        tag['style'] = updated_style
     st.components.v1.html(str(soup), height=600, scrolling=True)
     #st.components.v1.html(html_code, height=600, scrolling=True)
-#    try:
-#        dot_data = preprocessor._repr_svg_()  # Jupyter-interne SVG-Visualisierung (funktioniert teils in Streamlit)
-#        if dot_data:
-#            st.image(io.BytesIO(dot_data.encode("utf-8")), format="svg")
-#    except:
-    # Fallback mit stringbasierter Textdarstellung
-#        st.text(preprocessor)
+
     preprocessor.set_output(transform='pandas')
     transformed_df = preprocessor.fit_transform(df)
     
