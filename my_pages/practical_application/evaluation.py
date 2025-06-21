@@ -105,14 +105,13 @@ def show():
 
     st.success("Datei erfolgreich angereichert.")
     st.dataframe(df.head())
-    print(df.select_dtypes(include='object').columns)
 
     preprocessor = build_pipeline(df)
     preprocessor.set_output(transform='pandas')
     transformed_df = preprocessor.fit_transform(df)
 
     for col in transformed_df.select_dtypes(include='object'):
-    transformed_df[col] = transformed_df[col].astype(str)
+        transformed_df[col] = transformed_df[col].astype(str)
 
     sum_df = summary(transformed_df)
     
