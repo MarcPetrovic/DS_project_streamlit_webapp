@@ -116,7 +116,7 @@ def show():
     for tag in soup.find_all(style=True):
         style = tag['style']
     # Schwarz durch deine Wunschfarbe ersetzen
-        updated_style = style.replace("fill:#ffffff", "fill:#e0f7fa")   
+        updated_style = style.replace("fill:#fff5e6", "fill:#e0f7fa")   
         tag['style'] = updated_style
     st.components.v1.html(str(soup), height=600, scrolling=True)
     #st.components.v1.html(html_code, height=600, scrolling=True)
