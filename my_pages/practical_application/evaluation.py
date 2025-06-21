@@ -10,6 +10,7 @@ from sklearn import set_config
 from utils.summary_stats import summary
 from utils.my_colormaps import my_cmap_r
 
+
 def show():
     st.header("evaluation with flexible CSV-Loading")
 
@@ -107,6 +108,9 @@ def show():
     st.dataframe(df.head())
 
     preprocessor = build_pipeline(df)
+    set_config(display='diagram')
+    html_code = estimator_html_repr(preprocessor)
+    st.components.v1.html(html_code, height=600, scrolling=True)
     preprocessor.set_output(transform='pandas')
     transformed_df = preprocessor.fit_transform(df)
     
