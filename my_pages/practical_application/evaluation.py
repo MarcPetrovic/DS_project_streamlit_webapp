@@ -109,9 +109,14 @@ def show():
     preprocessor = build_pipeline(df)
     preprocessor.set_output(transform='pandas')
     transformed_df = preprocessor.fit_transform(df)
+    
+    def make_streamlit_arrow_compatible(df: pd.DataFrame) -> pd.DataFrame:
+        df = df.convert_dtypes()
+        for col in df.select_dtypes(include='object').columns:
+            df[col] = df[col].apply(lambda x: str(x) if not pd.isna(x) else "")
+        return df
 
-    for col in transformed_df.select_dtypes(include='object'):
-        transformed_df[col] = transformed_df[col].astype(str)
+    transformed_df = make_streamlit_arrow_compatible(transformed_df)
 
     st.write("Nach der Transformation – Spaltentypen:")
     #st.write(transformed_df.dtypes)
