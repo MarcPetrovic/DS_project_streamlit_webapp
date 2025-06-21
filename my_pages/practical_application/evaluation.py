@@ -10,6 +10,10 @@ from sklearn import set_config
 from sklearn.utils import estimator_html_repr
 from utils.summary_stats import summary
 from utils.my_colormaps import my_cmap_r
+# for graphviz
+from sklearn.tree import export_text
+from sklearn.utils import _pprint
+from sklearn import tree
 
 
 def show():
@@ -112,6 +116,13 @@ def show():
     set_config(display='diagram')
     html_code = estimator_html_repr(preprocessor)
     st.components.v1.html(html_code, height=600, scrolling=True)
+    try:
+        dot_data = preprocessor._repr_svg_()  # Jupyter-interne SVG-Visualisierung (funktioniert teils in Streamlit)
+        if dot_data:
+            st.image(io.BytesIO(dot_data.encode("utf-8")), format="svg")
+    except:
+    # Fallback mit stringbasierter Textdarstellung
+        st.text(preprocessor)
     preprocessor.set_output(transform='pandas')
     transformed_df = preprocessor.fit_transform(df)
     
