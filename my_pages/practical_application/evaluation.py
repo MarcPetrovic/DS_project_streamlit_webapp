@@ -115,7 +115,10 @@ def show():
 
     st.write("Nach der Transformation – Spaltentypen:")
     #st.write(transformed_df.dtypes)
-    st.write(transformed_df.info())
+    buffer = io.StringIO()
+    transformed_df.info(buf=buffer)
+    st.text("🧾 transformed_df.info():")
+    st.text(buffer.getvalue())
 
     #sum_df = summary(transformed_df)
     
