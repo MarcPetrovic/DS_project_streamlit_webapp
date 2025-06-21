@@ -114,7 +114,8 @@ def show():
         transformed_df[col] = transformed_df[col].astype(str)
 
     st.write("Nach der Transformation – Spaltentypen:")
-    st.write(transformed_df.dtypes)
+    #st.write(transformed_df.dtypes)
+    st.write(transformed_df.info())
 
     #sum_df = summary(transformed_df)
     
