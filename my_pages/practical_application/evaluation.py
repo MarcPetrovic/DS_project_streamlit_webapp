@@ -112,14 +112,14 @@ def show():
     preprocessor = build_pipeline(df)
     set_config(display='diagram')
     html_code = estimator_html_repr(preprocessor)
-    soup = BeautifulSoup(html_code, 'html.parser')
-    for tag in soup.find_all(style=True):
-        style = tag['style']
+#    soup = BeautifulSoup(html_code, 'html.parser')
+#    for tag in soup.find_all(style=True):
+#        style = tag['style']
     # Schwarz durch deine Wunschfarbe ersetzen
-        updated_style = style.replace("fill:#fff5e6", "fill:#e0f7fa")   
-        tag['style'] = updated_style
-    st.components.v1.html(str(soup), height=600, scrolling=True)
-    #st.components.v1.html(html_code, height=600, scrolling=True)
+#        updated_style = style.replace("fill:#fff5e6", "fill:#e0f7fa")   
+#        tag['style'] = updated_style
+#    st.components.v1.html(str(soup), height=600, scrolling=True)
+    st.components.v1.html(html_code, height=600, scrolling=True)
 
     preprocessor.set_output(transform='pandas')
     transformed_df = preprocessor.fit_transform(df)
