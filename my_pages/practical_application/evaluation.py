@@ -111,6 +111,9 @@ def show():
     preprocessor.set_output(transform='pandas')
     transformed_df = preprocessor.fit_transform(df)
 
+    for col in transformed_df.select_dtypes(include='object'):
+    transformed_df[col] = transformed_df[col].astype(str)
+
     sum_df = summary(transformed_df)
     
     styled_summary = sum_df.style.background_gradient(
@@ -120,5 +123,6 @@ def show():
 
     st.subheader("Daten nach Transformation:")
     st.subheader("Datenzusammenfassung")
-    st.dataframe(styled_summary)
-    #st.dataframe(summary(df).reset_index().rename(columns={"index": "Spalte"}))
+    st.write(styled_summary)
+    #st.dataframe(styled_summary)
+
