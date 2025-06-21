@@ -7,6 +7,7 @@ import numpy as np
 from utils.preprap_feature_engineering import build_pipeline
 import graphviz
 from sklearn import set_config
+from sklearn.utils import estimator_html_repr
 from utils.summary_stats import summary
 from utils.my_colormaps import my_cmap_r
 
