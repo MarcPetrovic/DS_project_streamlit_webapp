@@ -3,6 +3,15 @@ from utils.image_loader import show_github_image
 from utils.data_loader import load_csv_data
 import pandas as pd
 import numpy as np
+import io
+from utils.preprap_feature_engineering import build_pipeline
+import graphviz
+from sklearn import set_config
+from sklearn.utils import estimator_html_repr
+from utils.summary_stats import summary
+from utils.my_colormaps import my_cmap_r
+from bs4 import BeautifulSoup
+import re
 
 def show():
   #  st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -160,5 +169,71 @@ def show():
 
         This approach sets the stage for reliable, scalable, and interpretable modeling in subsequent phases                
         """, unsafe_allow_html=True)
+        st.markdown("""
+        Sometimes, users may wish to understand the technical foundation of the preprocessing steps. Tick the checkbox 
+        below to dive into the full technical pipeline implementation.
+        """)
+        show_preprocessing = st.checkbox("Show technical preprocessing steps")
+        if show_preprocessing:
+          st.subheader("📂 Step 1: Load Data")
+      
+          df = load_csv_data(
+              filename="data/bank-additional-full.csv",
+              sep=";",
+              header=True,
+              add_row_id=True
+          )
+      
+          st.success("CSV file loaded successfully.")
+          st.write(df.head())
+      
+          st.subheader("🛠 Step 2: Feature Engineering – Add Year & Date Fields")
+      
+          grouped = df.groupby(["month", "cons.price.idx"]).agg(
+              COUNT_TOTAL_PER_MONTH=('month', 'count'),
+              MAX_RN_month=('ROW_ID', 'max')
+          ).reset_index()
+      
+          def assign_year(row):
+              if row['MAX_RN_month'] <= 27690:
+                  return 2008
+              elif row['MAX_RN_month'] <= 39130:
+                  return 2009
+              else:
+                  return 2010
+      
+          grouped['year'] = grouped.apply(assign_year, axis=1)
+          df = pd.merge(df, grouped[['month', 'cons.price.idx', 'year']], on=['month', 'cons.price.idx'], how='left')
+          df['date_period'] = pd.to_datetime(df['year'].astype(str) + "-" + pd.to_datetime(df['month'], format='%b').dt.month.astype(str)).dt.to_period('M')
+          df['date_int'] = df['date_period'].dt.strftime('%Y%m').astype(int)
+          df['date_period'] = df['date_period'].astype(str)
+      
+          st.success("Date enriched successfully.")
+          st.dataframe(df.head())
+      
+          st.subheader("🔄 Step 3: Apply Preprocessing Pipeline")
+      
+          preprocessor = build_pipeline(df)  # Custom-built scikit-learn pipeline
+          set_config(display='diagram')
+          html_code = estimator_html_repr(preprocessor)
+      
+          st.components.v1.html(html_code, height=600, scrolling=True)
+      
+          preprocessor.set_output(transform='pandas')
+          transformed_df = preprocessor.fit_transform(df)
+      
+          def make_streamlit_arrow_compatible(df: pd.DataFrame) -> pd.DataFrame:
+              df = df.convert_dtypes()
+              for col in df.select_dtypes(include='object').columns:
+                  df[col] = df[col].apply(lambda x: str(x) if not pd.isna(x) else "")
+              return df
+      
+          transformed_df = make_streamlit_arrow_compatible(transformed_df)
+      
+          st.subheader("📋 Step 4: DataFrame Info After Transformation")
+          buffer = io.StringIO()
+          transformed_df.info(buf=buffer)
+          st.text("🧾 transformed_df.info():")
+          st.text(buffer.getvalue())
 
 
