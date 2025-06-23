@@ -143,3 +143,22 @@ def show():
          - Attribute Documentation: Detailed descriptions of all 20 input attributes and the binary target variable y are provided 
            in the accompanying metadata file.
         """, unsafe_allow_html=True)
+    elif task == "Conclusions of the Data Preparation Phase":
+        st.subheader("4. Conclusions of the Data Preparation Phase")
+        st.markdown("""
+        The data preparation phase established a clean, well-structured dataset ready for predictive modeling. The 
+        deliberate separation of training and test sets before transformation, combined with reproducible pipelines and 
+        robust cross-validation, ensures that the modeling phase is both technically sound and business-relevant. The 
+        selected models—Logistic Regression and XGBoost—cover both transparency and performance, offering a strong basis 
+        for final optimization and deployment in the next project phase.
+        
+        The authors provide the following key recommendations and insights, which are directly relevant to the current project:
+         - Preprocessing logic was encapsulated into modular, testable units via custom transformer classes
+         - A layered pipeline architecture separates semantic, structural, and statistical preparation steps
+         - By splitting the data before feature transformation, the integrity of evaluation metrics was preserved
+         - Clean use of ColumnTransformer ensures full pipeline compatibility with GridSearchCV, model export, and deployment
+
+        This approach sets the stage for reliable, scalable, and interpretable modeling in subsequent phases                
+        """, unsafe_allow_html=True)
+
+
