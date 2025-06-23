@@ -96,7 +96,7 @@ def show():
         and 11.53% in the test set—thus preserving representative¬ness and supporting reliable model evaluation. This 
         separation also enabled fitting transformations on the training data (fit_transform) and applying them to the 
         test data (transform) without introducing target leakage.
-        <br>      
+        <br><br>
         """, unsafe_allow_html=True)
         st.markdown("""
         **d) Pipeline III: Feature Transformation**
