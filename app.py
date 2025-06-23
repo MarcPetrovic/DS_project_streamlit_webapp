@@ -21,7 +21,7 @@ st.sidebar.radio(
 
 # Dynamisches Headerbild pro Seite (GitHub-Pfade)
 header_images = {
-    "Introduction": "images/header.PNG",
+    "Introduction": "images/header2.PNG",
     "Theoretical Framework": "images/header.PNG",
     "Practical Application According to CRISP-DM": "images/header.PNG",
     #"Methods & Data": "images/methods_header.jpg",
