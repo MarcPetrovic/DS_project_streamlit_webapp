@@ -58,6 +58,14 @@ def show():
         maintaining clarity and modularity. In industrial data science projects following CRISP-DM, this level of structure 
         ensures reproducibility and process integrity in the data workflows.
 
+        """)
+        show_github_image(
+          image_filename="images/data_preparation_steps.PNG",
+          repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+          caption=( "Figure 10: Overview of single steps within data preparation phase")
+          )
+        st.markdown("""
+
         We will now explore the individual data preprocessing steps in more detail, focusing on both procedural and 
         methodological considerations.
 
@@ -116,11 +124,10 @@ def show():
            create very large sparse matrices for high-cardinality features. On the other hand, it increases model 
            complexity and memory consumption.
         """, unsafe_allow_html=True)
-          # Bild von der URL laden und anzeigen 
         show_github_image(
-          image_filename="images/attribute_cluster.PNG",
+          image_filename="images/preprocessing_pipelines.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 9: Overview of the four data type clusters within the used database")
+          caption=( "Figure 11: Pipeline overview within data preparation phase")
           )
     elif task == "Strategic & Methodical Aspects of Train-Test-Split":
         st.subheader("3. Strategic & Methodical Aspects of Train-Test-Split")
