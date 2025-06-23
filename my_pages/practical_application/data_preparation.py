@@ -61,21 +61,24 @@ def show():
         We will now explore the individual data preprocessing steps in more detail, focusing on both procedural and 
         methodological considerations.
         a). Pipeline I: Initial Cleaning and Recoding
-         • Target Variable Transformation: The binary target variable y ("yes"/"no") was converted into a dummy variable 
+         - Target Variable Transformation: The binary target variable y ("yes"/"no") was converted into a dummy variable 
            (1 for "yes", 0 for "no"), making it compatible with classification algorithms.
-         • Handling Missing Values ("unknown"): Placeholder values like "unknown" were replaced with NaN and subsequently 
+         - Handling Missing Values ("unknown"): Placeholder values like "unknown" were replaced with NaN and subsequently 
            imputed using SimpleImputer(strate-gy="most_frequent"), a technique particularly suitable for categorical 
            variables.
-         • Feature Harmonization – default: The default feature was binarized into a unified "unknown|yes" group. This 
+         - Feature Harmonization – default: The default feature was binarized into a unified "unknown|yes" group. This 
            consolidation reflects domain knowledge from the financial sector, where both values indicate increased credit 
            risk and low quality of information.
-         • Semantic Reformatting – pdays: The value 999, used to indicate lack of prior contact, was recoded into 0 
+         - Semantic Reformatting – pdays: The value 999, used to indicate lack of prior contact, was recoded into 0 
            ( = not contacted), improving semantic clarity.
 
         b) Pipeline II: Structural Adjustments 
         This step focused on structural refinement and ethical model integrity:
-         •	Duplicate Removal: Redundant records were eliminated to avoid data leakage and maintain statistical independence across observations.
-         •	Feature Exclusion – duration: Despite its predictive strength, duration was excluded from modeling due to its post-outcome nature—it is only known after the marketing contact and would therefore introduce severe data leakage if used during training.
+         - Duplicate Removal: Redundant records were eliminated to avoid data leakage and maintain statistical independence 
+           across observations.
+         - Feature Exclusion – duration: Despite its predictive strength, duration was excluded from modeling due to its 
+           post-outcome nature—it is only known after the marketing contact and would therefore introduce severe data 
+           leakage if used during training.
             
         c) Strategic Train-Test Split
         Prior to applying final transformations, a stratified 70/30 train-test split was performed. This sequencing is 
@@ -84,7 +87,7 @@ def show():
 
         The used stratification ensured consistent distribution of the target class—11.15% positive in the training set 
         and 11.53% in the test set—thus preserving representative¬ness and supporting reliable model evaluation. This 
-        separation also enabled fitting transformations on the training data (fit_trans-form) and applying them to the 
+        separation also enabled fitting transformations on the training data (fit_transform) and applying them to the 
         test data (transform) without introducing target leakage.
 
         d) Pipeline III: Feature Transformation
@@ -94,8 +97,8 @@ def show():
            was centered (mean = 0) and scaled (std = 1), which improves performance of Distance-based algorithms (e.g. KNN) 
            and regularized linear models (e.g. Logistic Regression with L2 penalty). This ensures numeric comparability 
            across features, accelerates model convergence and is required for many ML algorithms. Unfortunately, this 
-           method is not robust to outliers (can skew the mean and standard deviation) and the transformed values lose 
-           intuitive interpretability
+           method is **not robust to outliers** (can skew the mean and standard deviation) and the **transformed values lose 
+           intuitive interpretability.**
          - One-Hot Encoding was applied to categorical variables. These features were transformed via OneHotEncoder(drop=
            'first', handle_unknown='ignore', sparse_out-put=False), producing binary indicator columns for all but not for 
            the first category (to avoid multicollinearity). This method retains full category information, is widely 
