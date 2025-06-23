@@ -445,10 +445,6 @@ def show():
                 <iframe src="{url2}" width="1093" height="938" style="border:none"; scrolling="yes"></iframe>
             </div>
         """, unsafe_allow_html=True)
-        st.markdown("""
-        asfasfas
-        """)
-
 
     elif task == "Data Audit - Economic Environment":
         st.subheader("4. Data Audit - Economic Environment")
