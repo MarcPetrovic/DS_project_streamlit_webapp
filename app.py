@@ -23,10 +23,10 @@ st.sidebar.radio(
 header_images = {
     "Introduction": "images/header2.PNG",
     "Theoretical Framework": "images/header.PNG",
-    "Practical Application According to CRISP-DM": "images/header.PNG",
+    "Practical Application According to CRISP-DM": "images/header2.PNG",
     #"Methods & Data": "images/methods_header.jpg",
     #"Technical Environment & Modeling": "images/tech_header.jpg",
-     "Conclusion & Discussion": "images/header.PNG"
+     "Conclusion & Discussion": "images/header2.PNG"
 }
 
 # Subnavigation nur, wenn nötig – ebenfalls direkt an den Session-State gebunden
