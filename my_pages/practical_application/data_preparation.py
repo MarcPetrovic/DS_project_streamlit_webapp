@@ -75,6 +75,7 @@ def show():
         """, unsafe_allow_html=True)
         st.markdown("""
         b) Pipeline II: Structural Adjustments
+        <br>
         This step focused on structural refinement and ethical model integrity:
          - Duplicate Removal: Redundant records were eliminated to avoid data leakage and maintain statistical independence 
            across observations.
@@ -84,6 +85,7 @@ def show():
         """, unsafe_allow_html=True)
         st.markdown("""
         c) Strategic Train-Test Split
+        
         Prior to applying final transformations, a stratified 70/30 train-test split was performed. This sequencing is 
         essential for preserving the independence of the test set and preventing information leakage from transformation 
         steps such as scaling and encoding (for more detailed information on this step see paragraph 3.3.2).
