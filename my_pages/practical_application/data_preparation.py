@@ -74,7 +74,7 @@ def show():
            ( = not contacted), improving semantic clarity.
         """, unsafe_allow_html=True)
         st.markdown("""
-        b) Pipeline II: Structural Adjustments 
+        b) Pipeline II: Structural Adjustments
         This step focused on structural refinement and ethical model integrity:
          - Duplicate Removal: Redundant records were eliminated to avoid data leakage and maintain statistical independence 
            across observations.
@@ -82,7 +82,7 @@ def show():
            post-outcome nature—it is only known after the marketing contact and would therefore introduce severe data 
            leakage if used during training.
         """, unsafe_allow_html=True)
-        st.markdwon("""
+        st.markdown("""
         c) Strategic Train-Test Split
         Prior to applying final transformations, a stratified 70/30 train-test split was performed. This sequencing is 
         essential for preserving the independence of the test set and preventing information leakage from transformation 
@@ -93,7 +93,7 @@ def show():
         separation also enabled fitting transformations on the training data (fit_transform) and applying them to the 
         test data (transform) without introducing target leakage.
         """, unsafe_allow_html=True)
-        st.markdwon("""
+        st.markdown("""
         d) Pipeline III: Feature Transformation
         This final preprocessing stage ensured that the data conformed to the input require¬ments of machine learning 
         models, both in terms of scale and format.
