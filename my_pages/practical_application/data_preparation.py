@@ -61,7 +61,7 @@ def show():
         We will now explore the individual data preprocessing steps in more detail, focusing on both procedural and 
         methodological considerations.
 
-        a) Pipeline I: Initial Cleaning and Recoding
+        **a) Pipeline I: Initial Cleaning and Recoding**
          - Target Variable Transformation: The binary target variable y ("yes"/"no") was converted into a dummy variable 
            (1 for "yes", 0 for "no"), making it compatible with classification algorithms.
          - Handling Missing Values ("unknown"): Placeholder values like "unknown" were replaced with NaN and subsequently 
@@ -72,9 +72,10 @@ def show():
            risk and low quality of information.
          - Semantic Reformatting – pdays: The value 999, used to indicate lack of prior contact, was recoded into 0 
            ( = not contacted), improving semantic clarity.
+        <br>
         """, unsafe_allow_html=True)
         st.markdown("""
-        b) Pipeline II: Structural Adjustments
+        **b) Pipeline II: Structural Adjustments**
         <br>
         This step focused on structural refinement and ethical model integrity:
          - Duplicate Removal: Redundant records were eliminated to avoid data leakage and maintain statistical independence 
@@ -82,10 +83,11 @@ def show():
          - Feature Exclusion – duration: Despite its predictive strength, duration was excluded from modeling due to its 
            post-outcome nature—it is only known after the marketing contact and would therefore introduce severe data 
            leakage if used during training.
+        <br>
         """, unsafe_allow_html=True)
         st.markdown("""
-        c) Strategic Train-Test Split
-        
+        **c) Strategic Train-Test Split**
+        <br>
         Prior to applying final transformations, a stratified 70/30 train-test split was performed. This sequencing is 
         essential for preserving the independence of the test set and preventing information leakage from transformation 
         steps such as scaling and encoding (for more detailed information on this step see paragraph 3.3.2).
@@ -94,9 +96,11 @@ def show():
         and 11.53% in the test set—thus preserving representative¬ness and supporting reliable model evaluation. This 
         separation also enabled fitting transformations on the training data (fit_transform) and applying them to the 
         test data (transform) without introducing target leakage.
+        <br>      
         """, unsafe_allow_html=True)
         st.markdown("""
-        d) Pipeline III: Feature Transformation
+        **d) Pipeline III: Feature Transformation**
+        <br>
         This final preprocessing stage ensured that the data conformed to the input require¬ments of machine learning 
         models, both in terms of scale and format.
          - Z-Standardization for numeric features was applied using StandardScaler() function. Each continuous feature 
