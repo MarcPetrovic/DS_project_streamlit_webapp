@@ -47,16 +47,16 @@ def show():
         environment that prevents dependency conflicts and enhances reproducibility.
 
         In line with industry-oriented modular design principles, a custom transformer archi¬tecture was developed, based 
-        on the scikit-learn interface (BaseEstimator, Transfor¬merMixin). These reusable components were embedded into a 
+        on the scikit-learn interface (BaseEstimator, TransformerMixin). These reusable components were embedded into a 
         larger pipeline framework, enabling full integration with Pipeline and ColumnTransformer. This design supports 
         the principle of end-to-end pipeline completeness, ensuring all transformations—starting from raw ingestion 
         through to modeling-ready format—are encap¬sulated in a transparent and auditable structure.
 
         To systematically manage the heterogeneity of feature types, a composite pipeline architecture was implemented. 
-        Using the ColumnTransformer, separate prepro-cessing paths were assigned to numerical and categorical variables. 
+        Using the ColumnTransformer, separate preprocessing paths were assigned to numerical and categorical variables. 
         This approach allows component-wise, column-specific preprocessing—such as imputation, scaling, and encoding—while 
         maintaining clarity and modularity. In industrial data science projects following CRISP-DM, this level of structure 
-        ensures reproducibility and pro¬cess integrity in the data workflows.
+        ensures reproducibility and process integrity in the data workflows.
 
         We will now explore the individual data preprocessing steps in more detail, focusing on both procedural and 
         methodological considerations.
