@@ -1242,8 +1242,8 @@ def show():
               with different value ranges.
         <br>    
         5.	Recoding and Binning:
-            - Recode the variable pdays, where the value 999 represents "not previously contacted", to a binary representation 
-              (0 = not contacted, 1 = contacted).
+            - Recode the variable pdays, where the value 999 represents "not previously contacted", to 0 = not contacted, 
+              else copy.
             - Collapse sparse categorical values where appropriate, such as binning the labels "unknown" and "yes" in the 
               default variable to form a combined category "unknown|yes", reflecting similar credit risk implications.
 
