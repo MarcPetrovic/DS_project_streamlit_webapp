@@ -216,8 +216,25 @@ def show():
           preprocessor = build_pipeline(df)  # Custom-built scikit-learn pipeline
           set_config(display='diagram')
           html_code = estimator_html_repr(preprocessor)
-      
-          st.components.v1.html(html_code, height=600, scrolling=True)
+          # BeautifulSoup initialisieren
+          soup = BeautifulSoup(html_code, 'html.parser')
+          
+          color_mapping = {
+              "#000000": "#3f51b5",     # schwarz → Indigo
+              "#f9d7aa": "#d1c4e9",     # orange-hover groß → Lavendel
+              "#fae5d3": "#b2dfdb",     # orange-hover klein → Mintgrün
+              "#fff5e6": "#e0f7fa",     # alt-beige → hellblau
+          }
+          
+          for tag in soup.find_all(style=True):
+              style = tag['style']
+              for old_color, new_color in color_mapping.items():
+                  if old_color.lower() in style.lower():
+                      style = style.replace(old_color, new_color)
+              tag['style'] = style
+          
+          st.components.v1.html(str(soup), height=650, scrolling=True)      
+          #st.components.v1.html(html_code, height=600, scrolling=True)
       
           preprocessor.set_output(transform='pandas')
           transformed_df = preprocessor.fit_transform(df)
