@@ -229,6 +229,10 @@ def show():
               "--sklearn-color-fitted-level-2": "#00575b",       # vorher: #b3dbfd
               "--sklearn-color-fitted-level-3": "#191919",       # vorher: cornflowerblue
               "--sklearn-color-icon": "#607d8b",                 # vorher: #696969
+              "--sklearn-color-icon": "#00575b",                   # Einheitliches Icon-Petrol
+              "--sklearn-color-text-on-default-background": "#191919",
+              "--sklearn-color-background": "#f3f3f3",
+              "--sklearn-color-border-box": "#191919",
           }
           
           for style_tag in soup.find_all("style"):
