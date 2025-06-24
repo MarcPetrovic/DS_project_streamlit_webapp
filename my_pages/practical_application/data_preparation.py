@@ -243,7 +243,7 @@ def show():
                       style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
                   style_tag.string.replace_with(style_text)
           
-          st.components.v1.html(str(soup), height=700, scrolling=True) 
+          st.components.v1.html(str(soup), height=400, scrolling=True) 
       
           preprocessor.set_output(transform='pandas')
           transformed_df = preprocessor.fit_transform(df)
