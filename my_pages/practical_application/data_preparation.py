@@ -255,6 +255,7 @@ def show():
               return df
       
           transformed_df = make_streamlit_arrow_compatible(transformed_df)
+          st.success("Data transformed successfully.")
       
           st.subheader("📋 Step 4: DataFrame Info After Transformation")
           buffer = io.StringIO()
@@ -263,13 +264,11 @@ def show():
           st.text(buffer.getvalue())
           
           st.subheader("🧹 Step 5: Post-Processing – Drop Duplicates & Drop 'duration'")
-
-          # Reinigungspipeline laden und anwenden
           from utils.data_cleaning import get_cleaning_pipeline
           cleaning_pipeline = get_cleaning_pipeline(columns_to_drop='duration')
           newdf = cleaning_pipeline.fit_transform(transformed_df)
 
-          # Visualisierung der Cleaning-Pipeline
+          st.success("Data cleaned successfully.")
           st.subheader("🔧 Pipeline: Drop Duplicates + Drop Column")
 
           html_code_cleaning = estimator_html_repr(cleaning_pipeline)
@@ -285,18 +284,10 @@ def show():
 
           st.components.v1.html(str(soup_cleaning), height=300, scrolling=True)
 
-          # Zeige Ergebnisübersicht
-          buffer2 = io.StringIO()
-          newdf.info(buf=buffer2)
-          st.text("🧾 newdf.info():")
-          st.text(buffer2.getvalue())
-
-          # Optional: tabellarische Übersicht
           st.subheader("📊 Feature Summary After Cleaning")
           summary_df = summary(newdf)
           st.dataframe(summary_df)
 
-          # Daten aufteilen für Modellierung
           st.subheader("🎯 Step 6: Train/Test Split + Target Balance")
 
           y = newdf['target'].copy().astype(int)
@@ -304,7 +295,7 @@ def show():
 
           from sklearn.model_selection import train_test_split
           X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
-
+          st.success("Data splitted successfully between train & test.")
           y_train_dis = y_train.value_counts()
           y_test_dis = y_test.value_counts()
 
