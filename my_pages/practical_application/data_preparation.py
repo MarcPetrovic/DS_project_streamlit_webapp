@@ -264,8 +264,8 @@ def show():
           st.subheader("🧹 Step 5: Post-Processing – Drop Duplicates & Drop 'duration'")
 
           # Reinigungspipeline laden und anwenden
-          from utils import data_cleaning
-          cleaning_pipeline = data_cleaning(columns_to_drop='duration')
+          from utils.data_cleaning import get_cleaning_pipeline
+          cleaning_pipeline = get_cleaning_pipeline(columns_to_drop='duration')
           newdf = cleaning_pipeline.fit_transform(transformed_df)
 
           # Zeige Ergebnisübersicht
