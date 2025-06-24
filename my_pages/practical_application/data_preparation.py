@@ -12,6 +12,7 @@ from utils.summary_stats import summary
 from utils.my_colormaps import my_cmap_r
 from bs4 import BeautifulSoup
 import re
+import matplotlib as plt
 
 def show():
   #  st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -268,17 +269,6 @@ def show():
           cleaning_pipeline = get_cleaning_pipeline(columns_to_drop='duration')
           newdf = cleaning_pipeline.fit_transform(transformed_df)
 
-          # Zeige Ergebnisübersicht
-          buffer2 = io.StringIO()
-          newdf.info(buf=buffer2)
-          st.text("🧾 newdf.info():")
-          st.text(buffer2.getvalue())
-
-          # Optional: tabellarische Übersicht
-          st.subheader("📊 Feature Summary After Cleaning")
-          summary_df = summary(newdf)
-          st.dataframe(summary_df)
-
           # Visualisierung der Cleaning-Pipeline
           st.subheader("🔧 Pipeline: Drop Duplicates + Drop Column")
 
@@ -294,6 +284,17 @@ def show():
                   style_tag.string.replace_with(style_text)
 
           st.components.v1.html(str(soup_cleaning), height=500, scrolling=True)
+
+          # Zeige Ergebnisübersicht
+          buffer2 = io.StringIO()
+          newdf.info(buf=buffer2)
+          st.text("🧾 newdf.info():")
+          st.text(buffer2.getvalue())
+
+          # Optional: tabellarische Übersicht
+          st.subheader("📊 Feature Summary After Cleaning")
+          summary_df = summary(newdf)
+          st.dataframe(summary_df)
 
           # Daten aufteilen für Modellierung
           st.subheader("🎯 Step 6: Train/Test Split + Target Balance")
