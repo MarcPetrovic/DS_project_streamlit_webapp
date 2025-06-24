@@ -324,3 +324,56 @@ def show():
           axs[1].legend()
 
           st.pyplot(fig)
+
+          st.subheader("⚙️ Step 7: Final Preprocessing – Scaling & Encoding for Modeling")
+
+          from sklearn.preprocessing import StandardScaler, OneHotEncoder
+          from sklearn.pipeline import Pipeline
+          from sklearn.compose import make_column_transformer
+
+          # Transformer definieren
+          scaler = StandardScaler()
+          cat_ohe = OneHotEncoder(drop='first', handle_unknown='ignore', sparse_output=False)
+          cat_ohe.set_output(transform='pandas')
+          scaler.set_output(transform='pandas')
+
+          # Feature-Typen korrekt bestimmen (Streamlit-kompatibel)
+          numerical_cols_PipX = [col for col in X.columns if pd.api.types.is_numeric_dtype(X[col])]
+          categorical_cols_PipX = [col for col in X.columns if pd.api.types.is_string_dtype(X[col])]
+
+          st.write("📐 Numerische Features:", numerical_cols_PipX)
+          st.write("🧾 Kategorische Features:", categorical_cols_PipX)
+
+          # Pipelines definieren
+          NumericalPipeline_X = Pipeline(steps=[('standardization', scaler)])
+          CategorialPipeline_X = Pipeline(steps=[('encoder', cat_ohe)])
+
+          preprocessor_X = make_column_transformer(
+              (NumericalPipeline_X, numerical_cols_PipX),
+              (CategorialPipeline_X, categorical_cols_PipX),
+              verbose_feature_names_out=False,
+              remainder='passthrough'
+          )
+          preprocessor_X.set_output(transform='pandas')
+
+          st.subheader("🧪 Pipeline: Scale + Encode")
+          st.success("Data scaled & encoded successfully.")
+          html_code_X = estimator_html_repr(preprocessor_X)
+          soup_X = BeautifulSoup(html_code_X, 'html.parser')
+
+          for style_tag in soup_X.find_all("style"):
+              style_text = style_tag.string
+              if style_text:
+                  for var_name, new_color in color_variable_mapping.items():
+                      style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
+                  style_tag.string.replace_with(style_text)
+
+          st.components.v1.html(str(soup_X), height=500, scrolling=True)
+
+          X_train_transformed = preprocessor_X.fit_transform(X_train)
+          X_test_transformed = preprocessor_X.transform(X_test)
+
+          st.success("Final preprocessing complete.")
+          st.write("✅ Dimensions of the training set:", X_train_transformed.shape)
+          st.write("✅ Dimensions of the test set:", X_test_transformed.shape)
+
