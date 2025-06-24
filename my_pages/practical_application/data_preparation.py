@@ -12,7 +12,7 @@ from utils.summary_stats import summary
 from utils.my_colormaps import my_cmap_r
 from bs4 import BeautifulSoup
 import re
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 def show():
   #  st.markdown('<a name="top"></a>', unsafe_allow_html=True)
