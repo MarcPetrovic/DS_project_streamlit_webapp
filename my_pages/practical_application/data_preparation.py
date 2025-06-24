@@ -221,13 +221,13 @@ def show():
           
           color_variable_mapping = {
               "--sklearn-color-unfitted-level-0": "#0097A7",     # vorher: #fff5e6 → jetzt: Türkisblau
-              "--sklearn-color-unfitted-level-1": "#097a80",     # vorher: #f6e4d2
-              "--sklearn-color-unfitted-level-2": "#b39ddb",     # vorher: #ffe0b3
-              "--sklearn-color-unfitted-level-3": "#9575cd",     # vorher: chocolate
+              "--sklearn-color-unfitted-level-1": "#f3f3f3",     # vorher: #f6e4d2
+              "--sklearn-color-unfitted-level-2": "#d9d9d9",     # vorher: #ffe0b3
+              "--sklearn-color-unfitted-level-3": "#C00000",     # vorher: chocolate
               "--sklearn-color-fitted-level-0": "#0097A7",       # vorher: #f0f8ff
               "--sklearn-color-fitted-level-1": "#097a80",       # vorher: #d4ebff
-              "--sklearn-color-fitted-level-2": "#0097A7",       # vorher: #b3dbfd
-              "--sklearn-color-fitted-level-3": "#4db6ac",       # vorher: cornflowerblue
+              "--sklearn-color-fitted-level-2": "#00575b",       # vorher: #b3dbfd
+              "--sklearn-color-fitted-level-3": "#191919",       # vorher: cornflowerblue
               "--sklearn-color-icon": "#607d8b",                 # vorher: #696969
           }
           
