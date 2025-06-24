@@ -219,21 +219,26 @@ def show():
           # BeautifulSoup initialisieren
           soup = BeautifulSoup(html_code, 'html.parser')
           
-          color_mapping = {
-              "#000000": "#3f51b5",     # schwarz → Indigo
-              "#f9d7aa": "#d1c4e9",     # orange-hover groß → Lavendel
-              "#fae5d3": "#b2dfdb",     # orange-hover klein → Mintgrün
-              "#fff5e6": "#e0f7fa",     # alt-beige → hellblau
+          color_variable_mapping = {
+              "--sklearn-color-unfitted-level-0": "#ede7f6",     # vorher: #fff5e6 → jetzt: Lavendel
+              "--sklearn-color-unfitted-level-1": "#d1c4e9",     # vorher: #f6e4d2
+              "--sklearn-color-unfitted-level-2": "#b39ddb",     # vorher: #ffe0b3
+              "--sklearn-color-unfitted-level-3": "#9575cd",     # vorher: chocolate
+              "--sklearn-color-fitted-level-0": "#e0f2f1",       # vorher: #f0f8ff
+              "--sklearn-color-fitted-level-1": "#b2dfdb",       # vorher: #d4ebff
+              "--sklearn-color-fitted-level-2": "#80cbc4",       # vorher: #b3dbfd
+              "--sklearn-color-fitted-level-3": "#4db6ac",       # vorher: cornflowerblue
+              "--sklearn-color-icon": "#607d8b",                 # vorher: #696969
           }
           
-          for tag in soup.find_all(style=True):
-              style = tag['style']
-              for old_color, new_color in color_mapping.items():
-                  if old_color.lower() in style.lower():
-                      style = style.replace(old_color, new_color)
-              tag['style'] = style
+          for style_tag in soup.find_all("style"):
+              style_text = style_tag.string
+              if style_text:
+                  for var_name, new_color in color_variable_mapping.items():
+                      style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
+                  style_tag.string.replace_with(style_text)
           
-          st.components.v1.html(str(soup), height=650, scrolling=True)      
+          st.components.v1.html(str(soup), height=700, scrolling=True) 
           #st.components.v1.html(html_code, height=600, scrolling=True)
       
           preprocessor.set_output(transform='pandas')
