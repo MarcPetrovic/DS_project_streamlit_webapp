@@ -243,7 +243,6 @@ def show():
                   style_tag.string.replace_with(style_text)
           
           st.components.v1.html(str(soup), height=700, scrolling=True) 
-          #st.components.v1.html(html_code, height=600, scrolling=True)
       
           preprocessor.set_output(transform='pandas')
           transformed_df = preprocessor.fit_transform(df)
@@ -261,5 +260,75 @@ def show():
           transformed_df.info(buf=buffer)
           st.text("🧾 transformed_df.info():")
           st.text(buffer.getvalue())
+          
+          st.subheader("🧹 Step 5: Post-Processing – Drop Duplicates & Drop 'duration'")
 
+          # Reinigungspipeline laden und anwenden
+          from pipeline_utils import get_cleaning_pipeline
+          cleaning_pipeline = get_cleaning_pipeline(columns_to_drop='duration')
+          newdf = cleaning_pipeline.fit_transform(transformed_df)
 
+          # Zeige Ergebnisübersicht
+          buffer2 = io.StringIO()
+          newdf.info(buf=buffer2)
+          st.text("🧾 newdf.info():")
+          st.text(buffer2.getvalue())
+
+          # Optional: tabellarische Übersicht
+          st.subheader("📊 Feature Summary After Cleaning")
+          summary_df = summary(newdf)
+          st.dataframe(summary_df)
+
+          # Visualisierung der Cleaning-Pipeline
+          st.subheader("🔧 Pipeline: Drop Duplicates + Drop Column")
+
+          html_code_cleaning = estimator_html_repr(cleaning_pipeline)
+          soup_cleaning = BeautifulSoup(html_code_cleaning, 'html.parser')
+
+          # Reuse color mapping
+          for style_tag in soup_cleaning.find_all("style"):
+              style_text = style_tag.string
+              if style_text:
+                  for var_name, new_color in color_variable_mapping.items():
+                      style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
+                  style_tag.string.replace_with(style_text)
+
+          st.components.v1.html(str(soup_cleaning), height=500, scrolling=True)
+
+          # Daten aufteilen für Modellierung
+          st.subheader("🎯 Step 6: Train/Test Split + Target Balance")
+
+          y = newdf['target'].copy().astype(int)
+          X = newdf.drop(["y", "target",  "year", "date_int", 'date_period'], axis=1).copy()
+
+          from sklearn.model_selection import train_test_split
+          X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
+
+          y_train_dis = y_train.value_counts()
+          y_test_dis = y_test.value_counts()
+
+          fig, axs = plt.subplots(1, 2, figsize=(10, 5))
+
+          axs[0].pie(
+              y_train_dis, 
+              explode=[0.2, 0.2],
+              colors=['#d9d9d9', '#097a80'],
+              autopct='%1.2f%%',
+              shadow=True,
+              labels=['No', 'Yes']
+          )
+          axs[0].set_title('Target distribution train data sample')
+          axs[0].legend()
+
+          axs[1].pie(
+              y_test_dis,
+              explode=[0.2, 0.2],
+              colors=['#d9d9d9', '#097a80'],
+              autopct='%1.2f%%',
+              shadow=True,
+              labels=['No', 'Yes']
+          )
+          axs[1].set_title('Target distribution test data sample')
+          axs[1].legend()
+
+          st.pyplot(fig)
