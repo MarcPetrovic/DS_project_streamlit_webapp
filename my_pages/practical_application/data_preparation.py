@@ -165,11 +165,19 @@ def show():
          - Feature distributions in the test set are not influencing model fitting or transformation logic.
 
         Train-Test Split and class distribution validation
+        <br>
         The 70/30 train-test split was executed using stratified sampling to preserve class distribution. The target 
         variable, with approximately 11% positive responses in both the training and test sets, reflects the real-world 
         class imbalance inherent in the original dataset. This setup is crucial for:
-
+         - Maintaining the representativeness of model evaluation.
+         - Ensuring that model calibration and threshold tuning are based on realistic conditions.
+         - Avoiding optimistic bias, which could result from an unbalanced or unstratified test sample.
         """, unsafe_allow_html=True)
+        show_github_image(
+          image_filename="images/preprocessing_pipelines.PNG",
+          repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+          caption=( "Figure 11: Pipeline overview within data preparation phase")
+          )
     elif task == "Conclusions of the Data Preparation Phase":
         st.subheader("4. Conclusions of the Data Preparation Phase")
         st.markdown("""
