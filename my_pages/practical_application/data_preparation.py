@@ -222,14 +222,14 @@ def show():
            regulatory transparency
         - Reliable benchmark for business applications
          <br>
-         **XGBoost**
+        **XGBoost**
         
         - Best training performance (92.2 %) with solid validation (89.9 %).
         - Captures complex non-linear interactions without manual feature engineering
         - Industry standard for credit scoring, marketing classification and churn prediction
 
-         <br>
-         **Didactic Rationale**
+        <br>
+        **Didactic Rationale**
          
         - Selection of one linear and one non-linear model provides a clear trade-off comparison
             - Interpretability vs. Predictive Power
@@ -241,11 +241,6 @@ def show():
             - Better justification of complexity from a business value standpoint
             - Robust foundation for threshold tuning using probability scores
 
-        - **The second iteration anticipates incorporating feature engineering** informed by exploratory data analysis 
-          and success profile insights, aiming to enhance predictive signal extraction. This phase also broadens model 
-          assessment beyond accuracy, introducing a comprehensive set of metrics that capture different aspects of 
-          classifier quality and business relevance, including:
-            - Early Retrieval Area (ERA)
         """, unsafe_allow_html=True)
     elif task == "Conclusions of the Data Preparation Phase":
         st.subheader("5. Conclusions of the Data Preparation Phase")
