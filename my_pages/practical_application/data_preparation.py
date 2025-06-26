@@ -242,7 +242,6 @@ def show():
             - Interpretability vs. Predictive Power
             - Transparency vs. Complexity
         <br><br>
-
         - Reflects best practices in model governance and machine learning application in business contexts.
         - Combination of linear and non-linear modeling paradigms allows
             - Clear analysis of performance vs. interpretability
