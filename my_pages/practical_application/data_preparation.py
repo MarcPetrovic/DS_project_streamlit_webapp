@@ -142,16 +142,33 @@ def show():
     elif task == "Strategic & Methodical Aspects of Train-Test-Split":
         st.subheader("3. Strategic & Methodical Aspects of Train-Test-Split")
         st.markdown("""
-        The authors provide the following key recommendations and insights, which are directly relevant to the current project:
-         - Missing Values: Several categorical attributes contain missing values, represented by the label "unknown". According to 
-           the authors, these should be handled explicitly, either by treating them as a valid class category or by applying 
-           deletion or imputation techniques, depending on the intended analysis and model type.
-         - Feature Importance and Predictive Use: Particular caution is advised when interpreting and using the variable duration 
-           (last contact duration in seconds). While highly predictive, this attribute is only known after the outcome of the 
-           contact and thus cannot be used in a real-time predictive setting. Moro et al. recommend that this feature be excluded 
-           from models aiming to simulate realistic predictive scenarios and used only for benchmark comparison purposes.
-         - Attribute Documentation: Detailed descriptions of all 20 input attributes and the binary target variable y are provided 
-           in the accompanying metadata file.
+        A key consideration in model validation is the prevention of data leakage. Therefore, the train-test split was 
+        performed before applying transformations such as scaling and encoding. This ensures that the StandardScaler and 
+        OneHotEncoder were fitted exclusively on the training set (fit_transform), and only applied to the test set via 
+        transform. This strategy aligns with best practices in machine learning, providing a realistic evaluation of 
+        generalization performance.
+
+        So, after all structural transformations were complete and irrelevant features removed, the dataset was split 
+        into training (70%) and test (30%) subsets (stratified sampling). The decision to split the dataset into training 
+        and test sets before standardization and encoding was crucial for preserving the integrity of the modeling pipeline.
+
+         - Training Set (70%) was used to fit_transform() the StandardScaler() and OneHotEncoder(), ensuring that the 
+           transformation logic (e.g. mean, variance, dummy mapping) was based only on known data.
+         - Test Set (30%) was only exposed to these transformations via .transform(), ensuring no data leakage. All 
+           transformations in pipeline III (standardization and encoding) involve parameter fitting. These parameters 
+           (mean, variance, encoding logic) must be learned only from the training data using fit_transform and then 
+           applied to the test data via transform
+
+        This methodology ensures that:
+         - Test performance remains unbiased and reflects true generalization. Fitting the scaler or encoder on the full 
+           dataset before splitting would contaminate the test set and artificially boost performance metrics.
+         - Feature distributions in the test set are not influencing model fitting or transformation logic.
+
+        Train-Test Split and class distribution validation
+        The 70/30 train-test split was executed using stratified sampling to preserve class distribution. The target 
+        variable, with approximately 11% positive responses in both the training and test sets, reflects the real-world 
+        class imbalance inherent in the original dataset. This setup is crucial for:
+
         """, unsafe_allow_html=True)
     elif task == "Conclusions of the Data Preparation Phase":
         st.subheader("4. Conclusions of the Data Preparation Phase")
