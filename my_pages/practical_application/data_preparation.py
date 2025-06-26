@@ -185,7 +185,6 @@ def show():
         Seven different classification algorithms were benchmarked using a uniform modeling framework, with preprocessing 
         steps applied via pipelines. The evaluation was conducted using both Train Accuracy and Repeated Stratified K-Fold 
         cross-Validation to ensure robust performance estimates.
-        The authors provide the following key recommendations and insights, which are directly relevant to the current project:
          - Logistic Regression
          - KNeighborsClassifier
          - Gradient Boosting Classifier
@@ -208,7 +207,38 @@ def show():
           image_filename="images/1st_iteration_modelling.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
           caption=( "Figure 10: Overview of single steps within data preparation phase")
-          )    
+          )
+        st.markdown("""
+        <br>
+        Model Focus for Second Iteration (Threshold Tuning)
+        <br>
+        Based on validation stability, interpretability, and predictive performance, two models were selected for further 
+        optimization:
+        <br>
+        **Logistic Regression**
+         - Stable and nearly identical scores in training and validation (90.1 % vs. 90.0 %).
+         - Fully interpretable: ideal for explainability, compliance, and internal communication, internal audit and 
+           regulatory transparency
+         - Reliable benchmark for business applications
+         <br>
+         **XGBoost**
+         <br>
+         - Best training performance (92.2 %) with solid validation (89.9 %).
+         - Captures complex non-linear interactions without manual feature engineering
+         - Industry standard for credit scoring, marketing classification and churn prediction
+         <br>
+         **Didactic Rationale**
+         <br>
+         - Selection of one linear and one non-linear model provides a clear trade-off comparison
+            - Interpretability vs. Predictive Power
+            - o	Transparency vs. Complexity
+         - Reflects best practices in model governance and machine learning application in business contexts.
+         - Combination of linear and non-linear modeling paradigms allows
+            - Clear analysis of performance vs. interpretability
+            - Better justification of complexity from a business value standpoint
+            - Robust foundation for threshold tuning using probability scores
+
+        """, unsafe_allow_html=True)
     elif task == "Conclusions of the Data Preparation Phase":
         st.subheader("5. Conclusions of the Data Preparation Phase")
         st.markdown("""
