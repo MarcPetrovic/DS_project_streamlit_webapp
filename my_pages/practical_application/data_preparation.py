@@ -263,7 +263,7 @@ def show():
          - Preprocessing logic was encapsulated into modular, testable units via custom transformer classes
          - A layered pipeline architecture separates semantic, structural, and statistical preparation steps
          - By splitting the data before feature transformation, the integrity of evaluation metrics was preserved
-         - Clean use of ColumnTransformer ensures full pipeline compatibility with GridSearchCV, model export, and deployment
+         - Clean use of ColumnTransformer ensures full pipeline compatibility with GridSearchCV
 
         This approach sets the stage for reliable, scalable, and interpretable modeling in subsequent phases                
         """, unsafe_allow_html=True)
