@@ -202,10 +202,13 @@ def show():
            robust generalization (e.g., Logistic Regression, Gradient Boosting).
          - Overfitting Detection:  Decision Tree with 99.5% train vs. 84.0% cross-validation accuracy as a good “negative 
            example”.
-
-        This approach sets the stage for reliable, scalable, and interpretable modeling in subsequent phases                
+              
         """, unsafe_allow_html=True)
-    
+        show_github_image(
+          image_filename="images/1st_iteration_modelling.PNG",
+          repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+          caption=( "Figure 10: Overview of single steps within data preparation phase")
+          )    
     elif task == "Conclusions of the Data Preparation Phase":
         st.subheader("5. Conclusions of the Data Preparation Phase")
         st.markdown("""
