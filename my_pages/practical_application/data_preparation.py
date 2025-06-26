@@ -241,7 +241,9 @@ def show():
         - Selection of one linear and one non-linear model provides a clear trade-off comparison
             - Interpretability vs. Predictive Power
             - Transparency vs. Complexity
-        <br><br>
+
+
+        
         - Reflects best practices in model governance and machine learning application in business contexts.
         - Combination of linear and non-linear modeling paradigms allows
             - Clear analysis of performance vs. interpretability
