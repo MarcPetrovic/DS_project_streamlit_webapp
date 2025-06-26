@@ -214,6 +214,7 @@ def show():
         <br>
         Based on validation stability, interpretability, and predictive performance, two models were selected for further 
         optimization:
+        <br>
         
         """, unsafe_allow_html=True)
         st.markdown("""
@@ -223,14 +224,15 @@ def show():
         - Fully interpretable: ideal for explainability, compliance, and internal communication, internal audit and 
           regulatory transparency
         - Reliable benchmark for business applications
-        
+        <br><br>        
         """, unsafe_allow_html=True)
         st.markdown("""
         **XGBoost**
-        <br>
+        
         - Best training performance (92.2 %) with solid validation (89.9 %).
         - Captures complex non-linear interactions without manual feature engineering
         - Industry standard for credit scoring, marketing classification and churn prediction
+        <br><br>
 
         """, unsafe_allow_html=True)
         st.markdown("""
@@ -239,6 +241,7 @@ def show():
         - Selection of one linear and one non-linear model provides a clear trade-off comparison
             - Interpretability vs. Predictive Power
             - Transparency vs. Complexity
+        <br><br>
 
         - Reflects best practices in model governance and machine learning application in business contexts.
         - Combination of linear and non-linear modeling paradigms allows
