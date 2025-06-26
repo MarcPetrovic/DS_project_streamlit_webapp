@@ -178,8 +178,36 @@ def show():
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
           caption=( "Figure 12: Train-test-split and class distribution validation")
           )
+
+    elif task == "Model Comparison within the first Iteration":
+        st.subheader("4. Model Comparison within the first Iteration")
+        st.markdown("""
+        Seven different classification algorithms were benchmarked using a uniform modeling framework, with preprocessing 
+        steps applied via pipelines. The evaluation was conducted using both Train Accuracy and Repeated Stratified K-Fold 
+        cross-Validation to ensure robust performance estimates.
+        The authors provide the following key recommendations and insights, which are directly relevant to the current project:
+         - Logistic Regression
+         - KNeighborsClassifier
+         - Gradient Boosting Classifier
+         - Decision Tree
+         - Random Forest
+         - Naïve Bayes
+         - XGBoost
+         <br>
+         Evaluation Logic:
+         <br>
+         - A broad spectrum of models was selected: from simple linear models (Logistic Regression) to complex non-linear 
+           classifiers (XGBoost, Gradient Boosting, Random Forest).
+         - Comparison of training and cross-validation scores revealed overfitting patterns (e.g., Decision Tree) and 
+           robust generalization (e.g., Logistic Regression, Gradient Boosting).
+         - Overfitting Detection:  Decision Tree with 99.5% train vs. 84.0% cross-validation accuracy as a good “negative 
+           example”.
+
+        This approach sets the stage for reliable, scalable, and interpretable modeling in subsequent phases                
+        """, unsafe_allow_html=True)
+    
     elif task == "Conclusions of the Data Preparation Phase":
-        st.subheader("4. Conclusions of the Data Preparation Phase")
+        st.subheader("5. Conclusions of the Data Preparation Phase")
         st.markdown("""
         The data preparation phase established a clean, well-structured dataset ready for predictive modeling. The 
         deliberate separation of training and test sets before transformation, combined with reproducible pipelines and 
