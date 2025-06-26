@@ -214,21 +214,25 @@ def show():
         <br>
         Based on validation stability, interpretability, and predictive performance, two models were selected for further 
         optimization:
+        """, unsafe_allow_html=True)
+        st.markdown("""
         <br>
         **Logistic Regression**
-                
+        <br>                
         - Stable and nearly identical scores in training and validation (90.1 % vs. 90.0 %).
         - Fully interpretable: ideal for explainability, compliance, and internal communication, internal audit and 
            regulatory transparency
         - Reliable benchmark for business applications
-         <br>
+        """, unsafe_allow_html=True)
+        st.markdown("""
         **XGBoost**
-        
+        <br>
         - Best training performance (92.2 %) with solid validation (89.9 %).
         - Captures complex non-linear interactions without manual feature engineering
         - Industry standard for credit scoring, marketing classification and churn prediction
 
-        <br>
+        """, unsafe_allow_html=True)
+        st.markdown("""
         **Didactic Rationale**
          
         - Selection of one linear and one non-linear model provides a clear trade-off comparison
