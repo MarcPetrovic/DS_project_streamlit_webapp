@@ -174,9 +174,9 @@ def show():
          - Avoiding optimistic bias, which could result from an unbalanced or unstratified test sample.
         """, unsafe_allow_html=True)
         show_github_image(
-          image_filename="images/preprocessing_pipelines.PNG",
+          image_filename="images/train_test_split.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 11: Pipeline overview within data preparation phase")
+          caption=( "Figure 12: Train-test-split and class distribution validation")
           )
     elif task == "Conclusions of the Data Preparation Phase":
         st.subheader("4. Conclusions of the Data Preparation Phase")
