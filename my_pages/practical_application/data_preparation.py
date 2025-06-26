@@ -241,7 +241,7 @@ def show():
         - Selection of one linear and one non-linear model provides a clear trade-off comparison
             - Interpretability vs. Predictive Power
             - Transparency vs. Complexity
-        <br><br>
+
         """, unsafe_allow_html=True)
         st.markdown("""
         - Reflects best practices in model governance and machine learning application in business contexts.
