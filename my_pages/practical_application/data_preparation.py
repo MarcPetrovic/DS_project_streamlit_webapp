@@ -214,15 +214,16 @@ def show():
         <br>
         Based on validation stability, interpretability, and predictive performance, two models were selected for further 
         optimization:
+        
         """, unsafe_allow_html=True)
         st.markdown("""
-        <br>
         **Logistic Regression**
-        <br>                
+                 
         - Stable and nearly identical scores in training and validation (90.1 % vs. 90.0 %).
         - Fully interpretable: ideal for explainability, compliance, and internal communication, internal audit and 
-           regulatory transparency
+          regulatory transparency
         - Reliable benchmark for business applications
+        
         """, unsafe_allow_html=True)
         st.markdown("""
         **XGBoost**
