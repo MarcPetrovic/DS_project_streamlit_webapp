@@ -260,7 +260,6 @@ def show():
         selected models—Logistic Regression and XGBoost—cover both transparency and performance, offering a strong basis 
         for final optimization and deployment in the next project phase.
         
-        The authors provide the following key recommendations and insights, which are directly relevant to the current project:
          - Preprocessing logic was encapsulated into modular, testable units via custom transformer classes
          - A layered pipeline architecture separates semantic, structural, and statistical preparation steps
          - By splitting the data before feature transformation, the integrity of evaluation metrics was preserved
