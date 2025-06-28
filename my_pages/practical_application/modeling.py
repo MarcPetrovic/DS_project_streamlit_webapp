@@ -120,3 +120,35 @@ def show():
         blueprint for integrating expert knowledge into data-driven environments.
         
         """, unsafe_allow_html=True)
+
+    if task == "Summary of the modelling phase & transition to evaluation phase":
+        st.subheader("5. Summary of the modelling phase & transition to evaluation phase")
+        st.markdown("""
+        The modeling phase served as a pivotal component in translating exploratory data analysis (EDA) into structured, 
+        model-ready input features, thereby laying the foundation for robust predictive modeling. In alignment with the 
+        CRISP-DM methodology, this phase emphasized both methodological rigor and business interpretability by combining 
+        visual diagnostic tools with technically sound feature transformation processes.
+
+        A central element of this phase was the application of the Success Profile Analysis (SPA), which allowed for a 
+        targeted examination of feature-target relationships. By leveraging SPA, we identified key variables that exhibited 
+        statistically significant deviations from the average success rate. These insights were used to systematically 
+        segment the data in a manner that enhanced both predictive accuracy and interpretability.
+
+        The operationalization of SPA insights into model-ready features was realized through a series of custom-built 
+        preprocessing pipelines. These included both dummy encoding (binary flagging of dominant categories) and effect 
+        coding (grouping of semantically coherent segments based on their relative outcome performance). Each transformation 
+        step was encapsulated within a custom transformer class that adheres to the scikit-learn API, ensuring full 
+        compatibility with subsequent model tuning and evaluation workflows. This modular approach not only supported 
+        traceability and reuse, but also allowed for seamless integration into grid search, model export, and deployment 
+        contexts.
+
+        By the end of this modeling phase, we obtained a fully preprocessed dataset in which structural, semantic, and 
+        statistical considerations were coherently embedded. The resulting feature set is both robust and interpretable, 
+        striking a balance between machine-learned insight and domain-relevant structure.
+
+        In the following evaluation phase, we transition from data representation to model assessment. Two classification 
+        algorithms will be compared: Logistic Regression and XGBoost. These were chosen to reflect the dual objective of the 
+        project—balancing interpretability with predictive power. Furthermore, we will explore four different threshold 
+        optimization strategies to assess model calibration and business alignment under various decision-making criteria. 
+
+        """, unsafe_allow_html=True)
