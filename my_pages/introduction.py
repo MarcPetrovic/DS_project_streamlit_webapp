@@ -31,6 +31,13 @@ def show():
     and also whether the offer (conclusion of a fixed-term deposit contract, the target variable) was accepted 
     by the contacted customer. The total data sample comprises 4,640 contracts, which corresponds to a success 
     rate of 11.3 %. 
+    """)
+    show_github_image(
+        image_filename="images/use_case_intro.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption="Porter's Value Chain Quote"
+        )
+    st.markdown("""
 
     The central aim of the project is to develop a statistically relevant (response) model that can explain the 
     success of a telephone contact (described model from the field of business intelligence). Such a response 
