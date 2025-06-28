@@ -4,15 +4,15 @@ from utils.image_loader import show_github_image
 def show():
 #    st.markdown('<a name="top"></a>', unsafe_allow_html=True)
     task = st.selectbox("Select a subchapter of CRISP-DM-phase Modelling:", [
-        "Introduction to the Modelling phase",
+        "Introduction to the modelling phase",
         "Theoretical relevance of Success Profile Analysis",
         "Practical Application of Success Profile Analysis",
         "Data Processing & Feature Engineering based on SPA",
         "Summary of the modelling phase & transition to evaluation phase"
     ])
 
-    if task == "Introduction to the Modelling phase":
-        st.subheader("1. Introduction to the Modelling phase")
+    if task == "Introduction to the modelling phase":
+        st.subheader("1. Introduction to the modelling phase")
         st.markdown("""
         In the context of the present data science project, the modeling chapter aims to bridge the insights derived 
         from exploratory data analysis with robust, interpretable, and business-aligned predictive modelling. Structurally, 
