@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
+import streamlit as st
 
 def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_threshold=0.05, ci_confidence=0.95):
     """
