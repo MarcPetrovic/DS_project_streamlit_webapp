@@ -106,4 +106,5 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
     plt.title(title, fontsize=16, fontweight='bold')
     #plt.xticks(rotation=25)
     plt.tight_layout()
-    plt.show()
+    #plt.show()
+    st.pyplot(fig)
