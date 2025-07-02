@@ -4,6 +4,7 @@ import pandas as pd
 
 from utils.plotting import plot_cat_distribution_vs_success
 from spa_config import spa_plot_map
+from utils.data_loader import load_csv_data
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -122,6 +123,26 @@ def show():
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
         caption="Figure 17: Application of effect-coding based on Success Profile Analysis"
         )
+        def load_data():
+            X_train = pd.read_csv("data/X_train.csv", index_col=0)
+            y_train = pd.read_csv("data/y_train.csv", index_col=0).squeeze("columns")
+            return X_train, y_train
+
+        X_train, y_train = load_data()
+
+        # Feature-Auswahl
+        st.sidebar.header("🧩 Select a Feature")
+        feature_name = st.sidebar.selectbox("Choose a variable", list(spa_plot_map.keys()))
+
+        # Parameter holen
+        config = spa_plot_map[feature_name]
+        feature = config["feature"]
+        bins = config.get("bins")
+        title = config.get("title")
+
+        # Plot anzeigen
+        plot_cat_distribution_vs_success(X_train, y_train, feature=feature, bins=bins, title=title)
+
     if task == "Data Processing & Feature Engineering based on SPA":
         st.subheader("4. Data Processing & Feature Engineering based on SPA")
         st.markdown("""
