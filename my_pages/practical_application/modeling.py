@@ -113,6 +113,11 @@ def show():
         machine learning workflow.
         
         """, unsafe_allow_html=True)
+        show_github_image(
+        image_filename="images/effect_coding_spa.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption="Figure 17: Application of effect-coding based on Success Profile Analysis"
+        )
     if task == "Data Processing & Feature Engineering based on SPA":
         st.subheader("4. Data Processing & Feature Engineering based on SPA")
         st.markdown("""
