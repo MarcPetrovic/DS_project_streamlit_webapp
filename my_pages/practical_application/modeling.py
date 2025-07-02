@@ -94,6 +94,14 @@ def show():
         Graphical examples (cf. integrated illustrations) highlight how these groupings expose non-linear behaviors and 
         inform the selection of modeling-relevant intervals.
 
+        """, unsafe_allow_html=True)
+        show_github_image(
+        image_filename="images/dummy_coding_spa.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption="Figure 16: Application of dummy coding based on Success Profile Analysis"
+        )
+        st.markdown("""
+        
         Based on the observed patterns, variables were categorized into transformation strategies. Binary recoding via dummy 
         coding was employed where one specific category (e.g., 'success' in the poutcome variable) exhibited a significantly 
         elevated success rate. In contrast, more complex relationships were captured using effect coding, where multiple 
