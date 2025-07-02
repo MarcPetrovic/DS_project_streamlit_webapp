@@ -131,8 +131,8 @@ def show():
         X_train, y_train = load_data()
 
         # Feature-Auswahl
-        st.sidebar.header("🧩 Select a Feature")
-        feature_name = st.sidebar.selectbox("Choose a variable", list(spa_plot_map.keys()))
+        st.markdown("### Select a feature for Success Profile Analysis")
+        feature_name = st.selectbox("Choose a variable", list(spa_plot_map.keys()))
 
         # Parameter holen
         config = spa_plot_map[feature_name]
