@@ -27,7 +27,11 @@ def show():
         with a synthesis of key findings and a conceptual transition into the evaluation phase, in which two classification 
         algorithms and four threshold tuning strategies are systematically compared.
         """, unsafe_allow_html=True)
-
+        show_github_image(
+        image_filename="images/modelling_spa_fe_dp.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 11: Overview of the transition from Success Profile Analysis to concrete feature")
+        )
     if task == "Theoretical relevance of Success Profile Analysis":
         st.subheader("2. Theoretical & practical relevance of Success Profile Analysis")
         st.markdown("""
