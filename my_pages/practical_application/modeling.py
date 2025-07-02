@@ -1,5 +1,9 @@
 import streamlit as st
 from utils.image_loader import show_github_image
+import pandas as pd
+
+from utils.plotting import plot_cat_distribution_vs_success
+from spa_config import spa_plot_map
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
