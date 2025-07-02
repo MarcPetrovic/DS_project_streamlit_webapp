@@ -1,7 +1,7 @@
 import streamlit as st
 from utils.image_loader import show_github_image
 import pandas as pd
-
+import matplotlib.pyplot as plt
 from utils.plotting import plot_cat_distribution_vs_success
 from spa_config import spa_plot_map
 from utils.data_loader import load_csv_data
