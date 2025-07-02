@@ -80,6 +80,14 @@ def show():
         population average. Observed success rates are accompanied by binomial confidence intervals (typically at the 95% 
         level), and statistically significant deviations are marked to increase interpretability.
 
+        """, unsafe_allow_html=True)
+        show_github_image(
+        image_filename="images/intro_spa.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption="Figure 15: Introduction to Success Profile Analysis"
+        )
+        st.markdown("""
+        
         This visualization approach plays a central role in translating raw variables into analytically meaningful features. 
         For instance, continuous variables such as the employment index (nr.employed) were segmented into interpretable bins 
         using domain-informed cut points. These segments were then evaluated regarding their respective success rates. 
