@@ -48,6 +48,14 @@ def show():
         discriminative patterns in feature distributions. In this way, it uncovers domain-relevant group structures and 
         serves as a hypothesis-generating mechanism for downstream feature engineering.
 
+        """, unsafe_allow_html=True)
+        show_github_image(
+        image_filename="images/feature_construction_tool_spa.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption="Figure 12: Relevant aspects and important stakeholders of the feature construction tool SPA."
+        )
+        st.markdown("""
+        
         The practical value of SPA lies in its strong interpretability and alignment with regulatory expectations. In an 
         increasingly transparency-driven modeling environment—especially in credit decisioning—SPA provides an effective 
         framework for involving both business stakeholders and supervisory bodies in the model development process. Within 
