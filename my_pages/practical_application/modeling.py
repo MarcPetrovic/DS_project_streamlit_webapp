@@ -206,6 +206,40 @@ def show():
       
           st.success("CSV file loaded successfully.")
           st.write(df.head())
+          st.subheader("🛠 Step 2: Feature Engineering – Add Year & Date Fields")
+       
+          st.subheader("🔄 Step 3: Apply processing Pipeline")
+      
+          processor = build_modelling_pipeline(df)  # Custom-built scikit-learn pipeline
+          set_config(display='diagram')
+          html_code2 = estimator_html_repr(processor)
+          # BeautifulSoup initialisieren
+          soup2 = BeautifulSoup(html_code2, 'html.parser')
+          
+          color_variable_mapping = {
+              "--sklearn-color-unfitted-level-0": "#0097A7",     # vorher: #fff5e6 → jetzt: Türkisblau
+              "--sklearn-color-unfitted-level-1": "#f3f3f3",     # vorher: #f6e4d2
+              "--sklearn-color-unfitted-level-2": "#d9d9d9",     # vorher: #ffe0b3
+              "--sklearn-color-unfitted-level-3": "#C00000",     # vorher: chocolate
+              "--sklearn-color-fitted-level-0": "#0097A7",       # vorher: #f0f8ff
+              "--sklearn-color-fitted-level-1": "#097a80",       # vorher: #d4ebff
+              "--sklearn-color-fitted-level-2": "#00575b",       # vorher: #b3dbfd
+              "--sklearn-color-fitted-level-3": "#191919",       # vorher: cornflowerblue
+              "--sklearn-color-icon": "#607d8b",                 # vorher: #696969
+              "--sklearn-color-icon": "#00575b",                   # Einheitliches Icon-Petrol
+              "--sklearn-color-text-on-default-background": "#191919",
+              "--sklearn-color-background": "#f3f3f3",
+              "--sklearn-color-border-box": "#191919",
+          }
+          
+          for style_tag in soup2.find_all("style"):
+              style_text = style_tag.string
+              if style_text:
+                  for var_name, new_color in color_variable_mapping.items():
+                      style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
+                  style_tag.string.replace_with(style_text)
+          
+          st.components.v1.html(str(soup2), height=450, scrolling=True) 
  
 
     if task == "Summary of the modelling phase & transition to evaluation phase":
