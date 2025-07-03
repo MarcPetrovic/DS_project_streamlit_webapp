@@ -4,7 +4,7 @@ from sklearn.compose import make_column_transformer
 from utils.data_preprap_transformers import ColumnDrop
 from utils.data_modelling_transformers import *
 
-def build_pipeline(df):
+def build_modelling_pipeline(df):
     cct_month = MonthTrans('month')
     column_drop_month   = ColumnDrop( 'month')
     cct_dayofweek = WeekdayTrans('day_of_week')
