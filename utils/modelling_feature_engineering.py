@@ -3,6 +3,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.compose import make_column_transformer
 from utils.data_preprap_transformers import ColumnDrop
 from utils.data_modelling_transformers import *
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 def build_modelling_pipeline(df):
     cct_month = MonthTrans('month')
@@ -71,6 +72,16 @@ def build_modelling_pipeline(df):
         ,  ('drop_marital', drop_marital )
     ])
 
+    # Transformer definieren
+    scaler = StandardScaler()
+    cat_ohe = OneHotEncoder(drop='first', handle_unknown='ignore', sparse_output=False)
+    cat_ohe.set_output(transform='pandas')
+    scaler.set_output(transform='pandas')
+
+    # Pipelines definieren
+    NumericalPipeline_X = Pipeline(steps=[('standardization', scaler)])
+    CategorialPipeline_X = Pipeline(steps=[('encoder', cat_ohe)])
+    
     processor_X2nd = make_column_transformer(
     ( effect_drop_job_pipeline, ['job'] ) ,
     ( effect_drop_education_pipeline, ['education'] ) ,
