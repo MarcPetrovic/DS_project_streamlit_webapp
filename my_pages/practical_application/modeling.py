@@ -240,6 +240,25 @@ def show():
                   style_tag.string.replace_with(style_text)
           
           st.components.v1.html(str(soup2), height=450, scrolling=True) 
+
+          processor.set_output(transform='pandas')
+          X_train_transformed2nd = processor.fit_transform(df)
+      
+          def make_streamlit_arrow_compatible(df: pd.DataFrame) -> pd.DataFrame:
+              df = df.convert_dtypes()
+              for col in df.select_dtypes(include='object').columns:
+                  df[col] = df[col].apply(lambda x: str(x) if not pd.isna(x) else "")
+              return df
+      
+          X_train_transformed2nd = make_streamlit_arrow_compatible(X_train_transformed2nd)
+          st.success("Data transformed successfully.")
+      
+          st.subheader("📋 Step 4: DataFrame Info After Transformation")
+          buffer = io.StringIO()
+          X_train_transformed2nd.info(buf=buffer)
+          st.text("🧾 X_train_transformed2nd.info():")
+          st.text(buffer.getvalue())
+        
  
 
     if task == "Summary of the modelling phase & transition to evaluation phase":
