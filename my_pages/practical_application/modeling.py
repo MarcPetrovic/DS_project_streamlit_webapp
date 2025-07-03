@@ -5,6 +5,15 @@ import matplotlib.pyplot as plt
 from utils.plotting import plot_cat_distribution_vs_success
 from spa_config import spa_plot_map
 from utils.data_loader import load_csv_data
+import io
+from utils.modelling_feature_engineering import build_modelling_pipeline
+import graphviz
+from sklearn import set_config
+from sklearn.utils import estimator_html_repr
+from utils.summary_stats import summary
+from utils.my_colormaps import my_cmap_r
+from bs4 import BeautifulSoup
+import re
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -180,6 +189,24 @@ def show():
         blueprint for integrating expert knowledge into data-driven environments.
         
         """, unsafe_allow_html=True)
+        st.markdown("""
+        Sometimes, users may wish to understand the technical foundation of the preprocessing steps. Tick the checkbox 
+        below to dive into the full technical pipeline implementation.
+        """)
+        show_processing = st.checkbox("Show modelling feature engineering processing steps")
+        if show_processing:
+          st.subheader("📂 Step 1: Load X_train Data")
+      
+          df = load_csv_data(
+              filename="data/X_train.csv",
+              sep=";",
+              header=True,
+              add_row_id=False
+          )
+      
+          st.success("CSV file loaded successfully.")
+          st.write(df.head())
+ 
 
     if task == "Summary of the modelling phase & transition to evaluation phase":
         st.subheader("5. Summary of the modelling phase & transition to evaluation phase")
