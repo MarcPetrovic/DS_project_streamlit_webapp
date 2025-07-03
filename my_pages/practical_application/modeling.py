@@ -243,6 +243,7 @@ def show():
 
           processor.set_output(transform='pandas')
           X_train_transformed2nd = processor.fit_transform(df)
+          #X_test_transformed2nd = processor_X2nd.transform(X_test)
       
           def make_streamlit_arrow_compatible(df: pd.DataFrame) -> pd.DataFrame:
               df = df.convert_dtypes()
@@ -251,6 +252,7 @@ def show():
               return df
       
           X_train_transformed2nd = make_streamlit_arrow_compatible(X_train_transformed2nd)
+          #X_test_transformed2nd = make_streamlit_arrow_compatible(X_test_transformed2nd)
           st.success("Data transformed successfully.")
       
           st.subheader("📋 Step 4: DataFrame Info After Transformation")
@@ -258,9 +260,18 @@ def show():
           X_train_transformed2nd.info(buf=buffer)
           st.text("🧾 X_train_transformed2nd.info():")
           st.text(buffer.getvalue())
-        
- 
 
+          from feature_engine.creation import CyclicalFeatures
+          cyclical_features = CyclicalFeatures(variables=['month_numeric', 'day_of_week_numeric'], 
+                                     drop_original=True)
+          X_train_transformed2nd = cyclical_features.fit_transform(X_train_transformed2nd)
+          X_train_transformed2nd = make_streamlit_arrow_compatible(X_train_transformed2nd)
+          #X_test_transformed2nd = cyclical_features.transform(X_test_transformed2nd)
+          #st.success("Final preprocessing complete.")
+          st.write("✅ Dimensions of the training set:", X_train_transformed2nd.shape)
+          #st.write("✅ Dimensions of the test set:", X_test_transformed2nd.shape)
+
+    
     if task == "Summary of the modelling phase & transition to evaluation phase":
         st.subheader("5. Summary of the modelling phase & transition to evaluation phase")
         st.markdown("""
