@@ -199,7 +199,7 @@ def show():
       
           df = load_csv_data(
               filename="data/X_train.csv",
-              sep=";",
+              sep=",",
               header=True,
               add_row_id=False
           )
