@@ -77,14 +77,15 @@ class CustTransEffectJob(BaseEstimator, TransformerMixin):
   def transform(self, X):
     if not isinstance(X, pd.DataFrame):
       raise ValueError("Input must be a pandas DataFrame")
+
+    def categorize(value):
+      if value in ['admin', 'retired', 'unemployed', 'student']:
+        return 1
+      elif value in ['technician', 'management', 'self-employed']:
+        return 0
+      else:
+        return -1
         
-        def categorize(value):
-          if value in ['admin', 'retired', 'unemployed', 'student']:
-            return 1
-          elif value in ['technician', 'management', 'self-employed']:
-            return 0
-          else:
-            return -1
     X[self.column_name + "_effect"]  = X[self.column_name].apply(categorize)
       return X
 
