@@ -87,7 +87,7 @@ class CustTransEffectJob(BaseEstimator, TransformerMixin):
         return -1
         
     X[self.column_name + "_effect"]  = X[self.column_name].apply(categorize)
-      return X
+    return X
 
   def get_feature_names_out(self):
     pass
@@ -130,7 +130,7 @@ class CustTransEffectAge(BaseEstimator, TransformerMixin):
         return 1
 
     X[self.column_name + "_effect"]  = X[self.column_name].apply(categorize2)
-      return X
+    return X
 
   def get_feature_names_out(self):
     pass
@@ -156,7 +156,7 @@ class CustTransEffectEducation(BaseEstimator, TransformerMixin):
         return 1
 
     X[self.column_name + "_effect"]  = X[self.column_name].apply(categorize3)
-      return X
+    return X
 
   def get_feature_names_out(self):
     pass
