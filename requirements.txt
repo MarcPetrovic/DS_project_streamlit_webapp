@@ -5,3 +5,4 @@ numpy
 scikit-learn
 graphviz
 beautifulsoup4
+feature_engine
