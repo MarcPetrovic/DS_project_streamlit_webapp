@@ -6,7 +6,8 @@ def load_csv_data(
     sep: str = ",",
     header: bool = True,
     add_row_id: bool = False,
-    encoding: str = "utf-8"
+    encoding: str = "utf-8",
+    ignore_index_column: bool = True
 ) -> pd.DataFrame:
     """
     Lädt eine CSV-Datei und gibt ein pandas DataFrame zurück.
@@ -17,6 +18,7 @@ def load_csv_data(
         header (bool): True, wenn erste Zeile Spaltennamen enthält (Standard: True).
         add_row_id (bool): True, wenn eine ROW_ID-Spalte hinzugefügt werden soll (Standard: False).
         encoding (str): Zeichencodierung der Datei (Standard: 'utf-8').
+        ignore_index_column (bool): True, wenn gespeicherte Index-Spalte ignoriert werden soll.
 
     Returns:
         pd.DataFrame: Eingelesene Daten als DataFrame.
@@ -25,7 +27,7 @@ def load_csv_data(
         if not os.path.isfile(filename):
             raise FileNotFoundError(f"Datei nicht gefunden: {filename}")
         
-        df = pd.read_csv(filename, sep=sep, header=0 if header else None, encoding=encoding)
+        df = pd.read_csv(filename, sep=sep, header=0 if header else None, encoding=encoding, index_col=0 if ignore_index_column else None)
         
         if add_row_id:
             df["ROW_ID"] = df.index + 1
