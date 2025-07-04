@@ -12,6 +12,6 @@ spa_plot_map = {
     "Number of Employees": {
         "feature": "nr.employed",
         "bins": [4960.0, 5099.10, 5191.02, 5228.0 ,5300.0],
-        "title": "Success Profile for Employment Figures"
+        "title": "\nFeature Engineering:\n Success profile for the economic environment characteristic \nNumber of employees (classified)\n"
     }
 }
