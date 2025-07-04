@@ -3,15 +3,35 @@ spa_plot_map = {
         "feature": "age",
         "bins": [15,25, 35, 45, 55,65,75,85,99],
         "title": "Success Profile by Age Group"
+    },    
+    "Marital": {
+        "feature": "marital",
+        #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
+        "title": "\nFeature Engineering:\n Success profile for social-economic characteristic \nMarital\n"
     },
     "Employment Variation Rate": {
         "feature": "emp.var.rate",
         "bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
-        "title": "Success Profile for Economic Environment"
+        "title": "\nFeature Engineering:\n Success profile for the economic environment characteristic \nemp.var.rate (classified)\n"
     },
     "Number of Employees": {
         "feature": "nr.employed",
         "bins": [4960.0, 5099.10, 5191.02, 5228.0 ,5300.0],
         "title": "\nFeature Engineering:\n Success profile for the economic environment characteristic \nNumber of employees (classified)\n"
+    },
+    "Euribor 3Month": {
+        "feature": "euribor3m",
+        "bins": [0.634,1.2991789, 4.1910304, 4.864149,4.9620732 ,5.045],
+        "title": "\nFeature Engineering:\n Success profile for the economic environment characteristic \nEurIbor 3Month (classified)\n"
+    },
+    "Consumer Confidence Index": {
+        "feature": "cons.conf.idx",
+        "bins": [-50.800999999999995, -46.2, -42.7, -42.0, -41.8, -36.4, -36.1, -26.9],
+        "title": "\nFeature Engineering:\n Success profile for the economic environment characteristic \nCCI (classified)\n"
+    },
+    "Consumer Price Index": {
+        "feature": "cons.price.idx",
+        "bins": [92.198, 92.893, 93.200, 93.484, 93.918, 94.125,  94.767],
+        "title": "\nFeature Engineering:\n Success profile for the economic environment characteristic \nCPI (classified)\n"
     }
 }
