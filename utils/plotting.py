@@ -90,7 +90,7 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
     ax2.set_facecolor('lightgrey')
     ax2.grid(None)
 
-    from matplotlib.lines import Line2D
+    #from matplotlib.lines import Line2D
     sig_legend = Line2D([], [], color='red', marker='*', linestyle='None',
                         markersize=14, label=f'Significant Deviation (±{int(sig_threshold*100)}pp)')
     
