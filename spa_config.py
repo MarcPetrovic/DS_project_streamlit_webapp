@@ -77,7 +77,7 @@ spa_plot_map = {
     "Campaign": {
         "feature": "campaign",
         "bins": [1, 2, 3, 4, 5, 6, 7, 8, 9],
-        "title": "\nFeature Engineering:\n Success profile for the current marketing activity \nDay of week\n",
-        "map_bins": True
+        "map_bins": True,
+        "title": "\nFeature Engineering:\n Success profile for the current marketing activity \nDay of week\n"
     }
 }
