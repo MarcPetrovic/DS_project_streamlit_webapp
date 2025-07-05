@@ -43,11 +43,22 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
     else:
         feature_binned = X[feature].astype(str)
     
+    # Ensure correct category ordering for plotting
+    if isinstance(feature_binned, pd.Categorical):
+        categories = feature_binned.cat.categories
+    else:
+        categories = sorted(feature_binned.unique())
     # distribution calculation
-    distribution = feature_binned.value_counts(normalize=True).sort_index()
+    distribution = feature_binned.value_counts(normalize=True).reindex(categories)
+    counts = feature_binned.value_counts().reindex(categories)
+    success_tab = pd.crosstab(feature_binned, y).reindex(index=categories).fillna(0)
 
-    counts = feature_binned.value_counts().sort_index()
-    success_counts = pd.crosstab(feature_binned, y)[1].sort_index()
+    success_counts = success_tab[1] if 1 in success_tab.columns else pd.Series(0, index=categories)
+
+    #distribution = feature_binned.value_counts(normalize=True).sort_index()
+
+    #counts = feature_binned.value_counts().sort_index()
+    #success_counts = pd.crosstab(feature_binned, y)[1].sort_index()
 
     # success ratio per feature value
     success_ratio = success_counts / counts
