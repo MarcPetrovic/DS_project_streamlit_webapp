@@ -14,6 +14,26 @@ spa_plot_map = {
         #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
         "title": "\nFeature Engineering:\n Success profile for social-demografic characteristic \nJob\n"
     },
+    "Education": {
+        "feature": "education",
+        #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
+        "title": "\nFeature Engineering:\n Success profile for social-demografic characteristic \nEducation\n"
+    },
+    "Default": {
+        "feature": "default_cat",
+        #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
+        "title": "\nFeature Engineering:\n Success profile for social-economic characteristic \nDefault\n"
+    },
+    "Housing": {
+        "feature": "housing",
+        #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
+        "title": "\nFeature Engineering:\n Success profile for social-economic characteristic \nHousing\n"
+    },
+    "Loan": {
+        "feature": "loan",
+        #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
+        "title": "\nFeature Engineering:\n Success profile for social-economic characteristic \nLoan\n"
+    },
     "Employment Variation Rate": {
         "feature": "emp.var.rate",
         "bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
@@ -38,5 +58,26 @@ spa_plot_map = {
         "feature": "cons.price.idx",
         "bins": [92.198, 92.893, 93.200, 93.484, 93.918, 94.125,  94.767],
         "title": "\nFeature Engineering:\n Success profile for the economic environment characteristic \nCPI (classified)\n"
+    },
+    "Contact": {
+        "feature": "contact",
+        #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
+        "title": "\nFeature Engineering:\n Success profile for the current marketing activity \nContact type\n"
+    },
+    "Month": {
+        "feature": "month",
+        #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
+        "title": "\nFeature Engineering:\n Success profile for the current marketing activity \nMonth\n"
+    },
+    "Day of week": {
+        "feature": "day_of_week",
+        #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
+        "title": "\nFeature Engineering:\n Success profile for the current marketing activity \nDay of week\n"
+    },
+    "Campaign": {
+        "feature": "campaign",
+        "bins": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "map_bins": True,
+        "title": "\nFeature Engineering:\n Success profile for the current marketing activity \nDay of week\n"
     }
 }
