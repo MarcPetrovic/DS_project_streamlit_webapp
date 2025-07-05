@@ -25,7 +25,7 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
     - map_bins: Use explicit value mapping instead of pd.cut() (default: False)
     """
 
-    # Feature binning & label formatting
+   # Feature binning
     if bins and map_bins:
         def map_func(x):
             for b in bins[:-1]:
@@ -35,34 +35,17 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
                 return f"{bins[-1]}+"
             return str(x)
         feature_binned = X[feature].map(map_func)
-        feature_binned = pd.Categorical(
-            feature_binned,
-            categories=[str(b) for b in bins[:-1]] + [f"{bins[-1]}+"],
-            ordered=True
-        )
     elif bins:
-        feature_binned = pd.cut(X[feature], bins=bins).astype(str)  # intervals → strings
+        feature_binned = pd.cut(X[feature], bins=bins)
     else:
         feature_binned = X[feature].astype(str)
 
-    # Berechnungen
-    categories = sorted(feature_binned.unique())
-    distribution = feature_binned.value_counts(normalize=True).reindex(categories)
-    counts = feature_binned.value_counts().reindex(categories)
-    success_counts = pd.crosstab(feature_binned, y)[1].reindex(categories)
-
-    #distribution = feature_binned.value_counts(normalize=True).sort_index()
-
-    #counts = feature_binned.value_counts().sort_index()
-    #success_counts = pd.crosstab(feature_binned, y)[1].sort_index()
-
-    # success ratio per feature value
+    # Distribution & success ratio
+    distribution = feature_binned.value_counts(normalize=True).sort_index()
+    counts = feature_binned.value_counts().sort_index()
+    success_counts = pd.crosstab(feature_binned, y)[1].sort_index()
     success_ratio = success_counts / counts
-    #pd.crosstab(feature_binned, y, normalize='index')[1].sort_index()
-
-    # average success ration calculation
     avg_success = y.mean()
-
     # ci calculation (binomial, z-Wert)
     z = {0.90: 1.64, 0.95: 1.96, 0.99: 2.58}.get(ci_confidence, 1.96)
     ci = z * np.sqrt((success_ratio * (1 - success_ratio)) / counts)
