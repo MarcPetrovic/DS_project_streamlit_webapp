@@ -148,9 +148,10 @@ def show():
         feature = config["feature"]
         bins = config.get("bins")
         title = config.get("title")
+        map_bins = config.get("map_bins")
 
         # Plot anzeigen
-        plot_cat_distribution_vs_success(X_train, y_train, feature=feature, bins=bins, title=title)
+        plot_cat_distribution_vs_success(X_train, y_train, feature=feature, bins=bins, title=title, map_bins=map_bins)
 
     if task == "Data Processing & Feature Engineering based on SPA":
         st.subheader("4. Data Processing & Feature Engineering based on SPA")
