@@ -284,7 +284,15 @@ def show():
         targeted examination of feature-target relationships. By leveraging SPA, we identified key variables that exhibited 
         statistically significant deviations from the average success rate. These insights were used to systematically 
         segment the data in a manner that enhanced both predictive accuracy and interpretability.
-
+        
+        """, unsafe_allow_html=True)
+        show_github_image(
+        image_filename="images/2nd_iteration_modelling.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption="Figure 18: Single steps of second iteration modelling phase."
+        )
+        st.markdown("""
+        
         The operationalization of SPA insights into model-ready features was realized through a series of custom-built 
         preprocessing pipelines. These included both dummy encoding (binary flagging of dominant categories) and effect 
         coding (grouping of semantically coherent segments based on their relative outcome performance). Each transformation 
