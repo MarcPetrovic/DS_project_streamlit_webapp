@@ -79,5 +79,21 @@ spa_plot_map = {
         "bins": [1, 2, 3, 4, 5, 6, 7, 8, 9],
         "map_bins": True,
         "title": "\nFeature Engineering:\n Success profile for the current marketing activity \nDay of week\n"
+    },
+    "Previous days": {
+        "feature": "pdays_cat",
+        "bins": [0, 1, 2, 3, 4],
+        "map_bins": True,
+        "title": "\nFeature Engineering:\n Success profile for the previous marketing activity \nNo of days passed after last contact\n"
+    },
+    "Previous": {
+        "feature": "pdays_cat",
+        "bins": [0, 1, 2, 3],
+        "map_bins": True,
+        "title": "\nFeature Engineering:\n Success profile for previous marketing aktivity\nNo of previous contacts\n"
+    },
+    "Previous Outcome": {
+        "feature": "poutcome",
+        "title": "\nFeature Engineering:\n Success profile for previous marketing aktivity\nResult of last campaign\n"
     }
 }
