@@ -4,7 +4,7 @@ import pandas as pd
 from matplotlib.lines import Line2D
 import streamlit as st
 
-def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_threshold=0.05, ci_confidence=0.95):
+def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_threshold=0.05, ci_confidence=0.95, map_bins=False):
     """
     Creates a combined bar and line chart for a categorical (or grouped) feature.
     
@@ -22,10 +22,20 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
     - title: Plot title (optional)
     - sig_threshold: Significance threshold in percentage points (default: 0.05 = 5pp)
     - ci_confidence: Confidence level (default: 0.95)
+    - map_bins: Use explicit value mapping instead of pd.cut() (default: False)
     """
 
-    # Feature-pre-preparation
-    if bins:
+    # Feature-binning
+    if bins and map_bins:
+        def map_func(x):
+            for b in bins[:-1]:
+                if x == b:
+                    return str(b)
+            if x >= bins[-1]:
+                return f"{bins[-1]}+"
+            return str(x)
+        feature_binned = X[feature].map(map_func)
+    elif bins:
         feature_binned = pd.cut(X[feature], bins=bins)
     else:
         feature_binned = X[feature].astype(str)
