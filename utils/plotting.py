@@ -44,8 +44,10 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
         feature_binned = X[feature].astype(str)
     
     # Ensure correct category ordering for plotting
-    if isinstance(feature_binned, pd.Categorical):
+    if isinstance(feature_binned.dtype, pd.CategoricalDtype):
         categories = feature_binned.cat.categories
+    elif isinstance(feature_binned.dtype, pd.IntervalDtype):
+        categories = feature_binned.unique().sort_values()
     else:
         categories = sorted(feature_binned.unique())
     # distribution calculation
