@@ -87,7 +87,7 @@ spa_plot_map = {
         "title": "\nFeature Engineering:\n Success profile for the previous marketing activity \nNo of days passed after last contact\n"
     },
     "Previous": {
-        "feature": "pdays_cat",
+        "feature": "previous",
         "bins": [0, 1, 2, 3],
         "map_bins": True,
         "title": "\nFeature Engineering:\n Success profile for previous marketing aktivity\nNo of previous contacts\n"
