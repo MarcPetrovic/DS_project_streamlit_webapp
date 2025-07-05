@@ -2,12 +2,17 @@ spa_plot_map = {
     "Age Group": {
         "feature": "age",
         "bins": [15,25, 35, 45, 55,65,75,85,99],
-        "title": "Success Profile by Age Group"
+        "title": "\nFeature Engineering:\n Success profile for social-demografic characteristic \nage (clustered)\n"
     },    
     "Marital": {
         "feature": "marital",
         #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
-        "title": "\nFeature Engineering:\n Success profile for social-economic characteristic \nMarital\n"
+        "title": "\nFeature Engineering:\n Success profile for social-demografic characteristic \nMarital\n"
+    },
+    "Job": {
+        "feature": "job",
+        #"bins": [-3.405, -2.2, -1.0, -0.1, 1.1, 1.4],
+        "title": "\nFeature Engineering:\n Success profile for social-demografic characteristic \njob\n"
     },
     "Employment Variation Rate": {
         "feature": "emp.var.rate",
