@@ -34,7 +34,10 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
             if x >= bins[-1]:
                 return f"{bins[-1]}+"
             return str(x)
-        feature_binned = X[feature].map(map_func)
+        feature_binned = X[feature].map(map_func).astype("category")
+        feature_binned = feature_binned.cat.set_categories(
+            [str(b) for b in bins[:-1]] + [f"{bins[-1]}+"], ordered=True
+        )
     elif bins:
         feature_binned = pd.cut(X[feature], bins=bins)
     else:
