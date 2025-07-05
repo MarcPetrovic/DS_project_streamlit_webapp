@@ -25,7 +25,7 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
     - map_bins: Use explicit value mapping instead of pd.cut() (default: False)
     """
 
-    # Feature-binning
+    # Feature binning & label formatting
     if bins and map_bins:
         def map_func(x):
             for b in bins[:-1]:
@@ -34,28 +34,22 @@ def plot_cat_distribution_vs_success(X, y, feature, bins=None, title=None, sig_t
             if x >= bins[-1]:
                 return f"{bins[-1]}+"
             return str(x)
-        feature_binned = X[feature].map(map_func).astype("category")
-        feature_binned = feature_binned.cat.set_categories(
-            [str(b) for b in bins[:-1]] + [f"{bins[-1]}+"], ordered=True
+        feature_binned = X[feature].map(map_func)
+        feature_binned = pd.Categorical(
+            feature_binned,
+            categories=[str(b) for b in bins[:-1]] + [f"{bins[-1]}+"],
+            ordered=True
         )
     elif bins:
-        feature_binned = pd.cut(X[feature], bins=bins)
+        feature_binned = pd.cut(X[feature], bins=bins).astype(str)  # intervals → strings
     else:
         feature_binned = X[feature].astype(str)
-    
-    # Ensure correct category ordering for plotting
-    if isinstance(feature_binned.dtype, pd.CategoricalDtype):
-        categories = feature_binned.cat.categories
-    elif isinstance(feature_binned.dtype, pd.IntervalDtype):
-        categories = feature_binned.unique().sort_values()
-    else:
-        categories = sorted(feature_binned.unique())
-    # distribution calculation
+
+    # Berechnungen
+    categories = sorted(feature_binned.unique())
     distribution = feature_binned.value_counts(normalize=True).reindex(categories)
     counts = feature_binned.value_counts().reindex(categories)
-    success_tab = pd.crosstab(feature_binned, y).reindex(index=categories).fillna(0)
-
-    success_counts = success_tab[1] if 1 in success_tab.columns else pd.Series(0, index=categories)
+    success_counts = pd.crosstab(feature_binned, y)[1].reindex(categories)
 
     #distribution = feature_binned.value_counts(normalize=True).sort_index()
 
