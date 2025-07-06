@@ -14,11 +14,11 @@ def show():
     differences between customers are neglected, are associated with high operating expenses and low monetary 
     benefits.
     """)
-    # Bild von der URL laden und anzeigen
+
     show_github_image(
     image_filename="images/relevance_cvc.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption=( "Figure 1: Schematic representation of the costs of the value chain approach with particular \n"
+    caption=( "Figure 2: Schematic representation of the costs of the value chain approach with particular \n"
              "emphasis on operating expenses for marketing activities")
     )
 
@@ -41,11 +41,11 @@ def show():
     the right time to contact the customer (best time to contact).
     
     """)
-    # Bild von der URL laden und anzeigen
+
     show_github_image(
     image_filename="images/marketing_expenses.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption=( "Figure 2: Time series analysis of banks' operating expenditure on marketing activities \n"
+    caption=( "Figure 3: Time series analysis of banks' operating expenditure on marketing activities \n"
              "and the correlation between operating expenses and income per bank customer")
     )
     st.markdown("""
