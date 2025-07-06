@@ -72,7 +72,7 @@ def show():
         show_github_image(
           image_filename="images/data_preparation_steps.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 10: Overview of single steps within data preparation phase")
+          caption=( "Figure 15: Overview of single steps within data preparation phase")
           )
         st.markdown("""
 
@@ -137,7 +137,7 @@ def show():
         show_github_image(
           image_filename="images/preprocessing_pipelines.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 11: Pipeline overview within data preparation phase")
+          caption=( "Figure 16: Pipeline overview within data preparation phase")
           )
     elif task == "Strategic & Methodical Aspects of Train-Test-Split":
         st.subheader("3. Strategic & Methodical Aspects of Train-Test-Split")
@@ -176,7 +176,7 @@ def show():
         show_github_image(
           image_filename="images/train_test_split.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 12: Train-test-split and class distribution validation")
+          caption=( "Figure 17: Train-test-split and class distribution validation")
           )
 
     elif task == "Model Comparison within the first Iteration":
@@ -206,7 +206,7 @@ def show():
         show_github_image(
           image_filename="images/1st_iteration_modelling.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 10: Overview of single steps within data preparation phase")
+          caption=( "Figure 18: Overview of single steps within data preparation phase")
           )
         st.markdown("""
         <br>
