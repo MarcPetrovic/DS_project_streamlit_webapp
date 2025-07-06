@@ -277,13 +277,13 @@ def show():
           st.text("🧾 X_train_transformed2nd.info():")
           st.text(buffer2.getvalue())
           
-          st.subheader("📋 Step 5: CyclicalFeatures Transformation")
+          st.subheader("⚙️ Step 5: CyclicalFeatures Transformation")
           from feature_engine.creation import CyclicalFeatures
           cyclical_features = CyclicalFeatures(variables=['month_numeric', 'day_of_week_numeric'], 
                                      drop_original=True)
           X_train_transformed2nd = cyclical_features.fit_transform(X_train_transformed2nd)
-          X_train_transformed2nd = make_streamlit_arrow_compatible(X_train_transformed2nd)
           X_test_transformed2nd = cyclical_features.transform(X_test_transformed2nd)
+          X_train_transformed2nd = make_streamlit_arrow_compatible(X_train_transformed2nd)
           X_test_transformed2nd = make_streamlit_arrow_compatible(X_test_transformed2nd)
           st.success("Final preprocessing complete.")
           st.write("✅ Dimensions of the training set:", X_train_transformed2nd.shape)
