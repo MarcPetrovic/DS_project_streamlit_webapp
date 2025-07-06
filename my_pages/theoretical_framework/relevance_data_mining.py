@@ -15,11 +15,11 @@ def show():
     particularly in connection with customer targeting, so that a taxonomy for strategic use in marketing 
     management has now become established (see Figure 3). 
     """)
-    # Bild von der URL laden und anzeigen
+
     show_github_image(
     image_filename="images/taxonomy_ai.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption=( "Figure 3: Taxonomy of Artificial Intelligence use in Marketing")
+    caption=( "Figure 4: Taxonomy of Artificial Intelligence use in Marketing")
     )
     st.markdown("""
     Methods for recognizing data patterns that aim to identify causal relationships are roughly divided into 
@@ -33,11 +33,11 @@ def show():
     determine hypotheses from the data material (see Figure 4).
 
     """)
-    # Bild von der URL laden und anzeigen
+
     show_github_image(
     image_filename="images/groups_ml.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption=( "Figure 4: Schematic representation main groups of machine learning")
+    caption=( "Figure 5: Schematic representation main groups of machine learning")
     )
     st.markdown("""
         <!-- Font Awesome einbinden -->
