@@ -254,7 +254,7 @@ def show():
 
           processor.set_output(transform='pandas')
           X_train_transformed2nd = processor.fit_transform(df)
-          X_test_transformed2nd = processor_X2nd.transform(X_test)
+          X_test_transformed2nd = processor.transform(X_test)
       
           def make_streamlit_arrow_compatible(df: pd.DataFrame) -> pd.DataFrame:
               df = df.convert_dtypes()
