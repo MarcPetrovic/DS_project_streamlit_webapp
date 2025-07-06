@@ -35,7 +35,7 @@ def show():
     show_github_image(
         image_filename="images/use_case_intro.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption="Porter's Value Chain Quote"
+        caption="Figure 1: Description of the Data Scientest Use Case Study"
         )
     st.markdown("""
 
