@@ -1217,7 +1217,7 @@ def show():
         show_github_image(
         image_filename="images/key_findings_data_under.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 10: Overview key findings within data understanding phase")
+        caption=( "Figure 13: Overview key findings within data understanding phase")
         )
         st.markdown("""
 
