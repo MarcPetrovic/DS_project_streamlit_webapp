@@ -205,10 +205,20 @@ def show():
               add_row_id=False
           )
       
-          st.success("CSV file loaded successfully.")
+          st.success("CSV file X_train loaded successfully.")
           st.write(df.head())
-          st.subheader("🛠 Step 2: Feature Engineering – Add Year & Date Fields")
-       
+        
+          st.subheader("📂 Step 2: Load X_test Data")
+          X_test = load_csv_data(
+              filename="data/X_test.csv",
+              sep=",",
+              header=True,
+              add_row_id=False
+          )       
+            
+          st.success("CSV file X_test loaded successfully.")
+          st.write(X_test.head())
+            
           st.subheader("🔄 Step 3: Apply processing Pipeline")
       
           processor = build_modelling_pipeline(df)  # Custom-built scikit-learn pipeline
