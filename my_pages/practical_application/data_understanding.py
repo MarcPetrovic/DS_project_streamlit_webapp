@@ -18,7 +18,7 @@ def show():
         "Key Findings of the 2nd Phase"
     ])
 
-    # Inhalte je nach Auswahl
+
     if task == "General Procedere & EDA":
         st.subheader("1. General Procedere & Exploratory Data Analysis")
         st.markdown("""
@@ -36,11 +36,11 @@ def show():
         The data set was supplemented by five nationwide socio-economic indicators, which are published by Banco de 
         Portugal and are publicly available (see link: <a href="https://bpstat.bportugal.pt/" target="_blank">https://bpstat.bportugal.pt/</a>).
         """, unsafe_allow_html=True)
-          # Bild von der URL laden und anzeigen 
+
         show_github_image(
         image_filename="images/da_general_procedere_data_basis.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 8: Overview of the data basis of the AI project")
+        caption=( "Figure 11: Overview of the data basis of the AI project")
         )
         st.markdown("""
         Within the second phase of CRISP-DM, the primary objective is to understand the data, especially its structure 
@@ -56,11 +56,11 @@ def show():
         for their treatment.
 
         """)
-          # Bild von der URL laden und anzeigen 
+
         show_github_image(
           image_filename="images/attribute_cluster.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 9: Overview of the four data type clusters within the used database")
+          caption=( "Figure 12: Overview of the four data type clusters within the used database")
           )
         st.markdown("""
         Figure 9 shows that the available dataset can be broadly categorized into four feature clusters. These clusters 
@@ -87,11 +87,11 @@ def show():
         contact within a telemarketing campaign aimed at promoting a long-term deposit product.
         <br>
         """, unsafe_allow_html=True)
-          # Bild von der URL laden und anzeigen 
+
         show_github_image(
         image_filename="images/instructions_primary_researcher.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 10: Main advices of the primary researchers")
+        caption=( "Figure 13: Main advices of the primary researchers")
         )
         st.markdown("""
         The authors provide the following key recommendations and insights, which are directly relevant to the current project:
