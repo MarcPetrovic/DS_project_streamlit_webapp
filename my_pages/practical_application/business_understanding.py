@@ -33,11 +33,11 @@ def show():
         offer. The recorded reaction of the bank customer is binary and distinguishes between “Yes”, conclusion of 
         a fixed-term deposit contract, or “No”, no conclusion of a fixed-term deposit contract.
         """)
-          # Bild von der URL laden und anzeigen 
+
         show_github_image(
         image_filename="images/target_group_marketing.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 6: Target groups in marketing: Who is the fixed-term deposit suitable for?")
+        caption=( "Figure 7: Target groups in marketing: Who is the fixed-term deposit suitable for?")
         )
         st.markdown("""
         A fixed-term deposit is an investment with a fixed term in which money is paid into an account at a financial 
@@ -53,11 +53,11 @@ def show():
         provision. As fixed-term deposits are not affected by price fluctuations, they are a particularly safe form 
         of investment.
        """)
-          # Bild von der URL laden und anzeigen 
+
         show_github_image(
         image_filename="images/business_logic.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 7: Presentation of the business logic in the financial services sector with special \n"
+        caption=( "Figure 8: Presentation of the business logic in the financial services sector with special \n"
                  "emphasis on the three players involved in financial transactions")
         )
         st.markdown("""
@@ -116,7 +116,7 @@ def show():
            to have zero cost.
         <br><br>
         """, unsafe_allow_html=True)
-          # Bild von der URL laden und anzeigen 
+
         show_github_image(
         image_filename="images/interest_rates_spread.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
@@ -313,11 +313,11 @@ def show():
         packages within the interactive notebook interface.
         
         """)
-                # Bild von der URL laden und anzeigen 
+
         show_github_image(
         image_filename="images/technical_environment.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 9: Overview of the main applications and tools, used within the data project")
+        caption=( "Figure 10: Overview of the main applications and tools, used within the data project")
         )
         st.markdown("""
         For the development and documentation of the data analysis pipeline, the web-based Jupyter Notebook environment was 
