@@ -285,7 +285,7 @@ def show():
           X_test_transformed2nd = cyclical_features.transform(X_test_transformed2nd)
           X_train_transformed2nd = make_streamlit_arrow_compatible(X_train_transformed2nd)
           X_test_transformed2nd = make_streamlit_arrow_compatible(X_test_transformed2nd)
-          st.success("Final preprocessing complete.")
+          st.success("Model data processing complete.")
           st.write("✅ Dimensions of the training set:", X_train_transformed2nd.shape)
           st.write("✅ Dimensions of the test set:", X_test_transformed2nd.shape)
 
