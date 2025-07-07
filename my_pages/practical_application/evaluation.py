@@ -11,16 +11,16 @@ from utils.compare_models_by_threshold_strategy import compare_models_by_thresho
 def show():
     st.header("evaluation with flexible CSV-Loading")
 
-# Mapping der Strategien für die Selectbox
-strategy_options = {
-    "Introduction into CRISP-DM Evaluation Phase": None,
-    "Threshold Tuning with Standard Configuration": "default",
-    "Cost-Optimized Thresholding": "cost",
-    "Trade-Off Optimization using Youden Index": "youden",
-    "Threshold Optimization via F1-Score Maximization": "f1",
-    "Minimization of the Precision–Recall Gap": "pr_gap",
-    "Summary of Evaluation Phase": "summary"
-}
+    # Mapping der Strategien für die Selectbox
+    strategy_options = {
+        "Introduction into CRISP-DM Evaluation Phase": None,
+        "Threshold Tuning with Standard Configuration": "default",
+        "Cost-Optimized Thresholding": "cost",
+        "Trade-Off Optimization using Youden Index": "youden",
+        "Threshold Optimization via F1-Score Maximization": "f1",
+        "Minimization of the Precision–Recall Gap": "pr_gap",
+        "Summary of Evaluation Phase": "summary"
+    }
 
     # Auswahlbox
     strategy_label = st.selectbox("Choose evaluation strategy:", list(strategy_options.keys()))
