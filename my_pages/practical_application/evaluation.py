@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 from utils.my_colormaps import my_cmap_r
 from utils.model_pipeline import train_and_predict
-from utils.compare_models import compare_models_by_threshold_strategy
+from utils.compare_models_by_threshold_strategy import compare_models_by_threshold_strategy
 
 
 def show():
