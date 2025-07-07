@@ -1,4 +1,5 @@
 from utils.model_pipeline import compute_metrics
+from utils.compute_metrics import compute_metrics
 from utils.find_best_threshold import find_best_threshold
 
 def compare_models_by_threshold_strategy(y_true, logreg_proba, xgb_proba, strategy='f1'):
