@@ -1,5 +1,6 @@
 from sklearn.metrics import f1_score, precision_recall_curve, roc_curve
 import numpy as np
+from utils.cost_calc import calculate_costs
 
 def find_best_threshold(y_true, y_proba, strategy='f1', cost_function=None):
     """
@@ -25,7 +26,7 @@ def find_best_threshold(y_true, y_proba, strategy='f1', cost_function=None):
         if cost_function is None:
             raise ValueError("Für strategy='cost' muss cost_function übergeben werden.")
         thresholds = np.linspace(0, 1, 200)
-        costs = [cost_function(y_true, (y_proba >= t).astype(int)) for t in thresholds]
+        costs = [calculate_costs(y_true, (y_proba >= t).astype(int)) for t in thresholds]
         return thresholds[np.argmin(costs)]
     
     elif strategy == 'youden':
