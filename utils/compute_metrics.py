@@ -2,7 +2,7 @@ from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
     cohen_kappa_score, matthews_corrcoef, confusion_matrix
 )
-from utils.cost_calc import calculate_cost
+from utils.cost_calc import calculate_costs
 
 def compute_metrics(y_true, y_proba, threshold):
     y_pred = (y_proba >= threshold).astype(int)
