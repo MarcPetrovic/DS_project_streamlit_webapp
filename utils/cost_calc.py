@@ -1,6 +1,6 @@
 import numpy as np
 
-def calculate_cost(y_true, y_pred):
+def calculate_costs(y_true, y_pred):
     """
     Calculation of total OPEX based on predictions.
 
