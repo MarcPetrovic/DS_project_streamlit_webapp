@@ -11,8 +11,6 @@ from utils.compare_models_by_threshold_strategy import compare_models_by_thresho
 def show():
     st.header("evaluation with flexible CSV-Loading")
 
-title("Evaluation Phase – CRISP-DM")
-
 # Mapping der Strategien für die Selectbox
 strategy_options = {
     "Introduction into CRISP-DM Evaluation Phase": None,
