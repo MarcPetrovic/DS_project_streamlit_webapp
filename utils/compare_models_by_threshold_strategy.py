@@ -1,6 +1,6 @@
 from utils.model_pipeline import train_and_predict
 from utils.compute_metrics import compute_metrics
-from utils.find_best_threshold import find_best_threshold
+from utils.find_best_threshold_per_strategy import find_best_threshold
 
 def compare_models_by_threshold_strategy(y_true, logreg_proba, xgb_proba, strategy='f1'):
     best_threshold_logreg = find_best_threshold(y_true, logreg_proba, strategy)
