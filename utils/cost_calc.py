@@ -1,6 +1,6 @@
 import numpy as np
 
-def calculate_costs(y_true, y_pred):
+def calculate_cost(y_true, y_pred):
     """
     Calculation of total OPEX based on predictions.
 
@@ -11,5 +11,5 @@ def calculate_costs(y_true, y_pred):
     tn = np.sum((y_true == 0) & (y_pred == 0))
     fn = np.sum((y_true == 1) & (y_pred == 0))
 
-    costs = (fp * 550) + (fn * 3350)
-    return costs
+    cost = (fp * 550) + (fn * 3350)
+    return cost
