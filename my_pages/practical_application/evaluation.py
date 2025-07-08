@@ -15,7 +15,7 @@ def show():
     strategy_options = {
         "Introduction into CRISP-DM Evaluation Phase": None,
         "Threshold Tuning with Standard Configuration": "default",
-        "Cost-Optimized Thresholding": "cost",
+        "Cost-Optimized Thresholding": "costs",
         "Trade-Off Optimization using Youden Index": "youden",
         "Threshold Optimization via F1-Score Maximization": "f1",
         "Minimization of the Precision–Recall Gap": "pr_gap",
