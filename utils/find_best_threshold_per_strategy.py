@@ -2,7 +2,7 @@ from sklearn.metrics import f1_score, precision_recall_curve, roc_curve
 import numpy as np
 from utils.cost_calc import calculate_costs
 
-def find_best_threshold(y_true, y_proba, strategy='f1', cost_function=None):
+def find_best_threshold(y_true, y_proba, strategy='f1', calculate_costs=None):
     """
     Findet den optimalen Threshold basierend auf der gewählten Strategie.
 
