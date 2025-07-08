@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 from utils.my_colormaps import my_cmap_r
 from utils.model_pipeline import train_and_predict
-from utils.compare_models_by_threshold_strategy import compare_models_by_threshold_strategy
+from utils.compare_models import compare_models_by_threshold_strategy
 
 
 def show():
@@ -15,7 +15,7 @@ def show():
     strategy_options = {
         "Introduction into CRISP-DM Evaluation Phase": None,
         "Threshold Tuning with Standard Configuration": "default",
-        "Cost-Optimized Thresholding": "costs",
+        "Cost-Optimized Thresholding": "cost",
         "Trade-Off Optimization using Youden Index": "youden",
         "Threshold Optimization via F1-Score Maximization": "f1",
         "Minimization of the Precision–Recall Gap": "pr_gap",
@@ -91,10 +91,3 @@ def show():
     
         df_results["✅"] = df_results.apply(mark_better, axis=1)
         st.dataframe(df_results.style.format(precision=3))
-    
-        # Optional: Threshold-Werte anzeigen
-        with st.expander("Show optimal thresholds"):
-            st.metric("LogReg Threshold", round(metrics_logreg["Threshold"], 3))
-            st.metric("XGBoost Threshold", round(metrics_xgb["Threshold"], 3))
-
-
