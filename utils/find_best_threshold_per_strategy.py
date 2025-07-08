@@ -9,7 +9,7 @@ def find_best_threshold(y_true, y_proba, strategy='f1', calculate_costs=None):
     Args:
         y_true (array-like): Wahre Labels.
         y_proba (array-like): Vorhersagewahrscheinlichkeiten (z. B. predict_proba[:, 1]).
-        strategy (str): 'f1', 'cost', 'youden', 'pr_gap', 'default'.
+        strategy (str): 'f1', 'costs', 'youden', 'pr_gap', 'default'.
         cost_function (callable, optional): Muss übergeben werden, wenn strategy='cost'.
 
     Returns:
@@ -22,9 +22,9 @@ def find_best_threshold(y_true, y_proba, strategy='f1', calculate_costs=None):
         best_idx = np.argmax(f1_scores)
         return thresholds[best_idx]
     
-    elif strategy == 'cost':
+    elif strategy == 'costs':
         if calculate_costs is None:
-            raise ValueError("Für strategy='cost' muss cost_function übergeben werden.")
+            raise ValueError("Für strategy='costs' muss cost_function übergeben werden.")
         thresholds = np.linspace(0, 1, 200)
         costs = [calculate_costs(y_true, (y_proba >= t).astype(int)) for t in thresholds]
         return thresholds[np.argmin(costs)]
