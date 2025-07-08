@@ -19,5 +19,5 @@ def compute_metrics(y_true, y_proba, threshold):
         "Accuracy": accuracy_score(y_true, y_pred),
         "Cohen's Kappa": cohen_kappa_score(y_true, y_pred),
         "Matthews Corr. Coef.": matthews_corrcoef(y_true, y_pred),
-        "Total Cost (€)": calculate_cost(y_true, y_pred)
+        "Total Cost (€)": calculate_costs(y_true, y_pred)
     }
