@@ -42,14 +42,15 @@ def train_and_predict(model_type='logistic'):
 
     # 2. Select modell
     if model_type == 'logistic':
-        model = LogisticRegression(max_iter=1000, solver='sag', random_state=42)
+        model = LogisticRegression(max_iter=1000, solver='sag')#, random_state=42)
     elif model_type == 'xgboost':
         model = XGBClassifier(
             n_estimators=50, 
             objective='binary:logistic',
             use_label_encoder=False,
-            eval_metric='logloss',
-            random_state=42
+            eval_metric='logloss'
+            #,
+            #random_state=42
         )
     else:
         raise ValueError("Unexpected modell type. Select 'logistic' or 'xgboost'.")
