@@ -80,11 +80,11 @@ def show():
         # ✅-Spalte zur Markierung des besseren Werts
         def mark_better(row):
             try:
-                if isinstance(row[0], (float, int)) and isinstance(row[1], (float, int)):
+                if isinstance(row.iloc[0], (float, int)) and isinstance(row.iloc[1], (float, int)):
                     if "Rate" in row.name or "Cost" in row.name:
-                        return "✅" if row[1] < row[0] else ""
+                        return "✅" if row.iloc[1] < row.iloc[0] else ""
                     else:
-                        return "✅" if row[1] > row[0] else ""
+                        return "✅" if row.iloc[1] > row.iloc[0] else ""
                 return ""
             except:
                 return ""
