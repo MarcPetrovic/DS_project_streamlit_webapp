@@ -23,7 +23,7 @@ def find_best_threshold(y_true, y_proba, strategy='f1', cost_function=None):
         return thresholds[best_idx]
     
     elif strategy == 'cost':
-        if cost_function is None:
+        if calculate_costs is None:
             raise ValueError("Für strategy='cost' muss cost_function übergeben werden.")
         thresholds = np.linspace(0, 1, 200)
         costs = [calculate_costs(y_true, (y_proba >= t).astype(int)) for t in thresholds]
