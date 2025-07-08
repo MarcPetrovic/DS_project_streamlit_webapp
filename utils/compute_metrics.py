@@ -26,6 +26,7 @@ def compute_metrics(y_true, y_proba, threshold):
         "False Negative Rate": FN / (FN + TP) if (FN + TP) > 0 else 0,
         "Precision": precision_score(y_true, y_pred, zero_division=0),
         "Recall (TPR)": recall_score(y_true, y_pred, zero_division=0),
+        "Specificity (TNR)": TN / (TN + FP) if (TN + FP) > 0 else 0,
         "F1 Score": f1_score(y_true, y_pred, zero_division=0),
         "Accuracy": accuracy_score(y_true, y_pred),
         "Cohen's Kappa": cohen_kappa_score(y_true, y_pred),
