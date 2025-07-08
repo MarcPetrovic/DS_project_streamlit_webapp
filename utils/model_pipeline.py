@@ -10,8 +10,8 @@ def load_data():
     Returns:
         X_train, X_test, y_train, y_test: Als Pandas DataFrames/Series
     """
-    X_train = load_csv_data("data/X_train_transformed2nd.csv", ignore_index_column=False)
-    X_test = load_csv_data("data/X_test_transformed2nd.csv", ignore_index_column=False)
+    X_train = load_csv_data("data/X_train_transformed2nd.csv", ignore_index_column=False).squeeze()
+    X_test = load_csv_data("data/X_test_transformed2nd.csv", ignore_index_column=False).squeeze()
     y_train = load_csv_data("data/y_train.csv", ignore_index_column=False).squeeze()
     y_test = load_csv_data("data/y_test.csv", ignore_index_column=False).squeeze()
 
