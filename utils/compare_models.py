@@ -17,7 +17,7 @@ def compare_models_by_threshold_strategy(y_true, logreg_proba, xgb_proba, strate
     Returns:
         Tuple of two metric-dictionaries (logreg, xgb)
     """
-    kwargs = {"calculate_cost": calculate_cost} if strategy == "cost" else {}
+    kwargs = {"cost_function": calculate_cost} if strategy == "cost" else {}
 
     best_threshold_logreg = find_best_threshold(y_true, logreg_proba, strategy, **kwargs)
     best_threshold_xgb = find_best_threshold(y_true, xgb_proba, strategy, **kwargs)
