@@ -2,7 +2,7 @@ from sklearn.metrics import f1_score, precision_recall_curve, roc_curve
 import numpy as np
 from utils.cost_calc import calculate_cost
 
-def find_best_threshold(y_true, y_proba, strategy='f1'):
+def find_best_threshold(y_true, y_proba, strategy='f1', cost_function=None):
     """
     Calculation of the best threshold based on selected strategy.
 
@@ -15,6 +15,7 @@ def find_best_threshold(y_true, y_proba, strategy='f1'):
             - 'youden': Youden-Index (Sensitivität + Spezifität - 1)
             - 'pr_gap': Minimum of difference between Precision and Recall
             - 'default': Standard threshold of 0.5
+        cost_function (callable, optional): Required for strategy='cost'.
 
     Returns:
         float: Optimum Threshold.
@@ -27,8 +28,10 @@ def find_best_threshold(y_true, y_proba, strategy='f1'):
         return thresholds[best_idx]
     
     elif strategy == 'cost':
+        if cost_function is None:
+            raise ValueError("cost_function must be provided for strategy='cost'")
         thresholds = np.linspace(0, 1, 200)
-        costs = [calculate_cost(y_true, (y_proba >= t).astype(int)) for t in thresholds]
+        costs = [cost_function(y_true, (y_proba >= t).astype(int)) for t in thresholds]
         return thresholds[np.argmin(costs)]
     
     elif strategy == 'youden':
