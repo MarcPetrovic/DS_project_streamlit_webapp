@@ -280,7 +280,7 @@ def show():
               sep=";",
               header=True,
               add_row_id=True,
-              ignore_index_column: bool = False
+              ignore_index_column=False
           )
       
           st.success("CSV file loaded successfully.")
