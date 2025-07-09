@@ -59,7 +59,7 @@ def show():
     # 3. Strategien mit Threshold-Anpassung
     else:
         # Daten & Modelle laden (einmal, mit Caching)
-        @st.cache_resource
+        #@st.cache_resource
         def get_predictions():
             _, logreg_probs, y_test = train_and_predict(model_type="logistic")
             _, xgb_probs, _ = train_and_predict(model_type="xgboost")
