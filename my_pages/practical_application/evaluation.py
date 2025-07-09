@@ -4,7 +4,7 @@ from utils.image_loader import show_github_image
 import pandas as pd
 import numpy as np
 from utils.my_colormaps import my_cmap_r
-from utils.model_pipeline import train_and_predict
+from utils.model_pipeline import * #train_and_predict
 from utils.compare_models import compare_models_by_threshold_strategy
 
 
