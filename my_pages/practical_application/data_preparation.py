@@ -285,11 +285,10 @@ def show():
       
           st.success("CSV file loaded successfully.")
           st.write(df.head())
-          st.write("Nach dem Laden:", df.columns.tolist())
       
           st.subheader("🛠 Step 2: Feature Engineering – Add Year & Date Fields")
           
-          # temporäre aggregierte View
+          # temporäre aggregation view
           df_view = (
               df.groupby(["month", "cons.price.idx"], as_index=False)
               .agg(
@@ -298,46 +297,27 @@ def show():
               )
           )
         
-          # Jahr zuweisen
+          # year initiation
           df_view["year"] = df_view["MAX_RN_month"].apply(
               lambda x: 2008 if x <= 27690 else (2009 if x <= 39130 else 2010)
           )
         
-          # Merge zurück mit Original-DF
+          # Merge with original df
           df = df.merge(
               df_view[["month", "cons.price.idx", "year"]],
               on=["month", "cons.price.idx"],
               how="left"
           )
-          st.write("Nach Merge:", df.columns.tolist())
-          # Datum zusammensetzen
+
           df["date_period"] = pd.to_datetime(
               df["year"].astype(str) + "-" +
               pd.to_datetime(df["month"], format="%b").dt.month.astype(str),
               format="%Y-%m"
           ).dt.to_period("M")
         
-          # Integer-Form
+          # Integer-type
           df["date_int"] = df["date_period"].dt.strftime('%Y%m').astype(int)
           df["date_period"] = df["date_period"].astype(str)      
-          #grouped = df.groupby(["month", "cons.price.idx"]).agg(
-          #    COUNT_TOTAL_PER_MONTH=('month', 'count'),
-          #    MAX_RN_month=('ROW_ID', 'max')
-          #).reset_index()
-          st.write("Nach feature engineering:", df.columns.tolist())
-          #def assign_year(row):
-          #    if row['MAX_RN_month'] <= 27690:
-          #        return 2008
-          #    elif row['MAX_RN_month'] <= 39130:
-          #        return 2009
-          #    else:
-          #        return 2010
-      
-          #grouped['year'] = grouped.apply(assign_year, axis=1)
-          #df = pd.merge(df, grouped[['month', 'cons.price.idx', 'year']], on=['month', 'cons.price.idx'], how='left')
-          #df['date_period'] = pd.to_datetime(df['year'].astype(str) + "-" + pd.to_datetime(df['month'], format='%b').dt.month.astype(str)).dt.to_period('M')
-          #df['date_int'] = df['date_period'].dt.strftime('%Y%m').astype(int)
-          #df['date_period'] = df['date_period'].astype(str)
       
           st.success("Date enriched successfully.")
           st.dataframe(df.head())
