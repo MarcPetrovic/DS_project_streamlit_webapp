@@ -40,6 +40,15 @@ def train_and_predict(model_type='logistic'):
     # 1. Loading data
     X_train, X_test, y_train, y_test = load_data()
 
+   def make_streamlit_arrow_compatible(df: pd.DataFrame) -> pd.DataFrame:
+       df = df.convert_dtypes()
+       for col in df.select_dtypes(include='object').columns:
+           df[col] = df[col].apply(lambda x: str(x) if not pd.isna(x) else "")
+           return df
+      
+    X_train = make_streamlit_arrow_compatible(X_train)
+    X_test = make_streamlit_arrow_compatible(X_test)
+
     # 2. Select modell
     if model_type == 'logistic':
         model = LogisticRegression(max_iter=1000, solver='sag')#, random_state=42)
