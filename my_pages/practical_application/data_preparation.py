@@ -284,6 +284,7 @@ def show():
       
           st.success("CSV file loaded successfully.")
           st.write(df.head())
+          st.write("Nach dem Laden:", df.columns.tolist())
       
           st.subheader("🛠 Step 2: Feature Engineering – Add Year & Date Fields")
           
@@ -307,7 +308,7 @@ def show():
               on=["month", "cons.price.idx"],
               how="left"
           )
-        
+          st.write("Nach Merge:", df.columns.tolist())
           # Datum zusammensetzen
           df["date_period"] = pd.to_datetime(
               df["year"].astype(str) + "-" +
@@ -322,7 +323,7 @@ def show():
           #    COUNT_TOTAL_PER_MONTH=('month', 'count'),
           #    MAX_RN_month=('ROW_ID', 'max')
           #).reset_index()
-      
+          st.write("Nach feature engineering:", df.columns.tolist())
           #def assign_year(row):
           #    if row['MAX_RN_month'] <= 27690:
           #        return 2008
