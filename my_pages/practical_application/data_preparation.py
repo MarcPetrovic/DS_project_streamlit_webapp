@@ -279,7 +279,8 @@ def show():
               filename="data/bank-additional-full.csv",
               sep=";",
               header=True,
-              add_row_id=True
+              add_row_id=True,
+              ignore_index_column: bool = False
           )
       
           st.success("CSV file loaded successfully.")
