@@ -1,12 +1,13 @@
 import streamlit as st
-import io
-from utils.image_loader import show_github_image
 import pandas as pd
 import numpy as np
+
+import io
+from utils.image_loader import show_github_image
 from utils.my_colormaps import my_cmap_r
 from utils.model_pipeline import * #train_and_predict
 from utils.compare_models import compare_models_by_threshold_strategy
-
+from utils.plot_helpers import plot_confusion_matrices
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -91,3 +92,30 @@ def show():
     
         df_results["✅"] = df_results.apply(mark_better, axis=1)
         st.dataframe(df_results.style.format(precision=3))
+       # Konfusionsmatrizen visualisieren
+        st.markdown("---")
+        st.subheader("Confusion Matrices")
+
+        # Vorhersagen anhand des gewählten Thresholds
+        logreg_pred = (logreg_probs >= metrics_logreg['Threshold']).astype(int)
+        xgb_pred = (xgb_probs >= metrics_xgb['Threshold']).astype(int)
+
+        # Logistic Regression – Confusion Matrix
+        st.markdown("### Logistic Regression")
+        fig_logreg = plot_confusion_matrices(
+            y_test, logreg_pred,
+            model_name="Logistic Regression",
+            strategy=strategy_label,
+            cmap=my_cmap_r
+        )
+        st.pyplot(fig_logreg)
+
+        # XGBoost – Confusion Matrix
+        st.markdown("### XGBoost")
+        fig_xgb = plot_confusion_matrices(
+            y_test, xgb_pred,
+            model_name="XGBoost",
+            strategy=strategy_label,
+            cmap=my_cmap_r
+        )
+        st.pyplot(fig_xgb)
