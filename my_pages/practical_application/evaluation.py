@@ -9,6 +9,7 @@ from utils.model_pipeline import * #train_and_predict
 from utils.compare_models import compare_models_by_threshold_strategy
 from utils.plot_helpers import plot_confusion_matrices
 from utils.plot_era_roc_curve import plot_roc_curves_with_early_area
+from plot_precision_recall_f1_threshold import plot_precision_recall_with_f1_thresholds
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -78,6 +79,12 @@ def show():
         metrics_logreg, metrics_xgb = compare_models_by_threshold_strategy(
             y_test, logreg_probs, xgb_probs, strategy=strategy
         )
+        # Nur für F1-Strategie: Precision–Recall-Kurve mit Threshold-Markierung anzeigen
+        if strategy == "f1":
+            st.markdown("---")
+            st.subheader("Precision–Recall Curve with F1-Optimized Thresholds")
+            fig_f1 = plot_precision_recall_with_f1_thresholds(y_test, logreg_probs, xgb_probs)
+            st.pyplot(fig_f1)
     
         # Ergebnisse als Tabelle anzeigen
         st.subheader(f"Performance Metrics ({strategy_label})")
