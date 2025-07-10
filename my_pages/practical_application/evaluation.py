@@ -10,6 +10,7 @@ from utils.compare_models import compare_models_by_threshold_strategy
 from utils.plot_helpers import plot_confusion_matrices
 from utils.plot_era_roc_curve import plot_roc_curves_with_early_area
 from utils.plot_precision_recall_f1_threshold import plot_precision_recall_with_f1_thresholds
+from utils.plot_precision_recall_gap import plot_precision_recall_gap
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -85,7 +86,12 @@ def show():
             st.subheader("Precision–Recall Curve with F1-Optimized Thresholds")
             fig_f1 = plot_precision_recall_with_f1_thresholds(y_test, logreg_probs, xgb_probs)
             st.pyplot(fig_f1)
-    
+        # Nur bei Precision–Recall-Gap-Minimierung: Visualisierung des Schwellenwertverlaufs
+        if strategy == "pr_gap":
+            st.markdown("---")
+            st.subheader("Threshold Optimization via Precision–Recall Gap Minimization")
+            fig_pr_gap = plot_precision_recall_gap(y_test, logreg_probs, xgb_probs)
+            st.pyplot(fig_pr_gap)    
         # Ergebnisse als Tabelle anzeigen
         st.subheader(f"Performance Metrics ({strategy_label})")
         df_results = pd.DataFrame([metrics_logreg, metrics_xgb],
