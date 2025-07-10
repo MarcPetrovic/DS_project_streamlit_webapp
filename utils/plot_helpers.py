@@ -14,7 +14,7 @@ def plot_confusion_matrices(y_true, y_pred, model_name="", strategy="", cmap=my_
     # Absolute Matrix
     sns.heatmap(cm_abs, annot=True, fmt='d', ax=axes[0], cmap=cmap,
                 xticklabels=['No', 'Yes'], yticklabels=['No', 'Yes'],
-                linewidths=0.3, square=True, cbar=True)
+                linewidths=.3, square=True, cbar=True)
     axes[0].set_title("Confusion Matrix (Absolute)", size = 14)
     axes[0].set_xlabel("Predicted label")
     axes[0].set_ylabel("Actual label")
