@@ -9,7 +9,7 @@ from utils.model_pipeline import * #train_and_predict
 from utils.compare_models import compare_models_by_threshold_strategy
 from utils.plot_helpers import plot_confusion_matrices
 from utils.plot_era_roc_curve import plot_roc_curves_with_early_area
-from plot_precision_recall_f1_threshold import plot_precision_recall_with_f1_thresholds
+from utils.plot_precision_recall_f1_threshold import plot_precision_recall_with_f1_thresholds
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
