@@ -4,7 +4,7 @@ import numpy as np
 
 import io
 from utils.image_loader import show_github_image
-from utils.my_colormaps import my_cmap_r
+from utils.my_colormaps import my_cmap_r, cmap_4
 from utils.model_pipeline import * #train_and_predict
 from utils.compare_models import compare_models_by_threshold_strategy
 from utils.plot_helpers import plot_confusion_matrices
@@ -106,7 +106,7 @@ def show():
             y_test, logreg_pred,
             model_name="Logistic Regression",
             strategy=strategy_label,
-            cmap=my_cmap_r
+            cmap=cmap_4
         )
         st.pyplot(fig_logreg)
 
@@ -116,6 +116,6 @@ def show():
             y_test, xgb_pred,
             model_name="XGBoost",
             strategy=strategy_label,
-            cmap=my_cmap_r
+            cmap=cmap_4
         )
         st.pyplot(fig_xgb)
