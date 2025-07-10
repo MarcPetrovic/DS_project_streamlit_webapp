@@ -16,20 +16,20 @@ def plot_confusion_matrices(y_true, y_pred, model_name="", strategy="", cmap=my_
                 xticklabels=['No', 'Yes'], yticklabels=['No', 'Yes'],
                 linewidths=0.3, square=True, cbar=False)
     axes[0].set_title("Confusion Matrix (Absolute)")
-    axes[0].set_xlabel("Predicted")
-    axes[0].set_ylabel("Actual")
+    axes[0].set_xlabel("Predicted label")
+    axes[0].set_ylabel("Actual label")
     
     # Relative Matrix
-    sns.heatmap(cm_rel, annot=True, fmt='.2f', ax=axes[1], cmap=cmap,
+    sns.heatmap(cm_rel, annot=True, fmt='.3f', ax=axes[1], cmap=cmap,
                 xticklabels=['No', 'Yes'], yticklabels=['No', 'Yes'],
                 linewidths=0.3, square=True, cbar=False)
     axes[1].set_title("Confusion Matrix (Relative)")
-    axes[1].set_xlabel("Predicted")
-    axes[1].set_ylabel("Actual")
+    axes[1].set_xlabel("Predicted label")
+    axes[1].set_ylabel("Actual label")
 
     fig.suptitle(
         f"{model_name} – {strategy} Strategy\nAccuracy: {accuracy:.3f}",
-        fontsize=14
+        fontsize=16
     )
     plt.tight_layout(rect=[0, 0, 1, 0.90])
     
