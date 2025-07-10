@@ -8,6 +8,7 @@ from utils.my_colormaps import my_cmap_r, cmap_4
 from utils.model_pipeline import * #train_and_predict
 from utils.compare_models import compare_models_by_threshold_strategy
 from utils.plot_helpers import plot_confusion_matrices
+from utils.plot_era_roc_curve import plot_roc_curves_with_early_area
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -92,6 +93,17 @@ def show():
     
         df_results["✅"] = df_results.apply(mark_better, axis=1)
         st.dataframe(df_results.style.format(precision=3))
+        # ROC-Curve Plot
+        st.markdown("---")
+        st.subheader("ROC-Curve with Early Retrieval Area")
+        
+        fig_roc = plot_roc_curves_with_early_area(
+            y_test,
+            logreg_probs,
+            xgb_probs,
+            strategy_label=strategy_label
+        )
+        st.pyplot(fig_roc)
        # Konfusionsmatrizen visualisieren
         st.markdown("---")
         st.subheader("Confusion Matrices")
