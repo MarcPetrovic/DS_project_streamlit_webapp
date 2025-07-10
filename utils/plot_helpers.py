@@ -31,6 +31,6 @@ def plot_confusion_matrices(y_true, y_pred, model_name="", strategy="", cmap=my_
         f"{model_name} – {strategy} Strategy\nAccuracy: {accuracy:.3f}",
         fontsize=16
     )
-    plt.tight_layout(rect=[0, 0, 1, 0.90])
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
     
     return fig
