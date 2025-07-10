@@ -22,7 +22,7 @@ def plot_confusion_matrices(y_true, y_pred, model_name="", strategy="", cmap=my_
     # Relative Matrix
     sns.heatmap(cm_rel, annot=True, fmt='.3f', ax=axes[1], cmap=cmap,
                 xticklabels=['No', 'Yes'], yticklabels=['No', 'Yes'],
-                linewidths=0.3, square=True, cbar=True)
+                linewidths=2, linecolor='white', square=True, cbar=True)
     axes[1].set_title("Confusion Matrix (Relative)", size = 14)
     axes[1].set_xlabel("Predicted label")
     axes[1].set_ylabel("Actual label")
