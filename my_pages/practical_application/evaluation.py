@@ -89,7 +89,7 @@ def show():
         # Logistic Regression: Feature Importance
         st.markdown("### Logistic Regression")
         try:
-            fig_logreg = plot_logistic_feature_importance(X_train, y_train)
+            fig_logreg = plot_logistic_feature_importance(X_train, y_train,9)
             st.pyplot(fig_logreg)
         except Exception as e:
             st.error(f"Error plotting logistic regression importance: {e}")
@@ -97,7 +97,7 @@ def show():
         # XGBoost: Feature Importance
         st.markdown("### XGBoost")
         try:
-            fig_xgb = plot_xgboost_feature_importance(xgb_model, X_train)
+            fig_xgb = plot_xgboost_feature_importance(xgb_model, X_train,9)
             st.pyplot(fig_xgb)
         except Exception as e:
             st.error(f"Error plotting XGBoost importance: {e}")
