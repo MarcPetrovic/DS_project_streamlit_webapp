@@ -67,14 +67,7 @@ def show():
         logreg_probs, xgb_probs, y_test = get_predictions()
         fig_intro_roc = plot_roc_curves_with_early_area(y_test, logreg_probs, xgb_probs)        
         st.pyplot(fig_intro_roc)
-    elif strategy == "feature_importance":
-        st.markdown("## Feature Importance Exploration")
-        st.write("""
-        This view compares the most significant features between **Logistic Regression** and **XGBoost**.
-        It uses:
-        - Odds Ratios from statsmodels (only statistically significant features, p < 0.05)
-        - Gain-based feature importance from XGBoost
-        """)
+
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
