@@ -12,6 +12,12 @@ from utils.plot_era_roc_curve import plot_roc_curves_with_early_area
 from utils.plot_precision_recall_f1_threshold import plot_precision_recall_with_f1_thresholds
 from utils.plot_precision_recall_gap import plot_precision_recall_gap
 from utils.plot_youden import plot_roc_with_youden
+from utils.feature_importance_helpers import (
+    get_preprocessed_training_data,
+    get_fitted_xgboost_model,
+    plot_logistic_feature_importance,
+    plot_xgboost_feature_importance
+)
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -24,6 +30,7 @@ def show():
         "Trade-Off Optimization using Youden Index": "youden",
         "Threshold Optimization via F1-Score Maximization": "f1",
         "Minimization of the Precision–Recall Gap": "pr_gap",
+        "Feature Importance Exploration": "feature_importance",  # 
         "Summary of Evaluation Phase": "summary"
     }
 
@@ -60,7 +67,49 @@ def show():
         logreg_probs, xgb_probs, y_test = get_predictions()
         fig_intro_roc = plot_roc_curves_with_early_area(y_test, logreg_probs, xgb_probs)        
         st.pyplot(fig_intro_roc)
-    
+    elif strategy == "feature_importance":
+        st.markdown("## Feature Importance Exploration")
+        st.write("""
+        This view compares the most significant features between **Logistic Regression** and **XGBoost**.
+        It uses:
+        - Odds Ratios from statsmodels (only statistically significant features, p < 0.05)
+        - Gain-based feature importance from XGBoost
+        """)
+        
+    elif strategy == "feature_importance":
+        st.markdown("## Feature Importance Exploration")
+        st.write("""
+        This view compares the most significant features between **Logistic Regression** and **XGBoost**.
+
+        **Logistic Regression**
+        - Odds Ratios from `statsmodels`
+        - Statistically significant features only (p < 0.05)
+
+        **XGBoost**
+        - Gain-based feature importances
+        """)
+
+        # Daten & Modelle laden
+        X_train, y_train = get_preprocessed_training_data()
+        xgb_model = get_fitted_xgboost_model()
+
+        # Logistic Regression: Feature Importance
+        st.markdown("### Logistic Regression")
+        try:
+            fig_logreg = plot_logistic_feature_importance(X_train, y_train)
+            st.pyplot(fig_logreg)
+        except Exception as e:
+            st.error(f"Error plotting logistic regression importance: {e}")
+
+        # XGBoost: Feature Importance
+        st.markdown("### XGBoost")
+        try:
+            fig_xgb = plot_xgboost_feature_importance(xgb_model, X_train)
+            st.pyplot(fig_xgb)
+        except Exception as e:
+            st.error(f"Error plotting XGBoost importance: {e}")
+        
+   
     # 2. Summary View (optional)
     elif strategy == "summary":
         st.markdown("""
