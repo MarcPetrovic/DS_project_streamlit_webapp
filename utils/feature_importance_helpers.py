@@ -80,14 +80,15 @@ def plot_logistic_feature_importance(X_train, y_train, top_n=10):
     colors = ['#097a80' if coef > 0 else '#C00000' for coef in top_features['Coef.']]
 
     # Plot
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.barh(top_features.index, top_features['Normalized Odds Ratio (%)'], color=colors)
-    ax.set_xlabel('Feature importance (abs % change in Odds)')
-    ax.set_title('Top significant features by effect size (Logistic Regression)')
-    ax.invert_yaxis()
-    ax.set_facecolor('lightgrey')
-    ax.grid(True, linestyle='--', color='grey')
-    plt.tight_layout()
+    plt.figure(figsize=(10, 6))
+    top_10_features['Normalized Odds Ratio (%)'].plot(kind='barh', color=colors) #'#097a80')
+    plt.xlabel('Feature importance')
+    plt.title('Top significant features by absolute effect-size (logistic regression)')
+    plt.gca().invert_yaxis()  # Um die größte Effekte oben anzuzeigen
+    # Hintergrundfarbe ändern (grau)
+    plt.gca().set_facecolor('lightgrey')
+    # Gitter anzeigen
+    plt.grid(True, linestyle='--', color='grey')
 
     return fig
 
