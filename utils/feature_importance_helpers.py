@@ -42,10 +42,10 @@ def plot_logistic_feature_importance(X_train, y_train, top_n=10):
     Visualisiert die signifikanten Features einer logistischen Regression
     basierend auf transformierten Odds Ratios in Prozent.
     """
-    import statsmodels.api as sm
-    import matplotlib.pyplot as plt
-    import numpy as np
-    import pandas as pd
+    #import statsmodels.api as sm
+    #import matplotlib.pyplot as plt
+    #import numpy as np
+    #import pandas as pd
 
     # Modell fitten
     X_const = sm.add_constant(X_train)
