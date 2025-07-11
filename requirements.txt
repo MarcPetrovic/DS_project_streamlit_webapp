@@ -8,3 +8,4 @@ beautifulsoup4
 feature_engine
 xgboost
 seaborn
+statsmodels
