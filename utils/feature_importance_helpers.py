@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from xgboost import XGBClassifier
-from model_pipeline import load_data
+from utils.model_pipeline import *
 import seaborn as sns
 import numpy as np
 
