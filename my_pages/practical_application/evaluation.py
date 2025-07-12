@@ -43,6 +43,12 @@ def show():
         _, logreg_probs, y_test = train_and_predict(model_type="logistic")
         _, xgb_probs, _ = train_and_predict(model_type="xgboost")
         return logreg_probs, xgb_probs, y_test
+
+    @st.cache_resource
+    def get_model_fit():
+        logreg_model, X_train, X_test, y_train, y_test = train_model(model_type="logistic")
+        xgb_model, _, _, _, _ = train_model(model_type="xgboost")
+        return logreg_model, xgb_model, X_train, y_test
     
     # 1. Einführung
     if strategy is None:
