@@ -145,3 +145,25 @@ def train_and_predict(model_type='logistic'):
     y_proba = model.predict_proba(X_test)[:, 1]
 
     return model, y_proba, y_test
+
+def train_model(model_type='logistic'):
+    """
+    Lädt Daten, trainiert Modell und gibt trainiertes Modell, X_train, y_train zurück.
+    Die Funktion ist gecached, sodass bei erneutem Aufruf mit gleichem model_type kein erneutes Training nötig ist.
+    """
+    X_train, _, y_train, _ = load_data()
+
+    if model_type == 'logistic':
+        model = LogisticRegression(max_iter=1000, solver='sag')
+    elif model_type == 'xgboost':
+        model = XGBClassifier(
+            n_estimators=50,
+            objective='binary:logistic',
+            use_label_encoder=False,
+            eval_metric='logloss'
+        )
+    else:
+        raise ValueError("Unexpected model type. Use 'logistic' or 'xgboost'.")
+
+    model.fit(X_train, y_train)
+    return model, X_train, y_train
