@@ -37,61 +37,67 @@ def get_fitted_xgboost_model():
     model.fit(X_train, y_train)
     return model
 
-def plot_logistic_feature_importance(X_train, y_train, top_n=10):
+def plot_logistic_feature_importance(model, X_train, top_n=10):
     """
     Visualisiert die signifikanten Features einer logistischen Regression
     basierend auf transformierten Odds Ratios in Prozent.
+
+    Args:
+        model: Logistisches Regressionsmodell (sklearn-LogisticRegression – nur zur Übergabe, nicht verwendet hier)
+        X_train (pd.DataFrame): Trainingsdaten (DataFrame!)
+        top_n (int): Anzahl der Top-Features, die visualisiert werden sollen.
+
+    Returns:
+        fig (matplotlib.figure.Figure): Feature Importance Plot
     """
-    #import statsmodels.api as sm
-    #import matplotlib.pyplot as plt
-    #import numpy as np
-    #import pandas as pd
+    import statsmodels.api as sm
+    import numpy as np
+    import pandas as pd
+    import matplotlib.pyplot as plt
 
-    # Modell fitten
+    # 1. Konstante hinzufügen
     X_const = sm.add_constant(X_train)
-    model = sm.Logit(y_train, X_const)
-    result = model.fit(disp=False)
 
-    # Odds Ratios berechnen
+    # 2. Modell mit statsmodels.fitten (nicht sklearn)
+    model_sm = sm.Logit(endog=model.predict(X_train), exog=X_const)
+    result = model_sm.fit(disp=False)
+
+    # 3. Odds Ratios berechnen
     odds_ratios = np.exp(result.params)
     summary = result.summary2().tables[1]
 
-    # Odds Ratio DataFrame erstellen
+    # 4. Zusammenführen
     odds_ratio_df = pd.DataFrame({'Odds Ratio': odds_ratios})
-
-    # Kombinieren mit Summary
     combined_summary = summary.join(odds_ratio_df)
 
-    # Nur signifikante Features (p < 0.05)
+    # 5. Signifikante Features auswählen
     significant_features = combined_summary[
         (combined_summary['P>|z|'] < 0.05) & (combined_summary.index != 'const')
     ]
 
-    # Effektgröße standardisieren
+    # 6. Normalisieren
     def normalize_odds_ratios(odds_ratios):
         return np.abs((odds_ratios - 1) * 100)
 
     significant_features['Normalized Odds Ratio (%)'] = normalize_odds_ratios(significant_features['Odds Ratio'])
 
-    # Top N Features nach Effektgröße
+    # 7. Top-N
     top_features = significant_features.sort_values('Normalized Odds Ratio (%)', ascending=False).head(top_n)
 
-    # Farben nach Richtung (positiv/negativ)
+    # 8. Farben je nach Richtung
     colors = ['#097a80' if coef > 0 else '#C00000' for coef in top_features['Coef.']]
 
-    # Plot
-    plt.figure(figsize=(10, 6))
-    top_features['Normalized Odds Ratio (%)'].plot(kind='barh', color=colors) #'#097a80')
-    plt.xlabel('Feature importance')
-    plt.title('Top significant features by absolute effect-size (logistic regression)')
-    plt.gca().invert_yaxis()  # Um die größte Effekte oben anzuzeigen
-    # Hintergrundfarbe ändern (grau)
-    plt.gca().set_facecolor('lightgrey')
-    # Gitter anzeigen
-    plt.grid(True, linestyle='--', color='grey')
-    fig = plt.gcf()
-    return fig
+    # 9. Plot
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.barh(top_features.index, top_features['Normalized Odds Ratio (%)'], color=colors)
+    ax.set_xlabel('Effect Size (%)')
+    ax.set_title('Top Significant Features (Logistic Regression)')
+    ax.invert_yaxis()
+    ax.set_facecolor('lightgrey')
+    ax.grid(True, linestyle='--', color='grey')
+    plt.tight_layout()
 
+    return fig
 
 def plot_xgboost_feature_importance(model, X_train, top_n=15):
     """
