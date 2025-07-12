@@ -89,7 +89,7 @@ def plot_logistic_feature_importance(X_train, y_train, top_n=10):
     plt.gca().set_facecolor('lightgrey')
     # Gitter anzeigen
     plt.grid(True, linestyle='--', color='grey')
-
+    fig = plt.gcf()
     return fig
 
 
