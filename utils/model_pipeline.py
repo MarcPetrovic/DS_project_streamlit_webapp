@@ -147,23 +147,20 @@ def train_and_predict(model_type='logistic'):
     return model, y_proba, y_test
 
 def train_model(model_type='logistic'):
-    """
-    Lädt Daten, trainiert Modell und gibt trainiertes Modell, X_train, y_train zurück.
-    Die Funktion ist gecached, sodass bei erneutem Aufruf mit gleichem model_type kein erneutes Training nötig ist.
-    """
-    X_train, _, y_train, _ = load_data()
+    X_train, X_test, y_train, y_test = load_data()
 
     if model_type == 'logistic':
-        model = LogisticRegression(max_iter=1000, solver='sag')
+        model = LogisticRegression(max_iter=1000, solver='sag', random_state=42)
     elif model_type == 'xgboost':
         model = XGBClassifier(
             n_estimators=50,
             objective='binary:logistic',
             use_label_encoder=False,
-            eval_metric='logloss'
+            eval_metric='logloss',
+            random_state=42
         )
     else:
-        raise ValueError("Unexpected model type. Use 'logistic' or 'xgboost'.")
+        raise ValueError("Invalid model type")
 
     model.fit(X_train, y_train)
-    return model, X_train, y_train
+    return model, X_train, X_test, y_train, y_test
