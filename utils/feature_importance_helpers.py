@@ -81,7 +81,7 @@ def plot_logistic_feature_importance(X_train, y_train, top_n=10):
 
     # Plot
     plt.figure(figsize=(10, 6))
-    top_10_features['Normalized Odds Ratio (%)'].plot(kind='barh', color=colors) #'#097a80')
+    top_features['Normalized Odds Ratio (%)'].plot(kind='barh', color=colors) #'#097a80')
     plt.xlabel('Feature importance')
     plt.title('Top significant features by absolute effect-size (logistic regression)')
     plt.gca().invert_yaxis()  # Um die größte Effekte oben anzuzeigen
