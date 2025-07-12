@@ -89,8 +89,9 @@ def show():
         """)
 
         # Daten & Modelle laden
+        logreg_model, xgb_model, X_train, y_test = get_model_fit()
         X_train, y_train = get_preprocessed_training_data()
-        xgb_model = get_fitted_xgboost_model()
+        #xgb_model = get_fitted_xgboost_model()
 
         # Logistic Regression: Feature Importance
         st.markdown("### Logistic Regression")
@@ -101,7 +102,7 @@ def show():
             st.error(f"Error plotting logistic regression importance: {e}")
 
         # XGBoost: Feature Importance
-        st.markdown("### XGBoost")
+        st.markdown("### XGBoost Feature Importance")
         try:
             fig_xgb = plot_xgboost_feature_importance(xgb_model, X_train,9)
             st.pyplot(fig_xgb)
