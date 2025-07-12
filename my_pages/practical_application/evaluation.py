@@ -96,7 +96,7 @@ def show():
         # Logistic Regression: Feature Importance
         st.markdown("### Logistic Regression Feature Importance")
         try:
-            fig_logreg = plot_logistic_feature_importance(logreg_model, X_train,9)
+            fig_logreg = plot_logistic_feature_importance(logreg_model, X_train, y_test ,9)
             st.pyplot(fig_logreg)
         except Exception as e:
             st.error(f"Error plotting logistic regression importance: {e}")
