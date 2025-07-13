@@ -12,8 +12,8 @@ st.sidebar.radio(
         "Introduction",
         "Theoretical Framework",
         "Practical Application According to CRISP-DM",
-        "Methods & Data",
-        "Technical Environment & Modeling",
+       # "Methods & Data",
+       # "Technical Environment & Modeling",
         "Conclusion & Discussion"
     ],
     key="main_page"
@@ -167,13 +167,9 @@ elif st.session_state.main_page == "Practical Application According to CRISP-DM"
         from my_pages.practical_application import evaluation
         evaluation.show()
 
-elif st.session_state.main_page == "Methods & Data":
-    from my_pages import methods_data
-    methods_data.show()
-
-elif st.session_state.main_page == "Technical Environment & Modeling":
-    from my_pages import technical_environment_modeling
-    technical_environment_modeling.show()
+elif st.session_state.main_page == "Conclusion & Discussion":
+    from my_pages import conclusion_discussion
+    conclusion_discussion.show()
 
 elif st.session_state.main_page == "Conclusion & Discussion":
     from my_pages import conclusion_discussion
