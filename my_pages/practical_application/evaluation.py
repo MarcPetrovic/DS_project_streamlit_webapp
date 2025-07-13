@@ -18,6 +18,7 @@ from utils.feature_importance_helpers import (
     plot_logistic_feature_importance,
     plot_xgboost_feature_importance
 )
+from utils.plot_opex_optimization import plot_opex_optimization
 
 def show():
     st.header("evaluation with flexible CSV-Loading")
@@ -149,6 +150,11 @@ def show():
             st.subheader("ROC Curve with Youden’s J Optimization")
             fig_youden = plot_roc_with_youden(y_test, logreg_probs, xgb_probs)
             st.pyplot(fig_youden)
+        if strategy == "cost":
+            st.markdown("---")
+            st.subheader("Threshold Optimization via OPEX Optimization")
+            fig_opex_opti = plot_opex_optimization(y_test, logreg_probs, xgb_probs)
+            st.pyplot(fig_opex_opti)
         # Ergebnisse als Tabelle anzeigen
         st.subheader(f"Performance Metrics ({strategy_label})")
         df_results = pd.DataFrame([metrics_logreg, metrics_xgb],
