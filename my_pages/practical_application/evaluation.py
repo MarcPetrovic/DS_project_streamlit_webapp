@@ -153,7 +153,7 @@ def show():
         if strategy == "cost":
             st.markdown("---")
             st.subheader("Threshold Optimization via OPEX Optimization")
-            fig_opex_opti = plot_opex_optimization(y_test, logreg_probs, xgb_probs, language="de")
+            fig_opex_opti = plot_opex_optimization(y_test, logreg_probs, xgb_probs, language="en")
             st.pyplot(fig_opex_opti)
         # Ergebnisse als Tabelle anzeigen
         st.subheader(f"Performance Metrics ({strategy_label})")
