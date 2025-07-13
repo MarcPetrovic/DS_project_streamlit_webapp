@@ -229,15 +229,23 @@ def show():
                 return ""
             except:
                 return ""
-    
-        df_results["✅"] = df_results.apply(mark_better, axis=1)
-        #st.dataframe(df_results.style.format(precision=3))
-        # Optional: Formatieren auf 3 Nachkommastellen (für Float-Zahlen)
-        df_results = df_results.round(3)
 
-        # HTML-Tabelle anzeigen mit Custom-Styling
-        st.subheader("Performance Metrics (styled)")
+        df_results["✓"] = df_results.apply(mark_better, axis=1)    
+        #st.dataframe(df_results.style.format(precision=3))
+
+        
+        # 3. Index (Metriken) als Spalte übernehmen
+        df_results.reset_index(inplace=True)
+        df_results.rename(columns={"index": "Metric"}, inplace=True)
+        
+        # 4. Optional: Formatierung
+        df_results = df_results.round(3)
+        
+        # 5. HTML-Rendering der neuen Tabelle
         html_table_metrics = render_html_table_metrics(df_results)
+        
+        # 6. Anzeige in Streamlit
+        st.subheader("Performance Metrics (styled)")
         st.markdown(html_table_metrics, unsafe_allow_html=True)
 
        # Konfusionsmatrizen visualisieren
