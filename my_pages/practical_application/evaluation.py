@@ -221,10 +221,11 @@ def show():
         def mark_best(df):
             df_marked = df.copy()
             for idx in df.index:
+                idx_str = str(idx) 
                 val1 = df.loc[idx, "Logistic Regression"]
                 val2 = df.loc[idx, "XGBoost"]
 
-                is_cost = "Cost" in idx or "€" in idx
+                is_cost = "Cost" in idx_str or "€" in idx_str
 
                 # Optional: Werte umrechnen, wenn es sich um Kosten handelt
                 if is_cost:
@@ -233,7 +234,7 @@ def show():
                 
                 if isinstance(val1, (float, int)) and isinstance(val2, (float, int)):
                     # Wenn kleiner besser (Cost, Error Rate etc.)
-                    if "Rate" in idx or is_cost: #"Cost" in idx:
+                    if "Rate" in idx_str or is_cost: #"Cost" in idx:
                         if val1 < val2:
                             df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f} ✅"
                             df_marked.loc[idx, "XGBoost"] = f"{val2:.3f}"
