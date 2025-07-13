@@ -231,6 +231,9 @@ def show():
                 if is_cost:
                     val1 = val1 / 1000
                     val2 = val2 / 1000
+                    if not idx_str.endswith("(k €)"):
+                        df_marked.rename(index={idx: f"{idx_str} (k €)"}, inplace=True)
+                        idx = f"{idx_str} (k €)"  # Update Referenz für loc unten
                 
                 if isinstance(val1, (float, int)) and isinstance(val2, (float, int)):
                     # Wenn kleiner besser (Cost, Error Rate etc.)
