@@ -21,9 +21,8 @@ from utils.feature_importance_helpers import (
 from utils.plot_opex_optimization import plot_opex_optimization
 
 def show():
-    st.header("evaluation with flexible CSV-Loading")
-
-    # Mapping der Strategien für die Selectbox
+    st.markdown('<a name="top"></a>', unsafe_allow_html=True)
+    # Mapping for strategy within selectbox
     strategy_options = {
         "Introduction into CRISP-DM Evaluation Phase": None,
         "Threshold Tuning with Standard Configuration": "default",
@@ -202,3 +201,57 @@ def show():
             cmap=cmap_4
         )
         st.pyplot(fig_xgb)
+    st.markdown("""
+        <!-- Font Awesome einbinden -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+        #scroll-top-link {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+    
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            transition: background-color 0.3s ease, opacity 0.2s ease;
+        }
+    
+        @media (prefers-color-scheme: dark) {
+            #scroll-top-link {
+                background-color: #222;
+                color: white;
+            }
+        }
+    
+        @media (prefers-color-scheme: light) {
+            #scroll-top-link {
+                background-color: #e0e0e0;
+                color: black;
+            }
+        }
+    
+        /* Optional: Hover-Effekt */
+        #scroll-top-link:hover {
+            opacity: 0.85;
+        }
+        </style>
+    
+        <!-- Button mit Icon -->
+        <a href="#top" id="scroll-top-link" title="Top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    """, unsafe_allow_html=True)
