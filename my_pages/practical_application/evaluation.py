@@ -219,33 +219,60 @@ def show():
                                   index=["Logistic Regression", "XGBoost"]).T
     
         # ✅-Spalte zur Markierung des besseren Werts
-        def mark_better(row):
-            try:
-                if isinstance(row.iloc[0], (float, int)) and isinstance(row.iloc[1], (float, int)):
-                    if "Rate" in row.name or "Cost" in row.name:
-                        return "✅" if row.iloc[1] < row.iloc[0] else ""
-                    else:
-                        return "✅" if row.iloc[1] > row.iloc[0] else ""
-                return ""
-            except:
-                return ""
-
-        df_results["✓"] = df_results.apply(mark_better, axis=1)    
+        #def mark_better(row):
+        #    try:
+        #        if isinstance(row.iloc[0], (float, int)) and isinstance(row.iloc[1], (float, int)):
+        #            if "Rate" in row.name or "Cost" in row.name:
+        #                return "✅" if row.iloc[1] < row.iloc[0] else ""
+        #            else:
+        #                return "✅" if row.iloc[1] > row.iloc[0] else ""
+        #        return ""
+        #    except:
+        #        return ""
+        def mark_best(df):
+            df_marked = df.copy()
+            for idx in df.index:
+                val1 = df.loc[idx, "Logistic Regression"]
+                val2 = df.loc[idx, "XGBoost"]
+                if isinstance(val1, (float, int)) and isinstance(val2, (float, int)):
+                    # Wenn kleiner besser (Cost, Error Rate etc.)
+                    if "Rate" in idx or "Cost" in idx:
+                        if val1 < val2:
+                            df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f} ✅"
+                            df_marked.loc[idx, "XGBoost"] = f"{val2:.3f}"
+                        else:
+                            df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f}"
+                            df_marked.loc[idx, "XGBoost"] = f"{val2:.3f} ✅"
+                    else:  # Wenn größer besser (Accuracy, F1 etc.)
+                        if val1 > val2:
+                            df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f} ✅"
+                            df_marked.loc[idx, "XGBoost"] = f"{val2:.3f}"
+                        else:
+                            df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f}"
+                            df_marked.loc[idx, "XGBoost"] = f"{val2:.3f} ✅"
+                else:
+                    # Falls kein numerischer Vergleich möglich
+                    df_marked.loc[idx, "Logistic Regression"] = str(val1)
+                    df_marked.loc[idx, "XGBoost"] = str(val2)
+            return df_marked
+            
+        df_results_marked = mark_best(df_results)    
+        #df_results["✓"] = df_results.apply(mark_better, axis=1)    
         #st.dataframe(df_results.style.format(precision=3))
 
         
         # 3. Index (Metriken) als Spalte übernehmen
-        df_results.reset_index(inplace=True)
-        df_results.rename(columns={"index": "Metric"}, inplace=True)
+        df_results_marked.reset_index(inplace=True)
+        df_results_marked.rename(columns={"index": "Metric"}, inplace=True)
         
         # 4. Optional: Formatierung
-        df_results = df_results.round(3)
+        #df_results = df_results.round(3)
         
         # 5. HTML-Rendering der neuen Tabelle
-        html_table_metrics = render_html_table_metrics(df_results)
+        html_table_metrics = render_html_table_metrics(df_results_marked)
         
         # 6. Anzeige in Streamlit
-        st.subheader("Performance Metrics (styled)")
+        st.subheader("Performance Metrics (with ✅ for better model)")
         st.markdown(html_table_metrics, unsafe_allow_html=True)
 
        # Konfusionsmatrizen visualisieren
