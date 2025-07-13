@@ -151,9 +151,9 @@ def show():
         logreg_model, xgb_model, X_train, y_train = get_model_fit()
         #X_train, y_train = get_preprocessed_training_data()
         #xgb_model = get_fitted_xgboost_model()
-        st.write(X_train.dtypes)
-        st.write("X_train types:", X_train.dtypes)
-        st.write("y_train unique values:", y_train.unique())
+        #st.write(X_train.dtypes)
+        #st.write("X_train types:", X_train.dtypes)
+        #st.write("y_train unique values:", y_train.unique())
         # Logistic Regression: Feature Importance
         st.markdown("### Logistic Regression Feature Importance")
         try:
