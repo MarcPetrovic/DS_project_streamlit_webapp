@@ -217,26 +217,23 @@ def show():
         st.subheader(f"Performance Metrics ({strategy_label})")
         df_results = pd.DataFrame([metrics_logreg, metrics_xgb],
                                   index=["Logistic Regression", "XGBoost"]).T
-    
-        # ✅-Spalte zur Markierung des besseren Werts
-        #def mark_better(row):
-        #    try:
-        #        if isinstance(row.iloc[0], (float, int)) and isinstance(row.iloc[1], (float, int)):
-        #            if "Rate" in row.name or "Cost" in row.name:
-        #                return "✅" if row.iloc[1] < row.iloc[0] else ""
-        #            else:
-        #                return "✅" if row.iloc[1] > row.iloc[0] else ""
-        #        return ""
-        #    except:
-        #        return ""
+
         def mark_best(df):
             df_marked = df.copy()
             for idx in df.index:
                 val1 = df.loc[idx, "Logistic Regression"]
                 val2 = df.loc[idx, "XGBoost"]
+
+                is_cost = "Cost" in idx or "€" in idx
+
+                # Optional: Werte umrechnen, wenn es sich um Kosten handelt
+                if is_cost:
+                    val1 = val1 / 1000
+                    val2 = val2 / 1000
+                
                 if isinstance(val1, (float, int)) and isinstance(val2, (float, int)):
                     # Wenn kleiner besser (Cost, Error Rate etc.)
-                    if "Rate" in idx or "Cost" in idx:
+                    if "Rate" in idx or is_cost: #"Cost" in idx:
                         if val1 < val2:
                             df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f} ✅"
                             df_marked.loc[idx, "XGBoost"] = f"{val2:.3f}"
