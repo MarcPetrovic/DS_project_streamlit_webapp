@@ -46,7 +46,7 @@ def plot_opex_optimization(y_true, y_proba_logreg, y_proba_xgb, steps=200, langu
     # Logistic Regression
     axes[0].plot(thresholds, costs_logreg, color='#C00000', label=cost_label)
     axes[0].axvline(best_threshold_logreg, linestyle='--', lw=2, color='#097a80',
-                    label=f'Opt. Threshold = {best_threshold_logreg:.2f}')
+                    label=f'Opt. Threshold = {best_threshold_logreg:.3f}')
     axes[0].set_title(title_logreg)
     axes[0].set_xlabel(xlabel)
     axes[0].set_ylabel(ylabel)
@@ -57,7 +57,7 @@ def plot_opex_optimization(y_true, y_proba_logreg, y_proba_xgb, steps=200, langu
     # XGBoost
     axes[1].plot(thresholds, costs_xgb, color='#C00000', label=cost_label)
     axes[1].axvline(best_threshold_xgb, linestyle='-.', lw=2, color='#191919',
-                    label=f'Opt. Threshold = {best_threshold_xgb:.2f}')
+                    label=f'Opt. Threshold = {best_threshold_xgb:.3f}')
     axes[1].set_title(title_xgb)
     axes[1].set_xlabel(xlabel)
     axes[1].set_ylabel(ylabel)
