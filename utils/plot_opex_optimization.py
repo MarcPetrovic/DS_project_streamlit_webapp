@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from utils.cost_calc import calculate_cost
 from utils.find_best_threshold  import find_best_threshold  
 
-def plot_opex_optimization(y_true, y_proba_logreg, y_proba_xgb, steps=200, language="de"):
+def plot_opex_optimization(y_true, y_proba_logreg, y_proba_xgb, steps=200, language="en"):
     """
     Erzeugt einen Plot zur OPEX-Kostenoptimierung basierend auf dem Schwellenwert.
     
