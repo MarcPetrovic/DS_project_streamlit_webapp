@@ -37,10 +37,10 @@ def plot_roc_curves_with_early_area(y_true, probs_logreg, probs_xgb, strategy_la
 
         # TPR-Werte als Marker + Text
     ax.scatter(fpr_logreg_val, tpr_logreg_val, color='#097a80', s=80, edgecolor='white', zorder=5)
-    ax.text(fpr_logreg_val + 0.02, tpr_logreg_val, f'TPR @ 20% FPR: {tpr_logreg_val:.2f}', color='#097a80')
+    ax.text(fpr_logreg_val + 0.02, tpr_logreg_val, f'TPR @ 20% FPR: {tpr_logreg_val:.3f}', color='#097a80')
 
     ax.scatter(fpr_xgb_val, tpr_xgb_val, color='#191919', s=80, edgecolor='white', zorder=5)
-    ax.text(fpr_xgb_val + 0.02, tpr_xgb_val - 0.05, f'TPR @ 20% FPR: {tpr_xgb_val:.2f}', color='#191919')
+    ax.text(fpr_xgb_val + 0.02, tpr_xgb_val - 0.05, f'TPR @ 20% FPR: {tpr_xgb_val:.3f}', color='#191919')
 
     ax.set_xlabel('False Positive Rate')
     ax.set_ylabel('True Positive Rate')
