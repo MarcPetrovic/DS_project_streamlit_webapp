@@ -8,6 +8,15 @@ def plot_roc_curves_with_early_area(y_true, probs_logreg, probs_xgb, strategy_la
     auc_logreg = auc(fpr_logreg, tpr_logreg)
     auc_xgb = auc(fpr_xgb, tpr_xgb)
 
+        # TPR bei FPR ≈ 0.2
+    def get_tpr_at_fpr(target_fpr, fpr, tpr):
+        idx = np.argmin(np.abs(fpr - target_fpr))
+        return fpr[idx], tpr[idx]
+
+    fpr_target = 0.2
+    fpr_logreg_val, tpr_logreg_val = get_tpr_at_fpr(fpr_target, fpr_logreg, tpr_logreg)
+    fpr_xgb_val, tpr_xgb_val = get_tpr_at_fpr(fpr_target, fpr_xgb, tpr_xgb)
+
     fig, ax = plt.subplots(figsize=(8, 6))
 
     # ROC Curve: Logistic Regression
@@ -24,6 +33,13 @@ def plot_roc_curves_with_early_area(y_true, probs_logreg, probs_xgb, strategy_la
 
     # Early Retrieval Area (z. B. FPR <= 0.2)
     ax.fill_between([0, 0.2], [0, 0], [1, 1], color='red', alpha=0.3, label='Early Retrieval Area (FPR ≤ 20%)')
+
+        # TPR-Werte als Marker + Text
+    ax.scatter(fpr_logreg_val, tpr_logreg_val, color='#097a80', s=80, edgecolor='white', zorder=5)
+    ax.text(fpr_logreg_val + 0.02, tpr_logreg_val, f'TPR @ 20% FPR: {tpr_logreg_val:.2f}', color='#097a80')
+
+    ax.scatter(fpr_xgb_val, tpr_xgb_val, color='#191919', s=80, edgecolor='white', zorder=5)
+    ax.text(fpr_xgb_val + 0.02, tpr_xgb_val - 0.05, f'TPR @ 20% FPR: {tpr_xgb_val:.2f}', color='#191919')
 
     ax.set_xlabel('False Positive Rate')
     ax.set_ylabel('True Positive Rate')
