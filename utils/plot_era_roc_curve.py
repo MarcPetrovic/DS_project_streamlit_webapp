@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
+import numpy as np
 
 def plot_roc_curves_with_early_area(y_true, probs_logreg, probs_xgb, strategy_label=None):
     fpr_logreg, tpr_logreg, _ = roc_curve(y_true, probs_logreg)
