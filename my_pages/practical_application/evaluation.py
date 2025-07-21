@@ -19,6 +19,7 @@ from utils.feature_importance_helpers import (
     plot_xgboost_feature_importance
 )
 from utils.plot_opex_optimization import plot_opex_optimization
+from utils.plot_ks_curve import plot_ks_curve
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -234,19 +235,18 @@ def show():
         particularly important in highly imbalanced datasets, as it better reflects the model’s ability to detect rare positive events compared 
         to ROC-AUC. 
         """)
-        # Präzision und Recall Formeln
+
         st.latex(r"""
         \text{Precision} = \frac{TP}{TP + FP} \quad ; \quad
         \text{Recall} = \frac{TP}{TP + FN}
         """)
-        
-        # Erklärungen
+
         st.markdown("**Where:**")
         st.markdown("- **TP**: True Positive")
         st.markdown("- **FP**: False Positive")
         st.markdown("- **FN**: False Negative")
         
-        # PR-AUC Titel und Formel
+
         st.markdown("**The PR-AUC is then computed as:**")
         st.latex(r"""
         \text{PR-AUC} = \int_0^1 \text{Precision}(r) \, dr
@@ -259,6 +259,12 @@ def show():
         - PR-AUC: Particularly important in imbalanced settings; a PR-AUC > 0.4 signals reliable positive class detection.
         
         """)
+        st.subheader("Kolmogorov–Smirnov (KS) Curve – Logistic Regression")
+        logreg_probs, xgb_probs, y_test = get_predictions()
+        plot_ks_curve(y_test, logreg_probs, model_name="Logistic Regression", color='#097a80')
+        st.subheader("Kolmogorov–Smirnov (KS) Curve – XGBoost")
+        plot_ks_curve(y_test, xgb_probs, model_name="XGBoost", color='#C00000')
+
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
