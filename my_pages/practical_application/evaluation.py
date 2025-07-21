@@ -260,10 +260,12 @@ def show():
         
         """)
         st.subheader("Kolmogorov–Smirnov (KS) Curve – Logistic Regression")
-        logreg_probs, xgb_probs, y_test = get_predictions()
-        plot_ks_curve(y_test, logreg_probs, model_name="Logistic Regression", color='#097a80')
+        fig_ks_logreg = plot_ks_curve(y_test, logreg_probs, model_name="Logistic Regression", color='#097a80')
+        st.pyplot(fig_ks_logreg)
+        
         st.subheader("Kolmogorov–Smirnov (KS) Curve – XGBoost")
-        plot_ks_curve(y_test, xgb_probs, model_name="XGBoost", color='#C00000')
+        fig_ks_xgb = plot_ks_curve(y_test, xgb_probs, model_name="XGBoost", color='#C00000')
+        st.pyplot(fig_ks_xgb)
 
         
     elif strategy == "feature_importance":
