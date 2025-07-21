@@ -25,6 +25,7 @@ def show():
     # Mapping for strategy within selectbox
     strategy_options = {
         "Introduction into CRISP-DM Evaluation Phase": None,
+        "Overall Model Evaluation": "overall",
         "Threshold Tuning with Standard Configuration": "default",
         "Cost-Optimized Thresholding": "cost",
         "Trade-Off Optimization using Youden Index": "youden",
@@ -112,7 +113,7 @@ def show():
     # 1. Einführung
     if strategy is None:
         st.markdown("""
-        ## Introduction
+        ## Introduction into CRISP-DM Evaluation Phase
     
         In the context of this data mining project, the evaluation phase within the CRISP-DM framework represents the final step toward 
         achieving the central goal of the practical use case: the development of a robust and high-performing response model for cost-optimized 
@@ -173,13 +174,25 @@ def show():
         targeted campaign strategies
 
         """)
+        
+    elif strategy == "overall":
+        st.markdown("""
+        ## Overall Evaluation of discriminative Performance under class imbalance
+
+        In the evaluation phase, model performance was assessed using both global discrimination metrics and business-critical indicators. The 
+        Area Under the ROC Curve (AUC) values of 0.790 for Logistic Regression and 0.799 for XGBoost reflect good overall separability between 
+        the two target classes, even in the presence of class imbalance (11.5% positive class). More importantly, the Early Retrieval Area—focusing 
+        on cases with a False Positive Rate (FPR) of 20% or lower—yielded True Positive Rates (TPR) of 0.674 and 0.685, respectively. This confirms 
+        the models’ ability to identify a large proportion of valuable customers while keeping outreach costs under control.
+        
+        """)
+
         # ROC-Curve Plot
         st.markdown("---")
         st.subheader("Model Comparison using ROC-Curves with Early Retrieval Area")
         logreg_probs, xgb_probs, y_test = get_predictions()
         fig_intro_roc = plot_roc_curves_with_early_area(y_test, logreg_probs, xgb_probs)        
         st.pyplot(fig_intro_roc)
-
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
