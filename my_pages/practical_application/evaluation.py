@@ -267,6 +267,35 @@ def show():
         fig_ks_xgb = plot_ks_curve(y_test, xgb_probs, model_name="XGBoost", color='#C00000')
         st.pyplot(fig_ks_xgb)
 
+        st.markdown("""
+        For the logistic regression model, the Gini coefficient of 0.5790 indicates solid discriminatory power. The Brier score of 0.0809 confirms 
+        good calibration of predicted probabilities. The KS statistic of 0.4804, with an optimal threshold at 0.1128, supports that this cutoff 
+        maximizes the separation between classes, enabling effective classification. The PR-AUC of 0.4489 further confirms the model’s ability to 
+        reliably identify positive cases despite class imbalance.
+
+        For the XGBoost model, the Gini coefficient of 0.5977 and Brier score of 0.0791 also demonstrate good to very good model quality. The KS 
+        statistic of 0.4944 indicates strong class separation, while the PR-AUC of 0.4641 substantiates solid detection of positive cases in the 
+        presence of imbalance.
+
+        **Lift-Curve Analysis**
+
+        The Lift Curve illustrates the improvement a model provides over random selection in identifying positive cases within different proportions 
+        of the population. For both models, the lift starts high and gradually decreases as more of the population is included, indicating that the 
+        models are successful in ranking customers by their likelihood of being positive.
+
+        """)
+        st.latex(r"""
+        \text{Lift}(\rho) = 
+        \frac{\text{Precision at } \rho}{\text{Baseline Positive Rate}} = 
+        \frac{TP_{\rho} / n_{\rho}}{P / N}
+        """)
+        st.markdown("**Where:**")
+        st.markdown("- $\\rho$: Proportion of the population considered (e.g., the top 10% based on predicted scores)")
+        st.markdown("- $TP_{\\rho}$: Number of true positive cases within the top $\\rho$% of the population")
+        st.markdown("- $n_{\\rho}$: Total number of observations within the top $\\rho$ segment")
+        st.markdown("- $P$: Total number of positive cases in the entire population")
+        st.markdown("- $N$: Total number of observations in the population")
+        st.markdown("- $P/N$: Baseline positive rate (i.e., the expected positive rate under random selection)")
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
