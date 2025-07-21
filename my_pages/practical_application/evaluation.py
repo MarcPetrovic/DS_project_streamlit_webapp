@@ -251,6 +251,14 @@ def show():
         st.latex(r"""
         \text{PR-AUC} = \int_0^1 \text{Precision}(r) \, dr
         """)
+        st.markdown("""
+        Interpretation of these metrics in the context of imbalanced data:
+        - Gini coefficient: Values > 0.5 indicate good discriminatory power; values between 0.3 and 0.5 are moderate, and below 0.3 are weak.
+        - Brier score: Values below 0.1 are considered good; the score reflects both calibration and accuracy.
+        - KS statistic: Values above 0.4 indicate strong class separation, values between 0.2 and 0.4 are moderate.
+        - PR-AUC: Particularly important in imbalanced settings; a PR-AUC > 0.4 signals reliable positive class detection.
+        
+        """)
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
