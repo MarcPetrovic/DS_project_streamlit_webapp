@@ -193,6 +193,20 @@ def show():
         logreg_probs, xgb_probs, y_test = get_predictions()
         fig_intro_roc = plot_roc_curves_with_early_area(y_test, logreg_probs, xgb_probs)        
         st.pyplot(fig_intro_roc)
+        st.markdown("---")
+        st.markdown("""
+
+        In addition to the previously presented performance metrics, several statistical measures were employed to provide a more comprehensive 
+        assessment of model quality.
+
+        The Gini coefficient is closely related to the area under the ROC curve (AUC) and is calculated as:
+        """)
+        st.latex(r"\text{Gini} = 2 \times \text{AUC} - 1")
+        st.markdown("""
+        It quantifies a model’s discriminatory power; a value of 0 corresponds to random performance, while 1 indicates perfect separation. 
+        """)
+        st.latex(r"\text{The Brier score measures the mean squared difference between predicted probabilities } \hat{p}_i \text{ and actual outcomes } \gamma_i \text{ (0/false or 1/true):}")
+
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
