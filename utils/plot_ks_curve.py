@@ -26,4 +26,4 @@ def plot_ks_curve(y_true, y_probs, model_name="Model", color="blue"):
     ax.legend()
     plt.tight_layout()
 
-    st.pyplot(fig)
+    return fig
