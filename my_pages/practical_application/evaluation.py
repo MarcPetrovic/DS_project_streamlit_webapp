@@ -114,17 +114,64 @@ def show():
         st.markdown("""
         ## Introduction
     
-        The evaluation phase in the CRISP-DM process helps identify the most effective model by comparing performance metrics 
-        across different strategies for threshold optimization.
+        In the context of this data mining project, the evaluation phase within the CRISP-DM framework represents the final step toward 
+        achieving the central goal of the practical use case: the development of a robust and high-performing response model for cost-optimized 
+        segmentation of an existing customer portfolio. Based on a statistically validated prediction model, future phone-based marketing 
+        campaigns should target only those customer segments whose likelihood of signing a fixed-term deposit contract at least offsets the 
+        associated campaign costs.
     
-        Strategies include:
-        - **Default Threshold (0.5)**
-        - **Cost Minimization**
-        - **Youden Index (Trade-off TPR/FPR)**
-        - **F1 Score Maximization**
-        - **Precision–Recall Gap Minimization**
-    
-        This step ensures that the selected model is aligned with business goals like minimizing false positives or operational cost.
+        The two previously selected classification algorithms—Logistic Regression and XGBoost—are now compared objectively based on both 
+        statistical metrics and business-related performance indicators. The initial focus lies on evaluating overall model quality, especially 
+        the ability of each model to differentiate effectively between positive and negative cases. In line with common challenges in the 
+        financial sector, the dataset used in this project is highly imbalanced, with only 11.4% of the test cases belonging to the positive 
+        class. Therefore, particular emphasis is placed on the Early Retrieval Area as an evaluation criterion, specifically by analyzing model 
+        performance at a False Positive Rate (FPR) ≤ 20%. This business-relevant threshold helps determine whether a model can capture a 
+        significant portion of high-value targets early—ideally achieving a True Positive Rate (TPR) ≥ 70%, while maintaining cost efficiency. 
+        Additionally, AUC-ROC is used as a standard metric to evaluate the overall discriminative power of the models across all thresholds.
+
+        Beyond AUC, several advanced metrics are applied to obtain a more nuanced assessment of model performance under class imbalance. These 
+        include the Gini coefficient, which provides a normalized measure of class separation; the Brier Score, which quantifies the accuracy 
+        of predicted probabilities; and the Kolmogorov–Smirnov (KS) statistic, which identifies the maximum separation between cumulative 
+        distributions of positives and negatives. The Precision–Recall AUC (PR-AUC) offers an alternative view on classification performance, 
+        especially relevant in imbalanced contexts. Furthermore, a Lift Curve analysis illustrates how well each model improves targeting over 
+        random selection, while a Decile Analysis breaks down predictive power across score segments to assess model calibration and ranking 
+        quality. Together, these metrics and visual tools provide a comprehensive view of each model’s discriminative strength and practical 
+        utility in a cost-sensitive business environment.
+
+        Each model is evaluated under different threshold-tuning strategies, using the following performance metrics:
+        - False Positive Rate (FPR) – Minimizing operational costs
+        - False Negative Rate (FNR) – Minimizing lost revenue opportunities
+        - Precision – Maximizing the accuracy of positive predictions (focus on false positives)
+        - Recall (True Positive Rate) – Maximizing potential revenue gains
+        - Specificity (True Negative Rate) – Reducing unnecessary customer contacts (cost control)
+        - F1-Score – Harmonic mean of Precision and Recall
+        - Accuracy – Overall classification performance (used with caution in imbalanced datasets)        
+        - Cohen’s Kappa – Agreement between predicted and actual classes adjusted for chance (≥ 0.35 indicates acceptable to moderate agreement)
+        - Matthews Correlation Coefficient (MCC) – Measures correlation between predicted and observed classifications (≥ 0.35 considered meaningful)
+        - Total Cost (€) – Minimizing total cost by considering both operational expenditures and opportunity losses
+
+        The threshold-tuning strategies applied include:
+        - Default Threshold (0.5)
+        - Cost Minimization
+        - Youden Index (balancing TPR and FPR)
+        - F1-Score Maximization
+        - Precision–Recall Gap Minimization
+
+        In the following subsections, the models will be compared under each threshold-tuning approach using tables that present the respective 
+        performance metrics side by side. This serves to facilitate a clear and structured interpretation and improve readability. Visual aids 
+        such as color-coded confusion matrices with both absolute and relative values, and—depending on the tuning strategy—graphical 
+        representations of threshold curves, will be provided. This presentation is intended to help the reader follow and understand the 
+        evaluation results in a transparent and practice-oriented manner.
+
+        To enhance the interpretability of the models and provide actionable insights, a feature importance analysis is also conducted for both 
+        classification algorithms. For Logistic Regression, only the most statistically significant features are considered, based on odds 
+        ratios derived from the statsmodels package. Specifically, only variables with a p-value below 0.05 are included to ensure statistical 
+        relevance. For XGBoost, gain-based feature importances are utilized, which measure each feature’s relative contribution to reducing loss 
+        across all boosting iterations. In each case, the top nine predictors with the greatest influence on the target variable are visualized. 
+        This comparative perspective offers valuable information about the differ-rent ways the two models interpret and prioritize customer 
+        characteristics, thereby supporting domain experts in understanding the driving factors behind positive responses and enabling more 
+        targeted campaign strategies
+
         """)
         # ROC-Curve Plot
         st.markdown("---")
