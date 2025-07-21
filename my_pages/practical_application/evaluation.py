@@ -209,6 +209,18 @@ def show():
             "The Brier score measures the mean squared difference between predicted probabilities "
             r"$\hat{p}_i$ and actual outcomes $\gamma_i$ (0/false or 1/true):"
         )
+        st.latex(r"""
+        \text{Brier Score} = \frac{1}{N} \sum_{i=1}^{N} (\hat{p}_i - \gamma_i)^2
+        """)
+        st.markdown("""
+        Lower values indicate better calibration and accuracy of probability predictions.
+
+        The Kolmogorov-Smirnov (KS) statistic quantifies the maximum distance between the empirical cumulative distribution functions (ECDFs) 
+        of the predicted scores for the positive and negative classes: 
+        """)
+        st.latex(r"""
+        \text{Kolmogorov–Smirnov} = \max_x \left| F_1(x) - F_0(x) \right|
+        """)
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
