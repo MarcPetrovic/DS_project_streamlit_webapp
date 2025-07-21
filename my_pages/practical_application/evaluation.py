@@ -205,8 +205,10 @@ def show():
         st.markdown("""
         It quantifies a model’s discriminatory power; a value of 0 corresponds to random performance, while 1 indicates perfect separation. 
         """)
-        st.latex(r"\text{The Brier score measures the mean squared difference between predicted probabilities } \hat{p}_i \text{ and actual outcomes } \gamma_i \text{ (0/false or 1/true):}")
-
+        st.markdown(
+            "The Brier score measures the mean squared difference between predicted probabilities "
+            r"$\hat{p}_i$ and actual outcomes $\gamma_i$ (0/false or 1/true):"
+        )
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
