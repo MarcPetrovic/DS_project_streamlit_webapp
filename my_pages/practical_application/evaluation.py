@@ -234,6 +234,23 @@ def show():
         particularly important in highly imbalanced datasets, as it better reflects the model’s ability to detect rare positive events compared 
         to ROC-AUC. 
         """)
+        # Präzision und Recall Formeln
+        st.latex(r"""
+        \text{Precision} = \frac{TP}{TP + FP} \quad ; \quad
+        \text{Recall} = \frac{TP}{TP + FN}
+        """)
+        
+        # Erklärungen
+        st.markdown("**Where:**")
+        st.markdown("- **TP**: True Positive")
+        st.markdown("- **FP**: False Positive")
+        st.markdown("- **FN**: False Negative")
+        
+        # PR-AUC Titel und Formel
+        st.markdown("**The PR-AUC is then computed as:**")
+        st.latex(r"""
+        \text{PR-AUC} = \int_0^1 \text{Precision}(r) \, dr
+        """)
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
