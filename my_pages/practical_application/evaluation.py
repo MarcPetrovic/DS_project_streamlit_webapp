@@ -221,6 +221,19 @@ def show():
         st.latex(r"""
         \text{Kolmogorov–Smirnov} = \max_x \left| F_1(x) - F_0(x) \right|
         """)
+        st.markdown("**Where:**")
+        st.markdown("- $F_1(x)$ is the cumulative distribution function (CDF) of scores for the **positive class**")
+        st.markdown("- $F_0(x)$ is the CDF of scores for the **negative class**")
+        st.markdown("- $\\max_x$ denotes the maximum over all thresholds $x \\in \\mathbb{R}$")
+        st.markdown("""
+        The KS value ranges from 0 to 1, with higher values indicating better class separation between the distributions. The threshold that 
+        maximizes the KS statistic can be interpreted as an optimal classification cutoff, meaning that at this value the difference between 
+        positive and negative score distributions is maximized, facilitating effective classification.
+
+        The Precision-Recall AUC (PR-AUC) is the area under the Precision-Recall curve. It focuses on balancing precision and recall, which is 
+        particularly important in highly imbalanced datasets, as it better reflects the model’s ability to detect rare positive events compared 
+        to ROC-AUC. 
+        """)
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
