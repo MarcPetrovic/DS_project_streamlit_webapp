@@ -296,6 +296,19 @@ def show():
         st.markdown("- $P$: Total number of positive cases in the entire population")
         st.markdown("- $N$: Total number of observations in the population")
         st.markdown("- $P/N$: Baseline positive rate (i.e., the expected positive rate under random selection)")
+        st.markdown("""
+        For Logistic Regression, the lift reaches a value of 8 at the very top of the ranked sample (i.e., top predicted scores), drops to 4 at 
+        the top 10%, and continues declining to 3 at 20%, ~2 at 40%, and 1.5 at 60% of the sample.
+
+        The XGBoost model shows a similar shape but maintains slightly higher lift values in the top deciles. The curve confirms that both models 
+        significantly outperform random guessing (lift = 1) in the upper-ranked segments, with diminishing marginal gains as larger segments of 
+        the population are included.
+
+        This behavior supports the effectiveness of both models for ranking and prioritization, especially when only a limited portion of the 
+        population can be targeted (e.g., marketing campaigns or risk management). The curve's early steep rise also implies strong model 
+        discrimination.
+
+        """)
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
