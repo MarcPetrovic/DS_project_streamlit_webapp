@@ -301,6 +301,7 @@ def show():
 
         st.subheader("Lift Curve with Confidence Intervals")
         fig, ax = plt.subplots(figsize=(8, 6))
+        ax.set_facecolor('lightgrey')        
         plot_lift_curve_with_ci(y_test, logreg_probs, 'Logistic Regression', '#097a80', ax=ax)
         plot_lift_curve_with_ci(y_test, xgb_probs, 'XGBoost', '#191919', ax=ax)
         ax.plot([0, 1], [1, 1], color='#C00000', linestyle='--', label='Random Model')
