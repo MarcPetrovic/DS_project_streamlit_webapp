@@ -20,6 +20,8 @@ from utils.feature_importance_helpers import (
 )
 from utils.plot_opex_optimization import plot_opex_optimization
 from utils.plot_ks_curve import plot_ks_curve
+import matplotlib.pyplot as plt
+from utils.plot_lift_curve import plot_lift_curve_with_ci
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
