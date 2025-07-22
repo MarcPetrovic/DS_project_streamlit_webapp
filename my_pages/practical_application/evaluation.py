@@ -375,14 +375,12 @@ def show():
         logreg_deciles = decile_analysis(y_test, logreg_probs)
         xgb_deciles = decile_analysis(y_test, xgb_probs)
         
-        # Optional: zeige Tabellen
-        st.subheader("📊 Decile Lift – Logistic Regression")
-        st.dataframe(logreg_deciles)
+        #st.subheader("📊 Decile Lift – Logistic Regression")
+        #st.dataframe(logreg_deciles)
         
-        st.subheader("📊 Decile Lift – XGBoost")
-        st.dataframe(xgb_deciles)
-        
-        # Diagramm
+        #st.subheader("📊 Decile Lift – XGBoost")
+        #st.dataframe(xgb_deciles)
+
         fig, axes = plt.subplots(1, 2, figsize=(14, 5), sharey=True)
         fig.suptitle('Decile-wise Lift Comparison')
         
@@ -401,6 +399,20 @@ def show():
         
         plt.tight_layout(rect=[0, 0, 1, 0.95])
         st.pyplot(fig)
+        st.markdown("""
+        **Gains Chart vs. ROC Curve: Interpretation**
+
+        The Gains Chart displays the cumulative proportion of positive cases identified by selecting a given proportion of the population sorted 
+        by predicted probability. It is especially helpful in real-world applications, such as determining how many true positives can be 
+        captured by targeting the top 10%, 20%, or 30% of the model’s predicted rankings. This makes it a highly actionable tool for campaign 
+        management, budget allocation, and resource optimization. 
+
+        In contrast, the ROC Curve plots the True Positive Rate (Sensitivity) against the False Positive Rate (1 – Specificity) for all possible 
+        thresholds. It provides a threshold-independent measure of model performance, useful for assessing general discriminative ability, 
+        especially in imbalanced datasets. However, it does not offer direct insight into business outcomes or operational metrics such as 
+        customer reach or return on investment. Thus, while the ROC Curve is valuable for evaluating classification quality, the Gains Chart is 
+        more aligned with cost-benefit considerations and decision support in applied settings.
+        """)
 
         
     elif strategy == "feature_importance":
