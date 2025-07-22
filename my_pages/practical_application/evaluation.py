@@ -296,6 +296,23 @@ def show():
         st.markdown("- $P$: Total number of positive cases in the entire population")
         st.markdown("- $N$: Total number of observations in the population")
         st.markdown("- $P/N$: Baseline positive rate (i.e., the expected positive rate under random selection)")
+
+        st.subheader("Lift Curve with Confidence Intervals")
+        fig, ax = plt.subplots(figsize=(8, 6))
+        plot_lift_curve_with_ci(y_test, logreg_probs, 'Logistic Regression', '#097a80', ax=ax)
+        plot_lift_curve_with_ci(y_test, xgb_probs, 'XGBoost', '#191919', ax=ax)
+        ax.plot([0, 1], [1, 1], color='#C00000', linestyle='--', label='Random Model')
+        
+        # Style
+        ax.set_xlabel('Proportion of Sample')
+        ax.set_ylabel('Lift')
+        ax.set_title('Lift Curve with 95% Confidence Intervals')
+        ax.grid(True, linestyle='--', alpha=0.6, color='grey')
+        ax.legend()
+        plt.tight_layout()
+        
+        st.pyplot(fig)
+        
         st.markdown("""
         For Logistic Regression, the lift reaches a value of 8 at the very top of the ranked sample (i.e., top predicted scores), drops to 4 at 
         the top 10%, and continues declining to 3 at 20%, ~2 at 40%, and 1.5 at 60% of the sample.
