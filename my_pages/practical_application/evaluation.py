@@ -23,6 +23,7 @@ from utils.plot_ks_curve import plot_ks_curve
 import matplotlib.pyplot as plt
 from utils.plot_lift_curve import plot_lift_curve_with_ci
 from utils.decile_analysis import *
+from utils.plot_gains_chart import *
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -413,7 +414,25 @@ def show():
         customer reach or return on investment. Thus, while the ROC Curve is valuable for evaluating classification quality, the Gains Chart is 
         more aligned with cost-benefit considerations and decision support in applied settings.
         """)
+        st.subheader("📈 Gains Chart")
 
+        fig, ax = plt.subplots(figsize=(12, 6))
+        ax.set_facecolor('lightgrey')
+    
+        plot_gains_chart(y_test, logreg_probs, 'Logistic Regression', '#097a80')
+        plot_gains_chart(y_test, xgb_probs, 'XGBoost', '#191919')
+        
+        # Random Model
+        plt.plot([0, 1], [0, 1], color='#C00000', linestyle='--', label='Random Model')
+        
+        # Layout
+        plt.xlabel('Proportion of Sample')
+        plt.ylabel('Cumulative Gain')
+        plt.title('Gains Chart')
+        plt.legend()
+        plt.grid(True, linestyle='--', alpha=0.7, color='grey')
+        plt.tight_layout()
+        st.pyplot(fig)
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
