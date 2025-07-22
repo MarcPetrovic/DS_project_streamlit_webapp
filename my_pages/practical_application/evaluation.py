@@ -22,6 +22,7 @@ from utils.plot_opex_optimization import plot_opex_optimization
 from utils.plot_ks_curve import plot_ks_curve
 import matplotlib.pyplot as plt
 from utils.plot_lift_curve import plot_lift_curve_with_ci
+from utils.decile_analysis import *
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -371,6 +372,35 @@ def show():
         **Overall**, the decile figures demonstrate the practical value of both models for operational decision-making, enabling **data-driven 
         prioritization** that aligns with business objectives.
         """)
+        logreg_deciles = decile_analysis(y_test, logreg_probs)
+        xgb_deciles = decile_analysis(y_test, xgb_probs)
+        
+        # Optional: zeige Tabellen
+        st.subheader("📊 Decile Lift – Logistic Regression")
+        st.dataframe(logreg_deciles)
+        
+        st.subheader("📊 Decile Lift – XGBoost")
+        st.dataframe(xgb_deciles)
+        
+        # Diagramm
+        fig, axes = plt.subplots(1, 2, figsize=(14, 5), sharey=True)
+        fig.suptitle('Decile-wise Lift Comparison')
+        
+        # Plot: Logistic Regression
+        axes[0].bar(logreg_deciles.index.astype(str), logreg_deciles['lift'], color='#097a80')
+        axes[0].set_title('Logistic Regression')
+        axes[0].set_xlabel('Decile (9 = highest predicted scores)')
+        axes[0].set_ylabel('Lift')
+        axes[0].grid(axis='y', linestyle='--', alpha=0.6, color='grey')
+        
+        # Plot: XGBoost
+        axes[1].bar(xgb_deciles.index.astype(str), xgb_deciles['lift'], color='#191919')
+        axes[1].set_title('XGBoost')
+        axes[1].set_xlabel('Decile (9 = highest predicted scores)')
+        axes[1].grid(axis='y', linestyle='--', alpha=0.6, color='grey')
+        
+        plt.tight_layout(rect=[0, 0, 1, 0.95])
+        st.pyplot(fig)
 
         
     elif strategy == "feature_importance":
