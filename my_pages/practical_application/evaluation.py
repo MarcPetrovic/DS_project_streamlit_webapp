@@ -313,9 +313,9 @@ def show():
         ax.grid(True, linestyle='--', alpha=0.6, color='grey')
         ax.legend()
         plt.tight_layout()
-        
         st.pyplot(fig)
-        
+
+   
         st.markdown("""
         For Logistic Regression, the lift reaches a value of 8 at the very top of the ranked sample (i.e., top predicted scores), drops to 4 at 
         the top 10%, and continues declining to 3 at 20%, ~2 at 40%, and 1.5 at 60% of the sample.
@@ -328,7 +328,50 @@ def show():
         population can be targeted (e.g., marketing campaigns or risk management). The curve's early steep rise also implies strong model 
         discrimination.
 
+        **Decile Analysis**
+
+        Decile analysis divides the scored population into ten equally sized groups (deciles) based on predicted probabilities, ranking them 
+        from the highest to the lowest likelihood of a positive outcome. This analysis assesses the model’s ability to separate positive and 
+        negative cases across these segments. A well-performing model will concentrate a disproportionate number of true positives in the top 
+        deciles, indicating effective ranking capability.
+
+        Higher lift values in top deciles reflect the model’s ability to identify high-probability cases more effectively than random selection. 
+        As the decile rank decreases (i.e., moving toward lower-score groups), both the number of positives and the lift typically decline, 
+        indicating reduced model performance in those segments.
+
+        """)     
+        st.latex(r"""
+        \text{Lift}_d = \frac{\frac{TP_d}{n_d}}{\frac{P}{N}}
         """)
+        
+        st.markdown("""
+        **Where:**
+        - $\\text{Lift}_d$: Lift in decile *d*
+        - $TP_d$: Number of True Positives in decile *d*
+        - $n_d$: Total number of observations in decile *d*
+        - $P$: Total number of Positive cases in the full population
+        - $N$: Total number of observations in the full population
+        - $P/N$: Baseline positive rate across the full population
+        """)
+        
+        st.markdown("""
+        The decile analysis for both models highlights a clear concentration of positive cases in the top deciles, affirming the models' ability 
+        to effectively rank customers according to their likelihood of exhibiting the target behavior.
+        
+        In the **Logistic Regression** model, the top decile (Decile 9) includes 1,236 observations and achieves a **lift of approximately 4.27**, 
+        indicating that this segment contains over four times the average rate of positive cases. With **609 positive cases** in this group, it is 
+        ideal for prioritized interventions. As the decile rank decreases, both the number of positives and the lift decline consistently, which 
+        reflects a natural drop in model performance in lower-risk segments.
+        
+        The **XGBoost** model shows a similar trend, with an even higher **lift of 4.56 in Decile 9**, where **650 positive cases** are concentrated. 
+        The steady decrease in lift across the lower deciles is consistent with expectations, and the slightly stronger performance in the top segment 
+        suggests XGBoost may offer more precise segmentation. The similarity in the mid and lower deciles between both models confirms their reliability 
+        in identifying less likely targets with reduced effectiveness.
+        
+        **Overall**, the decile figures demonstrate the practical value of both models for operational decision-making, enabling **data-driven 
+        prioritization** that aligns with business objectives.
+        """)
+
         
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
