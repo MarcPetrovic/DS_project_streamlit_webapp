@@ -540,6 +540,7 @@ def show():
             As shown in table 7, cost-optimized thresholding reduces total cost compared to the default threshold (0.500) by:
             - €1,203,950 for Logistic Regression (from €3,900,300 to €2,696,350)
             - €1,130,950 for XGBoost (from €3,681,600 to €2,550,650)
+            
             These correspond to cost savings of approximately 30.9% and 30.7%, respectively.
             """)
         # Ergebnisse als Tabelle anzeigen
