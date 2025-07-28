@@ -515,7 +515,22 @@ def show():
             fig_youden = plot_roc_with_youden(y_test, logreg_probs, xgb_probs)
             st.pyplot(fig_youden)
         if strategy == "cost":
-            st.markdown("---")
+            st.markdown("""
+            While default classification thresholds (e.g., 0.500) are often used in practice, they rarely align with the cost structure of real-world 
+            business problems. In domains such as direct marketing for banking products, the economic impact of misclassifications is asymmetric: false 
+            negatives (i.e., missed contracts) incur high opportunity costs, while false positives (i.e., unnecessary outreach) generate operational 
+            costs. Accordingly, threshold selection based on cost minimization represents a more economically rational alternative.
+            
+            As detailed in Section 3.1.1, this project adopts a cost model in which:
+            - False Positives are penalized with €550 (per unnecessary contact/calls),
+            - False Negatives incur €3,350 (per missed successful customer/contract).
+
+            This 6:1 cost ratio directly informs the threshold optimization process. Instead of maximizing conventional metrics like accuracy or 
+            F1 score, thresholds are selected to minimize total expected cost across the classification spectrum. Figure 48 visualizes the cost 
+            curves for both models over a range of thresholds. The cost-optimal thresholds are identified as:
+            - 0.141 for Logistic Regression
+            - 0.161 for XGBoost
+            """)
             st.subheader("Threshold Optimization via OPEX Optimization")
             fig_opex_opti = plot_opex_optimization(y_test, logreg_probs, xgb_probs, language="en")
             st.pyplot(fig_opex_opti)
