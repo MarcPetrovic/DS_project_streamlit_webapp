@@ -134,7 +134,13 @@ def show():
         performance at a False Positive Rate (FPR) ≤ 20%. This business-relevant threshold helps determine whether a model can capture a 
         significant portion of high-value targets early—ideally achieving a True Positive Rate (TPR) ≥ 70%, while maintaining cost efficiency. 
         Additionally, AUC-ROC is used as a standard metric to evaluate the overall discriminative power of the models across all thresholds.
-
+        """)
+        show_github_image(
+            image_filename="images/evaluation_dmp_tts_fia.PNG",
+            repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+            caption="Figure 1: Description of the Data Scientest Use Case Study"
+        )
+        st.markdown("""        
         Beyond AUC, several advanced metrics are applied to obtain a more nuanced assessment of model performance under class imbalance. These 
         include the Gini coefficient, which provides a normalized measure of class separation; the Brier Score, which quantifies the accuracy 
         of predicted probabilities; and the Kolmogorov–Smirnov (KS) statistic, which identifies the maximum separation between cumulative 
