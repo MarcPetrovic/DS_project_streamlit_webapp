@@ -446,11 +446,31 @@ def show():
             display_strategy_results(
                 strategy_label=strategy,
                 markdown_intro="""
-                ### Cost-Optimized Thresholding  
-                This strategy minimizes total misclassification cost based on an asymmetric penalty model (e.g., 6:1).
+                While default classification thresholds (e.g., 0.500) are often used in practice, they rarely align with the cost structure of real-world 
+                business problems. In domains such as direct marketing for banking products, the economic impact of misclassifications is asymmetric: false 
+                negatives (i.e., missed contracts) incur high opportunity costs, while false positives (i.e., unnecessary outreach) generate operational 
+                costs. Accordingly, threshold selection based on cost minimization represents a more economically rational alternative.
+                
+                As detailed in Section 3.1.1, this project adopts a cost model in which:
+                - False Positives are penalized with €550 (per unnecessary contact/calls),
+                - False Negatives incur €3,350 (per missed successful customer/contract).
+    
+                This 6:1 cost ratio directly informs the threshold optimization process. Instead of maximizing conventional metrics like accuracy or 
+                F1 score, thresholds are selected to minimize total expected cost across the classification spectrum. Figure 48 visualizes the cost 
+                curves for both models over a range of thresholds. The cost-optimal thresholds are identified as:
+                - 0.141 for Logistic Regression
+                - 0.161 for XGBoost
                 """,
                 plot_figure=plot_opex_optimization(y_test, logreg_probs, xgb_probs, language="en"),
                 markdown_after_plot="""
+                The updated performance metrics under these thresholds are reported in Table 7, revealing significant shifts compared to the default 
+                configuration (Table 6). These adjustments reflect the models' improved alignment with the underlying cost asymmetry.
+                As shown in table 7, cost-optimized thresholding reduces total cost compared to the default threshold (0.500) by:
+                - €1,203,950 for Logistic Regression (from €3,900,300 to €2,696,350)
+                - €1,130,950 for XGBoost (from €3,681,600 to €2,550,650)
+                
+                These correspond to cost savings of approximately 30.9% and 30.7%, respectively.
+                
                 The cost-optimized thresholds are:
                 - **0.141** for Logistic Regression  
                 - **0.161** for XGBoost  
@@ -463,7 +483,7 @@ def show():
                 metrics_logreg=metrics_logreg,
                 metrics_xgb=metrics_xgb,
                 cmap=cmap_4,
-                markdown_metrics_text="### Updated Performance Metrics under Cost-Optimized Thresholds"
+                markdown_metrics_text="### Performance Metrics (with ✅ for better model)"
             )
         
         elif strategy == "youden":
