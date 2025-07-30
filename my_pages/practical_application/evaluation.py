@@ -24,6 +24,7 @@ import matplotlib.pyplot as plt
 from utils.plot_lift_curve import plot_lift_curve_with_ci
 from utils.decile_analysis import *
 from utils.plot_gains_chart import *
+from utils.display_helpers import display_strategy_results
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -56,64 +57,7 @@ def show():
         xgb_model, _, _, _, _ = train_model(model_type="xgboost")
         return logreg_model, xgb_model, X_train, y_train
 
-    def render_html_table_metrics(df: pd.DataFrame) -> str:
-        html = """
-        <style>
-            .scrollable-table-container {
-                height: 400px;
-                overflow-y: auto;
-                border: 1px solid #ccc;
-                padding: 10px;
-            }
-    
-            table {
-                width: 100% !important;
-                border-collapse: collapse !important;
-                table-layout: fixed !important;
-                border: 2px solid black !important;
-            }
-            th {
-                position: sticky;
-                top: 0;
-                background-color: #097a80 !important;
-                color: white !important;
-                border: 1px solid lightgray !important;
-                text-align: left !important;
-                padding: 8px !important;
-                word-break: break-word !important;
-                max-width: 250px !important;
-                font-size: 14px !important;
-            }
-            td {
-                background-color: white !important;
-                color: black !important;
-                border: 1px solid black !important;
-                text-align: left !important;
-                padding: 8px !important;
-                word-break: break-word !important;
-                max-width: 250px !important;
-                font-size: 14px !important;
-            }
-        </style>
-        <div class="scrollable-table-container">
-        <table>
-            <thead>
-                <tr>
-        """
-    
-        for col in df.columns:
-            html += f"<th>{col}</th>"
-        html += "</tr></thead><tbody>"
-    
-        for _, row in df.iterrows():
-            html += "<tr>"
-            for col in df.columns:
-                cell = row[col]
-                html += f"<td>{str(cell)}</td>"
-            html += "</tr>"
-    
-        html += "</tbody></table></div>"
-        return html
+# hier war def render_html_table_metrics(df: pd.DataFrame) -> str:
         
     # 1. Einführung
     if strategy is None:
@@ -497,142 +441,102 @@ def show():
         metrics_logreg, metrics_xgb = compare_models_by_threshold_strategy(
             y_test, logreg_probs, xgb_probs, strategy=strategy
         )
-        # Nur für F1-Strategie: Precision–Recall-Kurve mit Threshold-Markierung anzeigen
-        if strategy == "f1":
-            st.markdown("---")
-            st.subheader("Precision–Recall Curve with F1-Optimized Thresholds")
-            fig_f1 = plot_precision_recall_with_f1_thresholds(y_test, logreg_probs, xgb_probs)
-            st.pyplot(fig_f1)
-        # Nur bei Precision–Recall-Gap-Minimierung: Visualisierung des Schwellenwertverlaufs
-        if strategy == "pr_gap":
-            st.markdown("---")
-            st.subheader("Threshold Optimization via Precision–Recall Gap Minimization")
-            fig_pr_gap = plot_precision_recall_gap(y_test, logreg_probs, xgb_probs)
-            st.pyplot(fig_pr_gap)    
-        if strategy == "youden":
-            st.markdown("---")
-            st.subheader("ROC Curve with Youden’s J Optimization")
-            fig_youden = plot_roc_with_youden(y_test, logreg_probs, xgb_probs)
-            st.pyplot(fig_youden)
+
         if strategy == "cost":
-            st.markdown("""
-            While default classification thresholds (e.g., 0.500) are often used in practice, they rarely align with the cost structure of real-world 
-            business problems. In domains such as direct marketing for banking products, the economic impact of misclassifications is asymmetric: false 
-            negatives (i.e., missed contracts) incur high opportunity costs, while false positives (i.e., unnecessary outreach) generate operational 
-            costs. Accordingly, threshold selection based on cost minimization represents a more economically rational alternative.
-            
-            As detailed in Section 3.1.1, this project adopts a cost model in which:
-            - False Positives are penalized with €550 (per unnecessary contact/calls),
-            - False Negatives incur €3,350 (per missed successful customer/contract).
-
-            This 6:1 cost ratio directly informs the threshold optimization process. Instead of maximizing conventional metrics like accuracy or 
-            F1 score, thresholds are selected to minimize total expected cost across the classification spectrum. Figure 48 visualizes the cost 
-            curves for both models over a range of thresholds. The cost-optimal thresholds are identified as:
-            - 0.141 for Logistic Regression
-            - 0.161 for XGBoost
-            """)
-            st.subheader("Threshold Optimization via OPEX Optimization")
-            fig_opex_opti = plot_opex_optimization(y_test, logreg_probs, xgb_probs, language="en")
-            st.pyplot(fig_opex_opti)
-            st.markdown("""
-            The updated performance metrics under these thresholds are reported in Table 7, revealing significant shifts compared to the default 
-            configuration (Table 6). These adjustments reflect the models' improved alignment with the underlying cost asymmetry.
-            As shown in table 7, cost-optimized thresholding reduces total cost compared to the default threshold (0.500) by:
-            - €1,203,950 for Logistic Regression (from €3,900,300 to €2,696,350)
-            - €1,130,950 for XGBoost (from €3,681,600 to €2,550,650)
-            
-            These correspond to cost savings of approximately 30.9% and 30.7%, respectively.
-            """)
-        # Ergebnisse als Tabelle anzeigen
-        st.subheader(f"Performance Metrics ({strategy_label})")
-        df_results = pd.DataFrame([metrics_logreg, metrics_xgb],
-                                  index=["Logistic Regression", "XGBoost"]).T
-
-        def mark_best(df):
-            df_marked = df.copy()
-            for idx in df.index:
-                idx_str = str(idx) 
-                val1 = df.loc[idx, "Logistic Regression"]
-                val2 = df.loc[idx, "XGBoost"]
-
-                is_cost = "Cost" in idx_str or "€" in idx_str
-
-                # Optional: Werte umrechnen, wenn es sich um Kosten handelt
-                if is_cost:
-                    val1 = val1 / 1000
-                    val2 = val2 / 1000
-                    if not idx_str.endswith("(k €)"):
-                        df_marked.rename(index={idx: f"{idx_str} (k €)"}, inplace=True)
-                        idx = f"{idx_str} (k €)"  # Update Referenz für loc unten
-                
-                if isinstance(val1, (float, int)) and isinstance(val2, (float, int)):
-                    # Wenn kleiner besser (Cost, Error Rate etc.)
-                    if "Rate" in idx_str or is_cost: #"Cost" in idx:
-                        if val1 < val2:
-                            df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f} ✅"
-                            df_marked.loc[idx, "XGBoost"] = f"{val2:.3f}"
-                        else:
-                            df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f}"
-                            df_marked.loc[idx, "XGBoost"] = f"{val2:.3f} ✅"
-                    else:  # Wenn größer besser (Accuracy, F1 etc.)
-                        if val1 > val2:
-                            df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f} ✅"
-                            df_marked.loc[idx, "XGBoost"] = f"{val2:.3f}"
-                        else:
-                            df_marked.loc[idx, "Logistic Regression"] = f"{val1:.3f}"
-                            df_marked.loc[idx, "XGBoost"] = f"{val2:.3f} ✅"
-                else:
-                    # Falls kein numerischer Vergleich möglich
-                    df_marked.loc[idx, "Logistic Regression"] = str(val1)
-                    df_marked.loc[idx, "XGBoost"] = str(val2)
-            return df_marked
-            
-        df_results_marked = mark_best(df_results)    
-        #df_results["✓"] = df_results.apply(mark_better, axis=1)    
-        #st.dataframe(df_results.style.format(precision=3))
-
+            display_strategy_results(
+                strategy_label=strategy,
+                markdown_intro="""
+                ### Cost-Optimized Thresholding  
+                This strategy minimizes total misclassification cost based on an asymmetric penalty model (e.g., 6:1).
+                """,
+                plot_figure=plot_opex_optimization(y_test, logreg_probs, xgb_probs, language="en"),
+                markdown_after_plot="""
+                The cost-optimized thresholds are:
+                - **0.141** for Logistic Regression  
+                - **0.161** for XGBoost  
         
-        # 3. Index (Metriken) als Spalte übernehmen
-        df_results_marked.reset_index(inplace=True)
-        df_results_marked.rename(columns={"index": "Metric"}, inplace=True)
+                These thresholds significantly reduce business cost compared to the default 0.5 threshold.
+                """,
+                y_test=y_test,
+                logreg_probs=logreg_probs,
+                xgb_probs=xgb_probs,
+                metrics_logreg=metrics_logreg,
+                metrics_xgb=metrics_xgb,
+                cmap=cmap_4,
+                markdown_metrics_text="### Updated Performance Metrics under Cost-Optimized Thresholds"
+            )
         
-        # 4. Optional: Formatierung
-        #df_results = df_results.round(3)
+        elif strategy == "youden":
+            display_strategy_results(
+                strategy_label=strategy,
+                markdown_intro="""
+                ### Youden Index Optimization  
+                This approach maximizes the sum of sensitivity and specificity (Youden’s J statistic) to find a balanced threshold.
+                """,
+                plot_figure=plot_roc_with_youden(y_test, logreg_probs, xgb_probs),
+                markdown_after_plot="The optimal thresholds are where TPR - FPR is maximized on the ROC curve.",
+                y_test=y_test,
+                logreg_probs=logreg_probs,
+                xgb_probs=xgb_probs,
+                metrics_logreg=metrics_logreg,
+                metrics_xgb=metrics_xgb,
+                cmap=cmap_4,
+                markdown_metrics_text="### Performance Metrics (Thresholds via Youden Index)"
+            )
         
-        # 5. HTML-Rendering der neuen Tabelle
-        html_table_metrics = render_html_table_metrics(df_results_marked)
+        elif strategy == "f1":
+            display_strategy_results(
+                strategy_label=strategy,
+                markdown_intro="""
+                ### F1-Score Maximization  
+                This strategy identifies the threshold that maximizes the harmonic mean of precision and recall.
+                """,
+                plot_figure=plot_precision_recall_with_f1_thresholds(y_test, logreg_probs, xgb_probs),
+                markdown_after_plot="Optimal thresholds correspond to the highest F1-score along the PR curve.",
+                y_test=y_test,
+                logreg_probs=logreg_probs,
+                xgb_probs=xgb_probs,
+                metrics_logreg=metrics_logreg,
+                metrics_xgb=metrics_xgb,
+                cmap=cmap_4,
+                markdown_metrics_text="### Evaluation Metrics Based on F1-Optimized Thresholds"
+            )
         
-        # 6. Anzeige in Streamlit
-        st.subheader("Performance Metrics (with ✅ for better model)")
-        st.markdown(html_table_metrics, unsafe_allow_html=True)
-
-       # Konfusionsmatrizen visualisieren
-        st.markdown("---")
-        st.subheader("Confusion Matrices")
-
-        # Vorhersagen anhand des gewählten Thresholds
-        logreg_pred = (logreg_probs >= metrics_logreg['Threshold']).astype(int)
-        xgb_pred = (xgb_probs >= metrics_xgb['Threshold']).astype(int)
-
-        # Logistic Regression – Confusion Matrix
-        st.markdown("### Logistic Regression")
-        fig_logreg = plot_confusion_matrices(
-            y_test, logreg_pred,
-            model_name="Logistic Regression",
-            strategy=strategy_label,
-            cmap=cmap_4
-        )
-        st.pyplot(fig_logreg)
-
-        # XGBoost – Confusion Matrix
-        st.markdown("### XGBoost")
-        fig_xgb = plot_confusion_matrices(
-            y_test, xgb_pred,
-            model_name="XGBoost",
-            strategy=strategy_label,
-            cmap=cmap_4
-        )
-        st.pyplot(fig_xgb)
+        elif strategy == "pr_gap":
+            display_strategy_results(
+                strategy_label=strategy,
+                markdown_intro="""
+                ### Precision–Recall Gap Minimization  
+                This strategy selects thresholds that minimize the absolute difference between precision and recall.
+                """,
+                plot_figure=plot_precision_recall_gap(y_test, logreg_probs, xgb_probs),
+                markdown_after_plot="Thresholds are chosen where the gap between precision and recall is smallest.",
+                y_test=y_test,
+                logreg_probs=logreg_probs,
+                xgb_probs=xgb_probs,
+                metrics_logreg=metrics_logreg,
+                metrics_xgb=metrics_xgb,
+                cmap=cmap_4,
+                markdown_metrics_text="### Metrics under PR-Gap-Minimizing Thresholds"
+            )
+        
+        elif strategy == "default":
+            display_strategy_results(
+                strategy_label=strategy,
+                markdown_intro="""
+                ### Default Threshold (0.5)  
+                Most models use a default threshold of 0.500 for classification, which may not reflect business constraints.
+                """,
+                plot_figure=None,
+                markdown_after_plot="While simple, this threshold often leads to suboptimal outcomes in imbalanced settings.",
+                y_test=y_test,
+                logreg_probs=logreg_probs,
+                xgb_probs=xgb_probs,
+                metrics_logreg=metrics_logreg,
+                metrics_xgb=metrics_xgb,
+                cmap=cmap_4,
+                markdown_metrics_text="### Model Performance with Default Threshold (0.500)"
+            )
     st.markdown("""
         <!-- Font Awesome einbinden -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
