@@ -7,25 +7,33 @@ def display_strategy_results(
     strategy_label: str,
     markdown_intro: str,
     plot_figure,
+    markdown_after_plot: str,
     y_test,
     logreg_probs,
     xgb_probs,
     metrics_logreg,
     metrics_xgb,
     cmap,
-    markdown_metrics_text: str = None
+    markdown_metrics_text: str
 ):
-    # 1. Einleitung
+    # 1. Markdown-Intro
     st.markdown(markdown_intro)
 
-    # 2. Visualisierung
-    st.subheader(f"Threshold Optimization via {strategy_label}")
-    st.pyplot(plot_figure)
+    # 2. Strategietypische Visualisierung (falls vorhanden)
+    if plot_figure is not None:
+        st.pyplot(plot_figure)
 
-    # 3. Confusion Matrices
+    # 3. Nachfolgender Text zur Interpretation der Visualisierung
+    if markdown_after_plot:
+        st.markdown(markdown_after_plot)
+
+    # 4. Confusion Matrices
+    st.markdown("---")
     st.subheader("Confusion Matrices")
-    logreg_pred = (logreg_probs >= metrics_logreg['Threshold']).astype(int)
-    xgb_pred = (xgb_probs >= metrics_xgb['Threshold']).astype(int)
+
+    # Threshold-Anwendung
+    logreg_pred = (logreg_probs >= metrics_logreg["Threshold"]).astype(int)
+    xgb_pred = (xgb_probs >= metrics_xgb["Threshold"]).astype(int)
 
     st.markdown("### Logistic Regression")
     fig_logreg = plot_confusion_matrices(y_test, logreg_pred, model_name="Logistic Regression", strategy=strategy_label, cmap=cmap)
@@ -35,16 +43,21 @@ def display_strategy_results(
     fig_xgb = plot_confusion_matrices(y_test, xgb_pred, model_name="XGBoost", strategy=strategy_label, cmap=cmap)
     st.pyplot(fig_xgb)
 
-    # 4. Optionaler Markdown zur Tabelle
-    if markdown_metrics_text:
-        st.markdown(markdown_metrics_text)
+    # 5. Überleitung zu den Metriken
+    st.markdown("---")
+    st.markdown(markdown_metrics_text)
 
-    # 5. Performance-Tabelle
-    st.subheader("Performance Metrics (with ✅ for better model)")
-
-    df_results = pd.DataFrame([metrics_logreg, metrics_xgb], index=["Logistic Regression", "XGBoost"]).T
+    # 6. Vergleichstabelle rendern
+    df_results = {
+        "Logistic Regression": metrics_logreg,
+        "XGBoost": metrics_xgb
+    }
+    import pandas as pd
+    df_results = pd.DataFrame(df_results)
     df_results_marked = mark_best(df_results)
     df_results_marked.reset_index(inplace=True)
     df_results_marked.rename(columns={"index": "Metric"}, inplace=True)
+
     html_table = render_html_table_metrics(df_results_marked)
     st.markdown(html_table, unsafe_allow_html=True)
+
