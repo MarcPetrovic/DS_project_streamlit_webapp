@@ -30,7 +30,8 @@ def display_strategy_results(
         st.markdown(markdown_after_plot)
 
     # 4. Confusion Matrices
-    st.markdown("---")
+    #st.markdown("---")
+    st.markdown(" \n\n&nbsp; ")
     st.subheader("Confusion Matrices")
 
     # Threshold-Anwendung
@@ -44,13 +45,14 @@ def display_strategy_results(
     st.markdown("### XGBoost")
     fig_xgb = plot_confusion_matrices(y_test, xgb_pred, model_name="XGBoost", strategy=strategy_label, cmap=cmap)
     st.pyplot(fig_xgb)
-
+    st.markdown(" \n\n&nbsp; ")
     # 4.1 Optionaler Text zwischen Confusion Matrices und Performance Metrics
     if markdown_between_confusion_and_metrics:
         st.markdown(markdown_between_confusion_and_metrics)
 
     # 5. Überleitung zu den Metriken
-    st.markdown("---")
+    #st.markdown("---")
+    st.markdown(" \n\n&nbsp; ")
     st.markdown(markdown_metrics_text)
 
     # 6. Vergleichstabelle rendern
