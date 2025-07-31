@@ -578,6 +578,7 @@ def show():
                 cmap=cmap_4,
                 markdown_metrics_text="### Performance Metrics (with ✅ for better model)",
                 markdown_between_confusion_and_metrics="""
+                
                 These values, derived from the confusion matrices in Figures 49 and 50, serve as upper and lower bounds in the decision space: the null 
                 model minimizes operational effort but leads to maximum opportunity loss, whereas the total model guarantees full coverage at the expense 
                 of massive contact costs. Compared to these baselines, both machine learning models—particularly XGBoost—offer substantial cost advantages 
@@ -588,6 +589,13 @@ def show():
                 selection in cost asymmetry, rather than arbitrary probability cutoffs, the resulting models deliver not only improved classification performance 
                 but also quantifiable economic benefit. Among the evaluated models, XGBoost emerges as the superior choice, offering a favorable balance of 
                 precision, recall, and cost efficiency.
+                """,
+                markdown_after_table="""
+
+                While this thresholding approach is explicitly aligned with business costs, the following section explores an alternative optimization method based 
+                on a purely statistical criterion: the Youden Index, which seeks to balance sensitivity and specificity independent of financial considerations. This 
+                upcoming strategy provides a useful contrast to cost-based optimization and contributes to a more holistic understanding of threshold selection in 
+                applied machine learning.
                 """
             )
         
