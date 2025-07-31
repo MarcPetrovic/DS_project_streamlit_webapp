@@ -559,7 +559,7 @@ def show():
                 contains 880 true positives and 544 false negatives, summing to a total of 1,424 actual positives. In the absence of any contact, all 
                 1,424 cases become false negatives, resulting in opportunity costs of:
                 
-                - 1,424 x €3,350 = €4,767,400
+                                    - 1,424 x €3,350 = €4,767,400
 
                 Total cost: €4.77 million, incurred solely through missed business opportunities.
                 Conversely, the total model assumes full market coverage—every customer is contacted regardless of likelihood. Based on the confusion 
