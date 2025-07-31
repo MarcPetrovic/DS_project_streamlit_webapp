@@ -667,7 +667,6 @@ def show():
                 summarized in Table 6 and visualized in Figures 46 and 47, which include the Confusion Matrix for both models.
                 """,
                 plot_figure=None,
-                markdown_after_plot,
                 y_test=y_test,
                 logreg_probs=logreg_probs,
                 xgb_probs=xgb_probs,
