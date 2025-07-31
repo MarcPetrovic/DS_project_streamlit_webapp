@@ -667,7 +667,11 @@ def show():
                 summarized in Table 6 and visualized in Figures 46 and 47, which include the Confusion Matrix for both models.
                 """,
                 plot_figure=None,
-                markdown_after_plot="",
+                markdown_after_plot="""
+                From a performance metrics perspective, Logistic Regression exhibits marginally superior values in precision and false positive rate, indicating a more 
+                conservative prediction strategy that favors precision over recall. This trait may be desirable in operational settings where minimizing unnecessary outreach 
+                is prioritized, such as when agent time is limited or customer contact entails reputational risk.
+                """,
                 y_test=y_test,
                 logreg_probs=logreg_probs,
                 xgb_probs=xgb_probs,
@@ -676,10 +680,6 @@ def show():
                 cmap=cmap_4,
                 markdown_metrics_text="### Performance Metrics for Default Threshold (0.500 | with ✅ for better model)",
                 markdown_between_confusion_and_metrics="""        
-                From a performance metrics perspective, Logistic Regression exhibits marginally superior values in precision and false positive rate, indicating a more 
-                conservative prediction strategy that favors precision over recall. This trait may be desirable in operational settings where minimizing unnecessary outreach 
-                is prioritized, such as when agent time is limited or customer contact entails reputational risk.
-
                 However, XGBoost consistently outperforms Logistic Regression across the remaining metrics, most notably in recall (+5.1pp), F1 score (+0.055), accuracy, and 
                 Cohen’s kappa, as well as in the Matthews correlation coefficient. These indicators point to a higher discriminative capacity and a better balance between 
                 sensitivity and specificity.
