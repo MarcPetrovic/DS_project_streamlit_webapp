@@ -20,11 +20,11 @@ def display_strategy_results(
 ):
     # 1. Markdown-Intro
     st.markdown(markdown_intro)
-
+    st.markdown(" \n\n&nbsp; ")
     # 2. Strategietypische Visualisierung (falls vorhanden)
     if plot_figure is not None:
         st.pyplot(plot_figure)
-
+    st.markdown(" \n\n&nbsp; ")
     # 3. Nachfolgender Text zur Interpretation der Visualisierung
     if markdown_after_plot:
         st.markdown(markdown_after_plot)
