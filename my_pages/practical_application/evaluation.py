@@ -552,12 +552,23 @@ def show():
                 - €1,130,950 for XGBoost (from €3,681,600 to €2,550,650)
                 
                 These correspond to cost savings of approximately 30.9% and 30.7%, respectively.
+
+                To fully evaluate model performance, it is informative to compare these results to two theoretical benchmark strategies: the null model 
+                and the total model. In the null model scenario—where no customers are contacted—the institution avoids all operational costs but fails 
+                to reach any potential converters. According to the confusion matrix of the logistic regression model (see Figure 49), the test set 
+                contains 880 true positives and 544 false negatives, summing to a total of 1,424 actual positives. In the absence of any contact, all 
+                1,424 cases become false negatives, resulting in opportunity costs of:
                 
-                The cost-optimized thresholds are:
-                - **0.141** for Logistic Regression  
-                - **0.161** for XGBoost  
-        
-                These thresholds significantly reduce business cost compared to the default 0.5 threshold.
+                - 1,424 x €3,350 = €4,767,400
+
+                Total cost: €4.77 million, incurred solely through missed business opportunities.
+                Conversely, the total model assumes full market coverage—every customer is contacted regardless of likelihood. Based on the confusion 
+                matrix from the same model (see Figure 50), the total number of test-set instances is 12,353. As each contact incurs a cost of €550, the 
+                operational cost is calculated as:
+
+                - 12,353 × €550 = €6,793,150
+
+                Total cost: €6.79 million, generated entirely through outreach-related expenditure.
                 """,
                 y_test=y_test,
                 logreg_probs=logreg_probs,
