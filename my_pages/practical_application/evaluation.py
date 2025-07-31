@@ -387,14 +387,30 @@ def show():
     elif strategy == "feature_importance":
         st.markdown("## Feature Importance Exploration")
         st.write("""
-        This view compares the most significant features between **Logistic Regression** and **XGBoost**.
+        In addition to evaluating predictive performance and threshold optimization, understanding which input features drive 
+        model behavior is essential for interpretability, transparency, and operational trust in applied machine learning 
+        systems. In this section, both the logistic regression and XGBoost models are analyzed with regard to feature importance, 
+        focusing on statistical significance, relative influence, and thematic clustering.
 
-        **Logistic Regression**
-        - Odds Ratios from `statsmodels`
-        - Statistically significant features only (p < 0.05)
+        For the logistic regression model, feature importance was assessed via estimated coefficients and transformed Odds Ratios, 
+        with standardization to Normalized Odds Ratios (in %). To ensure interpretability and statistical robustness, only features 
+        with p-values below 0.05 were retained, excluding the intercept term. To facilitate comparison between positively and 
+        negatively associated variables, all Odds Ratios were normalized using the transformation:
+        
+        - Normalized Odds Ratio = (Odds Ratio−1) × 100
 
-        **XGBoost**
-        - Gain-based feature importances
+        This yielded a unified scale of effect size and directionality (see Figure 60), where features with higher absolute normalized 
+        odds ratios are deemed more influential. Among the top-ranked variables were poutcome_success (412.6%), nr.employed_dummy 
+        (129.3%), cons.price.idx (103.7%), and poutcome_nonexistent (80.6%). These variables suggest a particularly strong impact of 
+        campaign outcome history and macroeconomic conditions on subscription probability. Several other variables related to contact 
+        method, and economic sentiment (e.g., emp.var.rate, euribor3m_effect, cons.conf.idx) also demonstrated statistical relevance, 
+        albeit with more moderate effect sizes.
+
+        The XGBoost model's feature importance was extracted using gain-based internal rankings (see Figure 61). Here, nr.employed_dummy 
+        dominated with a relative importance of 0.69, followed by emp.var.rate (0.097), cons.conf.idx (0.045), and pdays_cat (0.043). While 
+        this ranking differs in scale and methodology from logistic regression, a substantial thematic overlap is observable: both models 
+        consistently identify employment indicators, economic sentiment, and past campaign performance as central drivers of model predictions.
+
         """)
 
         # Daten & Modelle laden
@@ -419,6 +435,57 @@ def show():
             st.pyplot(fig_xgb)
         except Exception as e:
             st.error(f"Error plotting XGBoost importance: {e}")
+
+        st.markdown("""
+        A closer comparative analysis of both models reveals a subset of features that are consistently relevant across logistic 
+        regression and XGBoost, despite fundamental differences in model architecture. These shared variables can be grouped into 
+        three major semantic feature clusters:
+        
+        1.	Macro-economic environment
+            - nr.employed_dummy
+            - emp.var.rate
+            - cons.conf.idx
+            - euribor3m_effect
+            These indicators reflect the general labor market and consumer confidence conditions at the time of contact. 
+            Their strong influence in both models underscores the substantial role of the economic climate in shaping 
+            customer behavior.
+
+        2.	Previous marketing activities
+            - pdays_cat
+            - poutcome_success
+            - contact_telephone
+            These variables capture past campaign interaction (e.g., whether the customer was previously contacted 
+            successfully or at all) and communication channel (telephone = 1 vs. mobile = 0). Their consistent presence 
+            suggests that campaign history and contact method critically influence the success probability of subsequent 
+            outreach.
+
+        3.	Socio-economic items
+            - default_cat_unknown|yes
+            This binary variable encodes whether a customer is currently in default or the information is missing, both of 
+            which appear to be treated similarly by the models as risk signals. Its retained importance highlights the 
+            relevance of a customer’s credit status in response modeling.
+
+        These findings highlight a convergent understanding of feature relevance, despite fundamental differences in model 
+        structure and learning mechanism. However, beyond these commonalities, several model-specific differences emerge. 
+        The logistic regression model, for instance, assigns high normalized importance to cons.price.idx (consumer price 
+        index), a macroeconomic variable that does not appear among the top-ranked XGBoost features. Additionally, the 
+        categorical level poutcome_nonexistent—indicating no prior campaign contact—is statistically significant in logistic 
+        regression but carries limited gain-based weight in the XGBoost model. Finally, the cosine-transformed contact month 
+        (month_numeric_cos) appears relevant only in the tree-based model, suggesting that non-linear seasonal patterns may 
+        be better captured through XGBoost’s flexible structure, whereas the sine transformation showed no substantial effect 
+        in either model.
+
+        The mentioned findings underline both convergence and divergence in model behavior: while the core decision logic 
+        appears to rest on similar economic, behavioral, and financial indicators, the granularity and interaction structure 
+        of these features may be modeled differently. Such insights not only inform feature selection and model simplification 
+        strategies, but also contribute to a transparent interpretation of why certain models outperform others in predictive 
+        accuracy and cost efficiency.
+
+        To promote parsimony and model generalizability, future versions of the pipeline may exclude low-impact variables, 
+        particularly those not consistently ranked across models or lacking substantive interpretive value. This may include 
+        variables with small coefficients and low gain importance, which contribute minimally to classification strength and 
+        may increase overfitting risk in smaller deployment settings.
+        """)
         
    
     # 2. Summary View (optional)
