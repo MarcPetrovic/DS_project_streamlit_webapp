@@ -7,7 +7,7 @@ def display_strategy_results(
     strategy_label: str,
     markdown_intro: str,
     plot_figure,
-    markdown_after_plot: str = "",
+    markdown_after_plot: str ,
     y_test,
     logreg_probs,
     xgb_probs,
