@@ -658,17 +658,36 @@ def show():
                 strategy_label=strategy,
                 markdown_intro="""
                 ### Default Threshold (0.5)  
-                Most models use a default threshold of 0.500 for classification, which may not reflect business constraints.
+                This section presents a comparative evaluation of the two classification models – Logistic Regression and XGBoost – under a default probability threshold 
+                of 0.500, which is widely used as a baseline in binary classification tasks. While such a configuration may be standard, it is often suboptimal in 
+                cost-sensitive, imbalanced domains where the asymmetry between false positives and false negatives carries significant operational and financial implications.
+
+                The evaluation builds on a cost-sensitive performance framework, assigning €550 to each false positive (i.e., unnecessary customer contact) and €3,350 to 
+                each false negative (i.e., missed successful contact or lost conversion, for more detailed informa-tion see Section 3.1.1). The corresponding metrics are 
+                summarized in Table 6 and visualized in Figures 46 and 47, which include the Confusion Matrix for both models.
+
                 """,
                 plot_figure=None,
-                markdown_after_plot="While simple, this threshold often leads to suboptimal outcomes in imbalanced settings.",
+                markdown_after_plot=" ",
                 y_test=y_test,
                 logreg_probs=logreg_probs,
                 xgb_probs=xgb_probs,
                 metrics_logreg=metrics_logreg,
                 metrics_xgb=metrics_xgb,
                 cmap=cmap_4,
-                markdown_metrics_text="### Model Performance with Default Threshold (0.500)"
+                markdown_metrics_text="### Performance Metrics for Default Threshold (0.500 | with ✅ for better model)",
+                markdown_between_confusion_and_metrics="""        
+                From a performance metrics perspective, Logistic Regression exhibits marginally superior values in precision and false positive rate, indicating a more 
+                conservative prediction strategy that favors precision over recall. This trait may be desirable in operational settings where minimizing unnecessary outreach 
+                is prioritized, such as when agent time is limited or customer contact entails reputational risk.
+
+                However, XGBoost consistently outperforms Logistic Regression across the remaining metrics, most notably in recall (+5.1pp), F1 score (+0.055), accuracy, and 
+                Cohen’s kappa, as well as in the Matthews correlation coefficient. These indicators point to a higher discriminative capacity and a better balance between 
+                sensitivity and specificity.
+
+                From an economic standpoint, the total cost associated with XGBoost is approximately €218,700 lower than that of Logistic Regression when applying the same 
+                threshold. This cost differential is the result of fewer false negatives—and therefore lower opportunity costs—despite a slightly higher false positive burden.
+                """
             )
     st.markdown("""
         <!-- Font Awesome einbinden -->
