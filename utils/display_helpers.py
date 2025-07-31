@@ -66,7 +66,7 @@ def display_strategy_results(
 
     html_table = render_html_table_metrics(df_results_marked)
     st.markdown(html_table, unsafe_allow_html=True)
-    st.markdown(" \n\n&nbsp;\n\n&nbsp;\n\n  ")
+    st.markdown(" \n\n&nbsp;\n\n&nbsp; ")
 
     # 7. Optionaler Text nach der Tabelle
     if markdown_after_table:
