@@ -452,7 +452,7 @@ def show():
             Their strong influence in both models underscores the substantial role of the economic climate in shaping 
             customer behavior.
 
-        """)
+        """, unsafe_allow_html=True)
         st.markdown("""
         
         2.	Previous marketing activities
@@ -466,7 +466,7 @@ def show():
             suggests that campaign history and contact method critically influence the success probability of subsequent 
             outreach.
         
-        """)
+        """, unsafe_allow_html=True)
         st.markdown("""
         
         3.	Socio-economic items
@@ -500,7 +500,7 @@ def show():
         particularly those not consistently ranked across models or lacking substantive interpretive value. This may include 
         variables with small coefficients and low gain importance, which contribute minimally to classification strength and 
         may increase overfitting risk in smaller deployment settings.
-        """)
+        """, unsafe_allow_html=True)
         
    
     # 2. Summary View (optional)
