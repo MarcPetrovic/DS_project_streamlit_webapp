@@ -454,6 +454,7 @@ def show():
 
         """)
         st.markdown("""
+        
         2.	Previous marketing activities
             - pdays_cat
             - poutcome_success
@@ -467,6 +468,7 @@ def show():
         
         """)
         st.markdown("""
+        
         3.	Socio-economic items
             - default_cat_unknown|yes
         """)
@@ -475,6 +477,9 @@ def show():
             which appear to be treated similarly by the models as risk signals. Its retained importance highlights the 
             relevance of a customer’s credit status in response modeling.
 
+        """)
+        st.markdown("""
+        
         These findings highlight a convergent understanding of feature relevance, despite fundamental differences in model 
         structure and learning mechanism. However, beyond these commonalities, several model-specific differences emerge. 
         The logistic regression model, for instance, assigns high normalized importance to cons.price.idx (consumer price 
