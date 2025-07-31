@@ -665,7 +665,6 @@ def show():
                 The evaluation builds on a cost-sensitive performance framework, assigning €550 to each false positive (i.e., unnecessary customer contact) and €3,350 to 
                 each false negative (i.e., missed successful contact or lost conversion, for more detailed informa-tion see Section 3.1.1). The corresponding metrics are 
                 summarized in Table 6 and visualized in Figures 46 and 47, which include the Confusion Matrix for both models.
-
                 """,
                 plot_figure=None,
                 markdown_after_plot=" ",
