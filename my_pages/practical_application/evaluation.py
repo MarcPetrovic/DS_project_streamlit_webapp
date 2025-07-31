@@ -446,21 +446,31 @@ def show():
             - emp.var.rate
             - cons.conf.idx
             - euribor3m_effect
+        """)
+        st.markdown("""
             These indicators reflect the general labor market and consumer confidence conditions at the time of contact. 
             Their strong influence in both models underscores the substantial role of the economic climate in shaping 
             customer behavior.
 
+        """)
+        st.markdown("""
         2.	Previous marketing activities
             - pdays_cat
             - poutcome_success
             - contact_telephone
+        """)
+        st.markdown("""
             These variables capture past campaign interaction (e.g., whether the customer was previously contacted 
             successfully or at all) and communication channel (telephone = 1 vs. mobile = 0). Their consistent presence 
             suggests that campaign history and contact method critically influence the success probability of subsequent 
             outreach.
-
+        
+        """)
+        st.markdown("""
         3.	Socio-economic items
             - default_cat_unknown|yes
+        """)
+        st.markdown("""
             This binary variable encodes whether a customer is currently in default or the information is missing, both of 
             which appear to be treated similarly by the models as risk signals. Its retained importance highlights the 
             relevance of a customer’s credit status in response modeling.
