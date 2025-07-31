@@ -576,7 +576,19 @@ def show():
                 metrics_logreg=metrics_logreg,
                 metrics_xgb=metrics_xgb,
                 cmap=cmap_4,
-                markdown_metrics_text="### Performance Metrics (with ✅ for better model)"
+                markdown_metrics_text="### Performance Metrics (with ✅ for better model)",
+                markdown_between_confusion_and_metrics="""
+                These values, derived from the confusion matrices in Figures 49 and 50, serve as upper and lower bounds in the decision space: the null 
+                model minimizes operational effort but leads to maximum opportunity loss, whereas the total model guarantees full coverage at the expense 
+                of massive contact costs. Compared to these baselines, both machine learning models—particularly XGBoost—offer substantial cost advantages 
+                when deployed with cost-optimized thresholds. Specifically, XGBoost yields cost savings of more than €2.2 million relative to both the null 
+                model and the total model—demonstrating that selective, model-based targeting clearly outperforms naive all-or-nothing strategies.
+
+                Cost-optimized thresholding illustrates the integration of predictive analytics with business-centric utility functions. By grounding threshold 
+                selection in cost asymmetry, rather than arbitrary probability cutoffs, the resulting models deliver not only improved classification performance 
+                but also quantifiable economic benefit. Among the evaluated models, XGBoost emerges as the superior choice, offering a favorable balance of 
+                precision, recall, and cost efficiency.
+                """
             )
         
         elif strategy == "youden":
