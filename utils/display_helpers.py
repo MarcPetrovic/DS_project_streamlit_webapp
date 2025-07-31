@@ -14,7 +14,9 @@ def display_strategy_results(
     metrics_logreg,
     metrics_xgb,
     cmap,
-    markdown_metrics_text: str
+    markdown_metrics_text: str,
+    markdown_between_confusion_and_metrics: str = "",
+    markdown_after_table: str = ""
 ):
     # 1. Markdown-Intro
     st.markdown(markdown_intro)
@@ -43,6 +45,10 @@ def display_strategy_results(
     fig_xgb = plot_confusion_matrices(y_test, xgb_pred, model_name="XGBoost", strategy=strategy_label, cmap=cmap)
     st.pyplot(fig_xgb)
 
+    # 4.1 Optionaler Text zwischen Confusion Matrices und Performance Metrics
+    if markdown_between_confusion_and_metrics:
+        st.markdown(markdown_between_confusion_and_metrics)
+
     # 5. Überleitung zu den Metriken
     st.markdown("---")
     st.markdown(markdown_metrics_text)
@@ -61,3 +67,6 @@ def display_strategy_results(
     html_table = render_html_table_metrics(df_results_marked)
     st.markdown(html_table, unsafe_allow_html=True)
 
+    # 7. Optionaler Text nach der Tabelle
+    if markdown_after_table:
+        st.markdown(markdown_after_table)
