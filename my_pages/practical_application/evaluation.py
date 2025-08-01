@@ -607,7 +607,7 @@ def show():
                 Another thresholding strategy examined in this study is based on the Youden Index (J), a well-established diagnostic statistic that seeks to balance 
                 sensitivity and specificity in binary classification settings. The index is formally defined as:
 
-                                                    J=Sensitivity +Specificity-1
+                                                J=Sensitivity +Specificity-1
                 
                 This approach identifies the threshold at which the combined performance of the True Positive Rate (TPR) and True Negative Rate (TNR) is maximized. 
                 Unlike cost-optimized thresholding, which explicitly integrates financial asymmetries into the decision rule, the Youden-based threshold selection 
