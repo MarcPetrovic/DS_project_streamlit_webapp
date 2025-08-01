@@ -528,6 +528,7 @@ def show():
             display_strategy_results(
                 strategy_label=strategy,
                 markdown_intro="""
+                ### Cost-Optimized Thresholding 
                 While default classification thresholds (e.g., 0.500) are often used in practice, they rarely align with the cost structure of real-world 
                 business problems. In domains such as direct marketing for banking products, the economic impact of misclassifications is asymmetric: false 
                 negatives (i.e., missed contracts) incur high opportunity costs, while false positives (i.e., unnecessary outreach) generate operational 
