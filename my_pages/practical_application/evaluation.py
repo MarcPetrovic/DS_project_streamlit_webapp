@@ -507,13 +507,66 @@ def show():
     elif strategy == "summary":
         st.markdown("""
         ## Summary of Evaluation Phase
-    
-        This summary aggregates all threshold optimization strategies, allowing model stakeholders to:
-        - Visually compare metric-based trade-offs
-        - Justify model decisions with interpretable thresholds
-        - Select the most robust strategy for deployment
+        The evaluation phase of the project pursued a multidimensional approach to model assessment, combining performance metrics, 
+        cost modeling, threshold optimization, and interpretability. The analysis was conducted using two classification 
+        algorithms—logistic regression and XGBoost—and was structured to identify not only the most accurate model, but also the 
+        most operationally and economically viable solution.
+
+        From a discriminative performance perspective, as initially discussed in Section 3.5.1, both models demonstrated adequate 
+        classification behavior under class imbalance. However, XGBoost consistently outperformed logistic regression across key 
+        evaluation metrics. Particularly in the early retrieval region, as visualized through lift curves and early precision, XGBoost 
+        exhibited stronger capability to rank customers with high conversion likelihood at the top of the scoring distribution. This 
+        is crucial in business scenarios where limited resources allow only a subset of potential contacts to be activated. Moreover, 
+        ROC-AUC and Precision–Recall AUC values confirm that XGBoost possesses superior separation power and recall efficiency—especially 
+        in the presence of sparse positives.
+
+        Throughout the evaluation phase, both logistic regression and XGBoost were subjected to five different thresholding strategies—default 
+        thresholding, cost-optimized tuning, Youden-based trade-off maximization, F1-score optimization, and precision–recall gap minimization. 
+        In addition, the models were benchmarked against two theoretical baselines: a null model (no outreach) and a total model (contacting 
+        all customers), thereby establishing economically interpretable lower and upper bounds.
+
+        Across all thresholding strategies, XGBoost consistently outperformed logistic regression, both in terms of classical classification 
+        metrics (e.g., F1-score, accuracy, precision) and in terms of cost efficiency. Particularly under cost-aware and statistically balanced 
+        tuning approaches (e.g., Youden or F1), XGBoost achieved cost reductions of over €2.2 million relative to naive strategies, confirming 
+        its suitability for operational deployment in the context of cost-sensitive direct marketing.
+
+        In terms of model calibration, each thresholding strategy offered unique advantages:
+        - Cost-based optimization minimized total campaign expenditure by explicitly incorporating asymmetric misclassification penalties.
+        - Youden optimization provided a statistically principled alternative, balancing sensitivity and specificity.
+        - F1-score maximization offered a harmonic trade-off between precision and recall, particularly valuable in class-imbalanced domains.
+        - Precision–recall gap minimization focused on prediction stability and calibration, useful when cost structures are ambiguous or evolving.
+
+        A cross-strategy comparison reveals that cost-optimized thresholding yields the strongest overall result in terms of total cost savings, 
+        with reductions of over €1.1 million compared to default thresholding and over €2.2 million compared to the null or total models. At the 
+        same time, Youden optimization and F1-score maximization provide near-identical performance in terms of recall, F1-score, and correlation-
+        based statistics like Cohen’s Kappa and Matthews Correlation Coefficient—making them valuable in scenarios where cost parameters are not 
+        precisely known.
+
+        From a performance metric perspective, the choice of threshold strategy may depend on the organization’s objective function:
+        - If cost minimization is the primary goal, the cost-optimized threshold clearly dominates.
+        - If statistical robustness or regulatory transparency is prioritized, Youden or F1-based approaches offer better interpretability and 
+          balanced classification.
+        - For operational KPIs, Recall should be emphasized when the goal is to maximize contact with potential converters, while TNR (Specificity) 
+          becomes critical for minimizing unnecessary contact costs.
+
+        Beyond predictive accuracy and thresholding, the analysis of feature importance (Section 3.5.7) revealed convergent variable relevance across 
+        both models. Three central feature clusters were identified:
+        1.	Macro-economic environment, including variables such as employment level (nr.employed_dummy), economic growth (emp.var.rate), consumer 
+            sentiment (cons.conf.idx), and interest rates (euribor3m_effect);
+        2.	Previous marketing activities, such as prior campaign outcomes (poutcome_success, poutcome_nonexistent), recency of contact (pdays_cat), 
+            and communication channel (contact_telephone);
+        3.	Socio-economic status, particularly the variable default_cat_unknown|yes, which reflects creditworthiness or missing payment history.
+
+        These variables contributed disproportionately to model decisions and thus serve as a foundation for strategic targeting and campaign refinement. 
+        Additionally, differences in variable treatment—such as the role of cons.price.idx or month_numeric_cos—highlight the complementary strengths of 
+        linear and non-linear model structures.
+
+        Taken together, the evaluation results provide a clear recommendation for model deployment. XGBoost, when paired with cost-sensitive or statistically 
+        balanced thresholding, offers the best trade-off between predictive power, economic viability, and operational control. It consistently identifies 
+        high-probability converters early, minimizes unnecessary outreach, and maintains a stable interpretability profile across multiple evaluation axes. 
+        It also delivers substantial cost savings while leveraging a coherent and interpretable feature set.
         """)
-        st.info("Implement this section by aggregating all strategies into a combined view if needed.")
+        #st.info("Implement this section by aggregating all strategies into a combined view if needed.")
         
     # 3. Strategien mit Threshold-Anpassung
     else:
