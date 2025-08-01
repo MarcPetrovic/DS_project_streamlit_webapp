@@ -659,17 +659,43 @@ def show():
                 strategy_label=strategy,
                 markdown_intro="""
                 ### F1-Score Maximization  
-                This strategy identifies the threshold that maximizes the harmonic mean of precision and recall.
+                Another prominent threshold optimization strategy explored in this evaluation involves F1-score maximization, a method widely adopted in information retrieval and classification 
+                tasks involving class imbalance. The F1-score, defined as the harmonic mean of precision and recall, is particularly sensitive to both types of misclassifica-tions—false positives 
+                and false negatives—without requiring explicit cost informa-tion. By identifying the threshold that maximizes this score, the analysis seeks a statistically balanced compromise 
+                between the ability to detect true positives and the reliability of positive predictions.
                 """,
                 plot_figure=plot_precision_recall_with_f1_thresholds(y_test, logreg_probs, xgb_probs),
-                markdown_after_plot="Optimal thresholds correspond to the highest F1-score along the PR curve.",
+                markdown_after_plot="""
+                As visualized in the Precision–Recall curves (Figure 54) and substantiated by the confusion matrices in Figures 55 and 56, this approach yields optimized thresholds of 0.194 for 
+                the logistic regression model and 0.227 for XGBoost. Under these settings, XGBoost outperforms logistic regression across nearly all evaluative dimensions (see Table 9). 
+                Specifically, the XGBoost model delivers higher precision (0.484 vs. 0.442), superior specificity (0.925 vs. 0.911), and marginally improved accuracy (0.881 vs. 0.868), while 
+                recall values are nearly identical (0.542 vs. 0.544). Consequently, the overall F1-score increases to 0.512 for XGBoost, compared to 0.488 for logistic regression, indicating a 
+                more favorable balance between predictive completeness and reliability.
+                """,
                 y_test=y_test,
                 logreg_probs=logreg_probs,
                 xgb_probs=xgb_probs,
                 metrics_logreg=metrics_logreg,
                 metrics_xgb=metrics_xgb,
                 cmap=cmap_4,
-                markdown_metrics_text="### Evaluation Metrics Based on F1-Optimized Thresholds"
+                markdown_metrics_text="### Performance Metrics (Based on F1-Optimized Thresholds with ✅ for better model)",
+                markdown_between_confusion_and_metrics="""
+                From a business perspective, total cost considerations reveal meaningful implica-tions: logistic regression yields a cost of €2,714,300, while XGBoost lowers this to €2,636,300, 
+                resulting in savings of approximately €78,000 under this threshold tuning strategy. Although this reduction is less pronounced than under cost-optmi-zed (Section 3.5.3) or 
+                Youden-based thresholding (Section 3.5.4), it nonetheless high-lights the economic relevance of selecting statistically informed decision thresholds.
+
+                To further contextualize these outcomes, the benchmark scenarios of a null model (no contact) and a total model (contacting all customers) are again considered. As established 
+                in prior sections, the null model leads to opportunity costs of €4,767,400, due to missed conversions across all 1,424 positive cases in the test set. In contrast, the total model 
+                incurs €6,793,150 in operational costs, stemming from the outreach to all 12,353 customers at €550 per contact. Both logistic regression and XGBoost—when tuned for F1-score 
+                maximization—achieve a cost reduction of over €2 million relative to these baselines, further affirming their superiority in economic terms, even under a cost-agnostic optimization 
+                scheme.
+                """,
+                markdown_after_table="""
+                F1-score optimization provides a balanced, statistically grounded thresholding method that requires no cost assumptions. While the cost savings are more moderate than those achieved 
+                through cost-aware strategies, the method enhances both recall and precision simultaneously. XGBoost again demonstrates stronger performance across nearly all metrics, including F1-score, 
+                precision, and total cost. In operational terms, the model’s ability to maintain competitive cost efficiency without relying on explicit economic parameters makes this approach particularly 
+                valuable in scenarios where cost structures are unknown, volatile, or difficult to estimate.
+                """
             )
         
         elif strategy == "pr_gap":
