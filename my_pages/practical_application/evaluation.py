@@ -397,7 +397,7 @@ def show():
         with p-values below 0.05 were retained, excluding the intercept term. To facilitate comparison between positively and 
         negatively associated variables, all Odds Ratios were normalized using the transformation:
         
-                                    Normalized Odds Ratio = (Odds Ratio−1) × 100
+                            Normalized Odds Ratio = (Odds Ratio−1) × 100
 
         This yielded a unified scale of effect size and directionality (see Figure 60), where features with higher absolute normalized 
         odds ratios are deemed more influential. Among the top-ranked variables were poutcome_success (412.6%), nr.employed_dummy 
