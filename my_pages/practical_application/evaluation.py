@@ -703,17 +703,55 @@ def show():
                 strategy_label=strategy,
                 markdown_intro="""
                 ### Precision–Recall Gap Minimization  
-                This strategy selects thresholds that minimize the absolute difference between precision and recall.
+                Minimizing the gap between precision and recall constitutes a thresholding approach focused on model calibration rather than explicit performance maximization. This method aims to align the 
+                reliability of positive predictions (precision) with the model’s ability to capture actual positive cases (recall), resulting in balanced classification behavior even in the presence of class 
+                imbalance. While it does not incorporate cost parameters, it effectively stabilizes predictive performance and improves interpretability, particularly in uncertain or evolving business 
+                environments.
                 """,
                 plot_figure=plot_precision_recall_gap(y_test, logreg_probs, xgb_probs),
-                markdown_after_plot="Thresholds are chosen where the gap between precision and recall is smallest.",
+                markdown_after_plot="""
+                As depicted in Figure 57, the optimization process yields thresholds of 0.236 for logistic regression and 0.266 for XGBoost. The resulting performance metrics, presented in Table 10 and illustrated 
+                in Figures 58 and 59, consistently favor the XGBoost model. It achieves superior values across all major classification criteria, including precision (0.502 vs. 0.476), recall (0.502 vs. 0.476), 
+                F1-score (0.502 vs. 0.476), and accuracy (0.885 vs. 0.879). Additionally, it outperforms logistic regression on correlation-based metrics, such as Cohen’s Kappa (0.437 vs. 0.408) and Matthews 
+                Correlation Coefficient (0.437 vs. 0.408), underlining its robustness in predictive performance.
+
+                In terms of total cost, this thresholding approach yields €2,909,400 for logistic regression and €2,765,100 for XGBoost. While these values are somewhat higher than those observed under cost-optimized 
+                thresholding, they still represent meaningful savings from a business perspective—particularly in comparison to baseline models.
+                """,
                 y_test=y_test,
                 logreg_probs=logreg_probs,
                 xgb_probs=xgb_probs,
                 metrics_logreg=metrics_logreg,
                 metrics_xgb=metrics_xgb,
                 cmap=cmap_4,
-                markdown_metrics_text="### Metrics under PR-Gap-Minimizing Thresholds"
+                markdown_metrics_text="### Performance Metrics (Under PR-Gap-Minimizing Thresholds with ✅ for better model)",
+                markdown_between_confusion_and_metrics="""
+                To place these figures into broader context, the null model, in which no customers are contacted, leads to total opportunity costs of €4,767,400, as all 1,424 actual positives in the test set are treated 
+                as false negatives. Conversely, the total model, which involves contacting all 12,353 customers, incurs €6,793,150 in operational costs. Both models serve as conceptual boundaries: one minimizes operational 
+                effort at the expense of revenue, the other eliminates missed opportunities but maximizes contact overhead.
+
+                Relative to these baselines, both threshold-optimized models deliver cost reductions exceeding €2 million, with XGBoost again outperforming logistic regression by more than €144,000 under this specific 
+                optimization criterion. Although the absolute cost improvement is moderate compared to other methods, the strength of this approach lies in its neutrality and stability across varying operational assumptions.
+
+                This strategy facilitates threshold tuning without reliance on cost parameters, making it particularly relevant in environments where cost structures are unknown, ambiguous, or subject to change. By minimizing 
+                the gap between precision and recall, it enhances model calibration and supports balanced decision-making. XGBoost again proves to be the superior model across all key metrics, including classification accuracy, 
+                F1-score, and total cost. Moreover, when benchmarked against the null and total models, this approach demonstrates a high degree of cost efficiency, reinforcing its validity as a robust and interpretable fallback 
+                strategy.
+                """,
+                markdown_after_table="""
+                Building upon the threshold optimization analyses presented in Sections 3.5.2 through 3.5.6, the subsequent evaluation shifts focus from model tuning to model interpretability and strategic relevance of input 
+                features. In Section 3.5.7 – Feature Importance Exploration, we examine whether specific feature clusters—such as macroeconomic indicators, socio-demographic or socio-economic variables, and campaign-related 
+                attributes—exert a statistically significant influence on model outcomes. For logistic regression, this analysis is based on estimated coefficients and normalized odds ratios; for XGBoost, variable importance 
+                is derived from the model’s internal gain-based feature ranking.
+
+                This comparative investigation serves two main purposes: first, it assesses which categories of variables drive model decisions, and second, it examines the degree of overlap between both model types—in other 
+                words, whether similar features are deemed influential by both classifiers, or whether each model prioritizes different aspects of the input space. Understanding these feature-level dynamics is critical not only 
+                for model transparency but also for the design of future campaign strategies and data collection policies.
+
+                In addition, Section 3.5.8 – Summary of the Evaluation Phase consolidates the key results from all tuning strategies into a unified decision framework. This includes a synthesis of general model quality, the 
+                comparative advantages of the threshold optimization techniques, and the relevance of feature clusters across models. Together, these insights form the analytical foundation for model selection and deployment, 
+                and provide stakeholders with a transparent and evidence-based recommendation for operational implementation.
+                """
             )
         
         elif strategy == "default":
