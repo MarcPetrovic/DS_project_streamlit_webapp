@@ -604,17 +604,54 @@ def show():
                 strategy_label=strategy,
                 markdown_intro="""
                 ### Youden Index Optimization  
-                This approach maximizes the sum of sensitivity and specificity (Youden’s J statistic) to find a balanced threshold.
+                Another thresholding strategy examined in this study is based on the Youden Index (J), a well-established diagnostic statistic that seeks to balance 
+                sensitivity and specificity in binary classification settings. The index is formally defined as:
+
+                                                    J=Sensitivity +Specificity-1
+                
+                This approach identifies the threshold at which the combined performance of the True Positive Rate (TPR) and True Negative Rate (TNR) is maximized. 
+                Unlike cost-optimized thresholding, which explicitly integrates financial asymmetries into the decision rule, the Youden-based threshold selection 
+                optimizes discriminative capability without assuming a priori cost information. It thus serves as a neutral reference model for contexts in which 
+                economic cost parameters are either uncertain or intentionally excluded.
                 """,
                 plot_figure=plot_roc_with_youden(y_test, logreg_probs, xgb_probs),
-                markdown_after_plot="The optimal thresholds are where TPR - FPR is maximized on the ROC curve.",
+                markdown_after_plot="""
+                Empirical evaluation of the Youden-based thresholds reveals strong performance characteristics, particularly for the XGBoost model. As summarized in 
+                Table 8 and visualized in Figures 51 to 53, the Youden-optimal threshold for logistic regression is 0.113, while XGBoost achieves optimality at 0.139. 
+                The XGBoost configuration demonstrates superior specificity (0.888), higher precision (0.414), and stronger overall accuracy (0.856) compared to logistic 
+                regression. It also achieves a lower total cost of €2,550,350, outperforming the logistic regression model at €2,714,600, despite a slightly higher false 
+                negative rate (0.394 vs. 0.329).
+
+                These results reinforce the robustness of the XGBoost model across thresholding strategies. While the cost-sensitive approach (Section 3.5.3) prioritized 
+                financial minimization, and the default 0.5 configuration (Section 3.5.2) illustrated the risks of arbitrary cutoffs, the Youden Index offers a statistically 
+                principled, business-agnostic alternative. Notably, the Youden-optimized XGBoost configuration delivers an almost identical cost outcome to the model tuned 
+                under the cost-minimization criterion (€2,550,350 vs. €2,550,650), suggesting strong alignment between statistical discrimination and financial utility in 
+                this setting.
+                """,
                 y_test=y_test,
                 logreg_probs=logreg_probs,
                 xgb_probs=xgb_probs,
                 metrics_logreg=metrics_logreg,
                 metrics_xgb=metrics_xgb,
                 cmap=cmap_4,
-                markdown_metrics_text="### Performance Metrics (Thresholds via Youden Index)"
+                markdown_metrics_text="### Performance Metrics (Thresholds via Youden Index with ✅ for better model)",
+                markdown_between_confusion_and_metrics="""
+                For reference, the underlying confusion matrix values used in this threshold optimization are available in Figures 52 and 53, which allow the reader to retrace 
+                the corresponding classification outcomes and misclassification counts. These visualiza-tions further contextualize the relative trade-offs between false positives 
+                and false negatives in both models and facilitate transparent validation of the derived metrics.
+
+                Moreover, comparative consideration of theoretical benchmark strategies remains essential for interpretive clarity. As discussed previously, the null model, which 
+                assumes no customer contact, results in a total cost of €4,767,400, entirely driven by opportunity costs from missed conversions. Conversely, the total model, representing 
+                full outreach to all 12,353 test-set customers, incurs €6,793,150 in operational costs. Against this backdrop, the Youden-tuned XGBoost model achieves substantial 
+                savings—over €2.2 million in comparison to each benchmark—without resorting to financial parameterization in threshold selection.
+                
+                """,
+                markdown_after_table="""
+                In conclusion, Youden-based thresholding offers a compelling middle ground between statistical and economic optimization. Its balanced treatment of true positive and true 
+                negative rates makes it especially attractive when cost structures are ambiguous or evolving. However, as further discussed in the following section (3.5.5), this strategy 
+                can be complemented by alternative approaches—such as F1-score maximization—that account for different types of classification trade-offs. Collectively, these strategies 
+                provide a diverse toolkit for threshold optimization in applied predictive modeling.
+                """
             )
         
         elif strategy == "f1":
