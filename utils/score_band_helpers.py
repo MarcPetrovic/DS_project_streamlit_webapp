@@ -4,17 +4,29 @@ import numpy as np
 def assign_score_bands(y_true, y_probs, threshold, model_name):
     df = pd.DataFrame({'y_true': y_true, 'y_prob': y_probs})
     df['model'] = model_name
-
     df['score_band'] = np.nan
+
+    # Band 10: Score ≥ Threshold
     df.loc[df['y_prob'] >= threshold, 'score_band'] = 10
 
+    # Übrige Scores (Score < Threshold)
     mask_rest = df['score_band'].isna()
-    df.loc[mask_rest, 'score_band'] = pd.qcut(
-        df.loc[mask_rest, 'y_prob'], 9, labels=range(1, 10), duplicates='drop'
-    )
+    remaining_scores = df.loc[mask_rest, 'y_prob']
+
+    # Falls zu wenig eindeutige Werte: adaptive Anzahl Bins
+    num_unique = remaining_scores.nunique()
+    num_bins = min(9, num_unique)
+
+    if num_bins >= 2:
+        bins = pd.qcut(remaining_scores, num_bins, labels=range(1, num_bins + 1), duplicates='drop')
+        df.loc[mask_rest, 'score_band'] = bins
+    else:
+        # Fallback: alles restliche in Band 1
+        df.loc[mask_rest, 'score_band'] = 1
 
     df['score_band'] = df['score_band'].astype(int)
     return df
+
 
 def score_band_cost_analysis(df_band):
     """
