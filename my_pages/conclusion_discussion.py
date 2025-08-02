@@ -75,12 +75,12 @@ def plot_score_bands(stats_df_log, stats_df_xgb, selected_criteria, threshold):
 
     with col1:
         fig, ax = plt.subplots(figsize=(6, 4))
-        plot_single(ax, stats_df_log, "Logistic Regression", my_cmap[0])
+        plot_single(ax, stats_df_log, "Logistic Regression", "#4C72B0")
         st.pyplot(fig)
 
     with col2:
         fig, ax = plt.subplots(figsize=(6, 4))
-        plot_single(ax, stats_df_xgb, "XGBoost", my_cmap[1])
+        plot_single(ax, stats_df_xgb, "XGBoost", "#DD8452")
         st.pyplot(fig)
 
 # --------------------------
