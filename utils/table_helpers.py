@@ -94,3 +94,36 @@ def mark_best(df: pd.DataFrame) -> pd.DataFrame:
             df_marked.loc[idx, "Logistic Regression"] = str(val1)
             df_marked.loc[idx, "XGBoost"] = str(val2)
     return df_marked
+
+def mark_best_overall(df: pd.DataFrame, metric_cols: list, minimize_cols: list = []) -> pd.DataFrame:
+    """
+    Marked within a comparison modell table (over all strategies) the best value with ✅.
+    
+    Args:
+        df (pd.DataFrame): DataFrame with strategie, models and metrics.
+        metric_cols (list): list of metric columns, which should be compared.
+        minimize_cols (list): metrics, where best performing value is the lowest (e. g. costs).
+        
+    Returns:
+        pd.DataFrame: Marked with ✅ .
+    """
+    df_marked = df.copy()
+
+    for col in metric_cols:
+        try:
+            # selecting numeric column for comparison
+            vals = pd.to_numeric(df[col], errors='coerce')
+            if col in minimize_cols:
+                best_val = vals.min()
+            else:
+                best_val = vals.max()
+            
+            # Marked up value
+            df_marked[col] = [
+                f"{val:.3f} ✅" if val == best_val else f"{val:.3f}"
+                for val in vals
+            ]
+        except:
+            continue
+
+    return df_marked
