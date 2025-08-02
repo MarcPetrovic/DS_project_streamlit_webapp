@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-from utils.my_colormaps import my_cmap_r, cmap_4
+from utils.my_colormaps import my_cmap_r, cmap_4, my_cmap
 from utils.model_pipeline import train_and_predict, train_model
 
 # --------------------------
@@ -75,12 +75,12 @@ def plot_score_bands(stats_df_log, stats_df_xgb, selected_criteria, threshold):
 
     with col1:
         fig, ax = plt.subplots(figsize=(6, 4))
-        plot_single(ax, stats_df_log, "Logistic Regression", cmap_4[0])
+        plot_single(ax, stats_df_log, "Logistic Regression", my_cmap[0])
         st.pyplot(fig)
 
     with col2:
         fig, ax = plt.subplots(figsize=(6, 4))
-        plot_single(ax, stats_df_xgb, "XGBoost", cmap_4[1])
+        plot_single(ax, stats_df_xgb, "XGBoost", my_cmap[1])
         st.pyplot(fig)
 
 # --------------------------
