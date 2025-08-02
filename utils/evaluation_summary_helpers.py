@@ -12,8 +12,8 @@ def evaluate_all_strategies(y_true, logreg_proba, xgb_proba):
 
         # Default threshold (0.5)
         if strategy == "default":
-            threshold_logreg = 0.5
-            threshold_xgb = 0.5
+            threshold_logreg = 0.500
+            threshold_xgb = 0.500
         else:
             threshold_logreg = find_best_threshold(y_true, logreg_proba, strategy, **kwargs)
             threshold_xgb = find_best_threshold(y_true, xgb_proba, strategy, **kwargs)
