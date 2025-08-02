@@ -25,6 +25,7 @@ from utils.plot_lift_curve import plot_lift_curve_with_ci
 from utils.decile_analysis import *
 from utils.plot_gains_chart import *
 from utils.display_helpers import display_strategy_results
+from utils.evaluation_summary_helpers import evaluate_all_strategies  
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -525,6 +526,23 @@ def show():
         In addition, the models were benchmarked against two theoretical baselines: a null model (no outreach) and a total model (contacting 
         all customers), thereby establishing economically interpretable lower and upper bounds.
 
+        """)
+        # Hole Wahrscheinlichkeiten & Labels
+        logreg_probs, xgb_probs, y_test = get_predictions()
+    
+        # Vergleiche alle Strategien
+        df_summary = evaluate_all_strategies(y_test, logreg_probs, xgb_probs)
+    
+        # Auswahl der anzuzeigenden Metriken
+        display_columns = [
+            "Strategy", "Model", "Threshold", "F1 Score", "Recall (TPR)",
+            "Specificity (TNR)", "Matthews Corr. Coef.", "Cohen's Kappa", "Total Cost (€) (k €)"
+        ]
+    
+        # Optional: formatieren und hervorheben
+        st.dataframe(df_summary[display_columns].style.format(precision=3))
+        
+        st.markdown("""
         Across all thresholding strategies, XGBoost consistently outperformed logistic regression, both in terms of classical classification 
         metrics (e.g., F1-score, accuracy, precision) and in terms of cost efficiency. Particularly under cost-aware and statistically balanced 
         tuning approaches (e.g., Youden or F1), XGBoost achieved cost reductions of over €2.2 million relative to naive strategies, confirming 
