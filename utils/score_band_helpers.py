@@ -6,22 +6,25 @@ def assign_score_bands(y_true, y_probs, threshold, model_name):
     df['model'] = model_name
     df['score_band'] = np.nan
 
-    # Band 10: Score ≥ Threshold
+    # Band 10: alle ≥ threshold
     df.loc[df['y_prob'] >= threshold, 'score_band'] = 10
 
-    # Übrige Scores (Score < Threshold)
+    # Restliche in 1–9 einteilen
     mask_rest = df['score_band'].isna()
     remaining_scores = df.loc[mask_rest, 'y_prob']
 
-    # Falls zu wenig eindeutige Werte: adaptive Anzahl Bins
     num_unique = remaining_scores.nunique()
     num_bins = min(9, num_unique)
 
     if num_bins >= 2:
-        bins = pd.qcut(remaining_scores, num_bins, labels=range(1, num_bins + 1), duplicates='drop')
-        df.loc[mask_rest, 'score_band'] = bins
+        try:
+            binned = pd.qcut(remaining_scores, num_bins, labels=range(1, num_bins + 1), duplicates='drop')
+            for idx, bin_val in binned.items():
+                df.at[idx, 'score_band'] = bin_val
+        except Exception as e:
+            print("qcut failed:", e)
+            df.loc[mask_rest, 'score_band'] = 1
     else:
-        # Fallback: alles restliche in Band 1
         df.loc[mask_rest, 'score_band'] = 1
 
     df['score_band'] = df['score_band'].astype(int)
