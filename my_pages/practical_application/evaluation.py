@@ -27,9 +27,9 @@ from utils.plot_gains_chart import *
 from utils.display_helpers import display_strategy_results
 from utils.evaluation_summary_helpers import evaluate_all_strategies  
 from utils.table_helpers import *
-from utils.find_best_threshold import find_best_threshold
-from utils.score_band_helpers import assign_score_bands, score_band_cost_analysis
-from utils.plot_score_band_analysis import plot_score_band_distribution_and_cost
+#from utils.find_best_threshold import find_best_threshold
+#from utils.score_band_helpers import assign_score_bands, score_band_cost_analysis
+#from utils.plot_score_band_analysis import plot_score_band_distribution_and_cost
 
 
 def show():
@@ -526,26 +526,26 @@ def show():
         ROC-AUC and Precision–Recall AUC values confirm that XGBoost possesses superior separation power and recall efficiency—especially 
         in the presence of sparse positives.
         """, unsafe_allow_html=True)
-        logreg_probs, xgb_probs, y_test = get_predictions()
+        #logreg_probs, xgb_probs, y_test = get_predictions()
         # Berechnung der Schwellenwerte (z. B. Youden)
-        best_thresh_logreg = find_best_threshold(y_test, logreg_probs, strategy="youden")
-        best_thresh_xgb = find_best_threshold(y_test, xgb_probs, strategy="youden")
+        #best_thresh_logreg = find_best_threshold(y_test, logreg_probs, strategy="youden")
+        #best_thresh_xgb = find_best_threshold(y_test, xgb_probs, strategy="youden")
         
         # Score Bands zuweisen
-        df_logreg = assign_score_bands(y_test, logreg_probs, threshold=best_thresh_logreg, model_name="Logistic Regression")
-        df_xgb = assign_score_bands(y_test, xgb_probs, threshold=best_thresh_xgb, model_name="XGBoost")
+        #df_logreg = assign_score_bands(y_test, logreg_probs, threshold=best_thresh_logreg, model_name="Logistic Regression")
+        #df_xgb = assign_score_bands(y_test, xgb_probs, threshold=best_thresh_xgb, model_name="XGBoost")
         
         # Analyse erstellen
-        df_score_bands = pd.concat([df_logreg, df_xgb])
-        df_score_band_costs = score_band_cost_analysis(df_score_bands)
+        #df_score_bands = pd.concat([df_logreg, df_xgb])
+        #df_score_band_costs = score_band_cost_analysis(df_score_bands)
         
         # Plot erzeugen
-        fig_scorebands = plot_score_band_distribution_and_cost(df_score_band_costs)
-        st.subheader("Score Band Distribution & Cost Breakdown (Threshold: Youden)")
-        st.pyplot(fig_scorebands)
+        #fig_scorebands = plot_score_band_distribution_and_cost(df_score_band_costs)
+        #st.subheader("Score Band Distribution & Cost Breakdown (Threshold: Youden)")
+        #st.pyplot(fig_scorebands)
         
         st.markdown("""        
-        <br><br>
+
         Throughout the evaluation phase, both logistic regression and XGBoost were subjected to five different thresholding strategies—default 
         thresholding, cost-optimized tuning, Youden-based trade-off maximization, F1-score optimization, and precision–recall gap minimization. 
         In addition, the models were benchmarked against two theoretical baselines: a null model (no outreach) and a total model (contacting 
@@ -553,7 +553,7 @@ def show():
 
         """, unsafe_allow_html=True)
         # Hole Wahrscheinlichkeiten & Labels
-        #logreg_probs, xgb_probs, y_test = get_predictions()
+        logreg_probs, xgb_probs, y_test = get_predictions()
     
         # Vergleiche alle Strategien
         df_summary = evaluate_all_strategies(y_test, logreg_probs, xgb_probs)
