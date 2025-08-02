@@ -12,7 +12,7 @@ def render_html_table_metrics(df: pd.DataFrame) -> str:
         table {
             width: 100% !important;
             border-collapse: collapse !important;
-            table-layout: fixed !important;
+            table-layout: auto !important;
             border: 2px solid black !important;
         }
         th {
@@ -23,8 +23,9 @@ def render_html_table_metrics(df: pd.DataFrame) -> str:
             border: 1px solid lightgray !important;
             text-align: left !important;
             padding: 8px !important;
-            word-break: break-word !important;
-            max-width: 250px !important;
+            word-break: normal !important;
+            max-width: 400px !important;
+            min-width: 120px !important;
             font-size: 14px !important;
         }
         td {
@@ -33,8 +34,9 @@ def render_html_table_metrics(df: pd.DataFrame) -> str:
             border: 1px solid black !important;
             text-align: left !important;
             padding: 8px !important;
-            word-break: break-word !important;
-            max-width: 250px !important;
+            word-break: normal !important;
+            max-width: 400px !important;
+            min-width: 120px !important;
             font-size: 14px !important;
         }
     </style>
