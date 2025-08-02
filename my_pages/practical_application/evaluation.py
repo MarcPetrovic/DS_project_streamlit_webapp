@@ -526,6 +526,7 @@ def show():
         ROC-AUC and Precision–Recall AUC values confirm that XGBoost possesses superior separation power and recall efficiency—especially 
         in the presence of sparse positives.
         """, unsafe_allow_html=True)
+        logreg_probs, xgb_probs, y_test = get_predictions()
         # Berechnung der Schwellenwerte (z. B. Youden)
         best_thresh_logreg = find_best_threshold(y_test, logreg_probs, strategy="youden")
         best_thresh_xgb = find_best_threshold(y_test, xgb_probs, strategy="youden")
