@@ -553,7 +553,7 @@ def show():
 
         """, unsafe_allow_html=True)
         # Hole Wahrscheinlichkeiten & Labels
-        logreg_probs, xgb_probs, y_test = get_predictions()
+        #logreg_probs, xgb_probs, y_test = get_predictions()
     
         # Vergleiche alle Strategien
         df_summary = evaluate_all_strategies(y_test, logreg_probs, xgb_probs)
