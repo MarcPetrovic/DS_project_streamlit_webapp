@@ -549,7 +549,7 @@ def show():
         ]
         minimize_cols = ["Total Cost (€) (k €)"]
         
-        df_marked = mark_best_overall(df_summary, highlight_cols, minimize_cols)
+        df_marked = mark_best_and_second_best_overall(df_summary, highlight_cols, minimize_cols)
         
         # Auswahl der anzuzeigenden Spalten
         display_columns = [
