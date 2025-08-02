@@ -60,7 +60,7 @@ def plot_score_bands(stats_df_log, stats_df_xgb, selected_criteria, threshold):
         ax.set_xlabel("Score-Band")
         ax.set_ylabel("Anzahl Fälle")
         ax.set_title(f"Score-Bänder ({model_name})")
-        ax.set_ylim(0, 4000)
+        ax.set_ylim(0, 500)
 
         for bar, label in zip(bars, stats_df['label']):
             ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 5, label, ha='center', va='bottom', fontsize=8, rotation=45)
