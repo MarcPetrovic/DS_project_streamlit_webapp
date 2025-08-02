@@ -127,3 +127,46 @@ def mark_best_overall(df: pd.DataFrame, metric_cols: list, minimize_cols: list =
             continue
 
     return df_marked
+
+def mark_best_and_second_best_overall(df: pd.DataFrame, metric_cols: list, minimize_cols: list = []) -> pd.DataFrame:
+    """
+    Markiert die besten Werte mit ✅ und die zweitbesten mit 🔷 pro Metrik über alle Modelle & Strategien.
+
+    Args:
+        df (pd.DataFrame): DataFrame mit Modell–Strategie–Metriken.
+        metric_cols (list): Liste zu vergleichender Metriken.
+        minimize_cols (list): Metriken, bei denen kleinere Werte besser sind.
+
+    Returns:
+        pd.DataFrame: Mit Symbolen markierter DataFrame.
+    """
+    df_marked = df.copy()
+
+    for col in metric_cols:
+        try:
+            # Konvertiere zur Sicherheit
+            numeric_vals = pd.to_numeric(df[col], errors='coerce')
+            sort_asc = col in minimize_cols
+            sorted_vals = numeric_vals.sort_values(ascending=sort_asc)
+
+            best_val = sorted_vals.iloc[0]
+            second_best_val = sorted_vals.iloc[1]
+
+            # Markiere Spalte
+            def format_val(val):
+                if pd.isna(val):
+                    return ""
+                elif val == best_val:
+                    return f"{val:.3f} ✅"
+                elif val == second_best_val:
+                    return f"{val:.3f} 🔷"
+                else:
+                    return f"{val:.3f}"
+
+            df_marked[col] = numeric_vals.apply(format_val)
+
+        except Exception as e:
+            print(f"Skipping column {col} due to error: {e}")
+            continue
+
+    return df_marked
