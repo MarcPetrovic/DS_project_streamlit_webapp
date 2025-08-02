@@ -171,4 +171,10 @@ def mark_best_and_second_best_overall(df: pd.DataFrame, metric_cols: list, minim
             print(f"Skipping column {col} due to error: {e}")
             continue
 
+    # Threshold-Spalte: Nur numerisch und auf 3 Nachkommastellen
+    if "Threshold" in df_marked.columns:
+        try:
+            df_marked["Threshold"] = pd.to_numeric(df_marked["Threshold"], errors='coerce').map(lambda x: f"{x:.3f}")
+        except:
+            pass
     return df_marked
