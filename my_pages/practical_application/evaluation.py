@@ -26,6 +26,7 @@ from utils.decile_analysis import *
 from utils.plot_gains_chart import *
 from utils.display_helpers import display_strategy_results
 from utils.evaluation_summary_helpers import evaluate_all_strategies  
+from utils.table_helpers import *
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -534,13 +535,30 @@ def show():
         df_summary = evaluate_all_strategies(y_test, logreg_probs, xgb_probs)
     
         # Auswahl der anzuzeigenden Metriken
-        display_columns = [
-            "Strategy", "Model", "Threshold", "F1 Score", "Recall (TPR)",
-            "Specificity (TNR)", "Matthews Corr. Coef.", "Cohen's Kappa", "Total Cost (€) (k €)"
-        ]
+        #display_columns = [
+        #    "Strategy", "Model", "Threshold", "F1 Score", "Recall (TPR)",
+        #    "Specificity (TNR)", "Matthews Corr. Coef.", "Cohen's Kappa", "Total Cost (€) (k €)"
+        #]
     
         # Optional: formatieren und hervorheben
-        st.dataframe(df_summary[display_columns].style.format(precision=3))
+        #st.dataframe(df_summary[display_columns].style.format(precision=3))
+        # Markiere beste Strategien je Metrik
+        highlight_cols = [
+            "F1 Score", "Recall (TPR)", "Specificity (TNR)",
+            "Matthews Corr. Coef.", "Cohen's Kappa", "Total Cost (€) (k €)"
+        ]
+        minimize_cols = ["Total Cost (€) (k €)"]
+        
+        df_marked = mark_best_overall(df_summary, highlight_cols, minimize_cols)
+        
+        # Auswahl der anzuzeigenden Spalten
+        display_columns = [
+            "Strategy", "Model", "Threshold"
+        ] + highlight_cols
+        
+        # Anzeige in Streamlit
+        st.subheader("Comparative Summary of Threshold Tuning Strategies")
+        st.markdown(render_html_table_metrics(df_marked[display_columns]), unsafe_allow_html=True)
         
         st.markdown("""
         Across all thresholding strategies, XGBoost consistently outperformed logistic regression, both in terms of classical classification 
