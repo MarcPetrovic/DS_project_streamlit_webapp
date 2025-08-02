@@ -45,6 +45,9 @@ def plot_score_bands(stats_df_log, stats_df_xgb, selected_criteria, threshold):
         for bar, label in zip(bars, stats_df['label']):
             ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 5, label, ha='center', va='bottom', fontsize=8, rotation=45)
 
+        # Y-Achse fix auf 4000 setzen
+        ax.set_ylim(0, 4000)
+
         # Optional: Hervorhebung Top 3 Bänder mit >= threshold Fälle
         if selected_criteria.get("top3", False):
             top3_bands = stats_df.sort_values(by='mean_prob', ascending=False).head(3)['band'].tolist()
