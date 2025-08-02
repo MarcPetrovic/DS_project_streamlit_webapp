@@ -561,6 +561,7 @@ def show():
         st.markdown(render_html_table_metrics(df_marked[display_columns]), unsafe_allow_html=True)
         
         st.markdown("""
+        <br><br>
         Across all thresholding strategies, XGBoost consistently outperformed logistic regression, both in terms of classical classification 
         metrics (e.g., F1-score, accuracy, precision) and in terms of cost efficiency. Particularly under cost-aware and statistically balanced 
         tuning approaches (e.g., Youden or F1), XGBoost achieved cost reductions of over €2.2 million relative to naive strategies, confirming 
@@ -601,7 +602,7 @@ def show():
         balanced thresholding, offers the best trade-off between predictive power, economic viability, and operational control. It consistently identifies 
         high-probability converters early, minimizes unnecessary outreach, and maintains a stable interpretability profile across multiple evaluation axes. 
         It also delivers substantial cost savings while leveraging a coherent and interpretable feature set.
-        """)
+        """, unsafe_allow_html=True)
         #st.info("Implement this section by aggregating all strategies into a combined view if needed.")
         
     # 3. Strategien mit Threshold-Anpassung
