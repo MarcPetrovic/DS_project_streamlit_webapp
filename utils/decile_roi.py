@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-def decile_roi_analysis(y_true, y_probs, threshold, model_name, gain_per_tp=4000, cost_fp=550, cost_fn=3350):
+def decile_roi_analysis(y_true, y_probs, threshold, model_name, gain_per_tp=3350, cost_fp=550, cost_fn=3350):
     df = pd.DataFrame({'y_true': y_true, 'y_prob': y_probs})
     df['decile'] = pd.qcut(df['y_prob'], 10, labels=False, duplicates='drop')
     df['y_pred'] = (df['y_prob'] >= threshold).astype(int)
