@@ -7,7 +7,10 @@ from utils.data_loader import load_csv_data
 from utils.my_colormaps import my_cmap_r, cmap_4, my_cmap
 
 from utils.model_pipeline import *
-
+from utils.find_best_threshold import find_best_threshold
+from utils.cost_calc import calculate_cost
+from utils.decile_roi import decile_roi_analysis
+from utils.plot_roi_lift_combined import plot_decile_lift_roi
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -175,6 +178,39 @@ def show():
     evaluation framework that includes all four components of the confusion matrix (TP, FP, TN, FN).
 
     """)
+    strategy = st.selectbox(
+        "Select threshold tuning strategy",
+        options=["f1", "cost", "youden", "pr_gap", "default", "manual"],
+        index=0
+    )
+    
+    # Manuelle Schwelle
+    if strategy == "manual":
+        threshold = st.slider("Select threshold", 0.0, 1.0, 0.5, step=0.01)
+        threshold_logreg = threshold
+        threshold_xgb = threshold
+    else:
+        kwargs = {"cost_function": calculate_cost} if strategy == "cost" else {}
+        threshold_logreg = find_best_threshold(y_test, logreg_probs, strategy=strategy, **kwargs)
+        threshold_xgb = find_best_threshold(y_test, xgb_probs, strategy=strategy, **kwargs)
+    
+    df_logreg = decile_roi_analysis(
+        y_true=y_test,
+        y_probs=logreg_probs,
+        threshold=threshold_logreg,
+        model_name="Logistic Regression"
+    )
+    
+    df_xgb = decile_roi_analysis(
+        y_true=y_test,
+        y_probs=xgb_probs,
+        threshold=threshold_xgb,
+        model_name="XGBoost"
+    )
+    fig_roi_lift = plot_decile_lift_roi(df_logreg, df_xgb)
+    st.subheader("Lift and ROI per Decile")
+    st.pyplot(fig_roi_lift)
+    
     st.markdown("""
     Finally, several statistical and methodological extensions were deliberately omitted to first ensure a robust analytical baseline model. 
     Nevertheless, many advanced techniques that are common in industrial applications were not considered. These include methods for class 
