@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def plot_decile_lift_roi(logreg_df, xgb_df):
     fig, axes = plt.subplots(1, 2, figsize=(16, 6), sharey=True)
