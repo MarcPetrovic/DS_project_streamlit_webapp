@@ -62,22 +62,34 @@ def show():
     # Prozentuale Darstellung
     df_plot_view["Success_Ratio"] = df_plot_view["Success_Ratio"] * 100
     
-    # Plot erzeugen
-    fig, ax = plt.subplots(figsize=(12, 4))
-    sns.lineplot(data=df_plot_view, x="date_period", y="Success_Ratio", color="tab:red", marker="o", ax=ax)
+    # 📈 Plot erstellen
+    fig, ax1 = plt.subplots(figsize=(14, 5))
     
-    ax.set_title("Monthly Success Rate of Fixed-Term Deposit Campaigns", fontsize=14)
-    ax.set_xlabel("Date (Month)")
-    ax.set_ylabel("Success Rate (%)")
-    ax.grid(True, linestyle="--", alpha=0.6, color="gray")
-    ax.set_facecolor("lightgrey")
-    plt.xticks(rotation=45)
+    # 🔴 Linie: Success Ratio (linke y-Achse)
+    sns.lineplot(data=df_plot_view, x="date_period", y="Success_Ratio", color="tab:red", marker='o', ax=ax1, label="Success Ratio (%)")
+    ax1.set_ylabel("Success Ratio (%)", color="tab:red")
+    ax1.tick_params(axis='y', labelcolor="tab:red")
+    ax1.set_xlabel("Date (Month)")
+    ax1.set_xticklabels(df_plot_view["date_period"], rotation=45)
+    ax1.set_title("Success Rate and Contact Volume per Month")
     
+    # 🟦 Säule: absolute Fallzahl (rechte y-Achse)
+    ax2 = ax1.twinx()
+    ax2.bar(df_plot_view["date_period"], df_plot_view["Basis"], color="steelblue", alpha=0.3, label="Total Contacts")
+    ax2.set_ylabel("Total Contacts (absolute)", color="steelblue")
+    ax2.tick_params(axis='y', labelcolor="steelblue")
+    
+    # 🎨 Style
+    ax1.grid(True, linestyle="--", alpha=0.6, color="grey")
+    fig.patch.set_facecolor("lightgrey")
+    fig.tight_layout()
+    
+    # ⬇️ In Streamlit anzeigen
     st.pyplot(fig)
     
-    # Interpretation als Text (optional)
+    # Interpretation
     st.markdown("""
     🧠 **Interpretation**  
-    This plot reveals how the subscription success rate evolved over time.  
-    Strong fluctuations may indicate behavioral drift or external market influences—suggesting the need for out-of-time validation before model deployment.
+    This dual-axis chart shows how the success ratio (red line) changes over time in relation to the number of contacted customers per month (blue bars).  
+    It helps detect whether performance drift correlates with campaign volume or other seasonal dynamics.
     """)
