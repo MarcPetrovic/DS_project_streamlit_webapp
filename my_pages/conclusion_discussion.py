@@ -107,7 +107,7 @@ def show():
     # 🗂️ Legende manuell zusammenführen
     lines1, labels1 = ax1.get_legend_handles_labels()
     lines2, labels2 = ax2.get_legend_handles_labels()
-    ax2.legend(lines1 + lines2, labels1 + labels2, loc="center right")
+    ax2.legend(lines1 + lines2, labels1 + labels2, loc="top right")
 
     # 🧾 Titel & Layout
     plt.title("Success Ratio and Contact Volume Over Time", fontsize=14, fontweight='bold', color=label_color)
