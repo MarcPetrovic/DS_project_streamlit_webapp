@@ -69,50 +69,50 @@ def show():
     # 🎯 Sicherstellen, dass Success Ratio in Prozent ist
     df_plot_view["Success_Ratio"] = df_plot_view["Success_Ratio"] * 100
     
-    # 📊 Plot
+   # 📊 Plot erzeugen
     fig, ax1 = plt.subplots(figsize=(14, 5))
-    
-    # 🟦 Zuerst: Säulen (rechte y-Achse)
-    ax2 = ax1.twinx()
-    bars = ax2.bar(
+    ax1.set_facecolor(area_color)
+    fig.patch.set_facecolor(bg_color)
+
+    # 🟦 Säulen auf linker Y-Achse
+    bars = ax1.bar(
         df_plot_view["date_period"],
         df_plot_view["Basis"],
         color=bar_color,
-        alpha=0.7,
         label="Total Contacts",
-        zorder=1  # im Hintergrund
+        alpha=0.85,
+        zorder=1
     )
-    ax2.set_ylabel("Total Contacts (absolute)", color=label_color)
-    ax2.tick_params(axis='y', labelcolor=label_color)
-    ax2.set_facecolor(plot_area_color)
-    
-    # 🔴 Dann: Linie (linke y-Achse) – mit höherem zorder
-    line = ax1.plot(
+    ax1.set_ylabel("Total Contacts", color=label_color)
+    ax1.tick_params(axis='y', labelcolor=label_color)
+    ax1.set_xlabel("Date (Month)", color=label_color)
+    ax1.tick_params(axis='x', rotation=45, labelcolor=label_color)
+
+    # 🔴 Linie auf rechter Y-Achse
+    ax2 = ax1.twinx()
+    line = ax2.plot(
         df_plot_view["date_period"],
         df_plot_view["Success_Ratio"],
         color=line_color,
         marker='o',
+        linestyle='--',
+        linewidth=2.2,
         label="Success Ratio (%)",
-        linewidth=2,
-        zorder=2  # im Vordergrund
+        zorder=2  # Linie vor die Säulen
     )
-    ax1.set_xlabel("Date (Month)", color=label_color)
-    ax1.set_ylabel("Success Ratio (%)", color=label_color)
-    ax1.tick_params(axis='y', labelcolor=label_color)
-    ax1.tick_params(axis='x', labelcolor=label_color, rotation=45)
-    ax1.set_title("Monthly Success Rate and Campaign Volume", fontsize=14, color=label_color)
-    ax1.set_facecolor(plot_area_color)
-    
-    # 🖼️ Gesamthintergrund
-    fig.patch.set_facecolor(bg_color)
-    ax1.grid(True, linestyle="--", alpha=0.6, color="grey")
-    fig.tight_layout()
-    
-    # 🏷️ Legende manuell setzen (rechts mittig)
-    lines_1, labels_1 = ax1.get_legend_handles_labels()
-    lines_2, labels_2 = ax2.get_legend_handles_labels()
-    ax1.legend(lines_1 + lines_2, labels_1 + labels_2, loc="center right")
-    
+    ax2.set_ylabel("Success Ratio (%)", color=label_color)
+    ax2.tick_params(axis='y', labelcolor=label_color)
+    ax2.set_ylim([0, 100])
+
+    # 🗂️ Legende manuell zusammenführen
+    lines1, labels1 = ax1.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax2.legend(lines1 + lines2, labels1 + labels2, loc="center right")
+
+    # 🧾 Titel & Layout
+    plt.title("Success Ratio and Contact Volume Over Time", fontsize=14, fontweight='bold', color=label_color)
+    ax1.grid(True, linestyle='--', color='grey', alpha=0.6)
+    plt.tight_layout()    
     # 📌 Streamlit-Ausgabe
     st.pyplot(fig)
     
