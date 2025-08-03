@@ -72,17 +72,30 @@ def show():
     # 📊 Plot
     fig, ax1 = plt.subplots(figsize=(14, 5))
     
-    # 🟦 ZUERST die Säulen: Total Contacts (rechte Achse)
+    # 🟦 Zuerst: Säulen (rechte y-Achse)
     ax2 = ax1.twinx()
-    bars = ax2.bar(df_plot_view["date_period"], df_plot_view["Basis"],
-                   color=bar_color, alpha=0.7, label="Total Contacts")
+    bars = ax2.bar(
+        df_plot_view["date_period"],
+        df_plot_view["Basis"],
+        color=bar_color,
+        alpha=0.7,
+        label="Total Contacts",
+        zorder=1  # im Hintergrund
+    )
     ax2.set_ylabel("Total Contacts (absolute)", color=label_color)
     ax2.tick_params(axis='y', labelcolor=label_color)
     ax2.set_facecolor(plot_area_color)
     
-    # 🔴 DANN die Linie: Success Ratio (linke Achse)
-    line = ax1.plot(df_plot_view["date_period"], df_plot_view["Success_Ratio"],
-                    color=line_color, marker='o', label="Success Ratio (%)", linewidth=2)
+    # 🔴 Dann: Linie (linke y-Achse) – mit höherem zorder
+    line = ax1.plot(
+        df_plot_view["date_period"],
+        df_plot_view["Success_Ratio"],
+        color=line_color,
+        marker='o',
+        label="Success Ratio (%)",
+        linewidth=2,
+        zorder=2  # im Vordergrund
+    )
     ax1.set_xlabel("Date (Month)", color=label_color)
     ax1.set_ylabel("Success Ratio (%)", color=label_color)
     ax1.tick_params(axis='y', labelcolor=label_color)
@@ -90,22 +103,22 @@ def show():
     ax1.set_title("Monthly Success Rate and Campaign Volume", fontsize=14, color=label_color)
     ax1.set_facecolor(plot_area_color)
     
-    # 🎨 Style
+    # 🖼️ Gesamthintergrund
     fig.patch.set_facecolor(bg_color)
     ax1.grid(True, linestyle="--", alpha=0.6, color="grey")
     fig.tight_layout()
     
-    # 🏷️ Legende (rechts unten)
+    # 🏷️ Legende manuell setzen (rechts mittig)
     lines_1, labels_1 = ax1.get_legend_handles_labels()
     lines_2, labels_2 = ax2.get_legend_handles_labels()
-    ax1.legend(lines_1 + lines_2, labels_1 + labels_2, loc="lower right")
+    ax1.legend(lines_1 + lines_2, labels_1 + labels_2, loc="center right")
     
-    # ➕ In Streamlit anzeigen
+    # 📌 Streamlit-Ausgabe
     st.pyplot(fig)
     
-    # 🧠 Interpretation
+    # ℹ️ Interpretation
     st.markdown("""
     🧠 **Interpretation**  
-    The red line shows the monthly subscription success rate, while the blue bars represent the number of contacted customers.  
-    Visualizing both together allows tracking performance over time and understanding the impact of campaign volume.
+    The red line illustrates the success rate of term deposit subscriptions, while the blue bars represent total campaign contacts.  
+    The mid-right legend and overlaid line ensure readability while tracking both scale and performance over time.
     """)
