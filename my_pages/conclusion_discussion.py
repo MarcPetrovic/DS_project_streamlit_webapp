@@ -211,3 +211,45 @@ def show():
     # Charts anzeigen
     plot_dual_iv_chart(logreg_train_iv, logreg_test_iv, model_name="Logistic Regression")
     plot_dual_iv_chart(xgb_train_iv, xgb_test_iv, model_name="XGBoost")
+
+    def get_iv_table(y_true, y_prob, model_name, dataset_label, bins=10):
+        df = pd.DataFrame({'y_true': y_true, 'y_prob': y_prob})
+        df['decile'] = pd.qcut(df['y_prob'], bins, labels=False, duplicates='drop')
+        df['decile'] = bins - df['decile']  # Deciles absteigend sortieren
+    
+        total_goods = (df['y_true'] == 1).sum()
+        total_bads = (df['y_true'] == 0).sum()
+    
+        grouped = df.groupby('decile').agg(
+            Count=('y_true', 'count'),
+            Goods=('y_true', lambda x: (x == 1).sum()),
+            Bads=('y_true', lambda x: (x == 0).sum())
+        ).reset_index()
+
+        grouped['%Goods'] = grouped['Goods'] / total_goods
+        grouped['%Bads'] = grouped['Bads'] / total_bads
+        grouped['IV'] = (grouped['%Goods'] - grouped['%Bads']) * np.log((grouped['%Goods'] + 1e-6) / (grouped['%Bads'] + 1e-6))
+        grouped['Cumulative IV'] = grouped['IV'].cumsum()
+    
+        grouped.insert(0, "Dataset", dataset_label)
+        grouped.insert(0, "Model", model_name)
+    
+        return grouped.round(4)
+        
+    # 📊 IV-Tabellen für alle 4 Kombinationen
+    logreg_train_table = get_iv_table(y_train, logreg_probs_train, model_name="Logistic Regression", dataset_label="Train")
+    logreg_test_table  = get_iv_table(y_test, logreg_probs_test, model_name="Logistic Regression", dataset_label="Test")
+    xgb_train_table    = get_iv_table(y_train, xgb_probs_train, model_name="XGBoost", dataset_label="Train")
+    xgb_test_table     = get_iv_table(y_test, xgb_probs_test, model_name="XGBoost", dataset_label="Test")
+    
+    # 👉 Zusammenführen
+    iv_summary_table = pd.concat([logreg_train_table, logreg_test_table, xgb_train_table, xgb_test_table], ignore_index=True)
+    
+    # 🎨 Anzeige in Streamlit
+    st.subheader("📋 IV Contribution Table by Decile")
+    st.dataframe(iv_summary_table.style.format({
+        "%Goods": "{:.2%}",
+        "%Bads": "{:.2%}",
+        "IV": "{:.3f}",
+        "Cumulative IV": "{:.3f}"
+    }))
