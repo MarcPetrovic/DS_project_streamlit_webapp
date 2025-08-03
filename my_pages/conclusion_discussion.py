@@ -30,8 +30,8 @@ def show():
     systematically conducted along the CRISP-DM structure, the final phase—deployment—could not be fully operationalized. Since no 
     production-ready target system was available for the practical use of the model, a technical platform to integrate the predictive 
     model into existing business processes was lacking. As a result, no implementation roadmap could be outlined, nor was a systematic 
-    feature and model monitoring established (e.g., using information, stability or population shift indices). Important aspects such 
-    as retraining strategies and automation processes were likewise excluded from the scope of this project.
+    feature and model monitoring established (e.g., using information value, stability or population shift indices). Important aspects 
+    such as retraining strategies and automation processes were likewise excluded from the scope of this project.
 
     """)
         # Daten & Modelle laden (einmal, mit Caching)
