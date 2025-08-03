@@ -68,12 +68,16 @@ def show():
     def plot_dual_iv_chart(train_df, test_df, model_name):
         fig, axes = plt.subplots(1, 2, figsize=(14, 5), sharey=True)
     
-        # Farben
-        color_train = '#097a80'
-        color_test = '#C00000'
+       # Farben festlegen basierend auf Modellname
+        if model_name.lower() == "logistic regression":
+            color = '#097a80'  # Türkis
+        elif model_name.lower() == "xgboost":
+            color = '#191919'  # Dunkelgrau
+        else:
+            color = '#888888'  # Fallback
     
         # Plot Train
-        axes[0].bar(train_df['decile'], train_df['IV'], color=color_train)
+        axes[0].bar(train_df['decile'], train_df['IV'], color=color)
         axes[0].set_title(f'{model_name} – Train Set', fontsize=12, fontweight='bold')
         axes[0].set_xlabel('Decile')
         axes[0].set_ylabel('IV Contribution')
@@ -83,14 +87,14 @@ def show():
         axes[0].set_xticks(range(1, 11))
     
         # Plot Test
-        axes[1].bar(test_df['decile'], test_df['IV'], color=color_test)
+        axes[1].bar(test_df['decile'], test_df['IV'], color=color)
         axes[1].set_title(f'{model_name} – Test Set', fontsize=12, fontweight='bold')
         axes[1].set_xlabel('Decile')
         axes[1].grid(True, linestyle='--', alpha=0.5)
         axes[1].set_facecolor('lightgrey')
         axes[1].tick_params(axis='x', labelrotation=0)
         axes[1].set_xticks(range(1, 11))
-    
+  
         # Hintergrund
         fig.patch.set_facecolor('white')
         st.pyplot(fig)
