@@ -174,6 +174,16 @@ def show():
     evaluation framework that includes all four components of the confusion matrix (TP, FP, TN, FN).
 
     """)
+    st.markdown("""
+    Finally, several statistical and methodological extensions were deliberately omitted to first ensure a robust analytical baseline model. 
+    Nevertheless, many advanced techniques that are common in industrial applications were not considered. These include methods for class 
+    rebalancing (e.g., SMOTE or reweighting), feature engineering based on Weight of Evidence, or statistical bootstrapping to iteratively 
+    select relevant variables. Likewise, dimensionality reduction techniques (e.g., clustering or principal component analysis) were not 
+    applied. Although decile analysis was conducted to support campaign prioritization, explicit rating classes were not defined, which would 
+    have enabled targeted selection under resource constraints. Additionally, more advanced techniques for handling missing values (e.g., multiple 
+    imputation) and an out-of-time validation to ensure model stability over time would have been desirable.
+
+    """)
     
     df = load_csv_data(
         filename="data/bank-additional-full.csv",
