@@ -281,9 +281,8 @@ def show():
     # 📌 Streamlit-Ausgabe
     st.pyplot(fig)
     
-    # ℹ️ Interpretation
+    st.subheader("Prospect")
     st.markdown("""
-    **Prospect**
     Despite these limitations, the present study provides a sound and practical basis for the structured development of response models in 
     banking-related marketing and clearly highlights the value of data-driven decision-making for strategic marketing processes. Future projects 
     should particularly focus on the complete operationalization of all CRISP-DM phases, the integration of financial performance measures such 
