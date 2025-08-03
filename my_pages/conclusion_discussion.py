@@ -219,7 +219,10 @@ def show():
 
     # Titel und Beschreibung
     st.subheader("Subscription Success Rate Over Time")
-    st.markdown("This time series shows the monthly success rate of term deposit subscriptions based on the bank’s marketing campaigns.")
+    st.markdown("""
+    This time series shows the monthly success rate of term deposit subscriptions based on the bank’s marketing campaigns. The red line illustrates the 
+    success rate of term deposit subscriptions, while the blue bars represent total campaign contacts.
+    """)
     
  # Deine Farbvorgaben
     line_color = "#C00000"      # für Success Ratio
@@ -280,7 +283,12 @@ def show():
     
     # ℹ️ Interpretation
     st.markdown("""
-    🧠 **Interpretation**  
-    The red line illustrates the success rate of term deposit subscriptions, while the blue bars represent total campaign contacts.  
-    The mid-right legend and overlaid line ensure readability while tracking both scale and performance over time.
+    **Prospect**
+    Despite these limitations, the present study provides a sound and practical basis for the structured development of response models in 
+    banking-related marketing and clearly highlights the value of data-driven decision-making for strategic marketing processes. Future projects 
+    should particularly focus on the complete operationalization of all CRISP-DM phases, the integration of financial performance measures such 
+    as ROI and profit, and the application of more sophisticated statistical methodologies to further improve the transferability of such models 
+    into real-world business operations. The combination of data-centric thinking, economic grounding, and scalable technical design remains the 
+    key success factor.
+
     """)
