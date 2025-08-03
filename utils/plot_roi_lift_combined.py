@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-def plot_decile_lift_roi(logreg_df, xgb_df):
+def plot_decile_lift_roi(df_logreg, df_xgb):
     fig, axes = plt.subplots(1, 2, figsize=(16, 6), sharey=True)
 
     # ROI-Grenzen global berechnen
