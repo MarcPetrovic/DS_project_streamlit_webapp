@@ -63,7 +63,7 @@ def show():
     line_color = "#C00000"      # für Success Ratio
     bar_color = "#097a80"       # für Kontaktanzahl
     bg_color = "white"
-    plot_area_color = "lightgrey"
+    area_color = "lightgrey"
     label_color = "black"
     
     # 🎯 Sicherstellen, dass Success Ratio in Prozent ist
