@@ -149,15 +149,16 @@ def show():
     
     # 👉 Zusammenführen
     iv_summary_table = pd.concat([logreg_train_table, logreg_test_table, xgb_train_table, xgb_test_table], ignore_index=True)
-    
-    # 🎨 Anzeige in Streamlit
-    st.subheader("📋 IV Contribution Table by Decile")
-    st.dataframe(iv_summary_table.style.format({
-        "%Goods": "{:.2%}",
-        "%Bads": "{:.2%}",
-        "IV": "{:.3f}",
-        "Cumulative IV": "{:.3f}"
-    }))
+
+    if st.checkbox("📊 Show IV-Table", value=False):
+        # 🎨 Anzeige in Streamlit
+        st.subheader("📋 IV Contribution Table by Decile")
+        st.dataframe(iv_summary_table.style.format({
+            "%Goods": "{:.2%}",
+            "%Bads": "{:.2%}",
+            "IV": "{:.3f}",
+            "Cumulative IV": "{:.3f}"
+        }))
 
     st.markdown("""
     A key insight of this study was the monetization of model errors (false positives and false negatives) through the integration of 
