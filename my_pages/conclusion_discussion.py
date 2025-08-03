@@ -238,9 +238,9 @@ def show():
         
     # 📊 IV-Tabellen für alle 4 Kombinationen
     logreg_train_table = get_iv_table(y_train, logreg_probs_train, model_name="Logistic Regression", dataset_label="Train")
-    logreg_test_table  = get_iv_table(y_test, logreg_probs_test, model_name="Logistic Regression", dataset_label="Test")
+    logreg_test_table  = get_iv_table(y_test, logreg_probs, model_name="Logistic Regression", dataset_label="Test")
     xgb_train_table    = get_iv_table(y_train, xgb_probs_train, model_name="XGBoost", dataset_label="Train")
-    xgb_test_table     = get_iv_table(y_test, xgb_probs_test, model_name="XGBoost", dataset_label="Test")
+    xgb_test_table     = get_iv_table(y_test, xgb_probs, model_name="XGBoost", dataset_label="Test")
     
     # 👉 Zusammenführen
     iv_summary_table = pd.concat([logreg_train_table, logreg_test_table, xgb_train_table, xgb_test_table], ignore_index=True)
