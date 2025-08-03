@@ -59,37 +59,53 @@ def show():
     st.subheader("Subscription Success Rate Over Time")
     st.markdown("This time series shows the monthly success rate of term deposit subscriptions based on the bank’s marketing campaigns.")
     
-    # Prozentuale Darstellung
+ # Deine Farbvorgaben
+    line_color = "#C00000"      # für Success Ratio
+    bar_color = "#097a80"       # für Kontaktanzahl
+    bg_color = "white"
+    plot_area_color = "lightgrey"
+    label_color = "black"
+    
+    # 🎯 Sicherstellen, dass Success Ratio in Prozent ist
     df_plot_view["Success_Ratio"] = df_plot_view["Success_Ratio"] * 100
     
-    # 📈 Plot erstellen
+    # 📊 Plot
     fig, ax1 = plt.subplots(figsize=(14, 5))
     
-    # 🔴 Linie: Success Ratio (linke y-Achse)
-    sns.lineplot(data=df_plot_view, x="date_period", y="Success_Ratio", color="tab:red", marker='o', ax=ax1, label="Success Ratio (%)")
-    ax1.set_ylabel("Success Ratio (%)", color="tab:red")
-    ax1.tick_params(axis='y', labelcolor="tab:red")
-    ax1.set_xlabel("Date (Month)")
-    ax1.set_xticklabels(df_plot_view["date_period"], rotation=45)
-    ax1.set_title("Success Rate and Contact Volume per Month")
+    # 🎯 Achse 1: Success Ratio (rote Linie)
+    ax1.plot(df_plot_view["date_period"], df_plot_view["Success_Ratio"],
+             color=line_color, marker='o', label="Success Ratio (%)")
+    ax1.set_xlabel("Date (Month)", color=label_color)
+    ax1.set_ylabel("Success Ratio (%)", color=label_color)
+    ax1.tick_params(axis='y', labelcolor=label_color)
+    ax1.tick_params(axis='x', labelcolor=label_color, rotation=45)
+    ax1.set_title("Monthly Success Rate and Campaign Volume", fontsize=14, color=label_color)
+    ax1.set_facecolor(plot_area_color)
     
-    # 🟦 Säule: absolute Fallzahl (rechte y-Achse)
+    # 📊 Achse 2: Absolute Kontakte (blaue Säulen)
     ax2 = ax1.twinx()
-    ax2.bar(df_plot_view["date_period"], df_plot_view["Basis"], color="steelblue", alpha=0.3, label="Total Contacts")
-    ax2.set_ylabel("Total Contacts (absolute)", color="steelblue")
-    ax2.tick_params(axis='y', labelcolor="steelblue")
+    ax2.bar(df_plot_view["date_period"], df_plot_view["Basis"],
+            color=bar_color, alpha=0.7, label="Total Contacts")
+    ax2.set_ylabel("Total Contacts (absolute)", color=label_color)
+    ax2.tick_params(axis='y', labelcolor=label_color)
+    ax2.set_facecolor(plot_area_color)
+    
+    # 🖼️ Legende manuell zusammenführen
+    lines_1, labels_1 = ax1.get_legend_handles_labels()
+    lines_2, labels_2 = ax2.get_legend_handles_labels()
+    ax1.legend(lines_1 + lines_2, labels_1 + labels_2, loc="upper left")
     
     # 🎨 Style
+    fig.patch.set_facecolor(bg_color)
     ax1.grid(True, linestyle="--", alpha=0.6, color="grey")
-    fig.patch.set_facecolor("lightgrey")
     fig.tight_layout()
     
     # ⬇️ In Streamlit anzeigen
     st.pyplot(fig)
     
-    # Interpretation
+    # ➕ Interpretation
     st.markdown("""
     🧠 **Interpretation**  
-    This dual-axis chart shows how the success ratio (red line) changes over time in relation to the number of contacted customers per month (blue bars).  
-    It helps detect whether performance drift correlates with campaign volume or other seasonal dynamics.
+    This visualization shows the monthly trend of success rates (red line) and campaign reach (blue bars).  
+    It highlights shifts in performance relative to contact volume—important for assessing potential model drift over time.
     """)
