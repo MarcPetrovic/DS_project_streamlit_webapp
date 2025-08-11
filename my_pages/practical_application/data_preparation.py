@@ -362,14 +362,15 @@ def show():
               padding: 10px;
           ">
           <div style="
-              min-width: 1200px;   /* sorgt dafür, dass die Pipeline breit genug dargestellt wird */
+              max-width: 100%;   /* passt sich der Bildschirmbreite an */
+              display: inline-block;
           ">
           {str(soup)}
           </div>
           </div>
           """
 
-          st.components.v1.html(html_wrapped, height=600, scrolling=False)
+          st.components.v1.html(html_wrapped, height=600, scrolling=True)
 
           #st.components.v1.html(str(soup), height=450, scrolling=True) 
       
