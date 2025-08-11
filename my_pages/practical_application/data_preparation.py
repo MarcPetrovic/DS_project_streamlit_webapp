@@ -369,7 +369,7 @@ def show():
           </div>
           """
 
-          st.components.v1.html(html_wrapped, height=600, scrolling=True)
+          st.components.v1.html(html_wrapped, height=600, scrolling=False)
 
           #st.components.v1.html(str(soup), height=450, scrolling=True) 
       
