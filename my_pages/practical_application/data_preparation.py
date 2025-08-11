@@ -400,7 +400,7 @@ def show():
                   style_tag.string.replace_with(style_text)
 
 
-          st.components.v1.html(str(soup_cleaning), height=400, width=800, scrolling=True)
+          st.components.v1.html(str(soup_cleaning), height=300, width=600, scrolling=True)
 
           st.subheader("📊 Feature Summary After Cleaning")
           summary_df = summary(newdf)
