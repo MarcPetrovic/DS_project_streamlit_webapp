@@ -362,7 +362,7 @@ def show():
 
           #st.components.v1.html(html_wrapped, height=600, scrolling=True)
 
-          st.components.v1.html(str(soup), height=600, scrolling=True) 
+          st.components.v1.html(str(soup), height=600, width=800, scrolling=True) 
       
           preprocessor.set_output(transform='pandas')
           transformed_df = preprocessor.fit_transform(df)
