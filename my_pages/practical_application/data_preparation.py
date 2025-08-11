@@ -345,7 +345,14 @@ def show():
               "--sklearn-color-background": "#f3f3f3",
               "--sklearn-color-border-box": "#191919",
           }
-          
+
+          # Alle SVG-Tags anpassen
+          for svg_tag in soup.find_all("svg"):
+              svg_tag['width'] = "100%"     # volle Breite im iframe
+              svg_tag['height'] = "auto"    # Höhe automatisch
+              if 'viewBox' not in svg_tag.attrs:
+                  # Falls noch nicht vorhanden, wird der viewBox gesetzt
+                  svg_tag['viewBox'] = f"0 0 1200 400"
           for style_tag in soup.find_all("style"):
               style_text = style_tag.string
               if style_text:
@@ -353,26 +360,9 @@ def show():
                       style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
                   style_tag.string.replace_with(style_text)
 
-          
-          html_wrapped = f"""
-          <div style="
-              width: 100%;
-              overflow-x: auto;
-              background-color: #f3f3f3;
-              padding: 10px;
-          ">
-          <div style="
-              max-width: 100%;   /* passt sich der Bildschirmbreite an */
-              display: inline-block;
-          ">
-          {str(soup)}
-          </div>
-          </div>
-          """
+          #st.components.v1.html(html_wrapped, height=600, scrolling=True)
 
-          st.components.v1.html(html_wrapped, height=600, scrolling=True)
-
-          #st.components.v1.html(str(soup), height=450, scrolling=True) 
+          st.components.v1.html(str(soup), height=600, scrolling=True) 
       
           preprocessor.set_output(transform='pandas')
           transformed_df = preprocessor.fit_transform(df)
