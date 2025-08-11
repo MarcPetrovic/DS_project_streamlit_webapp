@@ -352,8 +352,25 @@ def show():
                   for var_name, new_color in color_variable_mapping.items():
                       style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
                   style_tag.string.replace_with(style_text)
+
           
-          st.components.v1.html(str(soup), height=450, scrolling=True) 
+          html_wrapped = f"""
+          <div style="
+              height:100%;
+              overflow:auto;
+              padding:0;
+              margin:0;
+              background-color:#f3f3f3;
+              zoom:0.9;                       /* Zoom für kleinere Darstellung */
+              -moz-transform:scale(0.9);      /* Firefox-kompatibler Zoom */
+              -moz-transform-origin:0 0;
+          ">
+          {str(soup)}
+          </div>
+          """
+          st.components.v1.html(html_wrapped, height=500, scrolling=True)
+
+          #st.components.v1.html(str(soup), height=450, scrolling=True) 
       
           preprocessor.set_output(transform='pandas')
           transformed_df = preprocessor.fit_transform(df)
@@ -391,6 +408,7 @@ def show():
                   for var_name, new_color in color_variable_mapping.items():
                       style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
                   style_tag.string.replace_with(style_text)
+
 
           st.components.v1.html(str(soup_cleaning), height=500, scrolling=True)
 
