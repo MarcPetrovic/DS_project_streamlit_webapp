@@ -402,7 +402,7 @@ def show():
                   style_tag.string.replace_with(style_text)
 
 
-          st.components.v1.html(str(soup_cleaning), height=500, scrolling=True)
+          st.components.v1.html(str(soup_cleaning), height=600, width=800, scrolling=True)
 
           st.subheader("📊 Feature Summary After Cleaning")
           summary_df = summary(newdf)
@@ -488,7 +488,7 @@ def show():
                       style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
                   style_tag.string.replace_with(style_text)
 
-          st.components.v1.html(str(soup_X), height=400, scrolling=True)
+          st.components.v1.html(str(soup_X),height=600, width=800, scrolling=True)
 
           X_train_transformed = preprocessor_X.fit_transform(X_train)
           X_test_transformed = preprocessor_X.transform(X_test)
