@@ -356,19 +356,20 @@ def show():
           
           html_wrapped = f"""
           <div style="
-              height:100%;
-              overflow:auto;
-              padding:0;
-              margin:0;
-              background-color:#f3f3f3;
-              zoom:0.9;                       /* Zoom für kleinere Darstellung */
-              -moz-transform:scale(0.9);      /* Firefox-kompatibler Zoom */
-              -moz-transform-origin:0 0;
+              width: 100%;
+              overflow-x: auto;
+              background-color: #f3f3f3;
+              padding: 10px;
+          ">
+          <div style="
+              min-width: 1200px;   /* sorgt dafür, dass die Pipeline breit genug dargestellt wird */
           ">
           {str(soup)}
           </div>
+          </div>
           """
-          st.components.v1.html(html_wrapped, height=500, scrolling=True)
+
+          st.components.v1.html(html_wrapped, height=600, scrolling=True)
 
           #st.components.v1.html(str(soup), height=450, scrolling=True) 
       
