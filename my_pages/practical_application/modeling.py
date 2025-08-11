@@ -250,7 +250,7 @@ def show():
                       style_text = style_text.replace(var_name + ": ", f"{var_name}: {new_color}; /* replaced */ ")
                   style_tag.string.replace_with(style_text)
           
-          st.components.v1.html(str(soup2), height=450, scrolling=True) 
+          st.components.v1.html(str(soup2), height=450, width=1200, scrolling=True) 
 
           processor.set_output(transform='pandas')
           X_train_transformed2nd = processor.fit_transform(df)
