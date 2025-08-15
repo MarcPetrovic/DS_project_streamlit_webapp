@@ -24,6 +24,7 @@ def show_github_image(image_filename: str, repo_url: str, caption=None, branch="
         if response.status_code != 200:
             st.warning(f"Bild konnte nicht geladen werden: {raw_url}")
         else:
-            st.image(raw_url, caption=caption, use_container_width=True)
+            #st.image(raw_url, caption=caption, use_container_width=True)
+            st.image(raw_url, caption=caption, width=600)  # z. B. 600 Pixel Breite
     except Exception as e:
         st.error(f"Fehler beim Laden des Bildes: {e}")
