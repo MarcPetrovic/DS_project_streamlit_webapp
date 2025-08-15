@@ -67,6 +67,7 @@ def show():
         image_filename="images/feature_construction_tool_spa.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
         caption=("Figure 19: Relevant aspects and important stakeholders of the feature construction tool SPA.\n"
+                 " "
                 )
         )
         st.markdown("""
