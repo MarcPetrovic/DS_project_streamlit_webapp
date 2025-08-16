@@ -31,7 +31,16 @@ def show():
     fundamentally and companies implemented new concepts of customer relations. The primary marketing objective 
     changed in the way that the focus was no longer on the cost-intensive expansion of the customer base, but 
     rather on intensifying new business with existing customers (cross-selling and up-selling).
+    """)
 
+    show_github_image(
+    image_filename="images/marketing_expenses.PNG",
+    repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+    caption=( "Figure 3: Time series analysis of banks' operating expenditure on marketing activities \n"
+             "and the correlation between operating expenses and income per bank customer")
+    )
+
+    st.markdown("""
     Over the last two decades, the focus of marketing has shifted from the breadth of the customer base to the 
     depth of the needs of individual customers. Today, successful companies are practising the new economics of 
     the customer relationship by being interested in long-term customer relationships when the customer value is 
@@ -43,10 +52,10 @@ def show():
     """)
 
     show_github_image(
-    image_filename="images/marketing_expenses.PNG",
+    image_filename="images/corr_ops_income_expenses.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption=( "Figure 3: Time series analysis of banks' operating expenditure on marketing activities \n"
-             "and the correlation between operating expenses and income per bank customer")
+    caption=( "Figure 4: Development of retail banks operating cost per customer (€) \n"
+             "between 2022 and 2023")
     )
     st.markdown("""
         <!-- Font Awesome einbinden -->
