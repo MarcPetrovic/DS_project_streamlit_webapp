@@ -189,7 +189,7 @@ def show():
         )
         st.markdown("""
         <br>
-        **a) Trade-off Optimization using the Youden Index**
+        <b>a) Trade-off Optimization using the Youden Index</b>)
         <br>
         The Youden Index (J) is a classical method in diagnostic test evaluation, defined as:
         """, unsafe_allow_html=True)
