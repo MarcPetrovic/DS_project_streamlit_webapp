@@ -88,7 +88,7 @@ def show():
         show_github_image(
             image_filename="images/evaluation_dmp_tts_fia.PNG",
             repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-            caption="Figure 24: Overview of different evaluation levels, reaching from overall discriminative model performance, threshold tuning strategies & feature importance analysis"
+            caption="Figure 30: Overview of different evaluation levels, reaching from overall discriminative model performance, threshold tuning strategies & feature importance analysis"
         )
         st.markdown("""        
         Beyond AUC, several advanced metrics are applied to obtain a more nuanced assessment of model performance under class imbalance. These 
