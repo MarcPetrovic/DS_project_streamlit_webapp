@@ -181,8 +181,13 @@ def show():
         adaptive decision-making under varying model performance characteristics. These complementary approaches 
         are grounded in statistical theory and widely recognized in classification evaluation research.
         <br><br>
-
-
+        """, unsafe_allow_html=True)
+        show_github_image(
+        image_filename="images/alternative_thresholding_strategies.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 12: Formulation of three genral established, alternativ thresholding strategies.")
+        )
+        st.markdown("""
         **a) Trade-off Optimization using the Youden Index**
         <br>
         The Youden Index (J) is a classical method in diagnostic test evaluation, defined as:
