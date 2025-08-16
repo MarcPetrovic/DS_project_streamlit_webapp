@@ -37,7 +37,13 @@ def show():
         This includes, among other things, the removal of duplicate records, appropriate handling of missing or incomplete 
         values, encoding of categorical attributes, and transformation of numerical variables to ensure comparability and 
         support algorithmic performance.
-
+        """)
+        show_github_image(
+          image_filename="images/intro_data_prep.PNG",
+          repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+          caption=( "Figure 16: Process-related activities within CRISP-DM phase 3 - data preparation")
+          )
+        st.markdown("""
         Particular emphasis is placed on adhering to empirically and domain-informed recommendations—such as the exclusion 
         of the duration variable to prevent data leakage—as well as on the practical implementation of preprocessing 
         strategies derived from the data audit. Each transformation step is carried out in a transparent and reproducible 
@@ -72,7 +78,7 @@ def show():
         show_github_image(
           image_filename="images/data_preparation_steps.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 15: Overview of single steps within data preparation phase")
+          caption=( "Figure 17: Overview of single steps within data preparation phase")
           )
         st.markdown("""
 
@@ -137,7 +143,7 @@ def show():
         show_github_image(
           image_filename="images/preprocessing_pipelines.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 16: Pipeline overview within data preparation phase")
+          caption=( "Figure 18: Pipeline overview within data preparation phase")
           )
     elif task == "Strategic & Methodical Aspects of Train-Test-Split":
         st.subheader("3. Strategic & Methodical Aspects of Train-Test-Split")
@@ -176,7 +182,7 @@ def show():
         show_github_image(
           image_filename="images/train_test_split.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 17: Train-test-split and class distribution validation")
+          caption=( "Figure 19: Train-test-split and class distribution validation")
           )
 
     elif task == "Model Comparison within the first Iteration":
@@ -206,7 +212,7 @@ def show():
         show_github_image(
           image_filename="images/1st_iteration_modelling.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 18: Overview of single steps within data preparation phase")
+          caption=( "Figure 20: Overview of single steps within data preparation phase")
           )
         st.markdown("""
         <br>
