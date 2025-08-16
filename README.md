@@ -1,6 +1,8 @@
 # DS_project_streamlit_webapp
 
 [![Streamlit App](https://img.shields.io/badge/Launch%20App-Streamlit-brightgreen)](https://your-streamlit-app-url.streamlit.app)
+![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python) 
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 ---
 
@@ -16,12 +18,12 @@ The application is hosted on Streamlit Cloud and can be accessed directly via th
 ---
 
 ## Data Source
-The analyses are based on publicly available datasets provided as part of the training resources from datascientest.com.
+The analyses are based on publicly available datasets entitled “Bank Marketing (with social/economic context)”, it is freely available to secondary researchers in the machine learning repository of the University of California, Irvine (UCI), at the following link: http://archive.ics.uci.edu/ml/datasets/Bank+Marketing
 
 ---
 
 ## Acknowledgements
-Special thanks go to Lucas Varela for his guidance and to datascientest.com as the training provider.
+Special thanks go to Lucas Varela for his guidance and to datascientest.com as the training provider of this project.
 
 ---
 
