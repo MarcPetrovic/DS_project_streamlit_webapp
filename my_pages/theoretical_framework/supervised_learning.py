@@ -18,7 +18,7 @@ def show():
     show_github_image(
     image_filename="images/crisp_dm_model.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption=( "Figure 6: Model of iteration cycles of the CRIPS-DM")
+    caption=( "Figure 7: Model of iteration cycles of the CRIPS-DM")
     )
     st.markdown("""
     The response model is usually a binary classification problem. Customers are divided into two classes, e.g. 
