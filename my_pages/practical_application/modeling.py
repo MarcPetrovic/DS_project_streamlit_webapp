@@ -44,7 +44,7 @@ def show():
         show_github_image(
         image_filename="images/modelling_spa_fe_dp.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=("Figure 18: Overview of the transition from Success Profile Analysis to concrete feature \n"
+        caption=("Figure 24: Overview of the transition from Success Profile Analysis to concrete feature \n"
                  "transformations and their implementation in modular processing steps within the \n"
                  "modeling phase.")
         )
@@ -66,7 +66,7 @@ def show():
         show_github_image(
         image_filename="images/feature_construction_tool_spa.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=("Figure 19: Relevant aspects and important stakeholders of the feature construction tool SPA.\n"
+        caption=("Figure 25: Relevant aspects and important stakeholders of the feature construction tool SPA.\n"
                  " "
                 )
         )
@@ -100,7 +100,7 @@ def show():
         show_github_image(
         image_filename="images/intro_spa.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption="Figure 20: Introduction to Success Profile Analysis"
+        caption="Figure 26: Introduction to Success Profile Analysis"
         )
         st.markdown("""
         
@@ -114,7 +114,7 @@ def show():
         show_github_image(
         image_filename="images/dummy_coding_spa.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption="Figure 21: Application of dummy coding based on Success Profile Analysis"
+        caption="Figure 27: Application of dummy coding based on Success Profile Analysis"
         )
         st.markdown("""
         
@@ -132,7 +132,7 @@ def show():
         show_github_image(
         image_filename="images/effect_coding_spa.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption="Figure 22: Application of effect-coding based on Success Profile Analysis"
+        caption="Figure 28: Application of effect-coding based on Success Profile Analysis"
         )
         def load_data():
             X_train = pd.read_csv("data/X_train.csv", index_col=0)
@@ -309,7 +309,7 @@ def show():
         show_github_image(
         image_filename="images/2nd_iteration_modelling.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption="Figure 23: Single steps of second iteration modelling phase."
+        caption="Figure 29: Single steps of second iteration modelling phase."
         )
         st.markdown("""
         
