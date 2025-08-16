@@ -19,7 +19,7 @@ def show():
     show_github_image(
     image_filename="images/taxonomy_ai.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption=( "Figure 4: Taxonomy of Artificial Intelligence use in Marketing")
+    caption=( "Figure 5: Taxonomy of Artificial Intelligence use in Marketing")
     )
     st.markdown("""
     Methods for recognizing data patterns that aim to identify causal relationships are roughly divided into 
@@ -37,7 +37,7 @@ def show():
     show_github_image(
     image_filename="images/groups_ml.PNG",
     repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption=( "Figure 5: Schematic representation main groups of machine learning")
+    caption=( "Figure 6: Schematic representation main groups of machine learning")
     )
     st.markdown("""
         <!-- Font Awesome einbinden -->
