@@ -40,7 +40,7 @@ def show():
         show_github_image(
         image_filename="images/da_general_procedere_data_basis.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 11: Overview of the data basis of the AI project")
+        caption=( "Figure 15: Overview of the data basis of the AI project")
         )
         st.markdown("""
         Within the second phase of CRISP-DM, the primary objective is to understand the data, especially its structure 
@@ -60,7 +60,7 @@ def show():
         show_github_image(
           image_filename="images/attribute_cluster.PNG",
           repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-          caption=( "Figure 12: Overview of the four data type clusters within the used database")
+          caption=( "Figure 16: Overview of the four data type clusters within the used database")
           )
         st.markdown("""
         Figure 9 shows that the available dataset can be broadly categorized into four feature clusters. These clusters 
@@ -91,7 +91,7 @@ def show():
         show_github_image(
         image_filename="images/instructions_primary_researcher.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 13: Main advices of the primary researchers")
+        caption=( "Figure 17: Main advices of the primary researchers")
         )
         st.markdown("""
         The authors provide the following key recommendations and insights, which are directly relevant to the current project:
