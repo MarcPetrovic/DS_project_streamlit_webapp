@@ -159,7 +159,13 @@ def show():
         targeting customers with the marketing campaign if their expected probability of accepting the offer is 
         greater than or equal to 14.1%. This ensures that the expected return from the customer’s approach 
         justifies the associated costs.
-
+        """)
+        show_github_image(
+        image_filename="images/cost_function.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 11: Formulation of the cost function in context of the current business use case.")
+        )
+        st.markdown("""
         This business-centered formalization highlights the value of integrating domain expertise, economic cost 
         structures, and analytical modeling in the early stages of a data mining project – consistent with the 
         objectives of the CRISP-DM methodology. By incorporating empirically derived operating costs, central 
@@ -317,7 +323,7 @@ def show():
         show_github_image(
         image_filename="images/technical_environment.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 11: Overview of the main applications and tools, used within the data project")
+        caption=( "Figure 12: Overview of the main applications and tools, used within the data project")
         )
         st.markdown("""
         For the development and documentation of the data analysis pipeline, the web-based Jupyter Notebook environment was 
