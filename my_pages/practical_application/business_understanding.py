@@ -188,6 +188,7 @@ def show():
         caption=( "Figure 12: Formulation of three genral established, alternativ thresholding strategies.")
         )
         st.markdown("""
+        <br>
         **a) Trade-off Optimization using the Youden Index**
         <br>
         The Youden Index (J) is a classical method in diagnostic test evaluation, defined as:
