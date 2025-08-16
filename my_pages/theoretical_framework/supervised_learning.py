@@ -14,7 +14,13 @@ def show():
     to the product offering. In this way, companies can maximize their profits when selling products or services 
     and minimize the costs of the marketing campaign. In addition, the use of data mining techniques improves 
     return on investment, customer relationships and customer loyalty.
-
+    """)
+    show_github_image(
+    image_filename="images/crisp_dm_model.PNG",
+    repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+    caption=( "Figure 6: Model of iteration cycles of the CRIPS-DM")
+    )
+    st.markdown("""
     The response model is usually a binary classification problem. Customers are divided into two classes, e.g. 
     respondents and non-respondents. Various classification methods are used for response modelling, e.g. 
     statistical and machine learning methods such as neural networks or other classification algorithms. All 
@@ -27,11 +33,6 @@ def show():
     Data Mining’).
     """)
 
-    show_github_image(
-    image_filename="images/crisp_dm_model.PNG",
-    repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-    caption=( "Figure 6: Model of iteration cycles of the CRIPS-DM")
-    )
     st.markdown("""
         <!-- Font Awesome einbinden -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
