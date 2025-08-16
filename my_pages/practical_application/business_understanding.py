@@ -274,6 +274,11 @@ def show():
         evaluation metrics is not deferred to later phases but carefully considered upfront to reflect the project’s specific 
         requirements and constraints.  
         """)
+        show_github_image(
+        image_filename="images/methodical_decisions_for_modeling.PNG",
+        repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
+        caption=( "Figure 13: Overview of modeling approaches within the first and second iteration.")
+        )
         st.markdown("""
         
         The modeling approach is structured as a two-iteration process:
@@ -329,7 +334,7 @@ def show():
         show_github_image(
         image_filename="images/technical_environment.PNG",
         repo_url="https://github.com/MarcPetrovic/DS_project_streamlit_webapp",
-        caption=( "Figure 12: Overview of the main applications and tools, used within the data project")
+        caption=( "Figure 14: Overview of the main applications and tools, used within the data project")
         )
         st.markdown("""
         For the development and documentation of the data analysis pipeline, the web-based Jupyter Notebook environment was 
