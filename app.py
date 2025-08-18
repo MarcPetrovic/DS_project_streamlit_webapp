@@ -12,7 +12,7 @@ st.sidebar.radio(
         "Introduction",
         "Theoretical Framework",
         "Practical Application According to CRISP-DM",
-       # "Methods & Data",
+        "About",
        # "Technical Environment & Modeling",
         "Conclusion & Discussion"
     ],
@@ -24,7 +24,7 @@ header_images = {
     "Introduction": "images/header2.PNG",
     "Theoretical Framework": "images/header2.PNG",
     "Practical Application According to CRISP-DM": "images/header2.PNG",
-    #"Methods & Data": "images/methods_header.jpg",
+    "Abount": "images/header2.PNG",
     #"Technical Environment & Modeling": "images/tech_header.jpg",
      "Conclusion & Discussion": "images/header2.PNG"
 }
@@ -171,7 +171,7 @@ elif st.session_state.main_page == "Conclusion & Discussion":
     from my_pages import conclusion_discussion
     conclusion_discussion.show()
 
-elif st.session_state.main_page == "Conclusion & Discussion":
-    from my_pages import conclusion_discussion
-    conclusion_discussion.show()
+elif st.session_state.main_page == "About":
+    from my_pages import about_project
+    show_about.show()
 
