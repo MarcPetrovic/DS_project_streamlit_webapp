@@ -54,6 +54,7 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 │   ├── conclusion_duiscussion.py
 │   ├── introduction.py
 │   └── methods_data.py
+│   └── practical_application_crisp_dm.py
 ├── utils/                         # Helper modules for plots, metrics, confusion matrices, etc.
 │   ├── compare_models.py
 │   ├── compute_metrics.py
