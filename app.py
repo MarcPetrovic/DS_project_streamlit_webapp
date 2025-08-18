@@ -173,5 +173,5 @@ elif st.session_state.main_page == "Conclusion & Discussion":
 
 elif st.session_state.main_page == "About":
     from my_pages import about_project
-    show_about.show()
+    about_project.show()
 
