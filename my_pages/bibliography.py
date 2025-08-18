@@ -1,7 +1,7 @@
 import streamlit as st
 
 def show():
-    st.title("📚 Bibliography")
+    #st.title("📚 Bibliography")
 
     st.markdown("""
     ### References  
