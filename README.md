@@ -41,15 +41,26 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 │   └── ...
 ├── My_pages/                        # py files for naviation and content of web application
 │   ├── practical_application/
-|   |    ├── business_understanding.py
+|   │   ├── business_understanding.py
+|   │   ├── data_preparation.py
+|   │   ├── data_understanding.py
+|   │   ├── evaluation.py
+|   │   ├── modeling.py
+│   ├── theoretical_framework/
+|   │   ├── introduction_crisp_dm.py
+|   │   ├── porters_value_chain.py
+|   │   ├── relevance_data_mining.py
+|   │   ├── supervised_learning.py
 │   ├── conclusion_duiscussion.py
 │   ├── introduction.py
 │   └── methods_data.py
-├── utils/                      # Helper modules for plots, metrics, confusion matrices, etc.
-│   ├── plot_helpers.py
-│   ├── table_helpers.py
-│   ├── image_loader.py
+├── utils/                           #  Helper modules for plots, metrics, confusion matrices, etc.
+│   ├── compare_models.py
+│   ├── compute_metrics.py
+│   ├── cost_cal.py
 │   └── ...
-├── README.md                  # Project documentation (this file)
-├── LICENSE                    # License information (MIT)
-└── requirements.txt           # Dependencies for Streamlit app
+├── README.md                        # Project documentation (this file)
+├── LICENSE                          # License information (MIT)
+└── requirements.txt                 # Dependencies for Streamlit app
+└── app.py                           # Navigation for Streamlit app
+└── spa_config.py                    # Configuration py for drop down menue within success profile analysis
