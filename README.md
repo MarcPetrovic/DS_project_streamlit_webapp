@@ -29,7 +29,22 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 
 ## 📂 Repository Structure
 ```plaintext
-├── evaluation.py              # Main evaluation logic with threshold tuning strategies
+├── data/                            # csv files of primary researcher
+│   ├── bank-additional-full.csv
+│   ├── X_test.csv
+│   ├── y_train.csv
+│   └── ...
+├── images/                          # pngs for design uplift of the web application
+│   ├── 1st_iteration_modeling.PNG
+│   ├── 2nd_iteration_modeling.PNG
+│   ├── alternative_thresholding_strategies.PNG
+│   └── ...
+├── My_pages/                        # py files for naviation and content of web application
+│   ├── practical_application/
+|   |    ├── business_understanding.py
+│   ├── conclusion_duiscussion.py
+│   ├── introduction.py
+│   └── methods_data.py
 ├── utils/                      # Helper modules for plots, metrics, confusion matrices, etc.
 │   ├── plot_helpers.py
 │   ├── table_helpers.py
