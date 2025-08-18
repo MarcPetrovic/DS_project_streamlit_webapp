@@ -1,6 +1,6 @@
 import streamlit as st
 
-def show_about():
+def show():
     st.title("About This Project")
 
     st.markdown("""
