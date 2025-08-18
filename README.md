@@ -51,6 +51,7 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 |   │   ├── porters_value_chain.py
 |   │   ├── relevance_data_mining.py
 |   │   ├── supervised_learning.py
+│   ├── about_project.py
 │   ├── conclusion_duiscussion.py
 │   ├── introduction.py
 │   └── methods_data.py
