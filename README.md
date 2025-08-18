@@ -27,19 +27,19 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 ```plaintext
-├── data/                            # csv files of primary researcher
+├── data/                          # csv files of primary researcher
 │   ├── bank-additional-full.csv
 │   ├── X_test.csv
 │   ├── y_train.csv
 │   └── ...
-├── images/                          # pngs for design uplift of the web application
+├── images/                        # pngs for design uplift of the web application
 │   ├── 1st_iteration_modeling.PNG
 │   ├── 2nd_iteration_modeling.PNG
 │   ├── alternative_thresholding_strategies.PNG
 │   └── ...
-├── My_pages/                        # py files for naviation and content of web application
+├── My_pages/                      # py files for naviation and content of web application
 │   ├── practical_application/
 |   │   ├── business_understanding.py
 |   │   ├── data_preparation.py
@@ -54,13 +54,13 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 │   ├── conclusion_duiscussion.py
 │   ├── introduction.py
 │   └── methods_data.py
-├── utils/                           #  Helper modules for plots, metrics, confusion matrices, etc.
+├── utils/                         # Helper modules for plots, metrics, confusion matrices, etc.
 │   ├── compare_models.py
 │   ├── compute_metrics.py
 │   ├── cost_cal.py
 │   └── ...
-├── README.md                        # Project documentation (this file)
-├── LICENSE                          # License information (MIT)
-└── requirements.txt                 # Dependencies for Streamlit app
-└── app.py                           # Navigation for Streamlit app
-└── spa_config.py                    # Configuration py for drop down menue within success profile analysis
+├── README.md                      # Project documentation (this file)
+├── LICENSE                        # License information (MIT)
+└── requirements.txt               # Dependencies for Streamlit app
+└── app.py                         # Navigation for Streamlit app
+└── spa_config.py                  # Configuration py for drop down menue within success profile analysis
