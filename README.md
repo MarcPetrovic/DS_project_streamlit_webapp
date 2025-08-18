@@ -52,6 +52,7 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 |   │   ├── relevance_data_mining.py
 |   │   ├── supervised_learning.py
 │   ├── about_project.py
+│   ├── bibliography.py
 │   ├── conclusion_duiscussion.py
 │   ├── introduction.py
 │   └── methods_data.py
