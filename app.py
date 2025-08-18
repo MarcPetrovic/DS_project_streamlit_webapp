@@ -12,9 +12,9 @@ st.sidebar.radio(
         "Introduction",
         "Theoretical Framework",
         "Practical Application According to CRISP-DM",
-        "About",
        # "Technical Environment & Modeling",
-        "Conclusion & Discussion"
+        "Conclusion & Discussion",
+        "About"
     ],
     key="main_page"
 )
