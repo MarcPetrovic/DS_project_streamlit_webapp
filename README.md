@@ -13,7 +13,7 @@ This project demonstrates the application of the CRISP-DM methodology to a real-
 
 ## Deployment
 The application is hosted on Streamlit Cloud and can be accessed directly via the following link:
-👉 [**Launch the Streamlit Web App**](https://your-streamlit-app-url.streamlit.app)
+👉 [**Launch the Streamlit Web App**](https://dsproject-crispdm-bank-campaign-cost-optimizer.streamlit.app)
 
 ---
 
