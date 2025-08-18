@@ -5,14 +5,12 @@ from utils.image_loader import show_github_image
 # Sidebar Navigation
 # ----------------------------
 
-# Hauptnavigation – direkt an den Session-State gebunden
 st.sidebar.radio(
     "Navigation",
     [
         "Introduction",
         "Theoretical Framework",
         "Practical Application According to CRISP-DM",
-       # "Technical Environment & Modeling",
         "Conclusion & Discussion",
         "Bibliography",
         "About"
@@ -27,10 +25,9 @@ header_images = {
     "Practical Application According to CRISP-DM": "images/header2.PNG",
     "Conclusion & Discussion": "images/header2.PNG",
     "Bibliography": "images/header2.PNG",
-    "Abount": "images/header2.PNG",
+    "About": "images/header2.PNG",
 }
 
-# Subnavigation nur, wenn nötig – ebenfalls direkt an den Session-State gebunden
 if st.session_state.main_page == "Theoretical Framework":
     st.sidebar.radio("Subtopics", [
         "PORTER'S VALUE CHAIN APPROACH AND COST OPTIMIZATION",
