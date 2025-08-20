@@ -41,7 +41,7 @@ def show():
     - Wikipedia. (n.d.). Tages- und Termingeldhandel. In Wikipedia. Retrieved August 9, 2025, from [https://de.wikipedia.org/wiki/Tages-_und_Termingeldhandel](https://de.wikipedia.org/wiki/Tages-_und_Termingeldhandel)  
     - Wikipedia. (n.d.). Euro interbank offered rate. In Wikipedia. Retrieved August 9, 2025, from [https://de.wikipedia.org/wiki/Euro_Interbank_Offered_Rate](https://de.wikipedia.org/wiki/Euro_Interbank_Offered_Rate)  
     - Witten, I. H., Frank, E., Hall, M. A., & Pal, C. J. (2016). *Data mining: Practical machine learning tools and techniques* (4th ed.). Morgan Kaufmann.  
-    - Yang, Y. (2018). Variables that influence customers' choice to purchase term deposits. *Advances in Intelligent Systems Research, 167*, 330–334. [https://doi.org/10.2991/iciem-18.2018.56](https://doi.org/10.2991/iciem-18.2018.56)
+    - Yang, Y. (2018). Variables that influence customers' choice to purchase term deposits. *Advances in Intelligent Systems Research, 167*, 330–334. [https://doi.org/10.54254/2754-1169/21/20230259](https://doi.org/10.54254/2754-1169/21/20230259)
 
 
     ---
