@@ -26,7 +26,7 @@ def show():
     - Khomski, P. (2012). Einige Validierungsaspekte von Scoring-Systemen. 1 PLUS i GmbH.  
     - Kotler, P., & Keller, K. L. (2016). *Marketing management* (15th ed.). Pearson Education.  
     - Kuhn, M., & Johnson, K. (2013). *Applied predictive modeling*. Springer. [https://doi.org/10.1007/978-1-4614-6849-3](https://doi.org/10.1007/978-1-4614-6849-3)  
-    - Matter, U. (2016). *Big data analytics: A guide to data science practitioners making the transition to big data*. Springer. [https://doi.org/10.1007/978-3-319-40129-4](https://doi.org/10.1007/978-3-319-40129-4)  
+    - Matter, U. (2023). *Big data analytics: A guide to data science practitioners making the transition to big data*. Chapman and Hall. [https://doi.org/10.1201/9781003378822](https://doi.org/10.1201/9781003378822)  
     - Mitik, M., Korkmaz, O., Karagoz, P., Toroslu, I. H., & Yucel, F. (2017). Data mining approach for direct marketing of banking products with profit/cost analysis. *Rev Socionetwork Strat 11*, 17–31. [https://doi.org/10.1007/s12626-017-0002-5](https://doi.org/10.1007/s12626-017-0002-5)  
     - Moro, S., Cortez, P., & Rita, P. (2011). Using data mining for bank direct marketing: An application of the CRISP-DM methodology. *European Simulation and Modelling Conference – ESM 2011*, 117–121.  
     - Moro, S., Cortez, P., & Rita, P. (2014). A data-driven approach to predict the success of bank telemarketing. *Decision Support Systems, 62*, 22–31. [https://doi.org/10.1016/j.dss.2014.03.001](https://doi.org/10.1016/j.dss.2014.03.001)  
