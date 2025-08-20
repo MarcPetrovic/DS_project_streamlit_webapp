@@ -7,19 +7,47 @@ def show():
     st.markdown("""
     ### References  
 
-    - Moro, S., Cortez, P., & Rita, P. (2014). *A Data-Driven Approach to Predict the Success of Bank Telemarketing*. Decision Support Systems, 62, 22–31.  
-      Dataset: [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Bank+Marketing)  
+    - Barhaq, A. R., & Radchenko, O. (2018). Optimization of bank expenses on marketing communications. *Journal of Banking and Financial Economics, 2*(10), 22–35.  
+    - Chamoni, P., & Gluchowski, P. (2014). *Business analytics – State of the art*. Springer Vieweg. [https://doi.org/10.1007/978-3-658-04984-9](https://doi.org/10.1007/978-3-658-04984-9)  
+    - Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). CRISP-DM 1.0: Step-by-step data mining guide. The CRISP-DM Consortium.  
+    - Davenport, T. H., & Harris, J. G. (2007). *Competing on analytics: The new science of winning*. Harvard Business School Press.  
+    - De Mauro, A., & Sestino, A. (2022). Machine learning and artificial intelligence use in marketing: A general taxonomy. *Journal of Business Research, 145*, 804–817. [https://doi.org/10.1016/j.jbusres.2022.03.010](https://doi.org/10.1016/j.jbusres.2022.03.010)  
+    - Deutsche Bundesbank. (2025, Juli 31). Einlagen- und Kreditzinssätze (MFI-Zinsstatistik – Bestände, Neugeschäft). Retrieved August 9, 2025, from [https://www.bundesbank.de/de/statistiken/geld-und-kapitalmaerkte/zinssaetze-und-renditen/einlagen-und-kreditzinssaetze/einlagen-und-kreditzinssaetze-772402](https://www.bundesbank.de/de/statistiken/geld-und-kapitalmaerkte/zinssaetze-und-renditen/einlagen-und-kreditzinssaetze/einlagen-und-kreditzinssaetze-772402)  
+    - Eulerpool. (n.d.). Portugal – Consumer price index (CPI). Retrieved August 9, 2025, from [https://eulerpool.com/en/macro/portugal/consumer-price-index-(cpi)](https://eulerpool.com/en/macro/portugal/consumer-price-index-(cpi))  
+    - Eulerpool. (n.d.). Portugal – Consumer confidence. Retrieved August 9, 2025, from [https://eulerpool.com/en/macro/portugal/consumer-confidence](https://eulerpool.com/en/macro/portugal/consumer-confidence)  
+    - Eulerpool. (n.d.). Portugal – Interbank rate. Retrieved August 9, 2025, from [https://eulerpool.com/en/macro/portugal/interbank-rate](https://eulerpool.com/en/macro/portugal/interbank-rate)  
+    - Eulerpool. (n.d.). Portugal – Employed persons. Retrieved August 9, 2025, from [https://eulerpool.com/en/macro/portugal/employed-persons](https://eulerpool.com/en/macro/portugal/employed-persons)  
+    - Eulerpool. (n.d.). Bồ Đào Nha – Employment change. Retrieved August 9, 2025, from [https://eulerpool.com/en/macro/b%E1%BB%93-%C4%91%C3%A0o-nha/employment-change](https://eulerpool.com/en/macro/b%E1%BB%93-%C4%91%C3%A0o-nha/employment-change)  
+    - Fayyad, U., Piatetsky-Shapiro, G., & Smyth, P. (1996). From data mining to knowledge discovery in databases. *AI Magazine, 17*(3), 37–54. [https://doi.org/10.1609/aimag.v17i3.1230](https://doi.org/10.1609/aimag.v17i3.1230)  
+    - Gardó, S., & Klaus, B. (2019). Overcapacities in banking: Measurements, trends and determinants (Occasional Paper Series No. 236). European Central Bank. [https://www.ecb.europa.eu/pub/pdf/scpops/ecb.op236~5ef5f98f2e.en.pdf](https://www.ecb.europa.eu/pub/pdf/scpops/ecb.op236~5ef5f98f2e.en.pdf)  
+    - Han, J., Kamber, M., & Pei, J. (2012). *Data mining: Concepts and techniques* (3rd ed.). Morgan Kaufmann.  
+    - Henking, A. (2006). *Kreditrisikomessung: Methoden – Anwendungen – Management*. Springer. [https://doi.org/10.1007/3-540-32568-2](https://doi.org/10.1007/3-540-32568-2)  
+    - Javaheri, S. H., Sepehri, M. M., & Teimourpour, B. (2014). Response modeling in direct marketing: A data mining-based approach for target selection. *International Journal of Information Technology & Decision Making, 13*(1), 1–24. [https://doi.org/10.1142/S0219622014500012](https://doi.org/10.1142/S0219622014500012)  
+    - Khomski, P. (2012). Einige Validierungsaspekte von Scoring-Systemen. 1 PLUS i GmbH.  
+    - Kotler, P., & Keller, K. L. (2016). *Marketing management* (15th ed.). Pearson Education.  
+    - Kuhn, M., & Johnson, K. (2013). *Applied predictive modeling*. Springer. [https://doi.org/10.1007/978-1-4614-6849-3](https://doi.org/10.1007/978-1-4614-6849-3)  
+    - Matter, U. (2016). *Big data analytics: A guide to data science practitioners making the transition to big data*. Springer. [https://doi.org/10.1007/978-3-319-40129-4](https://doi.org/10.1007/978-3-319-40129-4)  
+    - Mitik, M., Korkmaz, O., Karagoz, P., Toroslu, I. H., & Yucel, F. (2018). Data mining approach for direct marketing of banking products with profit/cost analysis. *Expert Systems with Applications, 102*, 193–207. [https://doi.org/10.1016/j.eswa.2018.02.022](https://doi.org/10.1016/j.eswa.2018.02.022)  
+    - Moro, S., Cortez, P., & Rita, P. (2011). Using data mining for bank direct marketing: An application of the CRISP-DM methodology. *European Simulation and Modelling Conference – ESM 2011*, 117–121.  
+    - Moro, S., Cortez, P., & Rita, P. (2014). A data-driven approach to predict the success of bank telemarketing. *Decision Support Systems, 62*, 22–31. [https://doi.org/10.1016/j.dss.2014.03.001](https://doi.org/10.1016/j.dss.2014.03.001)  
+    - Pedregosa, F., Varoquaux, G., et al. (2011). Scikit-learn: Machine learning in Python. *Journal of Machine Learning Research, 12*, 2825–2830.  
+    - Porter, M. E. (1980). *Competitive strategy: Techniques for analyzing industries and competitors*. Free Press.  
+    - Provost, F., & Fawcett, T. (2013). *Data science for business: What you need to know about data mining and data-analytic thinking*. O’Reilly Media.  
+    - Strategy&. (2024). *Retail banking monitor 2024*. PwC. [https://www.strategyand.pwc.com/de/en/industries/financial-services/retail-banking-monitor-2024.html](https://www.strategyand.pwc.com/de/en/industries/financial-services/retail-banking-monitor-2024.html)  
+    - Tagesgeldvergleich.net. (n.d.). Zinsentwicklung Festgeld: Statistiken zu Festgeldzinsen (Laufzeiten 6–120 Monate). Retrieved August 9, 2025, from [https://www.tagesgeldvergleich.net/statistiken/zinsentwicklung-festgeld.html#zeitreihen](https://www.tagesgeldvergleich.net/statistiken/zinsentwicklung-festgeld.html#zeitreihen)  
+    - The Financial Brand. (2024, August 7). Marketing at community banks fuels loans & deposits: Study. [https://thefinancialbrand.com/news/bank-marketing/marketing-at-community-banks-fuels-loans-deposits-study-170268](https://thefinancialbrand.com/news/bank-marketing/marketing-at-community-banks-fuels-loans-deposits-study-170268)  
+    - Verivox. (n.d.). Euribor. Retrieved August 9, 2025, from [https://www.verivox.de/geldanlage/themen/euribor/](https://www.verivox.de/geldanlage/themen/euribor/)  
+    - Vries, A. de. (2024). *Maschinelles Lernen* [Vorlesungsskript, Masterstudiengänge Informatics and Business (Wirtschaftsinformatik) & Wirtschaftsingenieurwesen].  
+    - Wikipedia. (n.d.). Tages- und Termingeldhandel. In Wikipedia. Retrieved August 9, 2025, from [https://de.wikipedia.org/wiki/Tages-_und_Termingeldhandel](https://de.wikipedia.org/wiki/Tages-_und_Termingeldhandel)  
+    - Wikipedia. (n.d.). Euro interbank offered rate. In Wikipedia. Retrieved August 9, 2025, from [https://de.wikipedia.org/wiki/Euro_Interbank_Offered_Rate](https://de.wikipedia.org/wiki/Euro_Interbank_Offered_Rate)  
+    - Witten, I. H., Frank, E., Hall, M. A., & Pal, C. J. (2016). *Data mining: Practical machine learning tools and techniques* (4th ed.). Morgan Kaufmann.  
+    - Yang, Y. (2018). Variables that influence customers' choice to purchase term deposits. *Advances in Intelligent Systems Research, 167*, 330–334. [https://doi.org/10.2991/iciem-18.2018.56](https://doi.org/10.2991/iciem-18.2018.56)
 
-    - Fayyad, U., Piatetsky-Shapiro, G., & Smyth, P. (1996). *From Data Mining to Knowledge Discovery in Databases*. AI Magazine, 17(3), 37–54.  
-
-    - Han, J., Pei, J., & Kamber, M. (2011). *Data Mining: Concepts and Techniques*. Elsevier.  
-
-    - Provost, F., & Fawcett, T. (2013). *Data Science for Business*. O’Reilly.  
-
-    - Bishop, C. M. (2006). *Pattern Recognition and Machine Learning*. Springer.  
 
     ---
-    📌 For a complete list of references, see the project documentation (PDF/Word report).
+    
+    - Moro, S., Cortez, P., & Rita, P. (2014). *A Data-Driven Approach to Predict the Success of Bank Telemarketing*. Decision Support Systems, 62, 22–31.  
+      Dataset: [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Bank+Marketing)  
     """)
     st.markdown("""
         <!-- Font Awesome einbinden -->
