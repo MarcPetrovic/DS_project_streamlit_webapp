@@ -22,7 +22,7 @@ def show():
     - Gardó, S., & Klaus, B. (2019). Overcapacities in banking: Measurements, trends and determinants (Occasional Paper Series No. 236). European Central Bank. [https://www.ecb.europa.eu/pub/pdf/scpops/ecb.op236~3021bf6dbb.en.pdf](https://www.ecb.europa.eu/pub/pdf/scpops/ecb.op236~3021bf6dbb.en.pdf)  
     - Han, J., Kamber, M., & Pei, J. (2012). *Data mining: Concepts and techniques* (3rd ed.). Morgan Kaufmann.  
     - Henking, A., Bluhm, C, Fahrmeier, L. (2006). *Kreditrisikomessung: Methoden – Anwendungen – Management*. Springer. [https://doi.org/10.1007/3-540-32146-2](https://doi.org/10.1007/3-540-32146-2)  
-    - Javaheri, S. H., Sepehri, M. M., & Teimourpour, B. (2014). Response modeling in direct marketing: A data mining-based approach for target selection. In Y. Zhao & Y. Cen (Eds.),*Data mining applications with R*, (pp. 153-180). Academic Press.  
+    - Javaheri, S. H., Sepehri, M. M., & Teimourpour, B. (2014). Response modeling in direct marketing: A data mining-based approach for target selection. In Y. Zhao & Y. Cen (Eds.),*Data mining applications with R*, (pp. 153-180). Academic Press. [https://doi.org/10.1016/B978-0-12-411511-8.00006-2](https://doi.org/10.1016/B978-0-12-411511-8.00006-2)  
     - Khomski, P. (2012). Einige Validierungsaspekte von Scoring-Systemen. 1 PLUS i GmbH.  
     - Kotler, P., & Keller, K. L. (2016). *Marketing management* (15th ed.). Pearson Education.  
     - Kuhn, M., & Johnson, K. (2013). *Applied predictive modeling*. Springer. [https://doi.org/10.1007/978-1-4614-6849-3](https://doi.org/10.1007/978-1-4614-6849-3)  
