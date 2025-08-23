@@ -36,16 +36,30 @@ def show():
     """)
         # Daten & Modelle laden (einmal, mit Caching)
     @st.cache_resource
-    def get_predictions():
-        _, logreg_probs, y_test = train_and_predict(model_type="logistic")
-        _, xgb_probs, _ = train_and_predict(model_type="xgboost")
-        return logreg_probs, xgb_probs, y_test
-
-    @st.cache_resource
-    def get_model_fit():
+    def get_models_and_predictions():
+        # Logistic Regression trainieren
         logreg_model, X_train, X_test, y_train, y_test = train_model(model_type="logistic")
+        # XGBoost trainieren
         xgb_model, _, _, _, _ = train_model(model_type="xgboost")
-        return logreg_model, xgb_model, X_train, y_train
+    
+        # Wahrscheinlichkeiten berechnen (Train/Test)
+        logreg_probs_train = logreg_model.predict_proba(X_train)[:, 1]
+        logreg_probs_test  = logreg_model.predict_proba(X_test)[:, 1]
+    
+        xgb_probs_train = xgb_model.predict_proba(X_train)[:, 1]
+        xgb_probs_test  = xgb_model.predict_proba(X_test)[:, 1]
+    
+        return {
+            "logreg_model": logreg_model,
+            "xgb_model": xgb_model,
+            "X_train": X_train,
+            "y_train": y_train,
+            "y_test": y_test,
+            "logreg_probs_train": logreg_probs_train,
+            "logreg_probs_test": logreg_probs_test,
+            "xgb_probs_train": xgb_probs_train,
+            "xgb_probs_test": xgb_probs_test
+        }
     # === Funktion zur Berechnung der IV-Werte pro Decile ===
     def calculate_iv_by_decile(y_true, y_prob, bins=10):
         df = pd.DataFrame({'y_true': y_true, 'y_prob': y_prob})
@@ -105,25 +119,34 @@ def show():
     
     # === Main Streamlit Logik ===
     st.subheader("Information Value (IV) per Decile – Train vs. Test")
-    
-    logreg_model, xgb_model, X_train, y_train = get_model_fit()
-    _, logreg_probs, y_test = train_and_predict(model_type="logistic")
-    _, xgb_probs, _ = train_and_predict(model_type="xgboost")
+
+    data = get_models_and_predictions()
+    #logreg_model, xgb_model, X_train, y_train = get_model_fit()
+    #_, logreg_probs, y_test = train_and_predict(model_type="logistic")
+    #_, xgb_probs, _ = train_and_predict(model_type="xgboost")
     
     # Wahrscheinlichkeiten für Training berechnen
-    logreg_probs_train = logreg_model.predict_proba(X_train)[:, 1]
-    xgb_probs_train = xgb_model.predict_proba(X_train)[:, 1]
+    #logreg_probs_train = logreg_model.predict_proba(X_train)[:, 1]
+    #xgb_probs_train = xgb_model.predict_proba(X_train)[:, 1]
     
     # IV berechnen
-    logreg_train_iv = calculate_iv_by_decile(y_train, logreg_probs_train)
-    logreg_test_iv = calculate_iv_by_decile(y_test, logreg_probs)
+    # Logistic Regression
+    logreg_train_iv = calculate_iv_by_decile(data["y_train"], data["logreg_probs_train"])
+    logreg_test_iv = calculate_iv_by_decile(data["y_test"], data["logreg_probs_test"])
+    plot_dual_iv_chart(logreg_train_iv, logreg_test_iv, "Logistic Regression")
     
-    xgb_train_iv = calculate_iv_by_decile(y_train, xgb_probs_train)
-    xgb_test_iv = calculate_iv_by_decile(y_test, xgb_probs)
+    #logreg_train_iv = calculate_iv_by_decile(y_train, logreg_probs_train)
+    #logreg_test_iv = calculate_iv_by_decile(y_test, logreg_probs)
+    # XGBoost
+    xgb_train_iv = calculate_iv_by_decile(data["y_train"], data["xgb_probs_train"])
+    xgb_test_iv = calculate_iv_by_decile(data["y_test"], data["xgb_probs_test"])
+    plot_dual_iv_chart(xgb_train_iv, xgb_test_iv, "XGBoost")
+    #xgb_train_iv = calculate_iv_by_decile(y_train, xgb_probs_train)
+    #xgb_test_iv = calculate_iv_by_decile(y_test, xgb_probs)
     
     # Charts anzeigen
-    plot_dual_iv_chart(logreg_train_iv, logreg_test_iv, model_name="Logistic Regression")
-    plot_dual_iv_chart(xgb_train_iv, xgb_test_iv, model_name="XGBoost")
+    #plot_dual_iv_chart(logreg_train_iv, logreg_test_iv, model_name="Logistic Regression")
+    #plot_dual_iv_chart(xgb_train_iv, xgb_test_iv, model_name="XGBoost")
 
     def get_iv_table(y_true, y_prob, model_name, dataset_label, bins=10):
         df = pd.DataFrame({'y_true': y_true, 'y_prob': y_prob})
@@ -150,11 +173,15 @@ def show():
         return grouped.round(4)
         
     # 📊 IV-Tabellen für alle 4 Kombinationen
-    logreg_train_table = get_iv_table(y_train, logreg_probs_train, model_name="Logistic Regression", dataset_label="Train")
-    logreg_test_table  = get_iv_table(y_test, logreg_probs, model_name="Logistic Regression", dataset_label="Test")
-    xgb_train_table    = get_iv_table(y_train, xgb_probs_train, model_name="XGBoost", dataset_label="Train")
-    xgb_test_table     = get_iv_table(y_test, xgb_probs, model_name="XGBoost", dataset_label="Test")
-    
+    #logreg_train_table = get_iv_table(y_train, logreg_probs_train, model_name="Logistic Regression", dataset_label="Train")
+    #logreg_test_table  = get_iv_table(y_test, logreg_probs, model_name="Logistic Regression", dataset_label="Test")
+    #xgb_train_table    = get_iv_table(y_train, xgb_probs_train, model_name="XGBoost", dataset_label="Train")
+    #xgb_test_table     = get_iv_table(y_test, xgb_probs, model_name="XGBoost", dataset_label="Test")
+    logreg_train_table = get_iv_table(data["y_train"], data["logreg_probs_train"], "Logistic Regression", "Train")
+    logreg_test_table  = get_iv_table(data["y_test"], data["logreg_probs_test"], "Logistic Regression", "Test")
+    xgb_train_table    = get_iv_table(data["y_train"], data["xgb_probs_train"], "XGBoost", "Train")
+    xgb_test_table     = get_iv_table(data["y_test"], data["xgb_probs_test"], "XGBoost", "Test")
+
     # 👉 Zusammenführen
     iv_summary_table = pd.concat([logreg_train_table, logreg_test_table, xgb_train_table, xgb_test_table], ignore_index=True)
 
@@ -178,6 +205,10 @@ def show():
     evaluation framework that includes all four components of the confusion matrix (TP, FP, TN, FN).
 
     """)
+    y_test = data["y_test"]
+    logreg_probs = data["logreg_probs_test"]
+    xgb_probs = data["xgb_probs_test"]
+
     strategy = st.selectbox(
         "Select threshold tuning strategy",
         options=["f1", "cost", "youden", "pr_gap", "default", "manual"],
