@@ -7,7 +7,7 @@ def show():
     st.markdown("""
     ### References  
 
-    - Barhaq, A. R., & Radchenko, O. (2018). Optimization of bank expenses on marketing communications. *Journal of Banking and Financial Economics, 2*(10), 22–35.  
+    - Barhaq, A. R., & Radchenko, O. (2018). Optimization of bank expenses on marketing communications. *Financial Markets, Institutions and Risks, 2*(1), 5–14.  
     - Chamoni, P., & Gluchowski, P. (2014). *Business analytics – State of the art*. Springer Vieweg. [https://doi.org/10.1007/978-3-658-04984-9](https://doi.org/10.1007/978-3-658-04984-9)  
     - Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). CRISP-DM 1.0: Step-by-step data mining guide. The CRISP-DM Consortium.  
     - Davenport, T. H., & Harris, J. G. (2007). *Competing on analytics: The new science of winning*. Harvard Business School Press.  
