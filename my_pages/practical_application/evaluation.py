@@ -30,7 +30,18 @@ from utils.table_helpers import *
 #from utils.find_best_threshold import find_best_threshold
 #from utils.score_band_helpers import assign_score_bands, score_band_cost_analysis
 #from utils.plot_score_band_analysis import plot_score_band_distribution_and_cost
+# Caching-Funktionen OBEN definieren
+@st.cache_resource
+def get_predictions():
+    _, logreg_probs, y_test = train_and_predict(model_type="logistic")
+    _, xgb_probs, _ = train_and_predict(model_type="xgboost")
+    return logreg_probs, xgb_probs, y_test
 
+@st.cache_resource
+def get_model_fit():
+    logreg_model, X_train, X_test, y_train, y_test = train_model(model_type="logistic")
+    xgb_model, _, _, _, _ = train_model(model_type="xgboost")
+    return logreg_model, xgb_model, X_train, y_train
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -51,20 +62,8 @@ def show():
     strategy_label = st.selectbox("Choose evaluation strategy:", list(strategy_options.keys()))
     strategy = strategy_options[strategy_label]
     # Daten & Modelle laden (einmal, mit Caching)
-    @st.cache_resource
-    def get_predictions():
-        _, logreg_probs, y_test = train_and_predict(model_type="logistic")
-        _, xgb_probs, _ = train_and_predict(model_type="xgboost")
-        return logreg_probs, xgb_probs, y_test
-
-    @st.cache_resource
-    def get_model_fit():
-        logreg_model, X_train, X_test, y_train, y_test = train_model(model_type="logistic")
-        xgb_model, _, _, _, _ = train_model(model_type="xgboost")
-        return logreg_model, xgb_model, X_train, y_train
-
-# hier war def render_html_table_metrics(df: pd.DataFrame) -> str:
-        
+    logreg_probs, xgb_probs, y_test = get_predictions()
+    
     # 1. Einführung
     if strategy is None:
         st.markdown("""
@@ -151,7 +150,7 @@ def show():
         # ROC-Curve Plot
         st.markdown("---")
         st.subheader("Model Comparison using ROC-Curves with Early Retrieval Area")
-        logreg_probs, xgb_probs, y_test = get_predictions()
+        #logreg_probs, xgb_probs, y_test = get_predictions()
         fig_intro_roc = plot_roc_curves_with_early_area(y_test, logreg_probs, xgb_probs)        
         st.pyplot(fig_intro_roc)
         st.markdown("---")
@@ -554,7 +553,7 @@ def show():
 
         """, unsafe_allow_html=True)
         # Hole Wahrscheinlichkeiten & Labels
-        logreg_probs, xgb_probs, y_test = get_predictions()
+        #logreg_probs, xgb_probs, y_test = get_predictions()
     
         # Vergleiche alle Strategien
         df_summary = evaluate_all_strategies(y_test, logreg_probs, xgb_probs)
