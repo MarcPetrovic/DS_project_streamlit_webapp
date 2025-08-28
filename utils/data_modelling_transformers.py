@@ -11,7 +11,7 @@ class MonthTrans(BaseEstimator, TransformerMixin):
 
   def transform(self, X): 
     X[self.column_name + "_numeric"] = X[self.column_name].replace(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
-                                                                           , [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+                                                                           , [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).astype(int)
     return X
 
   def get_feature_names_out(self):
