@@ -14,6 +14,7 @@ from utils.summary_stats import summary
 from utils.my_colormaps import my_cmap_r
 from bs4 import BeautifulSoup
 import re
+from feature_engine.creation import CyclicalFeatures
 
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
@@ -280,7 +281,7 @@ def show():
           st.text(buffer2.getvalue())
           
           st.subheader("⚙️ Step 5: CyclicalFeatures Transformation")
-          from feature_engine.creation import CyclicalFeatures
+          #from feature_engine.creation import CyclicalFeatures
           cyclical_features = CyclicalFeatures(variables=['month_numeric', 'day_of_week_numeric'], 
                                      drop_original=True)
           X_train_transformed2nd = cyclical_features.fit_transform(X_train_transformed2nd)
