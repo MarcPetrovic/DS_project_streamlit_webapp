@@ -12,6 +12,33 @@ from utils.cost_calc import calculate_cost
 from utils.decile_roi import decile_roi_analysis
 from utils.plot_roi_lift_combined import plot_decile_lift_roi
 
+# Daten & Modelle laden (einmal, mit Caching)
+@st.cache_resource
+def get_models_and_predictions():
+# Logistic Regression trainieren
+    logreg_model, X_train, X_test, y_train, y_test = train_model(model_type="logistic")
+    # XGBoost trainieren
+    xgb_model, _, _, _, _ = train_model(model_type="xgboost")
+    
+    # Wahrscheinlichkeiten berechnen (Train/Test)
+    logreg_probs_train = logreg_model.predict_proba(X_train)[:, 1]
+    logreg_probs_test  = logreg_model.predict_proba(X_test)[:, 1]
+    
+    xgb_probs_train = xgb_model.predict_proba(X_train)[:, 1]
+    xgb_probs_test  = xgb_model.predict_proba(X_test)[:, 1]
+    
+    return {
+        "logreg_model": logreg_model,
+        "xgb_model": xgb_model,
+        "X_train": X_train,
+        "y_train": y_train,
+        "y_test": y_test,
+        "logreg_probs_train": logreg_probs_train,
+        "logreg_probs_test": logreg_probs_test,
+        "xgb_probs_train": xgb_probs_train,
+        "xgb_probs_test": xgb_probs_test
+    }
+
 def show():
     st.markdown('<a name="top"></a>', unsafe_allow_html=True)
     st.header("Conclusion & Prospect")
@@ -34,32 +61,7 @@ def show():
     such as retraining strategies and automation processes were likewise excluded from the scope of this project.
 
     """)
-        # Daten & Modelle laden (einmal, mit Caching)
-    @st.cache_resource
-    def get_models_and_predictions():
-        # Logistic Regression trainieren
-        logreg_model, X_train, X_test, y_train, y_test = train_model(model_type="logistic")
-        # XGBoost trainieren
-        xgb_model, _, _, _, _ = train_model(model_type="xgboost")
-    
-        # Wahrscheinlichkeiten berechnen (Train/Test)
-        logreg_probs_train = logreg_model.predict_proba(X_train)[:, 1]
-        logreg_probs_test  = logreg_model.predict_proba(X_test)[:, 1]
-    
-        xgb_probs_train = xgb_model.predict_proba(X_train)[:, 1]
-        xgb_probs_test  = xgb_model.predict_proba(X_test)[:, 1]
-    
-        return {
-            "logreg_model": logreg_model,
-            "xgb_model": xgb_model,
-            "X_train": X_train,
-            "y_train": y_train,
-            "y_test": y_test,
-            "logreg_probs_train": logreg_probs_train,
-            "logreg_probs_test": logreg_probs_test,
-            "xgb_probs_train": xgb_probs_train,
-            "xgb_probs_test": xgb_probs_test
-        }
+
     # === Funktion zur Berechnung der IV-Werte pro Decile ===
     def calculate_iv_by_decile(y_true, y_prob, bins=10):
         df = pd.DataFrame({'y_true': y_true, 'y_prob': y_prob})
