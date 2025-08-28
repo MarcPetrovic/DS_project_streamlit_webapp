@@ -9,13 +9,17 @@ class MonthTrans(BaseEstimator, TransformerMixin):
   def fit(self, X, y = None):
     return self
 
-  def transform(self, X): 
-    X[self.column_name + "_numeric"] = X[self.column_name].replace(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
-                                                                           , [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).astype(int)
+  def transform(self, X):
+    X = X.copy()
+    X[self.column_name] = X[self.column_name].astype(object)
+    X[self.column_name + "_numeric"] = X[self.column_name].replace(
+      ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'],
+      list(range(1,13))
+    ).astype(int)
     return X
 
   def get_feature_names_out(self):
-    pass  
+    return [self.column_name + "_numeric"]
 
 class WeekdayTrans(BaseEstimator, TransformerMixin):
   def __init__(self, column_name):
