@@ -277,7 +277,7 @@ def show():
             
           buffer2 = io.StringIO()
           X_test_transformed2nd.info(buf=buffer2)
-          st.text("🧾 X_train_transformed2nd.info():")
+          st.text("🧾 X_test_transformed2nd.info():")
           st.text(buffer2.getvalue())
           
           st.subheader("⚙️ Step 5: CyclicalFeatures Transformation")
