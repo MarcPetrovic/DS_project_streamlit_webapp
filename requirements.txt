@@ -5,7 +5,7 @@ numpy
 scikit-learn
 graphviz
 beautifulsoup4
-feature_engine>=1.6.2
+feature_engine==1.6.2
 xgboost
 seaborn
 statsmodels
