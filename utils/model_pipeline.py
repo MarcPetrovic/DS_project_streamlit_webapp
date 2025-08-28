@@ -6,8 +6,9 @@ from utils.preprap_feature_engineering import build_pipeline
 from utils.data_cleaning import get_cleaning_pipeline
 from sklearn.model_selection import train_test_split
 from utils.modelling_feature_engineering import build_modelling_pipeline
-from feature_engine.creation import CyclicalFeatures
+#from feature_engine.creation import CyclicalFeatures
 from sklearn import set_config
+from utils.cyclical_encoder import CyclicalEncoder
 
 def load_data():
     """
@@ -98,7 +99,11 @@ def load_data():
     X_train_transformed2nd = make_streamlit_arrow_compatible(X_train_transformed2nd)
     X_test_transformed2nd = make_streamlit_arrow_compatible(X_test_transformed2nd)
  
-    cyclical_features = CyclicalFeatures(variables=['month_numeric', 'day_of_week_numeric'], drop_original=True)
+    #cyclical_features = CyclicalFeatures(variables=['month_numeric', 'day_of_week_numeric'], drop_original=True)
+    cyclical_features = CyclicalEncoder(
+        variables=['month_numeric', 'day_of_week_numeric'],
+        drop_original=True
+    )
     X_train_transformed2nd = cyclical_features.fit_transform(X_train_transformed2nd)
     X_test_transformed2nd = cyclical_features.transform(X_test_transformed2nd)
     
