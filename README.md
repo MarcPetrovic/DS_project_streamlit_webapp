@@ -45,18 +45,18 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 |   │   ├── data_preparation.py
 |   │   ├── data_understanding.py
 |   │   ├── evaluation.py
-|   │   ├── modeling.py
+|   │   └── modeling.py
 │   ├── theoretical_framework/
 |   │   ├── introduction_crisp_dm.py
 |   │   ├── porters_value_chain.py
 |   │   ├── relevance_data_mining.py
-|   │   ├── supervised_learning.py
+|   │   └── supervised_learning.py
 │   ├── about_project.py
 │   ├── bibliography.py
 │   ├── conclusion_duiscussion.py
 │   ├── introduction.py
-│   └── methods_data.py
-│   └── practical_application_crisp_dm.py
+│   ├── methods_data.py
+│   ├── practical_application_crisp_dm.py
 │   └── theoretical_framework_overview.py
 ├── utils/                         # Helper modules for plots, metrics, confusion matrices, etc.
 │   ├── compare_models.py
@@ -65,6 +65,6 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 │   └── ...
 ├── README.md                      # Project documentation (this file)
 ├── LICENSE                        # License information (MIT)
-└── requirements.txt               # Dependencies for Streamlit app
-└── app.py                         # Navigation for Streamlit app
+├── requirements.txt               # Dependencies for Streamlit app
+├── app.py                         # Navigation for Streamlit app
 └── spa_config.py                  # Configuration py for drop down menue within success profile analysis
