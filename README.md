@@ -39,7 +39,7 @@ Special thanks go to Lucas Varela for his guidance and to datascientest.com as t
 │   ├── 2nd_iteration_modeling.PNG
 │   ├── alternative_thresholding_strategies.PNG
 │   └── ...
-├── My_pages/                      # py files for naviation and content of web application
+├── My_pages/                      # py files for navigation and content of web application
 │   ├── practical_application/
 |   │   ├── business_understanding.py
 |   │   ├── data_preparation.py
