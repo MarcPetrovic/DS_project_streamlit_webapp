@@ -1,7 +1,7 @@
 # DS_project_streamlit_webapp
 
 [![Streamlit App](https://img.shields.io/badge/Launch%20App-Streamlit-brightgreen)](https://your-streamlit-app-url.streamlit.app)
-![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python) 
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python) 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 ---
