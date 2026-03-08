@@ -76,7 +76,9 @@ def plot_logistic_feature_importance(model, X_train, y_train, top_n=10):
     ]
 
     # Normalisieren
-    significant_features.loc[:,'Normalized Odds Ratio (%)'] = np.abs((significant_features['Odds Ratio'] - 1) * 100)
+    #significant_features.loc[:,'Normalized Odds Ratio (%)'] = np.abs((significant_features['Odds Ratio'] - 1) * 100)
+    significant_features = significant_features.copy()
+    significant_features['Normalized Odds Ratio (%)'] = np.abs((significant_features['Odds Ratio'] - 1) * 100)
 
     # Top-N Auswahl
     top_features = significant_features.sort_values('Normalized Odds Ratio (%)', ascending=False).head(top_n)
