@@ -41,7 +41,8 @@ class CustTrans(BaseEstimator, TransformerMixin):
     def transform(self, X): 
         X['target']= (     
             X[self.column_name]
-            .replace({'no': 0, 'yes': 1})
+            .map({'no': 0, 'yes': 1})
+            #.replace({'no': 0, 'yes': 1})
             #.infer_objects(copy=False)  # optional
             .astype('int64')
         )
