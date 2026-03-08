@@ -31,14 +31,23 @@ class MonthTrans(BaseEstimator, TransformerMixin):
 class WeekdayTrans(BaseEstimator, TransformerMixin):
   def __init__(self, column_name):
     self.column_name = column_name
+    self.weekday_map = {
+      'mon': 1, 'tue': 2, 'wed': 3, 'thu': 4,
+      'fri': 5, 'sat': 6, 'sun': 7
+    }
 
   def fit(self, X, y = None):
     return self
 
   def transform(self, X):
-    X[self.column_name + "_numeric"] = X[self.column_name].replace(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
-                                                                           , [1, 2, 3, 4, 5, 6, 7])
-
+    #X[self.column_name + "_numeric"] = X[self.column_name].replace(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+    #                                                                       , [1, 2, 3, 4, 5, 6, 7])
+    X = X.copy()
+    X[self.column_name + "_numeric"] = (
+      X[self.column_name]
+      .map(self.weekday_map)
+      .astype("Int64")
+    )    
     return X
 
   def get_feature_names_out(self):
