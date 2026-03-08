@@ -31,7 +31,7 @@ def get_fitted_xgboost_model():
     model = XGBClassifier(
         n_estimators=50,
         objective='binary:logistic',
-        use_label_encoder=False,
+        #use_label_encoder=False,
         eval_metric='logloss'
     )
     model.fit(X_train, y_train)
