@@ -135,7 +135,7 @@ def train_and_predict(model_type='logistic'):
         model = XGBClassifier(
             n_estimators=50, 
             objective='binary:logistic',
-            use_label_encoder=False,
+            #use_label_encoder=False,
             eval_metric='logloss'
             #,
             #random_state=42
@@ -160,7 +160,7 @@ def train_model(model_type='logistic'):
         model = XGBClassifier(
             n_estimators=50,
             objective='binary:logistic',
-            use_label_encoder=False,
+            #use_label_encoder=False,
             eval_metric='logloss',
             random_state=42
         )
