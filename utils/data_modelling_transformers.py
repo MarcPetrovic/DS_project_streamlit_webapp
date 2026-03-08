@@ -5,13 +5,24 @@ import pandas as pd
 class MonthTrans(BaseEstimator, TransformerMixin):
   def __init__(self, column_name):
     self.column_name = column_name   # name of the column to be segmented
+    self.month_map = {
+            'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4,
+            'may': 5, 'jun': 6, 'jul': 7, 'aug': 8,
+            'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12
+    }
 
   def fit(self, X, y = None):
     return self
 
   def transform(self, X): 
-    X[self.column_name + "_numeric"] = X[self.column_name].replace(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
-                                                                           , [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+    #X[self.column_name + "_numeric"] = X[self.column_name].replace(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+    #                                                                       , [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+    X = X.copy()
+    X[self.column_name + "_numeric"] = (
+      X[self.column_name]
+      .map(self.month_map)
+      .astype("Int64")
+    )
     return X
 
   def get_feature_names_out(self):
