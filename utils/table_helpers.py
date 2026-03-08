@@ -63,6 +63,10 @@ def render_html_table_metrics(df: pd.DataFrame) -> str:
 
 def mark_best(df: pd.DataFrame) -> pd.DataFrame:
     df_marked = df.copy()
+    # FIX für Pandas FutureWarning
+    df_marked[["Logistic Regression", "XGBoost"]] = (
+        df_marked[["Logistic Regression", "XGBoost"]].astype(object)
+    )
     for idx in df.index:
         idx_str = str(idx) 
         val1 = df.loc[idx, "Logistic Regression"]
